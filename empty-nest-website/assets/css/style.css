@@ -683,6 +683,26 @@ body {
     max-width: 600px;
 }
 
+/* KELLIE'S SIGNATURE - PERSONAL TOUCH */
+.about-signature {
+    margin: 3rem 0 2rem 0;
+    text-align: left;
+    max-width: 600px; /* Match the paragraph text width */
+}
+
+.signature-image {
+    width: 100%;
+    max-width: 400px; /* Large signature, almost as wide as text */
+    height: auto;
+    opacity: 0.85;
+    filter: contrast(1.1) brightness(0.95);
+    transition: opacity 0.3s ease;
+}
+
+.signature-image:hover {
+    opacity: 1;
+}
+
 .about-metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -830,6 +850,16 @@ body {
     .about-metrics {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    /* Mobile signature styling */
+    .about-signature {
+        margin: 2rem 0 1.5rem 0;
+        text-align: center; /* Center on mobile for better appearance */
+    }
+    
+    .signature-image {
+        max-width: 300px; /* Slightly smaller on mobile but still prominent */
     }
     
     .visual-gallery {
