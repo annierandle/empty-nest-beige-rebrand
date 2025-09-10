@@ -473,7 +473,7 @@ body {
     font-weight: 700;
     line-height: 0.9;
     letter-spacing: 0.02em;
-    color: var(--text-primary);
+    color: var(--charcoal);
     text-transform: uppercase;
 }
 
@@ -520,7 +520,7 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 400;
-    color: var(--text-primary);
+    color: var(--charcoal);
     margin-bottom: 1.5rem;
     line-height: 1.2;
 }
@@ -664,7 +664,7 @@ body {
     font-weight: 700;
     line-height: 0.9;
     letter-spacing: 0.02em;
-    color: var(--text-primary);
+    color: var(--charcoal);
     margin: 1rem 0;
     text-transform: uppercase;
 }
