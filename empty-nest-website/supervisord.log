@@ -16,3 +16,7 @@
 2025-09-10 15:40:29,303 WARN stopped: empty-nest-website (terminated by SIGTERM)
 2025-09-10 15:40:29,309 INFO spawned: 'empty-nest-website' with pid 6358
 2025-09-10 15:40:30,411 INFO success: empty-nest-website entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2025-09-10 15:46:50,091 INFO waiting for empty-nest-website to stop
+2025-09-10 15:46:50,093 WARN stopped: empty-nest-website (terminated by SIGTERM)
+2025-09-10 15:46:50,097 INFO spawned: 'empty-nest-website' with pid 7420
+2025-09-10 15:46:51,183 INFO success: empty-nest-website entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

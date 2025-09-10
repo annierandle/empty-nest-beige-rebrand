@@ -70,12 +70,37 @@ body {
 /* LOGO - MUST REMAIN VISIBLE */
 .nav-logo {
     flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .logo-image {
     width: 140px;
     height: auto;
     display: block;
+    /* Professional white background removal */
+    background: transparent;
+    /* Primary method: Darken blend mode removes white backgrounds */
+    mix-blend-mode: darken;
+    /* Enhance the logo colors */
+    filter: contrast(1.1) saturate(1.1);
+    /* Ensure proper rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Alternative logo treatment for better compatibility */
+.nav-logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--cream-bg);
+    z-index: -1;
+    border-radius: 4px;
 }
 
 /* RIGHT SECTION - SOCIAL + MENU */
