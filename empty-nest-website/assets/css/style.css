@@ -137,23 +137,30 @@ body {
     font-size: 20px;
 }
 
-/* MENU BUTTON - SINGLE EXPANDABLE */
+/* SOPHISTICATED HAMBURGER MENU */
 .menu-button {
     background: none;
     border: none;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--charcoal);
     cursor: pointer;
-    padding: 0.5rem 0;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    transition: all 0.3s ease;
 }
 
-.menu-button:hover {
-    color: var(--brand-blush);
+.hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #4A4A4A;
+    transition: all 0.3s ease;
+}
+
+.menu-button:hover .hamburger-line {
+    background: #D4A4A4;
 }
 
 /* DROPDOWN MENU */
