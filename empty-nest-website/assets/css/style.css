@@ -536,18 +536,25 @@ body {
 .about-section {
     padding: 8rem 3rem;
     background: var(--gradient-hero);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-wrapper {
     max-width: 1600px;
     margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .about-layout {
-    display: grid;
-    grid-template-columns: 450px 1fr;
-    gap: 6rem;
+    display: flex;
+    justify-content: center;
     align-items: start;
+    padding: 4rem 2rem;
+    width: 100%;
 }
 
 .about-visual {
@@ -680,6 +687,10 @@ body {
     margin-bottom: 2rem;
 }
 
+.about-story {
+    margin: 2rem 0 3rem 0;
+}
+
 .about-story p {
     font-size: 1.1rem;
     color: var(--text-secondary);
@@ -689,29 +700,7 @@ body {
     text-align: left;
 }
 
-/* KELLIE'S SIGNATURE - PERSONAL TOUCH */
-.about-signature {
-    margin: 3rem auto 2rem auto;
-    text-align: center;
-    max-width: 600px;
-    display: flex;
-    justify-content: center;
-}
-
-.signature-image {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    opacity: 1;
-    filter: none;
-    transition: opacity 0.3s ease;
-    mix-blend-mode: normal;
-    background: transparent;
-}
-
-.signature-image:hover {
-    opacity: 1;
-}
+/* Signature removed as requested */
 
 /* THREE SIDE-BY-SIDE IMAGES */
 .about-images {
@@ -902,13 +891,6 @@ body {
         margin: 0 auto;
     }
     
-    /* Mobile signature styling */
-    .about-signature {
-        margin: 2rem auto 1.5rem auto;
-        text-align: center;
-        justify-content: center;
-    }
-    
     /* Mobile layout adjustments */
     .about-layout {
         padding: 2rem 1rem;
@@ -917,10 +899,6 @@ body {
     .about-content {
         padding: 2rem 1rem;
         max-width: 100%;
-    }
-    
-    .signature-image {
-        max-width: 300px; /* Slightly smaller on mobile but still prominent */
     }
     
     .visual-gallery {
