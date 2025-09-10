@@ -634,6 +634,7 @@ body {
 
 .about-header {
     margin-bottom: 4rem;
+    text-align: center;
 }
 
 .about-eyebrow {
@@ -679,25 +680,29 @@ body {
     font-size: 1.1rem;
     color: var(--text-secondary);
     line-height: 1.7;
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem auto;
     max-width: 600px;
+    text-align: left;
 }
 
 /* KELLIE'S SIGNATURE - PERSONAL TOUCH */
 .about-signature {
-    margin: 3rem 0 2rem 0;
-    text-align: left;
-    max-width: 600px; /* Match the paragraph text width */
+    margin: 3rem auto 2rem auto;
+    text-align: center;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
 }
 
 .signature-image {
     width: 100%;
-    max-width: 400px; /* Large signature, almost as wide as text */
+    max-width: 400px;
     height: auto;
-    opacity: 0.9;
-    filter: contrast(1.2) brightness(1.1) saturate(0.8);
+    opacity: 1;
+    filter: none;
     transition: opacity 0.3s ease;
-    mix-blend-mode: multiply; /* Helps with transparency and background blending */
+    mix-blend-mode: normal;
+    background: transparent;
 }
 
 .signature-image:hover {
@@ -855,8 +860,19 @@ body {
     
     /* Mobile signature styling */
     .about-signature {
-        margin: 2rem 0 1.5rem 0;
-        text-align: center; /* Center on mobile for better appearance */
+        margin: 2rem auto 1.5rem auto;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    /* Mobile layout adjustments */
+    .about-layout {
+        padding: 2rem 1rem;
+    }
+    
+    .about-content {
+        padding: 2rem 1rem;
+        max-width: 100%;
     }
     
     .signature-image {
