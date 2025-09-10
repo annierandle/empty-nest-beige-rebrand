@@ -696,7 +696,7 @@ body {
     color: var(--text-secondary);
     line-height: 1.7;
     margin: 0 auto 1.5rem auto;
-    max-width: 600px;
+    max-width: 1000px;
     text-align: left;
 }
 
