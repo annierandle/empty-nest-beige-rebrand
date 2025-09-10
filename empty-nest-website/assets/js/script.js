@@ -1,46 +1,120 @@
 /**
- * PROFESSIONAL JAVASCRIPT
- * Empty Nest Mom Life - Sophisticated Interactions
- * Magazine-Quality User Experience
+ * EMPTY NEST LIFESTYLE BRAND
+ * Critical Homepage Refinement - Professional JavaScript
+ * Menu Functionality & Brand Interactions
  */
 
-class EmptyNestExperience {
+class EmptyNestBrand {
     constructor() {
-        this.initializeExperience();
+        this.menuButton = document.getElementById('menuButton');
+        this.menuDropdown = document.getElementById('menuDropdown');
+        this.isMenuOpen = false;
+        
+        this.initializeBrand();
+        this.setupMenuFunctionality();
         this.setupNavigationEffects();
         this.setupScrollAnimations();
         this.setupProfessionalInteractions();
-        this.setupPerformanceOptimizations();
     }
 
-    initializeExperience() {
-        // Add loaded class for CSS transitions
+    initializeBrand() {
+        // Brand loading experience
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
-                document.body.classList.add('experience-loaded');
+                document.body.classList.add('brand-loaded');
             }, 100);
         });
 
-        // Professional page loading experience
+        // Professional page reveal
         window.addEventListener('load', () => {
-            this.revealPageContent();
+            this.revealContent();
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!this.menuButton.contains(e.target) && !this.menuDropdown.contains(e.target)) {
+                this.closeMenu();
+            }
+        });
+
+        // Handle escape key for menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isMenuOpen) {
+                this.closeMenu();
+            }
         });
     }
 
-    revealPageContent() {
-        // Sophisticated page reveal animation
-        const tl = {
-            elements: [
-                { selector: '.hero-eyebrow', delay: 100 },
-                { selector: '.hero-headline', delay: 200 },
-                { selector: '.hero-subtext', delay: 300 },
-                { selector: '.hero-description', delay: 400 },
-                { selector: '.hero-actions', delay: 500 },
-                { selector: '.visual-gallery', delay: 600 }
-            ]
-        };
+    setupMenuFunctionality() {
+        // MANDATORY: Single expandable menu button
+        this.menuButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.toggleMenu();
+        });
 
-        tl.elements.forEach(item => {
+        // Smooth scrolling for dropdown links
+        document.querySelectorAll('.dropdown-link[href^=\"#\"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    this.closeMenu();
+                    
+                    setTimeout(() => {
+                        const navHeight = document.querySelector('.navigation').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - navHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
+                }
+            });
+        });
+    }
+
+    toggleMenu() {
+        if (this.isMenuOpen) {
+            this.closeMenu();
+        } else {
+            this.openMenu();
+        }
+    }
+
+    openMenu() {
+        this.menuDropdown.classList.add('active');
+        this.menuButton.style.color = 'var(--brand-blush)';
+        this.isMenuOpen = true;
+        
+        // Add aria attributes for accessibility
+        this.menuButton.setAttribute('aria-expanded', 'true');
+        this.menuDropdown.setAttribute('aria-hidden', 'false');
+    }
+
+    closeMenu() {
+        this.menuDropdown.classList.remove('active');
+        this.menuButton.style.color = 'var(--charcoal)';
+        this.isMenuOpen = false;
+        
+        // Update aria attributes
+        this.menuButton.setAttribute('aria-expanded', 'false');
+        this.menuDropdown.setAttribute('aria-hidden', 'true');
+    }
+
+    revealContent() {
+        // Professional content reveal sequence
+        const sequence = [
+            { selector: '.hero-eyebrow', delay: 100 },
+            { selector: '.hero-headline', delay: 200 },
+            { selector: '.hero-subtext', delay: 300 },
+            { selector: '.hero-actions', delay: 400 },
+            { selector: '.visual-gallery', delay: 500 }
+        ];
+
+        sequence.forEach(item => {
             setTimeout(() => {
                 const element = document.querySelector(item.selector);
                 if (element) {
@@ -55,21 +129,21 @@ class EmptyNestExperience {
         const nav = document.querySelector('.navigation');
         let lastScrollY = window.scrollY;
 
-        // Professional scroll-based navigation
+        // Professional navigation scroll effects
         window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
             
-            // Enhanced navigation background
+            // Enhanced background on scroll
             if (currentScrollY > 100) {
-                nav.style.background = 'rgba(250, 248, 246, 0.98)';
-                nav.style.boxShadow = '0 8px 32px rgba(196, 165, 134, 0.1)';
+                nav.style.background = 'rgba(247, 243, 238, 0.98)';
+                nav.style.boxShadow = '0 8px 32px rgba(212, 164, 164, 0.1)';
             } else {
-                nav.style.background = 'rgba(250, 248, 246, 0.95)';
+                nav.style.background = 'rgba(247, 243, 238, 0.95)';
                 nav.style.boxShadow = 'none';
             }
 
-            // Sophisticated hide/show behavior
-            if (currentScrollY > lastScrollY && currentScrollY > 200) {
+            // Smart hide/show behavior
+            if (currentScrollY > lastScrollY && currentScrollY > 200 && !this.isMenuOpen) {
                 nav.style.transform = 'translateY(-100%)';
             } else {
                 nav.style.transform = 'translateY(0)';
@@ -77,29 +151,10 @@ class EmptyNestExperience {
             
             lastScrollY = currentScrollY;
         });
-
-        // Smooth scroll with offset
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    const navHeight = nav.offsetHeight;
-                    const targetPosition = targetElement.offsetTop - navHeight - 20;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
     }
 
     setupScrollAnimations() {
-        // Professional Intersection Observer
+        // Professional intersection observer
         const observerOptions = {
             threshold: [0.1, 0.3, 0.7],
             rootMargin: '-50px 0px -50px 0px'
@@ -113,7 +168,7 @@ class EmptyNestExperience {
             });
         }, observerOptions);
 
-        // Observe professional elements
+        // Elements to observe for animation
         const elementsToObserve = [
             '.content-card',
             '.gallery-item',
@@ -125,7 +180,7 @@ class EmptyNestExperience {
         elementsToObserve.forEach(selector => {
             document.querySelectorAll(selector).forEach(element => {
                 scrollObserver.observe(element);
-                // Initial state for animation
+                // Initial animation state
                 element.style.opacity = '0';
                 element.style.transform = 'translateY(40px)';
                 element.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
@@ -135,7 +190,7 @@ class EmptyNestExperience {
 
     animateElement(element, ratio) {
         if (ratio > 0.1) {
-            // Staggered animation for child elements
+            // Staggered animation timing
             const delay = Array.from(element.parentNode.children).indexOf(element) * 100;
             
             setTimeout(() => {
@@ -146,16 +201,19 @@ class EmptyNestExperience {
     }
 
     setupProfessionalInteractions() {
-        // Sophisticated button interactions
+        // Enhanced button interactions
         this.enhanceButtons();
         
-        // Professional card hover effects
+        // Social media hover effects
+        this.enhanceSocialIcons();
+        
+        // Card hover animations
         this.enhanceCards();
         
-        // Gallery item interactions
+        // Gallery interactions
         this.enhanceGallery();
         
-        // Metrics counter animation
+        // Metrics animation
         this.animateMetrics();
     }
 
@@ -178,7 +236,7 @@ class EmptyNestExperience {
                     background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
                     border-radius: 50%;
                     transform: scale(0);
-                    animation: professional-ripple 0.6s ease-out;
+                    animation: brand-ripple 0.6s ease-out;
                     pointer-events: none;
                 `;
 
@@ -186,20 +244,33 @@ class EmptyNestExperience {
                 setTimeout(() => ripple.remove(), 600);
             });
 
-            // Magnetic effect for desktop
+            // Subtle magnetic effect for desktop
             if (window.innerWidth > 768) {
                 button.addEventListener('mousemove', (e) => {
                     const rect = button.getBoundingClientRect();
                     const x = e.clientX - rect.left - rect.width / 2;
                     const y = e.clientY - rect.top - rect.height / 2;
                     
-                    button.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+                    button.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px)`;
                 });
 
                 button.addEventListener('mouseleave', () => {
                     button.style.transform = 'translate(0, 0)';
                 });
             }
+        });
+    }
+
+    enhanceSocialIcons() {
+        document.querySelectorAll('.social-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', () => {
+                icon.style.transform = 'scale(1.1) translateY(-2px)';
+                icon.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            });
+
+            icon.addEventListener('mouseleave', () => {
+                icon.style.transform = 'scale(1) translateY(0)';
+            });
         });
     }
 
@@ -212,7 +283,7 @@ class EmptyNestExperience {
                 const number = card.querySelector('.card-number');
                 if (number) {
                     number.style.transform = 'scale(1.2)';
-                    number.style.color = 'var(--camel-primary)';
+                    number.style.color = 'var(--brand-blush)';
                 }
             });
 
@@ -229,14 +300,11 @@ class EmptyNestExperience {
 
     enhanceGallery() {
         document.querySelectorAll('.gallery-item').forEach((item, index) => {
-            // Staggered hover animations
             item.addEventListener('mouseenter', () => {
                 item.style.transform = 'translateY(-10px) scale(1.02)';
                 item.style.filter = 'brightness(1.1)';
                 item.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                
-                // Subtle glow effect
-                item.style.boxShadow = '0 20px 40px rgba(196, 165, 134, 0.2)';
+                item.style.boxShadow = '0 20px 40px rgba(212, 164, 164, 0.2)';
             });
 
             item.addEventListener('mouseleave', () => {
@@ -245,10 +313,10 @@ class EmptyNestExperience {
                 item.style.boxShadow = 'none';
             });
 
-            // Parallax effect on scroll
+            // Subtle parallax on scroll
             window.addEventListener('scroll', () => {
                 const rect = item.getBoundingClientRect();
-                const speed = 0.1 * (index + 1);
+                const speed = 0.05 * (index + 1);
                 const yPos = -(window.scrollY * speed);
                 
                 if (rect.top < window.innerHeight && rect.bottom > 0) {
@@ -288,7 +356,7 @@ class EmptyNestExperience {
         if (isNaN(finalNumber)) return;
 
         let currentNumber = 0;
-        const increment = finalNumber / 60; // 60 frames animation
+        const increment = finalNumber / 60;
         
         const counter = () => {
             currentNumber += increment;
@@ -302,93 +370,26 @@ class EmptyNestExperience {
         
         counter();
     }
-
-    setupPerformanceOptimizations() {
-        // Debounced resize handler
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                this.handleResize();
-            }, 100);
-        });
-
-        // Intersection Observer for performance
-        this.setupLazyElements();
-        
-        // Preload critical resources
-        this.preloadCriticalAssets();
-    }
-
-    handleResize() {
-        // Recalculate positions and sizes on resize
-        const elements = document.querySelectorAll('.gallery-item, .composition-item');
-        elements.forEach(element => {
-            element.style.transform = 'none';
-        });
-    }
-
-    setupLazyElements() {
-        // Lazy load non-critical animations
-        const lazyElements = document.querySelectorAll('.composition-item, .brand-circle');
-        const lazyObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                    lazyObserver.unobserve(entry.target);
-                }
-            });
-        }, { rootMargin: '50px' });
-
-        lazyElements.forEach(element => {
-            lazyObserver.observe(element);
-        });
-    }
-
-    preloadCriticalAssets() {
-        // Preload Google Fonts for better performance
-        const fontLink = document.createElement('link');
-        fontLink.rel = 'preload';
-        fontLink.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@200;300;400;500;600&display=swap';
-        fontLink.as = 'style';
-        document.head.appendChild(fontLink);
-    }
 }
 
 // Professional CSS animations injection
-const professionalAnimations = `
-    @keyframes professional-ripple {
+const brandAnimations = `
+    @keyframes brand-ripple {
         to {
             transform: scale(2);
             opacity: 0;
         }
     }
 
-    .experience-loaded .hero-eyebrow,
-    .experience-loaded .hero-headline,
-    .experience-loaded .hero-subtext,
-    .experience-loaded .hero-description,
-    .experience-loaded .hero-actions,
-    .experience-loaded .visual-gallery {
+    .brand-loaded .hero-eyebrow,
+    .brand-loaded .hero-headline,
+    .brand-loaded .hero-subtext,
+    .brand-loaded .hero-actions,
+    .brand-loaded .visual-gallery {
         opacity: 0;
         transform: translateY(30px);
         transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
                    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .animate-in {
-        animation: sophisticatedFadeIn 1s ease-out forwards;
-    }
-
-    @keyframes sophisticatedFadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px) scale(0.95);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
     }
 
     .navigation {
@@ -409,23 +410,23 @@ const professionalAnimations = `
 
 // Inject professional animations
 const styleSheet = document.createElement('style');
-styleSheet.textContent = professionalAnimations;
+styleSheet.textContent = brandAnimations;
 document.head.appendChild(styleSheet);
 
-// Initialize the professional experience
-const emptyNestExperience = new EmptyNestExperience();
+// Initialize the Empty Nest Brand experience
+const emptyNestBrand = new EmptyNestBrand();
 
 // Professional error handling
 window.addEventListener('error', (e) => {
-    console.warn('Professional experience error handled:', e.message);
+    console.warn('Brand experience error handled:', e.message);
 });
 
-// Performance monitoring
+// Performance monitoring for brand experience
 if ('performance' in window) {
     window.addEventListener('load', () => {
         setTimeout(() => {
             const perfData = performance.getEntriesByType('navigation')[0];
-            console.log(`Professional site loaded in ${Math.round(perfData.loadEventEnd - perfData.fetchStart)}ms`);
+            console.log(`Empty Nest Brand loaded in ${Math.round(perfData.loadEventEnd - perfData.fetchStart)}ms`);
         }, 0);
     });
 }
