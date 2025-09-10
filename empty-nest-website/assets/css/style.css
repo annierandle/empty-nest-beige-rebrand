@@ -696,11 +696,22 @@ body {
     color: var(--text-secondary);
     line-height: 1.7;
     margin: 0 auto 1.5rem auto;
-    max-width: 1000px;
+    max-width: 850px;
     text-align: left;
 }
 
-/* Signature removed as requested */
+/* HAND-DRAWN SIGNATURE TEXT */
+.signature-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 3rem auto 2rem auto;
+    max-width: 850px;
+    transform: rotate(-1deg); /* Slight tilt for hand-drawn feel */
+    opacity: 0.85;
+}
 
 /* THREE SIDE-BY-SIDE IMAGES */
 .about-images {
@@ -734,7 +745,8 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
-    margin-top: 4rem;
+    margin: 4rem auto 0 auto;
+    max-width: 850px;
 }
 
 .metric-item {
@@ -898,6 +910,13 @@ body {
     
     .about-content {
         padding: 1rem 1rem;
+        max-width: 100%;
+    }
+    
+    /* Mobile signature styling */
+    .signature-text {
+        font-size: 1.5rem;
+        margin: 2rem auto 1.5rem auto;
         max-width: 100%;
     }
     
