@@ -21,3 +21,7 @@ Server running at http://0.0.0.0:8080/
 10/Sep/2025 15:49:10 - "GET /assets/css/style.css HTTP/1.1" 200 -
 10/Sep/2025 15:49:10 - "GET /assets/js/script.js HTTP/1.1" 200 -
 Server running at http://0.0.0.0:8080/
+10/Sep/2025 15:59:43 - "GET / HTTP/1.1" 200 -
+10/Sep/2025 15:59:43 - "GET /assets/js/script.js HTTP/1.1" 200 -
+10/Sep/2025 15:59:43 - "GET /assets/css/style.css HTTP/1.1" 200 -
+Server running at http://0.0.0.0:8080/
