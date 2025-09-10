@@ -205,7 +205,7 @@ body {
     display: flex;
     align-items: center;
     padding: 6rem 3rem 3rem;
-    background: var(--gradient-hero);
+    background: var(--cream-bg);
     position: relative;
     overflow: hidden;
 }
@@ -219,80 +219,90 @@ body {
 .hero-grid {
     display: grid;
     grid-template-columns: 1fr 500px;
-    gap: 6rem;
+    gap: 8rem;
     align-items: center;
 }
 
 .hero-text {
-    max-width: 600px;
+    max-width: 650px;
 }
 
 .hero-eyebrow {
     font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-size: 0.75rem;
+    font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
+    color: var(--charcoal);
+    margin-bottom: 2.5rem;
 }
 
 .hero-headline {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3rem, 6vw, 5.5rem);
-    font-weight: 300;
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    color: var(--text-primary);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.headline-main {
+    color: var(--charcoal);
+    font-style: normal;
+    font-weight: 400;
 }
 
 .headline-emphasis {
     color: var(--brand-blush);
     font-style: italic;
+    font-weight: 400;
 }
 
 .hero-subtext {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin-bottom: 3rem;
-    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--charcoal);
+    line-height: 1.6;
+    margin-bottom: 3.5rem;
+    font-family: 'Playfair Display', serif;
+    font-style: normal;
+    font-weight: 300;
 }
 
 .hero-actions {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     flex-wrap: wrap;
+    align-items: center;
 }
 
-/* PROFESSIONAL BUTTONS */
+/* PROFESSIONAL BUTTONS - EXACT SPECIFICATIONS */
 .btn-primary,
 .btn-secondary {
     font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    padding: 1rem 2.5rem;
+    padding: 16px 32px;
     text-decoration: none;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: inline-block;
     border: 1px solid;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
 }
 
 .btn-primary {
-    background: var(--brand-blush);
+    background: var(--rich-brown);
     color: var(--white);
-    border-color: var(--brand-blush);
+    border-color: var(--rich-brown);
 }
 
 .btn-primary:hover {
-    background: transparent;
-    color: var(--brand-blush);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(212, 164, 164, 0.3);
+    background: var(--sage-accent);
+    border-color: var(--sage-accent);
+    color: var(--white);
 }
 
 .btn-secondary {
@@ -302,10 +312,9 @@ body {
 }
 
 .btn-secondary:hover {
-    background: var(--charcoal);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(74, 74, 74, 0.2);
+    background: transparent;
+    color: var(--brand-blush);
+    border-color: var(--brand-blush);
 }
 
 /* HERO VISUAL GALLERY */
@@ -337,6 +346,21 @@ body {
 .gallery-item.arch {
     grid-row: span 2;
     background: linear-gradient(135deg, var(--brand-blush), var(--sage-accent));
+    /* Subtle blush accent overlay */
+    border: 2px solid rgba(212, 164, 164, 0.2);
+    position: relative;
+}
+
+.gallery-item.arch::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--brand-blush);
+    opacity: 0.2;
+    pointer-events: none;
 }
 
 .arch-element {
@@ -348,6 +372,7 @@ body {
     border: 3px solid rgba(255, 255, 255, 0.8);
     border-radius: 50px 50px 0 0;
     transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
 .gallery-item.geometric {
@@ -736,10 +761,12 @@ body {
         padding: 0 1.5rem;
     }
     
+    /* Mobile logo scaling - EXACT SPECIFICATION: 120px */
     .logo-image {
         width: 120px;
     }
     
+    /* Social icons remain visible - EXACT SPECIFICATION */
     .social-icons {
         gap: 12px;
     }
@@ -758,14 +785,30 @@ body {
         width: 200px;
     }
     
+    /* Hero text stacks properly with maintained spacing */
     .hero-actions {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        gap: 1.5rem;
     }
     
     .btn-primary,
     .btn-secondary {
         width: 100%;
+        text-align: center;
+        max-width: 280px;
+    }
+    
+    .hero-headline {
+        text-align: center;
+    }
+    
+    .hero-subtext {
+        text-align: center;
+        font-size: 1.3rem;
+    }
+    
+    .hero-eyebrow {
         text-align: center;
     }
     
