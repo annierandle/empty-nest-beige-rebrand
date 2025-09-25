@@ -828,9 +828,9 @@ p, .body-text {
 }
 
 .brand-logo {
-    margin-bottom: 2rem; /* Increased spacing */
+    margin-bottom: 1rem; /* Reduced from 2rem for smaller cards */
     text-align: center;
-    height: 90px; /* Increased height for larger logos */
+    height: 45px; /* Reduced to half size from 90px */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -838,7 +838,7 @@ p, .body-text {
 
 .brand-logo-img {
     max-width: 70%; /* Ensure logos are no wider than 70% of card width */
-    max-height: 80px;
+    max-height: 40px; /* Reduced to half size from 80px */
     width: auto;
     height: auto;
     object-fit: contain;
@@ -6538,11 +6538,11 @@ div.blog-tagline {
     margin-top: var(--space-md);
 }
 
-/* FEATURED PERKS: 3-COLUMN GRID WITH LARGER LOGOS */
+/* FEATURED PERKS: 3-COLUMN GRID WITH SMALLER LOGOS - HALF SIZE */
 .discount-codes-grid.featured-tier {
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    max-width: 1000px;
+    gap: 1rem; /* Reduced from 2rem */
+    max-width: 500px; /* Reduced from 1000px to half size */
     margin: 0 auto;
     padding: 0;
 }
@@ -6550,12 +6550,14 @@ div.blog-tagline {
 .discount-card {
     background: var(--bg-secondary);
     border-radius: var(--border-radius-lg);
-    padding: var(--space-md);
+    padding: calc(var(--space-md) * 0.6); /* Reduced padding for smaller size */
     box-shadow: var(--card-shadow-light);
     transition: var(--transition-normal);
     position: relative;
     border: 1px solid rgba(58, 58, 58, 0.08);
     text-align: center;
+    max-width: 140px; /* Constrain card width to half size */
+    margin: 0 auto; /* Center the smaller cards */
 }
 
 .discount-card:hover {
@@ -6599,16 +6601,16 @@ div.blog-tagline {
 
 /* FEATURED PERKS: LARGER BRAND LOGOS (3-4x INCREASE) */
 .brand-logo-small {
-    width: 140px; /* 3-4x larger as specified */
-    height: 140px;
+    width: 70px; /* Reduced to half size from 140px */
+    height: 70px; /* Reduced to half size from 140px */
     border-radius: var(--border-radius-lg);
     background: linear-gradient(135deg, var(--accent-gold), #d4a46c);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 8px 24px rgba(198, 155, 108, 0.25);
-    margin: 0 auto var(--space-md) auto; /* Center the logo */
+    box-shadow: 0 4px 12px rgba(198, 155, 108, 0.25); /* Reduced shadow size */
+    margin: 0 auto calc(var(--space-md) * 0.6) auto; /* Center the logo with reduced margin */
 }
 
 .brand-logo-small:hover {
@@ -6619,9 +6621,9 @@ div.blog-tagline {
 .brand-initial {
     color: var(--white);
     font-family: var(--font-family-serif);
-    font-size: 2.5rem; /* Increased proportionally with logo size */
+    font-size: 1.25rem; /* Reduced to half size from 2.5rem */
     font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Reduced shadow */
 }
 
 .brand-info {
@@ -6630,10 +6632,10 @@ div.blog-tagline {
 
 .brand-name {
     font-family: var(--font-family-serif);
-    font-size: var(--text-heading);
+    font-size: calc(var(--text-heading) * 0.7); /* Reduced font size for smaller cards */
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: var(--space-xs);
+    margin-bottom: calc(var(--space-xs) * 0.6); /* Reduced margin */
 }
 
 .category-tag {
@@ -6723,9 +6725,11 @@ div.blog-tagline {
     background: var(--accent-gold);
     color: var(--white);
     border: none;
-    padding: var(--space-xs) var(--space-sm);
+    padding: calc(var(--space-xs) * 0.6) calc(var(--space-sm) * 0.7); /* Reduced padding for smaller cards */
     cursor: pointer;
     transition: var(--transition-fast);
+    font-size: calc(var(--font-size-xs) * 0.9); /* Slightly smaller font */
+    border-radius: var(--border-radius-sm);
 }
 
 .copy-btn:hover {
