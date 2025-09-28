@@ -5598,6 +5598,38 @@ div.blog-tagline {
 }
 
 /* ===================================
+   FINAL HEADER FIX - NUCLEAR OPTION
+   =================================== */
+
+/* ABSOLUTE FINAL OVERRIDE - Force proper line-height for ALL headers */
+h1, h2, h3, h4, h5, h6,
+.nest-approved-title,
+.partnerships-title,
+.refined-title,
+.picks-title,
+.events-title,
+.recipes-title,
+.about-title,
+.media-title,
+.contact-title,
+.book-club-title,
+.page-header-title,
+.hero-headline {
+    line-height: 1.2 !important;
+    overflow: visible !important;
+}
+
+/* Specific fix for NEST APPROVED section */
+.nest-approved-section .nest-approved-title,
+#nest-approved .nest-approved-title {
+    line-height: 1.2 !important;
+    font-display: swap !important;
+    overflow: visible !important;
+    word-spacing: normal !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* ===================================
    UTILITY CLASSES - DESIGN SYSTEM
    =================================== */
 
