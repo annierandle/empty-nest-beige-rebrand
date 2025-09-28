@@ -18,6 +18,38 @@
     
     <!-- Professional CSS -->
     <link rel="stylesheet" href="assets/css/style.css?v=20240928-lineheight-final-fix">
+    
+    <!-- EMERGENCY HEADER FIX - Direct Inline Styles -->
+    <style>
+        /* ABSOLUTE OVERRIDE - Force proper header display */
+        .nest-approved-title,
+        .partnerships-title,
+        .refined-title,
+        .picks-title,
+        .events-title,
+        .recipes-title,
+        .about-title,
+        .media-title,
+        .contact-title,
+        .book-club-title,
+        h1, h2, h3 {
+            line-height: 1.3 !important;
+            letter-spacing: 0.05em !important;
+            word-spacing: normal !important;
+            font-display: swap !important;
+            overflow: visible !important;
+            text-rendering: optimizeLegibility !important;
+            -webkit-font-smoothing: antialiased !important;
+        }
+        
+        /* Specific fix for NEST APPROVED */
+        .nest-approved-section .nest-approved-title {
+            line-height: 1.3 !important;
+            font-size: clamp(4rem, 6vw, 6rem) !important;
+            display: block !important;
+            white-space: normal !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
