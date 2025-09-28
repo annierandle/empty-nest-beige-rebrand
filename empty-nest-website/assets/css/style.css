@@ -1751,7 +1751,7 @@ p, .body-text {
     font-family: var(--font-family-serif);
     font-size: clamp(4rem, 6vw, 6rem) !important;
     font-weight: 700 !important;
-    line-height: 0.9 !important;
+    line-height: 1.2 !important;
     letter-spacing: 0.05em !important;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -1875,7 +1875,7 @@ p, .body-text {
     font-family: var(--font-family-serif);
     font-size: clamp(4rem, 6vw, 6rem) !important;
     font-weight: 700 !important;
-    line-height: 0.9 !important;
+    line-height: 1.2 !important;
     letter-spacing: 0.05em !important;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -3925,7 +3925,7 @@ p, .body-text {
     font-family: var(--font-family-serif);
     font-size: clamp(4rem, 6vw, 6rem) !important;
     font-weight: 700 !important;
-    line-height: 0.9 !important;
+    line-height: 1.2 !important;
     letter-spacing: 0.05em !important;
     color: var(--text-primary);
     margin-bottom: 4rem !important; /* Increased spacing between section title and content */
@@ -5280,7 +5280,7 @@ p, .body-text {
     font-family: var(--font-family-serif);
     font-size: clamp(4rem, 6vw, 6rem) !important;
     font-weight: 700 !important;
-    line-height: 0.9 !important;
+    line-height: 1.2 !important;
     letter-spacing: 0.05em !important;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -6048,7 +6048,7 @@ div.blog-tagline {
     font-family: var(--font-family-serif);
     font-size: clamp(4rem, 6vw, 6rem) !important;
     font-weight: 700 !important;
-    line-height: 0.9 !important;
+    line-height: 1.2 !important;
     letter-spacing: 0.05em !important;
     color: var(--text-primary);
     text-transform: uppercase;
