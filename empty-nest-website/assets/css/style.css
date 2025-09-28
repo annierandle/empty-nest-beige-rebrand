@@ -749,7 +749,7 @@ p, .body-text {
     font-family: var(--font-family-serif);
     font-size: clamp(4rem, 6vw, 6rem);
     font-weight: 700;
-    line-height: 0.9;
+    line-height: 1.2;
     letter-spacing: 0.05em;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -1433,7 +1433,7 @@ p, .body-text {
     font-family: var(--font-family-serif);
     font-size: clamp(4rem, 6vw, 6rem);
     font-weight: 700;
-    line-height: 0.9;
+    line-height: 1.2;
     letter-spacing: 0.05em;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -2224,7 +2224,7 @@ p, .body-text {
     font-family: var(--font-family-serif);
     font-size: clamp(4rem, 6vw, 6rem);
     font-weight: 700;
-    line-height: 0.9;
+    line-height: 1.2;
     letter-spacing: 0.05em;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -2442,7 +2442,7 @@ p, .body-text {
     font-family: var(--font-family-serif);
     font-size: clamp(4rem, 6vw, 6rem);
     font-weight: 700;
-    line-height: 0.9;
+    line-height: 1.2;
     letter-spacing: 0.05em;
     color: var(--text-primary);
     margin-bottom: 4rem !important; /* Increased spacing between section title and content */
@@ -3049,7 +3049,7 @@ p, .body-text {
     font-family: var(--font-family-serif);
     font-size: clamp(4rem, 6vw, 6rem);
     font-weight: 700;
-    line-height: 0.9;
+    line-height: 1.2;
     letter-spacing: 0.05em;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -3281,7 +3281,7 @@ p, .body-text {
     font-family: var(--font-family-serif);
     font-size: clamp(4rem, 6vw, 6rem);
     font-weight: 700;
-    line-height: 0.9;
+    line-height: 1.2;
     letter-spacing: 0.05em;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -3477,7 +3477,7 @@ p, .body-text {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 700;
-    line-height: 0.9;
+    line-height: 1.2;
     letter-spacing: 0.05em;
     color: var(--charcoal);
     text-transform: uppercase;
@@ -3517,7 +3517,7 @@ p, .body-text {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 700;
-    line-height: 0.9;
+    line-height: 1.2;
     color: var(--charcoal);
     margin-bottom: 0.25rem; /* Even tighter - category marker style */
 }
