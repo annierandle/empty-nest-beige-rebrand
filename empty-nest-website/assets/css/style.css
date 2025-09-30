@@ -2361,6 +2361,9 @@ p, .body-text {
     object-fit: contain;
     filter: saturate(0.95) brightness(1.05);
     transition: filter 0.3s ease;
+    /* Fix black background issues */
+    mix-blend-mode: normal !important;
+    background: transparent !important;
 }
 
 /* Fix Sierra Oaks Living logo visibility */
@@ -3176,8 +3179,8 @@ p, .body-text {
     .book-club-title,
     .media-title,
     .contact-title {
-        font-size: 3rem !important;
-        margin-bottom: 3rem !important; /* Reduced spacing for mobile */
+        font-size: 0.65rem !important; /* Match tagline mobile size */
+        margin-bottom: 1.5rem !important; /* Match tagline spacing */
     }
     
     .partnerships-title {
@@ -4236,14 +4239,14 @@ p, .body-text {
 }
 
 .contact-title {
-    font-family: var(--font-family-serif);
-    font-size: clamp(4rem, 6vw, 6rem) !important;
-    font-weight: 700 !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0.05em !important;
-    color: var(--text-primary);
-    margin-bottom: 4rem !important; /* Increased spacing between section title and content */
+    font-family: 'Inter', sans-serif; /* Match tagline font */
+    font-size: 0.8rem; /* Match tagline size - much smaller */
+    font-weight: 400; /* Match tagline weight */
+    letter-spacing: 0.25em; /* Match tagline spacing */
+    color: #8A8A8A; /* Match tagline color */
+    margin-bottom: 1.5rem !important; /* Match tagline spacing */
     text-transform: uppercase;
+    line-height: 1.4 !important;
 }
 
 .contact-subtitle {
@@ -4376,7 +4379,7 @@ p, .body-text {
     }
     
     .contact-title {
-        font-size: 3rem;
+        font-size: 0.65rem; /* Match tagline mobile size */
     }
     
     .contact-layout {
@@ -4390,8 +4393,8 @@ p, .body-text {
     }
     
     .contact-title {
-        font-size: 2.5rem;
-        margin-bottom: 2rem !important; /* Further reduced spacing for small mobile */
+        font-size: 0.6rem; /* Match tagline small mobile size */
+        margin-bottom: 1rem !important; /* Match tagline spacing */
     }
     
     .form-group {
@@ -5923,6 +5926,11 @@ p, .body-text {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     transition: all 0.3s ease;
     background: var(--white);
+    /* Add padding for cushioned spacing like Empty Nest Picks */
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .book-cover-wrapper:hover {
@@ -5931,9 +5939,11 @@ p, .body-text {
 }
 
 .book-cover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Changed from cover to contain for proper spacing */
     display: block;
     border-radius: 0; /* SHARP EDGES: Match other design elements for consistency */
     /* Remove background from book covers to create floating effect */
@@ -9461,6 +9471,9 @@ div.nest-approved-tagline,
     object-fit: contain;
     display: block; /* Ensure block-level for proper centering */
     margin: 0 auto; /* Force horizontal centering */
+    /* Fix black background issues */
+    mix-blend-mode: normal !important;
+    background: transparent !important;
 }
 
 .media-text-logo {
@@ -9605,9 +9618,12 @@ div.nest-approved-tagline,
     .recipes-title,
     .about-title,
     .media-title,
-    .contact-title,
     .book-club-title {
         font-size: 3rem !important;
+    }
+    
+    .contact-title {
+        font-size: 0.65rem !important; /* Match tagline mobile size */
     }
     
     .partnerships-tagline,
