@@ -886,6 +886,8 @@ p, .body-text {
     width: auto;
     height: auto;
     object-fit: contain;
+    /* Disable problematic blend modes for brand logos */
+    mix-blend-mode: normal !important;
 }
 
 .brand-content {
@@ -1783,6 +1785,8 @@ p, .body-text {
     background-color: transparent !important;
     border: none !important;
     outline: none !important;
+    /* Disable problematic blend modes for brand logos */
+    mix-blend-mode: normal !important;
 }
 
 .product-image {
@@ -5145,6 +5149,8 @@ p, .body-text {
     background-color: transparent !important;
     border: none !important;
     outline: none !important;
+    /* Disable problematic blend modes for brand logos */
+    mix-blend-mode: normal !important;
 }
 
 .product-image {
@@ -6691,7 +6697,7 @@ h1, h2, h3, h4, h5, h6,
     text-transform: uppercase; /* MATCH .refined-tagline EXACTLY */
     color: #8A8A8A; /* MATCH .refined-tagline EXACTLY */
     margin-top: 0.5rem !important; /* MATCH .refined-tagline EXACTLY */
-    margin-bottom: 3rem !important; /* MATCH .refined-tagline EXACTLY */
+    margin-bottom: 1.5rem !important; /* REDUCED from 3rem to 1.5rem for tighter spacing */
     padding: 0 !important;
     line-height: 1.4 !important;
     display: block !important;
@@ -9152,7 +9158,7 @@ div.nest-approved-tagline,
     text-transform: uppercase !important;
     color: #8A8A8A !important;
     margin-top: 0.5rem !important; /* MATCH .refined-tagline */
-    margin-bottom: 3rem !important; /* MATCH .refined-tagline */
+    margin-bottom: 1.5rem !important; /* REDUCED from 3rem to 1.5rem for tighter spacing */
     padding: 0 !important;
     line-height: 1.4 !important;
     display: block !important;
@@ -9638,10 +9644,10 @@ div.nest-approved-tagline,
 /* Featured Codes Grid */
 .featured-codes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 280px);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     margin-bottom: 3rem;
-    justify-content: center;
+    justify-content: start;
 }
 
 .featured-code {
@@ -9730,12 +9736,12 @@ div.nest-approved-tagline,
 /* Additional Codes Grid */
 .additional-codes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 280px);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
     opacity: 1;
     transition: all 0.3s ease;
-    justify-content: center;
+    justify-content: start;
 }
 
 /* Individual Discount Code Cards */
@@ -9748,7 +9754,7 @@ div.nest-approved-tagline,
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 220px;
+    height: 340px; /* Increased to accommodate larger logos: 220px + 120px = 340px */
     width: 280px;
 }
 
@@ -9796,7 +9802,7 @@ div.nest-approved-tagline,
 
 .brand-icon {
     width: 100%;
-    height: 60px;
+    height: 180px; /* 3x bigger: 60px * 3 = 180px */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9808,12 +9814,14 @@ div.nest-approved-tagline,
 
 .brand-logo-img {
     max-width: 90%;
-    max-height: 70px;
+    max-height: 210px; /* 3x bigger: 70px * 3 = 210px */
     width: auto;
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
     background: transparent;
+    /* Disable problematic blend modes for brand logos */
+    mix-blend-mode: normal !important;
 }
 
 .brand-details {
