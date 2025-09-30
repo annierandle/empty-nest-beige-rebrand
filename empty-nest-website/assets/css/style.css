@@ -720,8 +720,8 @@ p, .body-text {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 60px;
-    height: 60px;
+    width: 120px !important; /* DOUBLED from 60px for much larger logos */
+    height: 120px !important; /* DOUBLED from 60px for much larger logos */
     border: 2px solid rgba(255, 255, 255, 0.7);
     transform: translate(-50%, -50%) rotate(45deg);
 }
@@ -881,8 +881,9 @@ p, .body-text {
 }
 
 .brand-logo-img {
-    max-width: 85%; /* Increased width for better visual presence */
-    max-height: 120px; /* Increased to 120px for better visibility, especially for small logos like Sleep With Me */
+    max-width: 95% !important; /* SIGNIFICANTLY increased from 85% to 95% */
+    max-height: 180px !important; /* SIGNIFICANTLY increased from 120px to 180px */
+    min-height: 60px !important; /* Ensure minimum size for all logos */
     width: auto;
     height: auto;
     object-fit: contain;
@@ -1742,8 +1743,8 @@ p, .body-text {
 }
 
 .brand-icon {
-    width: 60px;
-    height: 60px;
+    width: 120px !important; /* DOUBLED from 60px for much larger logos */
+    height: 120px !important; /* DOUBLED from 60px for much larger logos */
     border-radius: 8px;
     overflow: hidden;
     flex-shrink: 0;
@@ -2393,17 +2394,41 @@ p, .body-text {
 }
 
 /* Fix book covers - remove white backgrounds to match First Lie Wins */
+.book-cover-wrapper {
+    background: transparent !important; /* Remove white background from wrapper */
+}
+
 .book-cover:not([alt*="First Lie Wins"]) {
     mix-blend-mode: multiply;
-    filter: contrast(1.1) brightness(0.95);
+    filter: contrast(1.2) brightness(0.9) saturate(1.1);
+    background: transparent !important;
+}
+
+/* Alternative approach - make all book covers consistent */
+.book-cover {
+    background: transparent !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* Center the See All Content button in Inside the Nest section */
 .refined-section .section-button-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
+    align-items: center;
+    width: 100%;
+    margin: 3rem auto 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Fix Meet Kellie image display */
+.about-video-container .about-image,
+.about-video-container .lifestyle-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0;
+    display: block;
 }
 
 .refined-section .section-button {
@@ -2660,9 +2685,9 @@ p, .body-text {
     margin-bottom: 0.4rem;
     background: transparent;
     width: 100%;
-    max-width: 80px;
+    max-width: 140px; /* Increased from 80px for better product highlighting */
     height: auto;
-    max-height: 80px;
+    max-height: 140px; /* Increased from 80px for better product highlighting */
 }
 
 .product-image {
@@ -2680,8 +2705,8 @@ p, .body-text {
 
 .product-title {
     font-family: var(--font-family-sans);
-    font-size: var(--font-size-base);
-    font-weight: 500;
+    font-size: 0.75rem; /* Decreased from base size to emphasize images over text */
+    font-weight: 400; /* Reduced weight to de-emphasize text */
     color: var(--text-primary);
     margin-bottom: var(--space-xs);
     line-height: 1.3;
@@ -5157,8 +5182,8 @@ p, .body-text {
 }
 
 .brand-icon {
-    width: 60px;
-    height: 60px;
+    width: 120px !important; /* DOUBLED from 60px for much larger logos */
+    height: 120px !important; /* DOUBLED from 60px for much larger logos */
     border-radius: 8px;
     overflow: hidden;
     flex-shrink: 0;
@@ -5973,7 +5998,7 @@ p, .body-text {
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     transition: all 0.3s ease;
-    background: var(--white);
+    background: transparent; /* Remove white background for clean book covers */
     /* Add padding for cushioned spacing like Empty Nest Picks */
     padding: 16px;
     display: flex;
@@ -6505,8 +6530,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .category-icon {
-    width: 60px;
-    height: 60px;
+    width: 120px !important; /* DOUBLED from 60px for much larger logos */
+    height: 120px !important; /* DOUBLED from 60px for much larger logos */
     background: var(--bg-accent);
     border-radius: 50%;
     display: flex;
@@ -7801,8 +7826,8 @@ h1, h2, h3, h4, h5, h6,
 /* Accessibility - Screen Reader Announcements */
 /* Brand Initial Logo Styles for Dynamic Content */
 .brand-initial-logo {
-    width: 60px;
-    height: 60px;
+    width: 120px !important; /* DOUBLED from 60px for much larger logos */
+    height: 120px !important; /* DOUBLED from 60px for much larger logos */
     border-radius: 50%;
     background: var(--accent-gold);
     color: var(--white);
