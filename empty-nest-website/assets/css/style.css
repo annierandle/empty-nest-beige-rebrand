@@ -16,6 +16,7 @@
     --deep-charcoal: #3A3A3A;
     --sage-green: #9BB2A0;
     --accent-gold: var(--brand-blush); /* Updated to use blush pink instead of gold/brown */
+    --rich-brown: var(--brand-blush); /* Brown color redirected to brand blush for consistency */
     --white: #FFFFFF;
     
     /* Typography Colors */
@@ -881,7 +882,7 @@ p, .body-text {
 
 .brand-logo-img {
     max-width: 85%; /* Increased width for better visual presence */
-    max-height: 80px; /* Significantly increased from 40px for visual impact */
+    max-height: 120px; /* Increased to 120px for better visibility, especially for small logos like Sleep With Me */
     width: auto;
     height: auto;
     object-fit: contain;
@@ -1238,12 +1239,12 @@ p, .body-text {
 /* Referral links styling */
 .referral-link {
     cursor: default !important;
-    background: rgba(139, 111, 71, 0.1) !important;
+    background: rgba(217, 182, 182, 0.1) /* Changed from brown to blush pink */ !important;
     color: var(--rich-brown) !important;
 }
 
 .referral-link:hover {
-    background: rgba(139, 111, 71, 0.2) !important;
+    background: rgba(217, 182, 182, 0.2) /* Changed from brown to blush pink */ !important;
     transform: none !important;
 }
 
@@ -1289,7 +1290,7 @@ p, .body-text {
     background: var(--rich-brown);
     color: var(--white);
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4);
+    box-shadow: 0 6px 20px rgba(217, 182, 182, 0.4) /* Changed from brown to blush pink */;
 }
 
 .cta-text {
@@ -1433,8 +1434,8 @@ p, .body-text {
     right: 0;
     bottom: 0;
     background-image: 
-        linear-gradient(rgba(139, 111, 71, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139, 111, 71, 0.02) 1px, transparent 1px);
+        linear-gradient(rgba(217, 182, 182, 0.02) /* Changed from brown to blush pink */ 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217, 182, 182, 0.02) /* Changed from brown to blush pink */ 1px, transparent 1px);
     background-size: 40px 40px; /* Grid size */
     pointer-events: none;
     z-index: 0;
@@ -1824,7 +1825,7 @@ p, .body-text {
     font-size: 0.85rem;
     font-weight: 700;
     color: var(--brand-blush);
-    background: #fef7f0;
+    background: #F6E6E6; /* Changed from brown #fef7f0 to soft blush pink to match brand colors */
     padding: 0.35rem 0.75rem;
     border-radius: 6px;
     letter-spacing: 0.05em;
@@ -1923,7 +1924,7 @@ p, .body-text {
     background: var(--rich-brown) !important;
     color: var(--white) !important;
     transform: translateY(-2px) scale(1.02) !important;
-    box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4) !important;
+    box-shadow: 0 6px 20px rgba(217, 182, 182, 0.4) /* Changed from brown to blush pink */ !important;
 }
 
     transform: translate(4px, -4px);
@@ -1997,7 +1998,7 @@ p, .body-text {
 .media-section {
     background: linear-gradient(135deg, #FAF8F6 0%, #F7F3EE 50%, #FAF8F6 100%);
     padding: var(--section-padding) 0;
-    border-top: 1px solid rgba(139, 111, 71, 0.1); /* Subtle border for section separation */
+    border-top: 1px solid rgba(217, 182, 182, 0.1) /* Changed from brown to blush pink */; /* Subtle border for section separation */
 }
 
 .media-wrapper {
@@ -3254,7 +3255,7 @@ p, .body-text {
     text-transform: uppercase;
     transition: all 0.3s ease;
     border: none;
-    box-shadow: 0 4px 16px rgba(139, 111, 71, 0.3); /* Updated shadow for brown */
+    box-shadow: 0 4px 16px rgba(217, 182, 182, 0.3) /* Changed from brown to blush pink */; /* Updated shadow for brown */
 }
 
 .picks-shop-all-button:hover {
@@ -5186,7 +5187,7 @@ p, .body-text {
     font-size: 0.85rem;
     font-weight: 700;
     color: var(--brand-blush);
-    background: #fef7f0;
+    background: #F6E6E6; /* Changed from brown #fef7f0 to soft blush pink to match brand colors */
     padding: 0.35rem 0.75rem;
     border-radius: 6px;
     letter-spacing: 0.05em;
@@ -5689,7 +5690,7 @@ p, .body-text {
     background: var(--rich-brown);
     color: var(--white) !important;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(139, 111, 71, 0.4);
+    box-shadow: 0 4px 12px rgba(217, 182, 182, 0.4) /* Changed from brown to blush pink */;
 }
 
 /* Make sure the promo code is clickable and styled */
@@ -5763,7 +5764,7 @@ p, .body-text {
 }
 
 .content-view-button {
-    background: #8b6f47;
+    background: var(--brand-blush) /* Changed from brown #8b6f47 to blush pink */;
     color: white;
     text-decoration: none;
     font-weight: 700;
@@ -5784,7 +5785,7 @@ p, .body-text {
     background: #6d5636;
     color: white;
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4);
+    box-shadow: 0 6px 20px rgba(217, 182, 182, 0.4) /* Changed from brown to blush pink */;
 }
 
 /* ===================================
@@ -5794,7 +5795,7 @@ p, .body-text {
 .book-club-section {
     background: var(--white); /* White background for contrast with media section */
     padding: var(--section-padding) 0; /* Increased padding for more breathing room */
-    border-top: 1px solid rgba(139, 111, 71, 0.1); /* Subtle border for section separation */
+    border-top: 1px solid rgba(217, 182, 182, 0.1) /* Changed from brown to blush pink */; /* Subtle border for section separation */
 }
 
 .book-club-wrapper {
@@ -9061,7 +9062,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .code-btn:hover {
-    background: #8B4513;
+    background: var(--brand-blush) /* Changed from brown #8B4513 to blush pink */;
     transform: translateY(-1px);
 }
 
@@ -9660,13 +9661,13 @@ div.nest-approved-tagline,
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #8B4513, #CD853F);
+    background: linear-gradient(90deg, var(--brand-blush) /* Changed from brown #8B4513 to blush pink */, var(--brand-blush) /* Changed from brown #CD853F to blush pink */);
 }
 
 .featured-code:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    border-color: #CD853F;
+    border-color: var(--brand-blush) /* Changed from brown #CD853F to blush pink */;
 }
 
 /* Filter Controls */
@@ -9699,16 +9700,16 @@ div.nest-approved-tagline,
 }
 
 .filter-btn:hover {
-    border-color: #CD853F;
-    color: #8B4513;
+    border-color: var(--brand-blush);
+    color: var(--brand-blush);
     transform: translateY(-1px);
 }
 
 .filter-btn.active {
-    background: linear-gradient(135deg, #8B4513, #CD853F);
-    border-color: #8B4513;
+    background: var(--brand-blush); /* Changed from brown gradient to solid blush pink */
+    border-color: var(--brand-blush);
     color: white;
-    box-shadow: 0 4px 12px rgba(139,69,19,0.3);
+    box-shadow: 0 4px 12px rgba(217, 182, 182, 0.4); /* Updated shadow to use blush pink */
 }
 
 .filter-btn.featured {
@@ -9781,7 +9782,7 @@ div.nest-approved-tagline,
 .code-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    border-color: #CD853F;
+    border-color: var(--brand-blush) /* Changed from brown #CD853F to blush pink */;
 }
 
 /* Code Header */
@@ -9866,7 +9867,7 @@ div.nest-approved-tagline,
 
 .code-btn {
     width: 100%;
-    background: linear-gradient(135deg, #8B4513, #CD853F);
+    background: linear-gradient(135deg, var(--brand-blush) /* Changed from brown #8B4513 to blush pink */, var(--brand-blush) /* Changed from brown #CD853F to blush pink */);
     color: white;
     border: none;
     padding: 0.75rem 1rem;
@@ -9913,7 +9914,7 @@ div.nest-approved-tagline,
 }
 
 .show-more-btn {
-    background: linear-gradient(135deg, #8B4513, #CD853F);
+    background: linear-gradient(135deg, var(--brand-blush) /* Changed from brown #8B4513 to blush pink */, var(--brand-blush) /* Changed from brown #CD853F to blush pink */);
     color: white;
     border: none;
     padding: 1rem 2rem;
@@ -10066,7 +10067,7 @@ div.nest-approved-tagline,
 .featured-perk-container:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    border-color: #CD853F;
+    border-color: var(--brand-blush) /* Changed from brown #CD853F to blush pink */;
 }
 
 .featured-perk-container::before {
@@ -10076,7 +10077,7 @@ div.nest-approved-tagline,
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #8B4513, #CD853F, #8B4513);
+    background: linear-gradient(90deg, var(--brand-blush) /* Changed from brown #8B4513 to blush pink */, var(--brand-blush) /* Changed from brown #CD853F to blush pink */, var(--brand-blush) /* Changed from brown #8B4513 to blush pink */);
 }
 
 /* Perk Header Section */
@@ -10140,7 +10141,7 @@ div.nest-approved-tagline,
 
 .featured-perk-tagline {
     font-size: 1.2rem;
-    color: #8B4513;
+    color: var(--brand-blush) /* Changed from brown #8B4513 to blush pink */;
     font-weight: 600;
     margin: 0 0 1.5rem 0;
     font-style: italic;
@@ -10174,7 +10175,7 @@ div.nest-approved-tagline,
 
 .highlight-item:hover {
     background: #f8f9fa;
-    border-color: #CD853F;
+    border-color: var(--brand-blush) /* Changed from brown #CD853F to blush pink */;
     transform: translateY(-1px);
 }
 
@@ -10210,7 +10211,7 @@ div.nest-approved-tagline,
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #8B4513;
+    color: var(--brand-blush) /* Changed from brown #8B4513 to blush pink */;
 }
 
 .perk-code-display {
@@ -10227,7 +10228,7 @@ div.nest-approved-tagline,
 }
 
 .featured-code-btn {
-    background: linear-gradient(135deg, #8B4513, #CD853F);
+    background: linear-gradient(135deg, var(--brand-blush) /* Changed from brown #8B4513 to blush pink */, var(--brand-blush) /* Changed from brown #CD853F to blush pink */);
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
