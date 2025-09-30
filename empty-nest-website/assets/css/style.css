@@ -15,7 +15,7 @@
     --brand-blush: #D9B6B6;
     --deep-charcoal: #3A3A3A;
     --sage-green: #9BB2A0;
-    --accent-gold: #B28B5B;
+    --accent-gold: var(--brand-blush); /* Updated to use blush pink instead of gold/brown */
     --white: #FFFFFF;
     
     /* Typography Colors */
@@ -880,8 +880,8 @@ p, .body-text {
 }
 
 .brand-logo-img {
-    max-width: 70%; /* Ensure logos are no wider than 70% of card width */
-    max-height: 40px; /* Reduced to half size from 80px */
+    max-width: 85%; /* Increased width for better visual presence */
+    max-height: 80px; /* Significantly increased from 40px for visual impact */
     width: auto;
     height: auto;
     object-fit: contain;
@@ -1459,7 +1459,7 @@ p, .body-text {
 
 .refined-typography {
     text-align: left; /* Match partnerships section alignment */
-    margin-bottom: var(--content-gap) !important;
+    margin-bottom: 2rem !important; /* Reduced from var(--content-gap) to match other sections */
 }
 
 .refined-eyebrow {
@@ -6843,7 +6843,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .storefront-btn:hover {
-    background: var(--accent-gold);
+    background: var(--brand-blush); /* Changed from accent-gold to blush pink */
     transform: translateY(-2px);
 }
 
@@ -9029,10 +9029,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .brand-desc {
     font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
+    font-size: 0.55rem; /* Reduced from 0.65rem for single line fit */
     color: var(--text-secondary);
     margin: 0;
-    line-height: 1.2;
+    line-height: 1.1;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    max-width: 100%;
 }
 
 .code-actions {
@@ -10100,7 +10104,7 @@ div.nest-approved-tagline,
 }
 
 .header-logo {
-    height: 80px;
+    height: 140px; /* Significantly increased from 80px to fill white box space */
     max-width: 100%;
     width: 100%;
     object-fit: contain;
