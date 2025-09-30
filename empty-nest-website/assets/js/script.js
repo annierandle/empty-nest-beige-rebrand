@@ -3116,3 +3116,392 @@ function showCompactCopyFeedback(buttonElement, code) {
     showEnhancedToast(`Copied "${code}" to clipboard!`);
 }
 // Nest Approved Manager is initialized in the DOMContentLoaded block above
+
+// ===================================
+// DISCOUNT CODES CATEGORY FILTERING
+// ===================================
+
+class DiscountCodesManager {
+    constructor() {
+        this.currentCategory = 'featured';
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.showCategory('featured');
+    }
+
+    setupEventListeners() {
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const category = e.target.getAttribute('data-category');
+                this.switchCategory(category, e.target);
+            });
+        });
+    }
+
+    switchCategory(category, clickedBtn) {
+        // Update active button
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        clickedBtn.classList.add('active');
+
+        // Show codes for selected category
+        this.showCategory(category);
+        this.currentCategory = category;
+    }
+
+    showCategory(category) {
+        const allItems = document.querySelectorAll('.discount-code-item');
+        
+        allItems.forEach(item => {
+            const itemCategories = item.getAttribute('data-category').split(' ');
+            
+            if (category === 'featured') {
+                // Show only items that have 'featured' category
+                if (itemCategories.includes('featured')) {
+                    item.style.display = 'block';
+                    this.animateIn(item);
+                } else {
+                    item.style.display = 'none';
+                }
+            } else {
+                // Show items that match the selected category (but not featured-only items)
+                if (itemCategories.includes(category) && !itemCategories.includes('featured')) {
+                    item.style.display = 'block';
+                    this.animateIn(item);
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    animateIn(element) {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            element.style.transition = 'all 0.3s ease';
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }, 100);
+    }
+}
+
+// Initialize discount codes manager when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if we're on a page with discount codes
+    if (document.querySelector('.discount-codes-grid')) {
+        window.discountCodesManager = new DiscountCodesManager();
+    }
+});
+
+// ====== ENHANCED DISCOUNT CODES SYSTEM (NAMESPACED) ======
+
+// Enhanced Discount Codes Manager - Separate from existing system
+const EnhancedDiscountSystem = {
+    isAdditionalCodesVisible: false,
+    activeFilter: 'featured',
+    
+    init() {
+        this.initializeFilterButtons();
+        this.setupKeyboardNavigation();
+        // Initialize with featured codes showing by default
+        setTimeout(() => {
+            this.filterCodes('featured');
+        }, 100);
+        console.log('Enhanced discount codes system initialized successfully');
+    },
+    
+    initializeFilterButtons() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = btn.textContent.toLowerCase().includes('all') ? 'all' : 
+                               btn.textContent.toLowerCase().replace(/\s+/g, '');
+                this.filterCodes(category);
+            });
+        });
+    },
+    
+
+    
+    setupKeyboardNavigation() {
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isAdditionalCodesVisible) {
+                this.toggleAdditionalCodes();
+            }
+        });
+    },
+    
+    toggleAdditionalCodes() {
+        const additionalGrid = document.getElementById('additionalCodesGrid');
+        const showMoreBtn = document.querySelector('.show-more-btn .btn-text');
+        const btnIcon = document.querySelector('.show-more-btn .btn-icon');
+        
+        if (!additionalGrid || !showMoreBtn) return;
+        
+        this.isAdditionalCodesVisible = !this.isAdditionalCodesVisible;
+        
+        if (this.isAdditionalCodesVisible) {
+            // Show additional codes
+            additionalGrid.style.display = 'grid';
+            setTimeout(() => {
+                additionalGrid.classList.add('visible');
+            }, 50);
+            
+            showMoreBtn.textContent = 'Show Less Codes';
+            if (btnIcon) {
+                btnIcon.style.transform = 'rotate(180deg)';
+            }
+            
+            // Scroll to additional codes after animation
+            setTimeout(() => {
+                additionalGrid.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'nearest' 
+                });
+            }, 300);
+        } else {
+            // Hide additional codes
+            additionalGrid.classList.remove('visible');
+            setTimeout(() => {
+                additionalGrid.style.display = 'none';
+            }, 500);
+            
+            showMoreBtn.textContent = 'Show More Codes';
+            if (btnIcon) {
+                btnIcon.style.transform = 'rotate(0deg)';
+            }
+        }
+        
+        // Re-apply current filter to new visible codes
+        if (this.activeFilter !== 'all') {
+            setTimeout(() => {
+                this.filterCodes(this.activeFilter);
+            }, 100);
+        }
+    },
+    
+    filterCodes(category) {
+        this.activeFilter = category;
+        
+        // Update active filter button
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if ((category === 'all' && btn.textContent.includes('All Codes')) ||
+                (category === 'featured' && btn.textContent.includes('Featured Codes')) ||
+                (category !== 'all' && category !== 'featured' && btn.textContent.toLowerCase().includes(category))) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Get all code cards (both featured and additional)
+        const featuredCards = document.querySelectorAll('.featured-codes-grid .code-card[data-category]');
+        const additionalCards = document.querySelectorAll('.additional-codes-grid .code-card[data-category]');
+        const allCards = [...featuredCards, ...additionalCards];
+        
+        allCards.forEach((card, index) => {
+            const cardCategory = card.getAttribute('data-category');
+            let shouldShow = false;
+            
+            if (category === 'all') {
+                shouldShow = true;
+            } else if (category === 'featured') {
+                // Show only the 4 featured codes
+                shouldShow = card.closest('.featured-codes-grid') !== null;
+            } else {
+                // Show specific category
+                shouldShow = cardCategory === category;
+            }
+            
+            // Add staggered animation delay
+            card.style.transitionDelay = `${index * 50}ms`;
+            
+            if (shouldShow) {
+                card.classList.remove('filter-hidden');
+                card.classList.add('filter-visible');
+                card.style.display = 'block';
+            } else {
+                card.classList.add('filter-hidden');
+                card.classList.remove('filter-visible');
+                // Don't set display:none immediately to allow transition
+                setTimeout(() => {
+                    if (card.classList.contains('filter-hidden')) {
+                        card.style.display = 'none';
+                    }
+                }, 300);
+            }
+        });
+        
+        // Update results count
+        setTimeout(() => {
+            this.updateResultsCount(category);
+        }, 350);
+    },
+    
+    updateResultsCount(category) {
+        const visibleCards = document.querySelectorAll('.code-card.filter-visible:not([style*="display: none"])');
+        
+        // Remove existing count display
+        const existingCount = document.querySelector('.filter-results-count');
+        if (existingCount) {
+            existingCount.remove();
+        }
+        
+        // Add new count display if filtering
+        if (category !== 'all') {
+            const filterControls = document.querySelector('.discount-filter-controls');
+            if (filterControls && visibleCards.length > 0) {
+                const countDisplay = document.createElement('div');
+                countDisplay.className = 'filter-results-count';
+                const displayText = category === 'featured' ? 'featured' : category;
+                countDisplay.innerHTML = `
+                    <span class="count-text">
+                        Showing ${visibleCards.length} ${displayText} ${visibleCards.length === 1 ? 'code' : 'codes'}
+                    </span>
+                `;
+                filterControls.appendChild(countDisplay);
+            }
+        }
+    }
+};
+
+// Global functions for onclick handlers in HTML
+function toggleAdditionalCodes() {
+    EnhancedDiscountSystem.toggleAdditionalCodes();
+}
+
+function filterDiscountCodes(category) {
+    EnhancedDiscountSystem.filterCodes(category);
+}
+
+// Enhanced copy to clipboard with better user feedback
+function copyCodeToClipboard(code, button) {
+    if (!code || !button) return;
+    
+    // Create temporary textarea for copying
+    const tempInput = document.createElement('textarea');
+    tempInput.value = code;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    
+    try {
+        // Try modern clipboard API first
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(code).then(() => {
+                showCopyFeedback(button, true);
+            }).catch(() => {
+                // Fallback to execCommand
+                const success = document.execCommand('copy');
+                showCopyFeedback(button, success);
+            });
+        } else {
+            // Fallback to execCommand
+            const success = document.execCommand('copy');
+            showCopyFeedback(button, success);
+        }
+    } catch (err) {
+        showCopyFeedback(button, false);
+        console.error('Copy failed:', err);
+    } finally {
+        document.body.removeChild(tempInput);
+    }
+}
+
+// Show visual feedback for copy action
+function showCopyFeedback(button, success) {
+    const originalText = button.querySelector('.code-text').textContent;
+    const originalIcon = button.querySelector('.copy-icon').textContent;
+    
+    if (success) {
+        // Success feedback
+        button.classList.add('copied');
+        button.querySelector('.code-text').textContent = 'COPIED!';
+        button.querySelector('.copy-icon').textContent = '✓';
+        
+        // Create floating success message
+        createFloatingMessage('Code copied to clipboard!', 'success');
+        
+        // Reset after delay
+        setTimeout(() => {
+            button.classList.remove('copied');
+            button.querySelector('.code-text').textContent = originalText;
+            button.querySelector('.copy-icon').textContent = originalIcon;
+        }, 2000);
+    } else {
+        // Error feedback
+        button.classList.add('copy-error');
+        button.querySelector('.copy-icon').textContent = '✗';
+        
+        createFloatingMessage('Copy failed. Please try again.', 'error');
+        
+        // Reset after delay
+        setTimeout(() => {
+            button.classList.remove('copy-error');
+            button.querySelector('.copy-icon').textContent = originalIcon;
+        }, 2000);
+    }
+}
+
+// Create floating notification message
+function createFloatingMessage(message, type = 'success') {
+    // Remove existing messages
+    const existingMessages = document.querySelectorAll('.floating-message');
+    existingMessages.forEach(msg => msg.remove());
+    
+    const messageEl = document.createElement('div');
+    messageEl.className = `floating-message ${type}`;
+    messageEl.textContent = message;
+    
+    // Style the message
+    Object.assign(messageEl.style, {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        background: type === 'success' ? '#28a745' : '#dc3545',
+        color: 'white',
+        padding: '12px 20px',
+        borderRadius: '6px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+        zIndex: '10000',
+        fontSize: '14px',
+        fontWeight: '500',
+        transform: 'translateX(100%)',
+        opacity: '0',
+        transition: 'all 0.3s ease'
+    });
+    
+    document.body.appendChild(messageEl);
+    
+    // Animate in
+    setTimeout(() => {
+        messageEl.style.transform = 'translateX(0)';
+        messageEl.style.opacity = '1';
+    }, 10);
+    
+    // Animate out and remove
+    setTimeout(() => {
+        messageEl.style.transform = 'translateX(100%)';
+        messageEl.style.opacity = '0';
+        setTimeout(() => {
+            messageEl.remove();
+        }, 300);
+    }, 3000);
+}
+
+// Initialize enhanced discount codes system
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait a bit to ensure other systems are initialized first
+    setTimeout(() => {
+        if (document.querySelector('.discount-codes-system')) {
+            EnhancedDiscountSystem.init();
+        }
+    }, 100);
+});

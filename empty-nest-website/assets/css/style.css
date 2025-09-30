@@ -88,6 +88,48 @@
 }
 
 /* ===================================
+   GLOBAL OVERFLOW AND LAYOUT FIXES
+   =================================== */
+
+/* Prevent horizontal overflow on all sections */
+section,
+.section,
+[class*="-section"] {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Ensure all wrappers have proper constraints */
+[class*="-wrapper"],
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    box-sizing: border-box;
+}
+
+/* Typography containers should not cause overflow */
+[class*="-typography"],
+[class*="-header"] {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+/* Ensure all titles wrap properly */
+h1, h2, h3, h4, h5, h6,
+[class*="-title"] {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    word-wrap: break-word;
+    hyphens: auto;
+    box-sizing: border-box;
+}
+
+/* ===================================
    PROFESSIONAL CONTAINER SYSTEM
    =================================== */
 
@@ -1434,10 +1476,10 @@ p, .body-text {
     font-size: clamp(4rem, 6vw, 6rem);
     font-weight: 700;
     line-height: 1.2;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em; /* Updated to match other headers */
     color: var(--text-primary);
     text-transform: uppercase;
-    margin-bottom: 4rem !important; /* Consistent spacing with other section titles */
+    margin-bottom: 0 !important; /* No margin for titles with taglines */
 }
 
 .refined-tagline {
@@ -1447,7 +1489,8 @@ p, .body-text {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: #8A8A8A; /* Match partnerships - slightly lighter gray */
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    margin-top: 0.5rem !important;
+    margin-bottom: 3rem !important;
 }
 
 .refined-content {
@@ -1461,8 +1504,8 @@ p, .body-text {
 .category-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4x3 grid for desktop (12 tiles: 4+4+4) */
-    gap: 1rem; /* Normal spacing */
-    margin: 1.5rem 0;
+    gap: 1.5rem; /* Increased spacing */
+    margin: 0 0 2rem 0; /* Let tagline margin-bottom handle all spacing */
     padding: 0;
     max-width: var(--container-max-width);
     width: 100%;
@@ -1470,7 +1513,8 @@ p, .body-text {
 
 .category-tile {
     position: relative;
-    height: clamp(80px, 8vw, 100px); /* MUCH smaller - normal website size */
+    aspect-ratio: 1;
+    height: auto;
     border-radius: 0; /* Sharp corners to match product cards */
     overflow: visible; /* Changed from hidden to visible to prevent clipping */
     cursor: pointer;
@@ -1608,6 +1652,236 @@ p, .body-text {
     filter: brightness(1.05); /* Subtle brightness increase */
 }
 
+/* ===================================
+   DISCOUNT CODES SECTION - FULL SYSTEM
+   =================================== */
+
+.discount-section {
+    background: var(--white);
+    padding: 5rem 2rem;
+    position: relative;
+}
+
+.discount-wrapper {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.discount-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.discount-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brand-blush);
+    margin-bottom: 1rem;
+}
+
+.discount-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 0.1rem;
+    line-height: 1;
+}
+
+.discount-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+/* Compact Discount Codes Grid */
+.discount-codes-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.code-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.code-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--brand-blush);
+}
+
+.code-content {
+    flex: 1;
+}
+
+.brand-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.brand-icon-text {
+    background: linear-gradient(135deg, #8B5A3C, #A0785A);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.brand-icon-text:hover {
+    background: linear-gradient(135deg, #6D4530, #8B5A3C);
+    transform: scale(1.05);
+}
+
+.brand-logo-img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 85% !important;
+    max-height: 85% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+    /* CRITICAL: Ensure logos scale properly regardless of original size */
+    min-width: 20px !important;
+    min-height: 20px !important;
+    /* Additional optimization for brand logo display */
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.brand-details {
+    flex: 1;
+}
+
+.brand-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+    line-height: 1.2;
+}
+
+.product-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.code-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    margin-left: 1rem;
+}
+
+.discount-code {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--brand-blush);
+    background: #fef7f0;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+}
+
+.discount-percent {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+/* Responsive Design for Discount Codes */
+@media (max-width: 768px) {
+    .discount-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .discount-codes-compact {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .code-card {
+        padding: 1.25rem;
+    }
+    
+    .brand-info {
+        gap: 0.75rem;
+    }
+    
+    .brand-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .discount-section {
+        padding: 3rem 1rem;
+    }
+    
+    .code-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .code-action {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 0;
+    }
+}
+
 .category-tile:hover .category-overlay {
     background: linear-gradient(to top, rgba(51, 51, 51, 0.8) 0%, rgba(51, 51, 51, 0.4) 40%, transparent 100%);
 }
@@ -1677,18 +1951,22 @@ p, .body-text {
     margin-bottom: 4rem !important; 
 }*/
 
-/* STANDARDIZE ALL SECTION HEADER CONTAINERS */
+/* STANDARDIZE ALL SECTION HEADER CONTAINERS - EXCEPT nest-approved */
 .about-header,
 .partnerships-typography,
 .refined-typography,
-.nest-approved-typography,
 .picks-header,
 .events-header,
 .media-header,
 .recipes-header,
 .book-club-typography,
 .contact-header {
-    margin-bottom: 4rem !important; /* Standardized spacing for ALL section headers */
+    margin-bottom: 5rem !important; /* Increased for better separation */
+}
+
+/* NEST APPROVED TYPOGRAPHY - SPECIAL RULE TO MATCH refined-typography */
+.nest-approved-typography {
+    margin-bottom: var(--content-gap) !important; /* MATCH .refined-typography EXACTLY */
 }
 
 /* Ensure consistent spacing on mobile */
@@ -2238,7 +2516,7 @@ p, .body-text {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: #8A8A8A;
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    margin-top: 1.5rem !important; /* Proper breathing room from header */
 }
 
 /* ===== CAROUSEL LAYOUT ===== */
@@ -2248,7 +2526,7 @@ p, .body-text {
     gap: 1.5rem;
     position: relative;
     width: 100%;
-    margin-left: 2rem;
+    margin: 6rem 0 0 2rem; /* Add top margin for proper spacing from tagline */
 }
 
 .carousel-btn {
@@ -2473,6 +2751,11 @@ p, .body-text {
     margin-bottom: 3rem;
 }
 
+/* First story section - add extra top spacing from header */
+.about-story-section:first-of-type {
+    margin-top: 2.5rem !important;
+}
+
 .story-headline {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
@@ -2517,7 +2800,7 @@ p, .body-text {
     width: 100% !important;
     position: relative;
     background: #F8F8F8;
-    margin: 2rem auto !important;
+    margin: 0 auto !important;
     min-width: 500px !important;
 }
 
@@ -2649,7 +2932,8 @@ p, .body-text {
     }
     
     .category-tile {
-        height: clamp(70px, 8vw, 90px); /* Very small on tablets */
+        aspect-ratio: 1;
+        height: auto;
     }
     
     /* Picks section responsive */
@@ -2784,7 +3068,8 @@ p, .body-text {
     }
     
     .category-tile {
-        height: clamp(60px, 6vw, 80px); /* Very small on mobile */
+        aspect-ratio: 1;
+        height: auto;
     }
     
         padding: 16px 24px;
@@ -2990,7 +3275,8 @@ p, .body-text {
     }
     
     .category-tile {
-        height: 160px; /* Compact on tiny screens */
+        aspect-ratio: 1;
+        height: auto;
     }
     
         padding: 14px 20px;
@@ -3063,23 +3349,24 @@ p, .body-text {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--text-secondary);
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    margin-top: 1.5rem !important; /* Proper breathing room from header */
 }
 
-/* Event Grid - responsive card layout */
+/* Event Grid - responsive card layout - SQUARE CARDS */
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
     max-width: var(--container-max-width);
-    margin: 0 auto;
+    margin: 6rem auto 0 auto; /* Add top margin for spacing from tagline */
 }
 
-/* Event Items - background image with overlay design */
+/* Event Items - background image with overlay design - PERFECT SQUARES */
 .event-item {
     position: relative;
-    height: clamp(150px, 15vw, 200px);
-    border-radius: 0;
+    aspect-ratio: 1; /* Forces perfect square */
+    height: auto; /* Let aspect-ratio control height */
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
@@ -3210,7 +3497,7 @@ p, .body-text {
     }
     
     .event-item {
-        height: clamp(120px, 12vw, 160px);
+        aspect-ratio: 1; /* Maintain square on tablet */
     }
     
     .event-overlay {
@@ -3229,7 +3516,7 @@ p, .body-text {
     }
     
     .event-item {
-        height: clamp(100px, 10vw, 140px);
+        aspect-ratio: 1; /* Maintain square on mobile */
     }
     
     .event-overlay {
@@ -3295,10 +3582,10 @@ p, .body-text {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--text-secondary);
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    margin-top: 1.5rem !important; /* Proper breathing room from header */
 }
 
-/* Recipe Grid - EXACT COPY FROM EVENTS */
+/* Recipe Grid - MATCHING EVENTS GRID - SQUARE CARDS */
 .recipes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -3307,11 +3594,12 @@ p, .body-text {
     margin: 0 auto;
 }
 
-/* Recipe Items - background image with overlay design */
+/* Recipe Items - background image with overlay design - PERFECT SQUARES MATCHING EVENTS */
 .recipe-item {
     position: relative;
-    height: clamp(150px, 15vw, 200px);
-    border-radius: 0;
+    aspect-ratio: 1; /* Forces perfect square - same as events */
+    height: auto; /* Let aspect-ratio control height */
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
@@ -3423,6 +3711,25 @@ p, .body-text {
 }
 
 /* Responsive Design for Recipes Section */
+@media (max-width: 1024px) {
+    .recipes-section {
+        padding: 100px 30px;
+    }
+    
+    .recipes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .recipe-item {
+        aspect-ratio: 1; /* Maintain square on tablet */
+    }
+    
+    .recipe-overlay {
+        padding: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .recipes-section {
         padding: 60px 20px;
@@ -3438,7 +3745,7 @@ p, .body-text {
     }
     
     .recipe-item {
-        height: clamp(100px, 10vw, 140px);
+        aspect-ratio: 1; /* Maintain square on mobile */
     }
     
     .recipe-overlay {
@@ -4699,6 +5006,236 @@ p, .body-text {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
+/* ===================================
+   DISCOUNT CODES SECTION - FULL SYSTEM
+   =================================== */
+
+.discount-section {
+    background: var(--white);
+    padding: 5rem 2rem;
+    position: relative;
+}
+
+.discount-wrapper {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.discount-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.discount-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brand-blush);
+    margin-bottom: 1rem;
+}
+
+.discount-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 0.1rem;
+    line-height: 1;
+}
+
+.discount-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+/* Compact Discount Codes Grid */
+.discount-codes-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.code-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.code-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--brand-blush);
+}
+
+.code-content {
+    flex: 1;
+}
+
+.brand-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.brand-icon-text {
+    background: linear-gradient(135deg, #8B5A3C, #A0785A);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.brand-icon-text:hover {
+    background: linear-gradient(135deg, #6D4530, #8B5A3C);
+    transform: scale(1.05);
+}
+
+.brand-logo-img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 85% !important;
+    max-height: 85% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+    /* CRITICAL: Ensure logos scale properly regardless of original size */
+    min-width: 20px !important;
+    min-height: 20px !important;
+    /* Additional optimization for brand logo display */
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.brand-details {
+    flex: 1;
+}
+
+.brand-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+    line-height: 1.2;
+}
+
+.product-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.code-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    margin-left: 1rem;
+}
+
+.discount-code {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--brand-blush);
+    background: #fef7f0;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+}
+
+.discount-percent {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+/* Responsive Design for Discount Codes */
+@media (max-width: 768px) {
+    .discount-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .discount-codes-compact {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .code-card {
+        padding: 1.25rem;
+    }
+    
+    .brand-info {
+        gap: 0.75rem;
+    }
+    
+    .brand-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .discount-section {
+        padding: 3rem 1rem;
+    }
+    
+    .code-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .code-action {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 0;
+    }
+}
+
 .category-tile:hover .category-overlay {
     background: rgba(0, 0, 0, 0.5);
 }
@@ -5065,7 +5602,7 @@ p, .body-text {
 .about-section .about-video-container {
     max-width: 100% !important;
     width: 100% !important;
-    margin: 2rem auto !important;
+    margin: 0 auto !important;
 }
 
 /* FORCE About images minimal spacing */
@@ -5212,12 +5749,13 @@ p, .body-text {
 .content-button-wrapper {
     text-align: center;
     padding: 2rem 0;
-    margin-top: 2rem;
+    margin: 2rem auto 0 auto;
+    width: 100%;
 }
 
 .content-view-button {
-    background: var(--brand-blush);
-    color: var(--white);
+    background: #8b6f47;
+    color: white;
     text-decoration: none;
     font-weight: 700;
     padding: 12px 24px;
@@ -5234,8 +5772,8 @@ p, .body-text {
 }
 
 .content-view-button:hover {
-    background: var(--rich-brown);
-    color: var(--white);
+    background: #6d5636;
+    color: white;
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4);
 }
@@ -5356,14 +5894,14 @@ p, .body-text {
 
 .book-item {
     flex: 0 0 auto;
-    width: 120px;
+    width: 180px;
     position: relative;
 }
 
 .book-cover-wrapper {
     position: relative;
-    width: 120px;
-    height: 180px;
+    width: 180px;
+    height: 270px;
     border-radius: 0; /* SHARP EDGES: Match other design elements for consistency */
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
@@ -5486,12 +6024,12 @@ p, .body-text {
     }
     
     .book-item {
-        width: 150px;
+        width: 160px;
     }
     
     .book-cover-wrapper {
-        width: 150px;
-        height: 225px;
+        width: 160px;
+        height: 240px;
     }
 }
 
@@ -5527,17 +6065,18 @@ p, .body-text {
     
     .book-item {
         scroll-snap-align: center;
-        width: 120px;
+        width: 140px;
     }
     
     .book-cover-wrapper {
-        width: 120px;
-        height: 180px;
+        width: 140px;
+        height: 210px;
     }
 }
 
-/* NUCLEAR OPTION - ABSOLUTE FINAL OVERRIDE FOR TAGLINE SPACING */
+/* NUCLEAR OPTION - DISABLED - This was causing tight tagline spacing */
 /* Using most specific selectors and placed at end of file to override everything */
+/*
 .partnerships-section .partnerships-wrapper .partnerships-layout .partnerships-typography .partnerships-tagline,
 .recipes-section .recipes-wrapper .recipes-header .recipes-tagline,
 .refined-section .refined-wrapper .refined-header .refined-tagline,
@@ -5546,13 +6085,15 @@ p, .body-text {
 .picks-section .picks-wrapper .picks-header .picks-tagline,
 .book-club-section .book-club-wrapper .book-club-header .book-club-tagline,
 .about-section .about-wrapper .about-header .about-tagline,
-.nest-approved-section .nest-approved-wrapper .nest-approved-header .nest-approved-tagline,
 .contact-section .contact-wrapper .contact-header .contact-tagline {
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    margin-top: -0.2rem !important;
     margin-bottom: 0 !important;
 }
+*/
 
-/* EVEN MORE NUCLEAR - Direct class targeting - ALL SECTIONS */
+/* NEST APPROVED EXCEPTION - Remove from problematic overrides */
+
+/* EVEN MORE NUCLEAR - Direct class targeting - ALL SECTIONS EXCEPT nest-approved */
 div.partnerships-tagline,
 div.recipes-tagline,
 div.refined-tagline,
@@ -5562,16 +6103,33 @@ div.picks-tagline,
 div.book-club-tagline,
 div.about-tagline,
 div.page-header-tagline,
-div.nest-approved-tagline,
 div.blog-tagline {
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
-    margin-bottom: 0 !important;
+    margin-top: 1.5rem !important; /* Proper breathing room from header */
+    margin-bottom: 5rem !important; /* Proper content separation */
 }
 
-/* UNIVERSAL TAGLINE OVERRIDE - Catches any missed tagline classes */
+/* NEST APPROVED EXCEPTION - Let it use proper spacing */
+div.nest-approved-tagline {
+    /* Remove from override - let the proper CSS rules apply */
+}
+
+/* UNIVERSAL TAGLINE OVERRIDE - DISABLED FOR CLEAN LAYOUT */
+/* 
 [class*="tagline"] {
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    margin-top: -0.2rem !important;
     margin-bottom: 0 !important;
+}
+*/
+
+/* ALL TAGLINE RULES - RESET TO NORMAL BEHAVIOR EXCEPT nest-approved */
+[class*="tagline"]:not(.nest-approved-tagline) {
+    margin-top: 0.4rem !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+    transform: none !important;
+    display: block !important;
+    line-height: 1.4 !important;
 }
 
 /* UNIVERSAL EYEBROW OVERRIDE - Extra tight category marker spacing */
@@ -5592,10 +6150,10 @@ div.blog-tagline {
     margin-bottom: 0 !important; /* Remove bottom margin for titles with taglines */
 }
 
-/* CONTENT SPACING - Add top margin to content after taglines */
-[class*="tagline"] + * {
-    margin-top: 4rem !important; /* Proper spacing after tagline to content */
-}
+/* CONTENT SPACING - DISABLED - Using specific section rules instead */
+/* [class*="tagline"] + * {
+    margin-top: 4rem !important;
+} */
 
 /* ===================================
    FINAL HEADER FIX - NUCLEAR OPTION
@@ -6054,16 +6612,29 @@ h1, h2, h3, h4, h5, h6,
 .nest-approved-section {
     background: linear-gradient(135deg, #FAF8F6 0%, #F7F3EE 50%, #FAF8F6 100%);
     padding: var(--section-padding) 0;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .nest-approved-wrapper {
     max-width: var(--container-max-width);
     margin: 0 auto;
+    padding: 0 var(--container-padding-desktop);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nest-approved-typography {
     text-align: left;
-    margin-left: 2rem;
+    margin-bottom: var(--content-gap) !important; /* MATCH .refined-typography EXACTLY */
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    box-sizing: border-box;
+    display: block;
+    clear: both;
 }
 
 .nest-approved-eyebrow {
@@ -6073,50 +6644,68 @@ h1, h2, h3, h4, h5, h6,
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--text-secondary);
-    margin-bottom: 0.25rem; /* Even tighter - category marker style */
+    margin-bottom: 0.25rem; /* MATCH .refined-eyebrow EXACTLY */
+    margin-top: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    display: block !important;
+    clear: both !important;
 }
 
 .nest-approved-title {
     font-family: var(--font-family-serif);
-    font-size: clamp(4rem, 6vw, 6rem) !important;
-    font-weight: 700 !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0.05em !important;
+    font-size: clamp(4rem, 6vw, 6rem); /* MATCH .refined-title EXACTLY */
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.1em; /* MATCH .refined-title EXACTLY */
     color: var(--text-primary);
     text-transform: uppercase;
-    margin-bottom: 4rem !important; /* Will be overridden by universal rule above */
+    margin-bottom: 0 !important; /* MATCH .refined-title - No margin for titles with taglines */
+    padding: 0 !important;
+    display: block !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    word-wrap: break-word !important;
+    hyphens: auto !important;
+    clear: both !important;
+    float: none !important;
 }
 
 .nest-approved-tagline {
     font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #8A8A8A;
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    font-size: 0.8rem; /* MATCH .refined-tagline EXACTLY */
+    font-weight: 400; /* MATCH .refined-tagline EXACTLY */
+    letter-spacing: 0.25em; /* MATCH .refined-tagline EXACTLY */
+    text-transform: uppercase; /* MATCH .refined-tagline EXACTLY */
+    color: #8A8A8A; /* MATCH .refined-tagline EXACTLY */
+    margin-top: 0.5rem !important; /* MATCH .refined-tagline EXACTLY */
+    margin-bottom: 3rem !important; /* MATCH .refined-tagline EXACTLY */
+    padding: 0 !important;
+    line-height: 1.4 !important;
+    display: block !important;
+    clear: both !important;
+    width: 100% !important;
+    float: none !important;
 }
 
 .nest-approved-content {
-    padding: 0 2rem;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* CURATED COLLECTIONS - Logo-Focused Visual Hierarchy */
 .curated-collections {
+    margin-top: 0 !important; /* No top margin - let storefront-cards handle spacing */
     margin-bottom: var(--space-xxxl);
 }
 
-/* CONSISTENT SUBSECTION TITLE STYLING FOR ALL NEST APPROVED SUBTITLES */
+/* SUBSECTION TITLE - HIDDEN TO MATCH OTHER SECTIONS STRUCTURE */
 .subsection-title {
-    font-family: var(--font-family-serif);
-    font-size: clamp(2rem, 3vw, 2.5rem);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    text-align: left;
-    margin-left: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    display: none !important; /* CRITICAL FIX: Hide subsection titles to match other sections */
 }
 
 /* Ensure curated collections h3 uses the same styling */
@@ -6681,18 +7270,18 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .category-tag.wellness {
-    background: #e8f5e8;
-    color: #2d6e3e;
+    background: #f5f5f5;
+    color: #666666;
 }
 
 .category-tag.beauty {
-    background: #fce8f3;
-    color: #8b2f65;
+    background: #f5f5f5;
+    color: #666666;
 }
 
 .category-tag.home {
-    background: #e8f2ff;
-    color: #1e4d7b;
+    background: #f5f5f5;
+    color: #666666;
 }
 
 .category-tag.lifestyle {
@@ -6812,11 +7401,12 @@ h1, h2, h3, h4, h5, h6,
 
 .affiliate-disclosure p {
     font-family: var(--font-family-sans);
-    font-size: var(--font-size-sm);
+    font-size: 0.65rem;
     color: var(--text-light);
     font-style: italic;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
+    opacity: 0.8;
 }
 
 /* ENHANCED NEST APPROVED FEATURES */
@@ -6966,13 +7556,30 @@ h1, h2, h3, h4, h5, h6,
         padding: var(--section-padding) 0;
     }
     
-    .nest-approved-header {
+    .nest-approved-wrapper {
+        padding: 0 var(--container-padding-tablet);
+    }
+    
+    .nest-approved-typography {
         margin-left: 0;
         text-align: left;
+        width: 100%;
+    }
+    
+    .nest-approved-title {
+        font-size: clamp(2rem, 5vw, 3rem) !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0.03em !important;
+    }
+    
+    .nest-approved-tagline {
+        margin-left: var(--space-md) !important; /* Match content alignment on mobile */
+        width: calc(100% - var(--space-md)) !important;
     }
     
     .nest-approved-content {
         padding: 0;
+        width: 100%;
     }
     
     .subsection-title,
@@ -7051,7 +7658,16 @@ h1, h2, h3, h4, h5, h6,
         padding: var(--section-padding) 0;
     }
     
-    /* Title sizing handled by global clamp() system */
+    .nest-approved-wrapper {
+        padding: 0 var(--container-padding-mobile);
+    }
+    
+    .nest-approved-title {
+        font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+        line-height: 1.4 !important;
+        letter-spacing: 0.02em !important;
+        word-break: break-word !important;
+    }
     
     .discount-codes-grid {
         grid-template-columns: 1fr;
@@ -8141,6 +8757,8 @@ h1, h2, h3, h4, h5, h6,
 /* This is the MOST AGGRESSIVE solution to eliminate ALL gaps between titles and taglines */
 
 /* UNIVERSAL TAGLINE OVERRIDE - Targets ANY element with "tagline" in the class name */
+/* DISABLED: Universal tagline override causing tight spacing */
+/*
 [class*="tagline"], [class*="Tagline"], [class*="TAGLINE"] {
     margin-top: -1rem !important;
     margin-bottom: 0 !important;
@@ -8149,9 +8767,10 @@ h1, h2, h3, h4, h5, h6,
     position: relative !important;
     top: -0.5rem !important;
 }
+*/
 
-/* SPECIFIC TAGLINE OVERRIDES - Even more aggressive targeting */
-.nest-approved-tagline,
+/* SPECIFIC TAGLINE OVERRIDES - DISABLED FOR CLEAN LAYOUT */
+/*
 .book-club-tagline,
 .media-tagline, 
 .refined-tagline,
@@ -8166,6 +8785,36 @@ h1, h2, h3, h4, h5, h6,
     top: -0.8rem !important;
     transform: translateY(-0.5rem) !important;
 }
+*/
+
+/* REMOVED - CONFLICTED WITH STANDARDIZED RULES
+.nest-approved-section .nest-approved-tagline,
+div.nest-approved-tagline,
+.nest-approved-tagline {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: 0.4rem !important;
+    margin-bottom: 1rem !important;
+    margin-left: 2rem !important;
+    padding: 0 !important;
+    line-height: 1.4 !important;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    z-index: 10 !important;
+    width: calc(100% - 2rem) !important;
+    max-width: calc(100% - 2rem) !important;
+    clear: both !important;
+    float: none !important;
+    font-size: 0.9rem !important;
+    color: #666666 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    letter-spacing: 0.05em !important;
+}
 
 /* TITLE OVERRIDE - Remove ALL bottom margins/padding from titles that have taglines */
 .nest-approved-title,
@@ -8179,20 +8828,1567 @@ h1, h2, h3, h4, h5, h6,
     padding-bottom: 0 !important;
 }
 
-/* CONTENT SPACING - Add top margin to content after taglines */
-[class*="tagline"] + *,
+/* CONTENT SPACING - DISABLED - Using specific section rules instead */
+/* [class*="tagline"] + *,
 [class*="Tagline"] + *,
 [class*="TAGLINE"] + * {
     margin-top: 4rem !important;
+} */
+
+/* ===================================
+   REMOVED: FINAL COMPREHENSIVE HEADER SYSTEM OVERRIDE
+   This was causing all text to become large headers
+   User wants only "INSIDE THE NEST" formatting for section headers
+   =================================== */
+
+/* COMMENTED OUT - WAS TOO BROAD AND AFFECTED ALL TEXT:
+section h1, section h2, section h3,
+.nest-approved-section .nest-approved-title,
+.partnerships-section .partnerships-title,
+.refined-section .refined-title,
+.picks-section .picks-title,
+.events-section .events-title,
+.recipes-section .recipes-title,
+.about-section .about-title,
+.media-section .media-title,
+.contact-section .contact-title,
+.book-club-section .book-club-title,
+.page-header .page-header-title,
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-serif) !important;
+    font-size: clamp(2.5rem, 4vw, 4rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    color: var(--text-primary) !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 1rem 0 !important;
+    padding: 0 !important;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    float: none !important;
+    clear: both !important;
+    z-index: auto !important;
+    word-wrap: break-word !important;
+    hyphens: auto !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    box-sizing: border-box !important;
+}
+**/
+
+/* ===================================
+   SECTION HEADER STANDARDIZATION
+   Copy EXACT formatting from INSIDE THE NEST (.refined-*) 
+   Apply ONLY to main section headers
+   =================================== */
+
+/* MAIN SECTION TITLES - MATCH EMPTY NEST PICKS LETTER SPACING */
+.nest-approved-title,
+.picks-title,
+.events-title,
+.recipes-title,
+.media-title,
+.contact-title,
+.book-club-title {
+    /* Standardized formatting for titles WITH taglines */
+    font-family: var(--font-family-serif) !important;
+    font-size: clamp(4rem, 6vw, 6rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.1em !important; /* Increased for better spacing consistency */
+    color: var(--text-primary) !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0 !important; /* No margin for titles with taglines */
+    padding-bottom: 0 !important;
 }
 
-/* EMERGENCY OVERRIDE for any remaining gaps - targets anything after section titles */
-.section-title + .tagline,
-.section-title + [class*="tagline"],
-h1 + [class*="tagline"],
-h2 + [class*="tagline"] {
-    margin-top: -2rem !important;
-    position: relative !important;
-    top: -1rem !important;
-    transform: translateY(-1rem) !important;
+/* TITLES WITHOUT TAGLINES - Need proper spacing after title */
+.about-title {
+    /* Standardized formatting for titles WITHOUT taglines */
+    font-family: var(--font-family-serif) !important;
+    font-size: clamp(4rem, 6vw, 6rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.1em !important; /* Consistent letter spacing */
+    color: var(--text-primary) !important;
+    text-transform: uppercase !important;
+    margin-bottom: 5rem !important; /* Consistent spacing to content for titles without taglines */
+    padding-bottom: 0 !important;
+}
+
+/* EYEBROWS - MATCH .refined-eyebrow EXACTLY */
+.about-eyebrow,
+.nest-approved-eyebrow,
+.picks-eyebrow,
+.events-eyebrow,
+.recipes-eyebrow,
+.media-eyebrow,
+.contact-eyebrow,
+.book-club-eyebrow {
+    /* Copy exact .refined-eyebrow formatting */
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    color: var(--text-secondary) !important;
+    margin-bottom: 0.25rem !important;
+}
+
+/* ===================================
+   COMPACT DISCOUNT CODES REDESIGN
+   Clean, minimal design for 4 featured codes only
+   =================================== */
+
+.discount-codes-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.code-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.code-card:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.code-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.brand-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.brand-icon:hover {
+    background: #7a7a7a;
+    text-decoration: none;
+    color: white;
+}
+
+.brand-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.brand-name {
+    font-family: var(--font-family-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+    line-height: 1.2;
+}
+
+.brand-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.code-actions {
+    flex-shrink: 0;
+}
+
+.code-btn {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.code-btn:hover {
+    background: #8B4513;
+    transform: translateY(-1px);
+}
+
+.code-btn:active {
+    transform: translateY(0);
+}
+
+.copy-icon {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .discount-codes-compact {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .code-card {
+        padding: 1.25rem;
+    }
+    
+    .brand-name {
+        font-size: 0.9rem;
+    }
+    
+    .brand-desc {
+        font-size: 0.75rem;
+    }
+    
+    .code-btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* TAGLINES - ULTRA-HIGH SPECIFICITY - MAXIMUM AUTHORITY OVERRIDE - EXCEPT NEST APPROVED */
+.about-section .about-tagline,
+.picks-section .picks-tagline, 
+.events-section .events-tagline,
+.recipes-section .recipes-tagline,
+.media-section .media-tagline,
+.contact-section .contact-tagline,
+.book-club-section .book-club-tagline,
+div.about-tagline,
+div.picks-tagline,
+div.events-tagline,
+div.recipes-tagline,
+div.media-tagline,
+div.contact-tagline,
+div.book-club-tagline,
+.about-tagline,
+.picks-tagline,
+.events-tagline,
+.recipes-tagline,
+.media-tagline,
+.contact-tagline,
+.book-club-tagline {
+    /* PERFECT BREATHING ROOM - Optimal spacing from header and content */
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    color: #8A8A8A !important;
+    margin-top: 1rem !important; /* Increased breathing room from header */
+    margin-bottom: 5rem !important; /* Standardized content separation */
+    padding: 0 !important;
+    line-height: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+}
+
+/* NEST APPROVED TAGLINE - SPECIAL RULES TO MATCH REFINED SECTION EXACTLY */
+.nest-approved-section .nest-approved-tagline,
+div.nest-approved-tagline,
+.nest-approved-tagline {
+    /* MATCH REFINED TAGLINE EXACTLY - NO OVERRIDES */
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    color: #8A8A8A !important;
+    margin-top: 0.5rem !important; /* MATCH .refined-tagline */
+    margin-bottom: 3rem !important; /* MATCH .refined-tagline */
+    padding: 0 !important;
+    line-height: 1.4 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+}
+
+/* ====== COMPREHENSIVE HEADER SPACING FIX ====== */
+/* FINAL OVERRIDE - Fix all section header spacing issues */
+
+/* ALL SECTION EYEBROWS - Consistent spacing */
+.partnerships-eyebrow,
+.refined-eyebrow,
+.nest-approved-eyebrow,
+.picks-eyebrow,
+.events-eyebrow,
+.recipes-eyebrow,
+.about-eyebrow,
+.media-eyebrow,
+.contact-eyebrow,
+.book-club-eyebrow {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    color: var(--text-secondary) !important;
+    margin-bottom: 0.25rem !important;
+    margin-top: 0 !important;
+}
+
+/* ALL SECTION TITLES - Consistent formatting */
+.partnerships-title,
+.refined-title,
+.nest-approved-title,
+.picks-title,
+.events-title,
+.recipes-title,
+.about-title,
+.media-title,
+.contact-title,
+.book-club-title {
+    font-family: var(--font-family-serif) !important;
+    font-size: clamp(4rem, 6vw, 6rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.1em !important;
+    color: var(--text-primary) !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* PROBLEMATIC SECTION TAGLINES ONLY - ULTRA-SPECIFIC OVERRIDES */
+/* Using ultra-specific selectors to override any conflicting rules */
+/* EXCLUDES nest-approved-tagline which was already perfect */
+.partnerships-section .partnerships-tagline,
+.refined-section .refined-tagline,
+.picks-section .picks-tagline,
+.events-section .events-tagline,
+.recipes-section .recipes-tagline,
+.media-section .media-tagline,
+.contact-section .contact-tagline,
+.book-club-section .book-club-tagline,
+.partnerships-tagline,
+.refined-tagline,
+.picks-tagline,
+.events-tagline,
+.recipes-tagline,
+.media-tagline,
+.contact-tagline,
+.book-club-tagline {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    color: #8A8A8A !important;
+    margin-top: 1rem !important; /* Perfect breathing room from header */
+    margin-bottom: 6rem !important; /* Increased for better content separation */
+    padding: 0 !important;
+    line-height: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+}
+
+/* CONTENT SPACING AFTER TAGLINES - DISABLED - Using tagline margin-bottom instead */
+/* .partnerships-tagline + *,
+.refined-tagline + *,
+.nest-approved-tagline + *,
+.picks-tagline + *,
+.events-tagline + *,
+.recipes-tagline + *,
+.media-tagline + *,
+.contact-tagline + *,
+.book-club-tagline + * {
+    margin-top: 5rem !important;
+} */
+
+/* ABOUT SECTION - No tagline, needs different spacing */
+.about-title {
+    margin-bottom: 5rem !important;
+}
+
+/* SECTION HEADER CONTAINERS - Final override */
+.partnerships-typography,
+.refined-typography,
+.nest-approved-typography,
+.picks-header,
+.events-header,
+.recipes-header,
+.about-header,
+.media-header,
+.contact-header,
+.book-club-typography {
+    margin-bottom: 0 !important; /* Let content spacing handle this */
+}
+
+/* ENSURE CONTENT CONTAINERS HAVE PROPER TOP SPACING */
+.category-grid,
+.refined-content,
+.picks-content,
+.events-content {
+    margin-top: 0 !important; /* Reset any negative margins */
+}
+
+/* CONTENT WITH PERFECT BREATHING ROOM SPACING */
+.carousel-wrapper,
+.storefront-cards,
+.category-grid,
+.recipes-grid {
+    margin-top: 6rem !important; /* MATCH Perfect spacing from picks section */
+}
+
+/* Events grid gets special spacing treatment */
+.events-grid {
+    margin-top: 6rem !important; /* Override with proper spacing from tagline */
+}
+
+/* ===== MEDIA SECTION (NEST IN THE NEWS) ===== */
+.media-section {
+    background: var(--white);
+    padding: 8rem 0;
+}
+
+.media-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.media-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.media-typography {
+    text-align: left; /* Match other sections alignment */
+    margin-bottom: 2rem !important; /* Further reduced to match other sections */
+}
+
+.media-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.media-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 400;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin-bottom: 0 !important;
+}
+
+.media-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8A8A8A;
+    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+}
+
+.media-content {
+    /* Container for all media content */
+}
+
+.media-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.media-category {
+    position: relative;
+}
+
+.media-category::after {
+    content: '';
+    position: absolute;
+    bottom: -2rem;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #E8E5E1 20%, #E8E5E1 80%, transparent 100%);
+}
+
+.media-category:last-child::after {
+    display: none;
+}
+
+.media-category-title {
+    font-family: 'Playfair Display', serif; /* Changed to match main titles - more elegant */
+    font-size: 1.1rem; /* Slightly larger for better hierarchy */
+    font-weight: 500; /* Medium weight for elegance */
+    letter-spacing: 0.1em; /* Reduced for better readability */
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.media-category-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 100%;
+    background: var(--accent);
+}
+
+.media-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.media-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: var(--white); /* Restore white background for logo visibility */
+    border: 1px solid #F5F2ED; /* Restore subtle border */
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    min-height: 100px;
+    text-align: center;
+}
+
+.media-logo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+/* Hover effect now included in main .media-logo-item rule above */
+
+.media-logo-item.media-logo-inactive {
+    opacity: 0.6;
+    filter: grayscale(20%);
+}
+
+.media-logo-item.media-logo-inactive:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.media-logo-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Force center alignment for all content */
+}
+
+.media-logo-img {
+    max-width: 200px; /* Increased from 150px for better visibility */
+    max-height: 80px;  /* Increased from 60px for better visibility */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block; /* Ensure block-level for proper centering */
+    margin: 0 auto; /* Force horizontal centering */
+}
+
+.media-text-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    text-align: center;
+    line-height: 1.2;
+    padding: 0.5rem;
+}
+
+.media-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Reduced from 300px to fit 3 in a row */
+    gap: 1.5rem; /* Slightly reduced gap for better fit */
+}
+
+.media-visual-item {
+    position: relative;
+    background: transparent; /* Remove white background */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    max-width: 280px;
+    aspect-ratio: 1; /* Ensure square containers for podcast covers */
+}
+
+.media-visual-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.media-visual-image {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Increased height for better visibility */
+    overflow: hidden;
+    display: block; /* Changed to block for better control */
+    background: transparent;
+    padding: 0;
+}
+
+.media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Changed to contain to show full image without cropping */
+    object-position: center;
+    border-radius: 8px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block; /* Ensure block display */
+}
+
+.media-visual-item:hover .media-img {
+    transform: scale(1.05);
+}
+
+.media-visual-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 2rem 1.5rem 1.5rem;
+    color: white;
+}
+
+.media-overlay-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.media-overlay-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.media-overlay-action {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.media-visual-item:hover .media-overlay-action {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .media-section {
+        padding: 6rem 0;
+    }
+    
+    .media-wrapper {
+        padding: 0 1rem;
+    }
+    
+    .media-header {
+        margin-bottom: 4rem;
+    }
+    
+    .media-grid {
+        gap: 3rem;
+    }
+    
+    .media-logo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .media-visual-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .media-logo-item {
+        padding: 1rem;
+        min-height: 80px;
+    }
+    
+    .media-logo-img {
+        max-width: 150px; /* Increased for better mobile visibility */
+        max-height: 60px;  /* Increased for better mobile visibility */
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .partnerships-title,
+    .refined-title,
+    .nest-approved-title,
+    .picks-title,
+    .events-title,
+    .recipes-title,
+    .about-title,
+    .media-title,
+    .contact-title,
+    .book-club-title {
+        font-size: 3rem !important;
+    }
+    
+    .partnerships-tagline,
+    .refined-tagline,
+    .nest-approved-tagline,
+    .picks-tagline,
+    .events-tagline,
+    .recipes-tagline,
+    .media-tagline,
+    .contact-tagline,
+    .book-club-tagline {
+        margin-bottom: 4rem !important;
+    }
+    
+    /* Mobile content spacing */
+    .events-grid {
+        margin-top: 4rem !important;
+    }
+    
+    .category-grid {
+        margin-top: 4rem !important;
+    }
+    
+    .carousel-wrapper {
+        margin-top: 4rem !important;
+    }
+    
+    .about-title {
+        margin-bottom: 3rem !important;
+    }
+}
+
+/* ====== ENHANCED DISCOUNT CODES SYSTEM ====== */
+/* Featured Codes Grid */
+.featured-codes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 280px);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+
+.featured-code {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-code::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B4513, #CD853F);
+}
+
+.featured-code:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    border-color: #CD853F;
+}
+
+/* Filter Controls */
+.discount-filter-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem 0 2.5rem 0;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background: #fff;
+    border: 2px solid #e8e8e8;
+    border-radius: 25px;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+
+.filter-btn:hover {
+    border-color: #CD853F;
+    color: #8B4513;
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #8B4513, #CD853F);
+    border-color: #8B4513;
+    color: white;
+    box-shadow: 0 4px 12px rgba(139,69,19,0.3);
+}
+
+.filter-btn.featured {
+    position: relative;
+}
+
+.star-icon {
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+}
+
+.filter-btn.featured.active .star-icon {
+    color: #FFD700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+/* Additional Codes Grid */
+.additional-codes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 280px);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 1;
+    transition: all 0.3s ease;
+    justify-content: center;
+}
+
+/* Individual Discount Code Cards */
+.code-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 0.75rem;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 220px;
+    width: 280px;
+}
+
+/* Featured Card Star */
+.featured-star {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    z-index: 2;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    animation: pulse-star 2s infinite;
+}
+
+@keyframes pulse-star {
+    0%, 100% { 
+        transform: scale(1);
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+    50% { 
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+    }
+}
+
+.featured-card {
+    border-color: #FFD700;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+.code-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border-color: #CD853F;
+}
+
+/* Code Header */
+.code-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0.6rem;
+}
+
+.brand-icon {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    padding: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.brand-logo-img {
+    max-width: 90%;
+    max-height: 70px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+    background: transparent;
+}
+
+.brand-details {
+    flex-grow: 1;
+}
+
+/* Brand name removed - now using logos only */
+
+.brand-desc {
+    color: #666;
+    font-size: 0.8rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+}
+
+.category-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: white;
+}
+
+.category-tag.wellness {
+    background: #f5f5f5;
+    color: #666666;
+}
+
+.category-tag.beauty {
+    background: #f5f5f5;
+    color: #666666;
+}
+
+.category-tag.home {
+    background: #f5f5f5;
+    color: #666666;
+}
+
+.category-tag.food {
+    background: #f5f5f5;
+    color: #666666;
+}
+
+/* Code Actions */
+.code-actions {
+    margin-top: auto;
+}
+
+.code-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #8B4513, #CD853F);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.code-btn:hover {
+    background: linear-gradient(135deg, #7a3d11, #b8762f);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139,69,19,0.3);
+}
+
+.code-btn:active {
+    transform: translateY(0);
+}
+
+.code-btn.copied {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.code-text {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.copy-icon {
+    font-size: 1.1rem;
+}
+
+/* Show More/Less Toggle */
+.show-more-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.show-more-btn {
+    background: linear-gradient(135deg, #8B4513, #CD853F);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(139,69,19,0.3);
+}
+
+.show-more-btn:hover {
+    background: linear-gradient(135deg, #7a3d11, #b8762f);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(139,69,19,0.4);
+}
+
+.show-more-btn:active {
+    transform: translateY(0);
+}
+
+/* Animation for filtering */
+.code-card.filter-hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.code-card.filter-visible {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
+
+/* Filter results count */
+.filter-results-count {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.count-text {
+    font-weight: 500;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .featured-codes-grid,
+    .additional-codes-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .discount-filter-controls {
+        gap: 1rem;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .filter-btn {
+        width: 200px;
+        text-align: center;
+    }
+    
+    .code-card {
+        padding: 1.25rem;
+    }
+    
+    .code-card-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .brand-icon {
+        height: 150px;
+    }
+    
+    .code-card {
+        min-height: 300px;
+        padding: 1.5rem;
+    }
+    
+    .brand-details {
+        text-align: center;
+    }
+    
+    .code-btn {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-codes-grid,
+    .additional-codes-grid {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+    }
+    
+    .code-card {
+        margin: 0 0.5rem;
+        padding: 1rem;
+    }
+    
+    .show-more-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ====== FEATURED COMMUNITY PERK SECTION ====== */
+.featured-community-perk {
+    margin: 0 0 3rem 0;
+    padding: 0;
+}
+
+.featured-perk-container {
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    border: 2px solid #e8e8e8;
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.featured-perk-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    border-color: #CD853F;
+}
+
+.featured-perk-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8B4513, #CD853F, #8B4513);
+}
+
+/* Perk Header Section */
+.perk-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.perk-logo-header {
+    background: white;
+    border-radius: 16px;
+    padding: 1rem 2rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.perk-logo-header:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.header-logo {
+    height: 80px;
+    max-width: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+/* Featured Perk Content Layout */
+.featured-perk-content {
+    margin-bottom: 2rem;
+}
+
+.perk-trust-indicator {
+    text-align: center;
+}
+
+.trust-badge {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    box-shadow: 0 3px 8px rgba(40,167,69,0.3);
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* Perk Details */
+.perk-details {
+    flex-grow: 1;
+}
+
+.featured-perk-tagline {
+    font-size: 1.2rem;
+    color: #8B4513;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+.featured-perk-description {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+}
+
+/* Perk Highlights */
+.perk-highlights {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    background: #f8f9fa;
+    border-color: #CD853F;
+    transform: translateY(-1px);
+}
+
+.highlight-icon {
+    font-size: 1.1rem;
+}
+
+.highlight-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Featured Perk Actions */
+.featured-perk-actions {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid #e8e8e8;
+}
+
+/* Perk Offer */
+.perk-offer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.offer-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #8B4513;
+}
+
+.perk-code-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.perk-discount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #28a745;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.featured-code-btn {
+    background: linear-gradient(135deg, #8B4513, #CD853F);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(139,69,19,0.3);
+}
+
+.featured-code-btn:hover {
+    background: linear-gradient(135deg, #7a3d11, #b8762f);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(139,69,19,0.4);
+}
+
+.featured-code-btn:active {
+    transform: translateY(0);
+}
+
+.featured-code-btn.copied {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.featured-code-btn .code-text {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.featured-code-btn .copy-icon {
+    font-size: 1.1rem;
+}
+
+/* Featured Shop Button */
+.featured-shop-btn {
+    background: linear-gradient(135deg, #333, #555);
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.featured-shop-btn:hover {
+    background: linear-gradient(135deg, #222, #444);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    color: white;
+}
+
+.featured-shop-btn .btn-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.featured-shop-btn:hover .btn-arrow {
+    transform: translateX(3px);
+}
+
+/* Mobile Responsive Design for Featured Perk */
+@media (max-width: 768px) {
+    .featured-community-perk {
+        margin: 3rem 0 2rem 0;
+        padding: 0 1rem;
+    }
+    
+    .featured-perk-container {
+        padding: 1rem;
+        max-width: none;
+        margin: 0;
+    }
+    
+    .perk-header-section {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+    
+    .header-logo {
+        height: 60px;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .featured-perk-content {
+        text-align: center;
+    }
+    
+    .perk-highlights {
+        justify-content: center;
+    }
+    
+    .featured-perk-actions {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .perk-code-display {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .featured-shop-btn {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-perk-container {
+        padding: 1.5rem 1rem;
+        border-radius: 16px;
+    }
+    
+    .featured-perk-title {
+        font-size: 1.6rem;
+    }
+    
+    .perk-highlights {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .highlight-item {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .perk-code-display {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .featured-code-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .featured-shop-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Mobile spacing for events grid */
+    .events-grid {
+        margin-top: 4rem !important; /* Responsive spacing on mobile */
+    }
+}
+
+/* ===== FINAL TAGLINE SPACING AUTHORITY - ULTIMATE OVERRIDE ===== */
+/* This MUST be the last CSS rule to override any conflicting rules above */
+/* ONLY affects problematic sections - NOT nest-approved which was already perfect */
+.picks-section .picks-wrapper .picks-header .picks-tagline,
+.events-section .events-wrapper .events-header .events-tagline,
+.recipes-section .recipes-wrapper .recipes-header .recipes-tagline,
+.picks-section .picks-tagline,
+.events-section .events-tagline,
+.recipes-section .recipes-tagline,
+div.picks-tagline,
+div.events-tagline,  
+div.recipes-tagline,
+.picks-tagline,
+.events-tagline,
+.recipes-tagline {
+    margin-top: 1rem !important; /* Perfect breathing room - not too tight, not too far */
+    margin-bottom: 4rem !important; /* Proper content separation */
+    padding-top: 0 !important; /* No extra padding */
+    line-height: 1.2 !important; /* Readable line height */
 }

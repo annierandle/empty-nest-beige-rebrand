@@ -17,11 +17,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Professional CSS -->
-    <link rel="stylesheet" href="assets/css/style.css?v=20240928-lineheight-final-fix">
+    <link rel="stylesheet" href="assets/css/style.css?v=20250930-final-logo-verification">
     
-    <!-- EMERGENCY HEADER FIX - Direct Inline Styles -->
+    <!-- CRITICAL OVERFLOW FIX AND COMPREHENSIVE SECTION STYLING -->
     <style>
-        /* ABSOLUTE OVERRIDE - Force proper header display */
+        /* GLOBAL OVERFLOW PREVENTION */
+        * {
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+        
+        /* ALL SECTION HEADERS - CONSISTENT STYLING */
         .nest-approved-title,
         .partnerships-title,
         .refined-title,
@@ -31,24 +42,29 @@
         .about-title,
         .media-title,
         .contact-title,
-        .book-club-title,
-        h1, h2, h3 {
-            line-height: 1.3 !important;
-            letter-spacing: 0.05em !important;
-            word-spacing: normal !important;
-            font-display: swap !important;
-            overflow: visible !important;
-            text-rendering: optimizeLegibility !important;
-            -webkit-font-smoothing: antialiased !important;
+        .book-club-title {
+            font-family: var(--font-family-serif) !important;
+            font-size: clamp(4rem, 6vw, 6rem) !important;
+            font-weight: 700 !important;
+            line-height: 1.2 !important;
+            letter-spacing: 0.1em !important;
+            color: var(--text-primary) !important;
+            text-transform: uppercase !important;
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
         }
         
-        /* Specific fix for NEST APPROVED */
-        .nest-approved-section .nest-approved-title {
-            line-height: 1.3 !important;
-            font-size: clamp(4rem, 6vw, 6rem) !important;
-            display: block !important;
-            white-space: normal !important;
+        .nest-approved-eyebrow {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.7rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.2em !important;
+            text-transform: uppercase !important;
+            color: var(--text-secondary) !important;
+            margin-bottom: 0.25rem !important;
         }
+        
+        /* NEST APPROVED TAGLINE - Let CSS file handle this properly */
     </style>
 </head>
 <body>
@@ -80,7 +96,7 @@
         <div class="menu-dropdown" id="menuDropdown">
             <div class="dropdown-content">
                 <a href="#home" class="dropdown-link">Home</a>
-                <a href="#meet-kellie" class="dropdown-link">Meet Kellie</a>
+                <a href="#meet-kellie" class="dropdown-link">My Story</a>
                 <a href="#inside-the-nest" class="dropdown-link">Inside the Nest</a>
                 <a href="#empty-nest-eats" class="dropdown-link">Empty Nest Eats</a>
                 <a href="#nest-celebrations" class="dropdown-link">Nest Celebrations</a>
@@ -148,8 +164,8 @@
                     <div class="about-images">
                         <div class="about-video-container">
                             <video autoplay loop muted playsinline class="about-video">
-                                <source src="assets/images/about-kellie-video.mp4" type="video/mp4">
-                                <source src="assets/images/about-kellie-video.mov" type="video/quicktime">
+                                <source src="assets/images/about-kellie-video.mp4?v=20250930-video-fix" type="video/mp4">
+                                <source src="assets/images/about-kellie-video.mov?v=20250930-video-fix" type="video/quicktime">
                                 <!-- Fallback image if video doesn't load -->
                                 <img src="https://page.gensparksite.com/v1/base64_upload/caf9ffb184542bc8fc1046d97c55859e" alt="Kellie and husband dressed elegantly in the city" class="lifestyle-img">
                             </video>
@@ -182,7 +198,7 @@
                             
                             <!-- Signature as regular image below paragraph -->
                             <div class="signature-image">
-                                <img src="assets/images/kellie-signature.png" alt="Kellie Randle Signature" class="signature-img">
+                                <img src="assets/images/kellie-signature-new.png?v=20250930-floating-signature" alt="Kellie Randle Signature" class="signature-img">
                             </div>
                         </div>
                     </div>
@@ -241,316 +257,366 @@
                 </div>
             </div>
 
-            <!-- SECTION 2: Community Perks & Exclusive Codes -->
+            <!-- SECTION 2: Community Perks & Exclusive Codes - Full System -->
             <div class="community-perks">
                 <div class="community-perks-header">
                     <h3 class="subsection-title">COMMUNITY PERKS & EXCLUSIVE CODES</h3>
-                    <p class="helper-text">New codes added regularly—check back for fresh savings!</p>
+                </div>
+
+                <!-- FEATURED COMMUNITY PERK - Just Ingredients Main Highlight -->
+                <div class="featured-community-perk">
+                    <div class="featured-perk-container">
+                        <!-- Logo in header position -->
+                        <div class="perk-header-section">
+                            <div class="perk-logo-header">
+                                <img src="assets/images/storefronts/just-ingredients-logo.png" alt="Just Ingredients" class="header-logo">
+                            </div>
+                            <div class="perk-trust-indicator">
+                                <span class="trust-badge">KELLIE APPROVED</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Content section with proper spacing -->
+                        <div class="featured-perk-content">
+                            <div class="perk-details">
+                                <p class="featured-perk-tagline">Clean supplements you can trust</p>
+                                <p class="featured-perk-description">
+                                    "After years of searching for truly clean supplements, Just Ingredients became my go-to. 
+                                    No fillers, no artificial ingredients—just pure, effective nutrition that I feel confident 
+                                    giving to my entire family."
+                                </p>
+                                <div class="perk-highlights">
+                                    <div class="highlight-item">
+                                        <span class="highlight-icon">🌿</span>
+                                        <span class="highlight-text">100% Clean Ingredients</span>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <span class="highlight-icon">🔬</span>
+                                        <span class="highlight-text">Third-Party Tested</span>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <span class="highlight-icon">👨‍👩‍👧‍👦</span>
+                                        <span class="highlight-text">Family Safe</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="featured-perk-actions">
+                            <div class="perk-offer">
+                                <span class="offer-text">EXCLUSIVE COMMUNITY OFFER</span>
+                                <div class="perk-code-display">
+                                    <button onclick="copyCodeToClipboard('EMPTYNEST25', this)" class="featured-code-btn">
+                                        <span class="code-text">EMPTYNEST25</span>
+                                        <span class="copy-icon">📋</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <a href="https://justingredients.com" target="_blank" rel="noopener" class="featured-shop-btn">
+                                <span class="btn-text">Shop Just Ingredients</span>
+                                <span class="btn-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Filter and Sort Controls -->
-                <div class="perks-controls">
-                    <div class="filter-pills">
-                        <button class="filter-pill active" data-filter="featured">Featured</button>
-                        <button class="filter-pill" data-filter="all">All</button>
-                        <button class="filter-pill" data-filter="wellness">Wellness & Health</button>
-                        <button class="filter-pill" data-filter="home">Home & Kitchen</button>
-                        <button class="filter-pill" data-filter="beauty">Beauty & Style</button>
-                        <button class="filter-pill" data-filter="lifestyle">Lifestyle</button>
+                <!-- Full Featured Discount Codes System -->
+                <div class="discount-codes-system">
+                    <!-- Category Filter Buttons - Moved to Top for Better UX -->
+                    <div class="discount-filter-controls">
+                        <div class="filter-buttons">
+                            <button class="filter-btn featured active" onclick="filterDiscountCodes('featured')">
+                                <span class="star-icon">⭐</span> Featured Codes
+                            </button>
+                            <button class="filter-btn" onclick="filterDiscountCodes('wellness')">Wellness</button>
+                            <button class="filter-btn" onclick="filterDiscountCodes('beauty')">Beauty</button>
+                            <button class="filter-btn" onclick="filterDiscountCodes('home')">Home</button>
+                            <button class="filter-btn" onclick="filterDiscountCodes('food')">Food</button>
+                            <button class="filter-btn" onclick="filterDiscountCodes('all')">All Codes</button>
+                        </div>
                     </div>
                     
-                    <div class="sort-dropdown-wrapper">
-                        <label for="sortSelect" class="sort-label">Sort by:</label>
-                        <select id="sortSelect" class="sort-dropdown">
-                            <option value="featured">Featured</option>
-                            <option value="newest">Newest</option>
-                            <option value="alphabetical">A-Z</option>
-                        </select>
+                    <!-- Featured Codes - Always Visible (4 codes) -->
+                    <div class="featured-codes-grid">
+                        <div class="code-card featured-card" data-category="wellness">
+                            <div class="featured-star">⭐</div>
+                            <div class="code-card-header">
+                                <a href="https://omniluxled.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/brand-logos/omnilux-official.png?v=20250930-final" alt="Omnilux LED" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <p class="brand-desc">Professional red light therapy</p>
+                                    <span class="category-tag wellness">WELLNESS</span>
+                                </div>
+                            </div>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('OMNILUX15', this)" class="code-btn">
+                                    <span class="code-text">OMNILUX15</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="code-card featured-card" data-category="home">
+                            <div class="featured-star">⭐</div>
+                            <div class="code-card-header">
+                                <a href="https://branchbasics.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/brand-logos/branch-basics-official.jpg?v=20250930-final" alt="Branch Basics" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <p class="brand-desc">Non-toxic cleaning products</p>
+                                    <span class="category-tag home">HOME</span>
+                                </div>
+                            </div>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('EMPTYNEST10', this)" class="code-btn">
+                                    <span class="code-text">EMPTYNEST10</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="code-card featured-card" data-category="beauty">
+                            <div class="featured-star">⭐</div>
+                            <div class="code-card-header">
+                                <a href="https://sleepwithmebeauty.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/brand-logos/sleepwithme-custom.png?v=20250930-final" alt="SleepWithMe" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <p class="brand-desc">Silk pillowcases for hair & skin</p>
+                                    <span class="category-tag beauty">BEAUTY</span>
+                                </div>
+                            </div>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('NESTLIFE15', this)" class="code-btn">
+                                    <span class="code-text">NESTLIFE15</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="code-card featured-card" data-category="wellness">
+                            <div class="featured-star">⭐</div>
+                            <div class="code-card-header">
+                                <a href="https://tryarmra.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/brand-logos/armra-official.png?v=20250930-final" alt="ARMRA Colostrum" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <p class="brand-desc">Daily immune support</p>
+                                    <span class="category-tag wellness">WELLNESS</span>
+                                </div>
+                            </div>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('ARMRA10', this)" class="code-btn">
+                                    <span class="code-text">ARMRA10</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- TIER 1: Partnership Hero (Always Visible) -->
-                <div class="partnership-hero-tier">
-                    <div class="partnership-hero-card">
-                        <div class="partnership-badge-hero">Partnership</div>
-                        
-                        <!-- Logo Area (30%) -->
-                        <div class="partnership-hero-logo-area">
-                            <div class="partnership-hero-logo">
-                                <img src="https://page.gensparksite.com/v1/base64_upload/c1a18cf147a836de7902d6f5daf814fa" alt="Just Ingredients" class="hero-logo-image">
+
+                    <!-- All Additional Codes - Now Always Visible via Filtering -->
+                    <div class="additional-codes-grid" id="additionalCodesGrid">
+                        <div class="code-card" data-category="beauty">
+                            <div class="code-card-header">
+                                <a href="https://beautycounter.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/brand-logos/beautycounter-official.png?v=20250930-final" alt="Beautycounter" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <p class="brand-desc">Clean makeup brand</p>
+                                    <span class="category-tag beauty">BEAUTY</span>
+                                </div>
+                            </div>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('CLEANBEAUTY15', this)" class="code-btn">
+                                    <span class="code-text">CLEANBEAUTY15</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
                             </div>
                         </div>
-                        
-                        <!-- Content Area (70%) -->
-                        <div class="partnership-hero-content">
-                            <div class="partnership-hero-text">
-                                <h4 class="partnership-hero-name">Just Ingredients</h4>
-                                <div class="partnership-hero-testimonial">
-                                    <p>"Clean wellness staples I use daily—from protein to shampoo"</p>
-                                    <p class="testimonial-signature">— Kellie</p>
+
+                        <div class="code-card" data-category="food">
+                            <div class="code-card-header">
+                                <a href="https://puritycoffee.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/purity-coffee-logo.png?v=20250930-final" alt="Purity Coffee" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <p class="brand-desc">Cleanest organic coffee</p>
+                                    <span class="category-tag food">FOOD</span>
                                 </div>
                             </div>
-                            <div class="partnership-hero-action">
-                                <a href="https://justingredients.com" target="_blank" rel="noopener" class="hero-shop-now-btn">Shop Now</a>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('PURITY10', this)" class="code-btn">
+                                    <span class="code-text">PURITY10</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- TIER 2: Featured Perks Grid (Default View) -->
-                <div class="featured-perks-section">
-                    <div class="discount-codes-grid featured-tier" id="discountCodesGrid">
-                        <!-- Featured Perk 1: Omnilux LED -->
-                        <div class="discount-card featured-card" data-category="wellness" data-name="Omnilux LED" data-date="2024-09-20" data-featured="true" data-tier="featured">
-                            <div class="card-badge featured-badge">Featured</div>
-                            <div class="card-header">
-                                <div class="brand-logo-small featured-logo">
-                                    <span class="brand-initial">O</span>
-                                </div>
-                                <div class="brand-info">
-                                    <h5 class="brand-name">Omnilux LED</h5>
-                                    <div class="category-tag wellness">Wellness & Health</div>
+                        <div class="code-card" data-category="food">
+                            <div class="code-card-header">
+                                <a href="https://cleanmondaymeals.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/clean-monday-meals-logo.png?v=20250930-final" alt="Clean Monday Meals" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <p class="brand-desc">Healthy meal delivery made simple</p>
+                                    <span class="category-tag food">FOOD</span>
                                 </div>
                             </div>
-                            <div class="offer-description">"Professional red light therapy that actually works"</div>
-                            <div class="code-section">
-                                <div class="code-display">
-                                    <input type="text" value="OMNILUX15" readonly class="code-field">
-                                    <button onclick="copyCodeToClipboard('OMNILUX15', this)" class="copy-btn" aria-label="Copy discount code">
-                                        <span class="copy-text">Copy Code</span>
-                                        <span class="copied-text">Copied!</span>
-                                    </button>
-                                </div>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('NESTMEALS15', this)" class="code-btn">
+                                    <span class="code-text">NESTMEALS15</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
                             </div>
-                            <a href="https://omniluxled.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
                         </div>
 
-                        <!-- Featured Perk 2: Branch Basics -->
-                        <div class="discount-card featured-card" data-category="home" data-name="Branch Basics" data-date="2024-09-15" data-featured="true" data-tier="featured">
-                            <div class="card-badge featured-badge">Featured</div>
-                            <div class="card-header">
-                                <div class="brand-logo-small featured-logo">
-                                    <span class="brand-initial">B</span>
-                                </div>
-                                <div class="brand-info">
-                                    <h5 class="brand-name">Branch Basics</h5>
-                                    <div class="category-tag home">Home & Kitchen</div>
-                                </div>
-                            </div>
-                            <div class="offer-description">"Non-toxic cleaning that truly performs"</div>
-                            <div class="code-section">
-                                <div class="code-display">
-                                    <input type="text" value="EMPTYNEST10" readonly class="code-field">
-                                    <button onclick="copyCodeToClipboard('EMPTYNEST10', this)" class="copy-btn" aria-label="Copy discount code">
-                                        <span class="copy-text">Copy Code</span>
-                                        <span class="copied-text">Copied!</span>
-                                    </button>
+                        <div class="code-card" data-category="wellness">
+                            <div class="code-card-header">
+                                <a href="https://ryzesuper.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/brand-logos/ryze-official.png?v=20250930-final" alt="Ryze Superfoods" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <h5 class="brand-name">Ryze Superfoods</h5>
+                                    <p class="brand-desc">Mushroom coffee without the jitters</p>
+                                    <span class="category-tag wellness">WELLNESS</span>
                                 </div>
                             </div>
-                            <a href="https://branchbasics.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('RYZE15', this)" class="code-btn">
+                                    <span class="code-text">RYZE15</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
+                            </div>
                         </div>
 
-                        <!-- Featured Perk 3: Sleep with Me Beauty -->
-                        <div class="discount-card featured-card" data-category="beauty" data-name="Sleep with Me Beauty" data-date="2024-09-12" data-featured="true" data-tier="featured">
-                            <div class="card-badge featured-badge">Featured</div>
-                            <div class="card-header">
-                                <div class="brand-logo-small featured-logo">
-                                    <span class="brand-initial">S</span>
-                                </div>
-                                <div class="brand-info">
-                                    <h5 class="brand-name">Sleep with Me Beauty</h5>
-                                    <div class="category-tag beauty">Beauty & Style</div>
-                                </div>
-                            </div>
-                            <div class="offer-description">"Silk pillowcases for healthier hair and skin"</div>
-                            <div class="code-section">
-                                <div class="code-display">
-                                    <input type="text" value="NESTLIFE15" readonly class="code-field">
-                                    <button onclick="copyCodeToClipboard('NESTLIFE15', this)" class="copy-btn" aria-label="Copy discount code">
-                                        <span class="copy-text">Copy Code</span>
-                                        <span class="copied-text">Copied!</span>
-                                    </button>
+                        <div class="code-card" data-category="beauty">
+                            <div class="code-card-header">
+                                <a href="https://queenofthethrones.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/brand-logos/queen-of-thrones-custom.png?v=20250930-final" alt="Queen of Thrones" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <h5 class="brand-name">Queen of Thrones</h5>
+                                    <p class="brand-desc">Wellness tools for better sleep</p>
+                                    <span class="category-tag beauty">BEAUTY</span>
                                 </div>
                             </div>
-                            <a href="https://sleepwithmebeauty.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('QUEENOFT10', this)" class="code-btn">
+                                    <span class="code-text">QUEENOFT10</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
+                            </div>
                         </div>
 
-                        <!-- Featured Perk 4: ARMRA Colostrum -->
-                        <div class="discount-card featured-card" data-category="wellness" data-name="ARMRA Colostrum" data-date="2024-09-10" data-featured="true" data-tier="featured">
-                            <div class="card-badge featured-badge">Featured</div>
-                            <div class="card-header">
-                                <div class="brand-logo-small featured-logo">
-                                    <span class="brand-initial">A</span>
-                                </div>
-                                <div class="brand-info">
-                                    <h5 class="brand-name">ARMRA Colostrum</h5>
-                                    <div class="category-tag wellness">Wellness & Health</div>
+                        <div class="code-card" data-category="home">
+                            <div class="code-card-header">
+                                <a href="https://clearlyfiltered.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/clearlyfiltered-logo.png?v=20250930-final" alt="Clearly Filtered" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <p class="brand-desc">Water that tastes amazing</p>
+                                    <span class="category-tag home">HOME</span>
                                 </div>
                             </div>
-                            <div class="offer-description">"Daily immune support I swear by"</div>
-                            <div class="code-section">
-                                <div class="code-display">
-                                    <input type="text" value="ARMRA10" readonly class="code-field">
-                                    <button onclick="copyCodeToClipboard('ARMRA10', this)" class="copy-btn" aria-label="Copy discount code">
-                                        <span class="copy-text">Copy Code</span>
-                                        <span class="copied-text">Copied!</span>
-                                    </button>
-                                </div>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('CLEARLY10', this)" class="code-btn">
+                                    <span class="code-text">CLEARLY10</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
                             </div>
-                            <a href="https://tryarmra.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
                         </div>
 
-                        <!-- Featured Perk 5: Beautycounter -->
-                        <div class="discount-card featured-card" data-category="beauty" data-name="Beautycounter" data-date="2024-09-08" data-featured="true" data-tier="featured">
-                            <div class="card-badge featured-badge">Featured</div>
-                            <div class="card-header">
-                                <div class="brand-logo-small featured-logo">
-                                    <span class="brand-initial">B</span>
-                                </div>
-                                <div class="brand-info">
-                                    <h5 class="brand-name">Beautycounter</h5>
-                                    <div class="category-tag beauty">Beauty & Style</div>
-                                </div>
-                            </div>
-                            <div class="offer-description">"Clean makeup I trust completely"</div>
-                            <div class="code-section">
-                                <div class="code-display">
-                                    <input type="text" value="CLEANBEAUTY15" readonly class="code-field">
-                                    <button onclick="copyCodeToClipboard('CLEANBEAUTY15', this)" class="copy-btn" aria-label="Copy discount code">
-                                        <span class="copy-text">Copy Code</span>
-                                        <span class="copied-text">Copied!</span>
-                                    </button>
+                        <div class="code-card" data-category="wellness">
+                            <div class="code-card-header">
+                                <a href="https://thrivemarket.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/brand-logos/thrive-market-official.png?v=20250930-final" alt="Thrive Market" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <h5 class="brand-name">Thrive Market</h5>
+                                    <p class="brand-desc">Organic groceries delivered to your door</p>
+                                    <span class="category-tag wellness">WELLNESS</span>
                                 </div>
                             </div>
-                            <a href="https://beautycounter.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('THRIVE25', this)" class="code-btn">
+                                    <span class="code-text">THRIVE25</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
+                            </div>
                         </div>
 
-                        <!-- Featured Perk 6: Purity Coffee -->
-                        <div class="discount-card featured-card" data-category="lifestyle" data-name="Purity Coffee" data-date="2024-09-05" data-featured="true" data-tier="featured">
-                            <div class="card-badge featured-badge">Featured</div>
-                            <div class="card-header">
-                                <div class="brand-logo-small featured-logo">
-                                    <span class="brand-initial">P</span>
-                                </div>
-                                <div class="brand-info">
-                                    <h5 class="brand-name">Purity Coffee</h5>
-                                    <div class="category-tag lifestyle">Lifestyle</div>
-                                </div>
-                            </div>
-                            <div class="offer-description">"The cleanest, best-tasting coffee"</div>
-                            <div class="code-section">
-                                <div class="code-display">
-                                    <input type="text" value="PURITY10" readonly class="code-field">
-                                    <button onclick="copyCodeToClipboard('PURITY10', this)" class="copy-btn" aria-label="Copy discount code">
-                                        <span class="copy-text">Copy Code</span>
-                                        <span class="copied-text">Copied!</span>
-                                    </button>
+                        <div class="code-card" data-category="wellness">
+                            <div class="code-card-header">
+                                <a href="https://seed.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/brand-logos/seed-logo-v2.png?v=20250930-final" alt="SEED Probiotics" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <h5 class="brand-name">SEED Probiotics</h5>
+                                    <p class="brand-desc">Science-backed daily probiotic</p>
+                                    <span class="category-tag wellness">WELLNESS</span>
                                 </div>
                             </div>
-                            <a href="https://puritycoffee.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('SEED15', this)" class="code-btn">
+                                    <span class="code-text">SEED15</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
+                            </div>
                         </div>
 
-                        <!-- TIER 3: Additional Codes (Hidden Initially) -->
-                        <div class="additional-codes-section" style="display: none;">
-                            
-                            <!-- Additional Code 1: Clean Monday Meals -->
-                            <div class="discount-card additional-card" data-category="lifestyle" data-name="Clean Monday Meals" data-date="2024-08-28" data-featured="false" data-tier="additional">
-                                <div class="card-badge perk-badge">Perk</div>
-                                <div class="card-header">
-                                    <div class="brand-logo-small">
-                                        <span class="brand-initial">C</span>
-                                    </div>
-                                    <div class="brand-info">
-                                        <h5 class="brand-name">Clean Monday Meals</h5>
-                                        <div class="category-tag lifestyle">Lifestyle</div>
-                                    </div>
+                        <div class="code-card" data-category="home">
+                            <div class="code-card-header">
+                                <a href="https://fromourplace.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/brand-logos/ourplace-official.png?v=20250930-final" alt="Our Place" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <h5 class="brand-name">Our Place</h5>
+                                    <p class="brand-desc">Beautiful, non-toxic cookware</p>
+                                    <span class="category-tag home">HOME</span>
                                 </div>
-                                <div class="offer-description">"Healthy meal delivery made simple"</div>
-                                <div class="code-section">
-                                    <div class="code-display">
-                                        <input type="text" value="NESTMEALS15" readonly class="code-field">
-                                        <button onclick="copyCodeToClipboard('NESTMEALS15', this)" class="copy-btn" aria-label="Copy discount code">
-                                            <span class="copy-text">Copy Code</span>
-                                            <span class="copied-text">Copied!</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <a href="https://cleanmondaymeals.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
                             </div>
-
-                            <!-- Additional Code 2: Ryze Superfoods -->
-                            <div class="discount-card additional-card" data-category="wellness" data-name="Ryze Superfoods" data-date="2024-08-25" data-featured="false" data-tier="additional">
-                                <div class="card-badge perk-badge">Perk</div>
-                                <div class="card-header">
-                                    <div class="brand-logo-small">
-                                        <span class="brand-initial">R</span>
-                                    </div>
-                                    <div class="brand-info">
-                                        <h5 class="brand-name">Ryze Superfoods</h5>
-                                        <div class="category-tag wellness">Wellness & Health</div>
-                                    </div>
-                                </div>
-                                <div class="offer-description">"Mushroom coffee without the jitters"</div>
-                                <div class="code-section">
-                                    <div class="code-display">
-                                        <input type="text" value="RYZE15" readonly class="code-field">
-                                        <button onclick="copyCodeToClipboard('RYZE15', this)" class="copy-btn" aria-label="Copy discount code">
-                                            <span class="copy-text">Copy Code</span>
-                                            <span class="copied-text">Copied!</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <a href="https://ryzeup.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('OURPLACE10', this)" class="code-btn">
+                                    <span class="code-text">OURPLACE10</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
                             </div>
+                        </div>
 
-                            <!-- Additional Code 3: Queen of Thrones -->
-                            <div class="discount-card additional-card" data-category="beauty" data-name="Queen of Thrones" data-date="2024-08-20" data-featured="false" data-tier="additional">
-                                <div class="card-badge perk-badge">Perk</div>
-                                <div class="card-header">
-                                    <div class="brand-logo-small">
-                                        <span class="brand-initial">Q</span>
-                                    </div>
-                                    <div class="brand-info">
-                                        <h5 class="brand-name">Queen of Thrones</h5>
-                                        <div class="category-tag beauty">Beauty & Style</div>
-                                    </div>
+                        <div class="code-card" data-category="beauty">
+                            <div class="code-card-header">
+                                <a href="https://dae.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/dae-logo.png?v=20250930-final" alt="DAE Hair" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <p class="brand-desc">Hair care that actually works</p>
+                                    <span class="category-tag beauty">BEAUTY</span>
                                 </div>
-                                <div class="offer-description">"Wellness tools for better sleep"</div>
-                                <div class="code-section">
-                                    <div class="code-display">
-                                        <input type="text" value="QUEENOFT10" readonly class="code-field">
-                                        <button onclick="copyCodeToClipboard('QUEENOFT10', this)" class="copy-btn" aria-label="Copy discount code">
-                                            <span class="copy-text">Copy Code</span>
-                                            <span class="copied-text">Copied!</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <a href="https://queenofthrones.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
                             </div>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('DAEHAIR15', this)" class="code-btn">
+                                    <span class="code-text">DAEHAIR15</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
+                            </div>
+                        </div>
 
-                            <!-- Additional Code 4: Clearly Filtered -->
-                            <div class="discount-card additional-card" data-category="home" data-name="Clearly Filtered" data-date="2024-08-15" data-featured="false" data-tier="additional">
-                                <div class="card-badge perk-badge">Perk</div>
-                                <div class="card-header">
-                                    <div class="brand-logo-small">
-                                        <span class="brand-initial">C</span>
-                                    </div>
-                                    <div class="brand-info">
-                                        <h5 class="brand-name">Clearly Filtered</h5>
-                                        <div class="category-tag home">Home & Kitchen</div>
-                                    </div>
+                        <div class="code-card" data-category="food">
+                            <div class="code-card-header">
+                                <a href="https://forceofnatureclean.com" target="_blank" rel="noopener" class="brand-icon">
+                                    <img src="assets/images/brand-logos/force-of-nature-official.png?v=20250930-final" alt="Force of Nature" class="brand-logo-img">
+                                </a>
+                                <div class="brand-details">
+                                    <h5 class="brand-name">Force of Nature</h5>
+                                    <p class="brand-desc">Safe cleaning that really works</p>
+                                    <span class="category-tag food">FOOD</span>
                                 </div>
-                                <div class="offer-description">"Water that tastes amazing"</div>
-                                <div class="code-section">
-                                    <div class="code-display">
-                                        <input type="text" value="CLEARLY10" readonly class="code-field">
-                                        <button onclick="copyCodeToClipboard('CLEARLY10', this)" class="copy-btn" aria-label="Copy discount code">
-                                            <span class="copy-text">Copy Code</span>
-                                            <span class="copied-text">Copied!</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <a href="https://clearlyfiltered.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
+                            </div>
+                            <div class="code-actions">
+                                <button onclick="copyCodeToClipboard('FORCE10', this)" class="code-btn">
+                                    <span class="code-text">FORCE10</span>
+                                    <span class="copy-icon">📋</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1406,40 +1472,42 @@
     <!-- Nest in the News Section - Visual Forward Design -->
     <section id="nest-in-the-news" class="media-section">
         <div class="media-wrapper">
-            <!-- Section Header -->
-            <div class="media-header">
-                <div class="media-eyebrow">MEDIA</div>
-                <h2 class="media-title">NEST IN THE NEWS</h2>
-                <div class="media-tagline">Press Coverage & Media Appearances</div>
-            </div>
-            
-            <!-- Visual Grid Layout -->
-            <div class="media-grid">
+            <div class="media-layout">
+                <!-- Left: Large Typography -->
+                <div class="media-typography">
+                    <div class="media-eyebrow">MEDIA</div>
+                    <h2 class="media-title">NEST IN THE NEWS</h2>
+                    <div class="media-tagline">Press Coverage & Media Appearances</div>
+                </div>
+                
+                <!-- Right: Media Content -->
+                <div class="media-content">
+                    <div class="media-grid">
                 <!-- Live TV Appearances -->
                 <div class="media-category">
                     <h3 class="media-category-title">LIVE TV APPEARANCES</h3>
                     <div class="media-logo-grid">
                         <a href="https://fox40.com/morning/lifestyle/family-focus-valentines-day-activities-for-families/" target="_blank" class="media-logo-item">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/fox40-clean.png" alt="Fox40 Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/fox40-new.png" alt="Fox40 Logo" class="media-logo-img">
                             </div>
                         </a>
                         
                         <div class="media-logo-item media-logo-inactive">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/good-day-sacramento-new.png" alt="Good Day Sacramento Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/good-day-sacramento.png?v=20250930-logo-fix" alt="Good Day Sacramento Logo" class="media-logo-img">
                             </div>
                         </div>
                         
                         <div class="media-logo-item media-logo-inactive">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/kcra3.png" alt="KCRA3 Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/kcra3-updated.jpg" alt="KCRA3 Logo" class="media-logo-img">
                             </div>
                         </div>
                         
                         <div class="media-logo-item media-logo-inactive">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/abc10.png" alt="ABC10 Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/abc10.png?v=20250930-logo-fix" alt="ABC10 Logo" class="media-logo-img">
                             </div>
                         </div>
                     </div>
@@ -1451,25 +1519,20 @@
                     <div class="media-logo-grid">
                         <a href="https://insidesacramento.com/third-times-a-charm/" target="_blank" class="media-logo-item">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/inside-sacramento.png" alt="Inside Sacramento Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/inside-sacramento-updated.jpg" alt="Inside Sacramento Logo" class="media-logo-img">
                             </div>
                         </a>
                         
+                        
                         <div class="media-logo-item media-logo-inactive">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/sierra-oaks-living-new.png" alt="Sierra Oaks Living Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/real-simple.png?v=20250930-logo-fix" alt="Real Simple Magazine Logo" class="media-logo-img">
                             </div>
                         </div>
                         
                         <div class="media-logo-item media-logo-inactive">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/real-simple.png" alt="Real Simple Magazine Logo" class="media-logo-img">
-                            </div>
-                        </div>
-                        
-                        <div class="media-logo-item media-logo-inactive">
-                            <div class="media-logo-container">
-                                <img src="assets/images/media-logos/chicken-soup-for-the-soul.png" alt="Chicken Soup for the Soul Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/chicken-soup-for-the-soul.png?v=20250930-logo-fix" alt="Chicken Soup for the Soul Logo" class="media-logo-img">
                             </div>
                         </div>
                     </div>
@@ -1518,17 +1581,22 @@
                 </div>
             </div>
             
-            <!-- See More Nest in the News Button -->
-            <div class="section-button-wrapper">
-                <a href="media.html" class="section-button">
-                    <span>See More Nest in the News</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
+                    </div>
+                    
+                    <!-- See More Nest in the News Button -->
+                    <div class="section-button-wrapper">
+                        <a href="media.html" class="section-button">
+                            <span>See More Nest in the News</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
 
     <!-- Let's Connect Section -->
     <section id="lets-connect" class="contact-section">
@@ -1592,6 +1660,6 @@
     </footer>
 
     <!-- Professional Scripts -->
-    <script src="assets/js/script.js?v=20240918a"></script>
+    <script src="assets/js/script.js?v=20240928-discount-filtering"></script>
 </body>
 </html>
