@@ -2376,6 +2376,54 @@ p, .body-text {
     filter: saturate(1) brightness(1.1);
 }
 
+/* Double the size of podcast covers */
+.media-logo-img[alt*="Podcast"] {
+    max-height: 300px; /* Double the standard 150px */
+}
+
+/* Make Let's Connect match other taglines size */
+.contact-section .contact-title {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 1.5rem !important;
+    color: #666 !important;
+}
+
+/* Fix book covers - remove white backgrounds to match First Lie Wins */
+.book-cover:not([alt*="First Lie Wins"]) {
+    mix-blend-mode: multiply;
+    filter: contrast(1.1) brightness(0.95);
+}
+
+/* Center the See All Content button in Inside the Nest section */
+.refined-section .section-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.refined-section .section-button {
+    background: var(--warm-blush);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.refined-section .section-button:hover {
+    background: var(--deep-charcoal);
+    transform: translateY(-2px);
+}
+
 .media-text-logo {
     background: rgba(255, 255, 255, 0.9);
 }
