@@ -10406,3 +10406,199 @@ div.recipes-tagline,
     padding-top: 0 !important; /* No extra padding */
     line-height: 1.2 !important; /* Readable line height */
 }
+
+/* RECIPE MODAL STYLES */
+.recipe-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.recipe-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.recipe-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    border-radius: 12px;
+    max-width: 800px;
+    max-height: 90vh;
+    width: 90%;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.recipe-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1rem 2rem;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.recipe-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--rich-brown);
+    margin: 0;
+}
+
+.recipe-modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.recipe-modal-close:hover {
+    background: #F5F5F5;
+    color: var(--rich-brown);
+}
+
+.recipe-modal-body {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.recipe-modal-image {
+    width: 100%;
+}
+
+.recipe-modal-image img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.recipe-modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.recipe-modal-time {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--brand-blush);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 8px 16px;
+    background: #F8F8F8;
+    border-radius: 20px;
+    display: inline-block;
+    width: fit-content;
+}
+
+.recipe-modal-ingredients h3,
+.recipe-modal-directions h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--rich-brown);
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.recipe-modal-ingredients ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recipe-modal-ingredients li {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-primary);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #F0F0F0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.recipe-modal-ingredients li:before {
+    content: '\2022';
+    color: var(--brand-blush);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.recipe-modal-directions ol {
+    counter-reset: step-counter;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recipe-modal-directions li {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-primary);
+    padding: 1rem 0;
+    border-bottom: 1px solid #F0F0F0;
+    position: relative;
+    padding-left: 3rem;
+    line-height: 1.6;
+    counter-increment: step-counter;
+}
+
+.recipe-modal-directions li:before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    background: var(--brand-blush);
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Responsive Recipe Modal */
+@media (max-width: 768px) {
+    .recipe-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .recipe-modal-body {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .recipe-modal-header {
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+    }
+    
+    .recipe-modal-title {
+        font-size: 2rem;
+    }
+}

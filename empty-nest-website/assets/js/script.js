@@ -3531,3 +3531,73 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 100);
 });
+
+// Recipe Modal Functions
+const recipeData = {
+    'fry-sauce': {
+        title: 'FRY SAUCE',
+        time: '5 mins',
+        image: 'assets/images/fry-sauce-recipe.jpg',
+        ingredients: [
+            '2/3 cup mayonnaise',
+            '1/3 cup ketchup'
+        ],
+        directions: [
+            'Mix all ingredients until smooth.',
+            'Refrigerate until ready to serve.',
+            'Eat with fries, chicken nuggets, or anything else yummy!'
+        ]
+    }
+};
+
+function openRecipeModal(recipeId) {
+    const recipe = recipeData[recipeId];
+    if (!recipe) return;
+    
+    // Populate modal content
+    document.getElementById('modalRecipeTitle').textContent = recipe.title;
+    document.getElementById('modalRecipeTime').textContent = recipe.time;
+    document.getElementById('modalRecipeImage').src = recipe.image;
+    
+    // Populate ingredients
+    const ingredientsList = document.getElementById('modalRecipeIngredients');
+    ingredientsList.innerHTML = '';
+    recipe.ingredients.forEach(ingredient => {
+        const li = document.createElement('li');
+        li.textContent = ingredient;
+        ingredientsList.appendChild(li);
+    });
+    
+    // Populate directions
+    const directionsList = document.getElementById('modalRecipeDirections');
+    directionsList.innerHTML = '';
+    recipe.directions.forEach(direction => {
+        const li = document.createElement('li');
+        li.textContent = direction;
+        directionsList.appendChild(li);
+    });
+    
+    // Show modal
+    document.getElementById('recipeModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeRecipeModal() {
+    document.getElementById('recipeModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside of it
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('recipeModal');
+    if (event.target === modal) {
+        closeRecipeModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeRecipeModal();
+    }
+});
