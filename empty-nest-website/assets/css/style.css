@@ -2174,7 +2174,7 @@ p, .body-text {
 /* Media Grid Layout */
 .media-grid {
     display: grid;
-    gap: 2rem;
+    gap: 1rem; /* Reduced from 2rem to make rows tighter */
 }
 
 .media-category {
@@ -2324,6 +2324,7 @@ p, .body-text {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    opacity: 0.7; /* Consistent transparency for all logos */
 }
 
 .media-logo-item:hover {
@@ -2332,8 +2333,7 @@ p, .body-text {
 }
 
 .media-logo-item.media-logo-inactive {
-    opacity: 0.7;
-    cursor: default;
+    cursor: default; /* Only difference is cursor for inactive ones */
 }
 
 .media-logo-item.media-logo-inactive:hover {
@@ -3243,7 +3243,7 @@ p, .body-text {
     align-items: center;
     gap: 8px;
     padding: 14px 28px;
-    background: var(--brand-blush);
+    background: var(--rich-brown); /* Changed to darker brown */
     color: var(--white);
     text-decoration: none;
     border-radius: 25px;
@@ -3254,14 +3254,14 @@ p, .body-text {
     text-transform: uppercase;
     transition: all 0.3s ease;
     border: none;
-    box-shadow: 0 4px 16px rgba(212, 164, 164, 0.3);
+    box-shadow: 0 4px 16px rgba(139, 111, 71, 0.3); /* Updated shadow for brown */
 }
 
 .picks-shop-all-button:hover {
-    background: var(--rich-brown);
+    background: #7A5E3A; /* Even darker brown on hover */
     color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4);
+    box-shadow: 0 6px 20px rgba(122, 94, 58, 0.4);
 }
 
 .picks-shop-all-button svg {
@@ -5907,8 +5907,8 @@ p, .body-text {
 
 .book-cover-wrapper {
     position: relative;
-    width: 220px;
-    height: 330px;
+    width: 280px; /* Significantly increased from 220px */
+    height: 420px; /* Significantly increased from 330px */
     border-radius: 0; /* SHARP EDGES: Match other design elements for consistency */
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
