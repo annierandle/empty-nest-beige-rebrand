@@ -3307,6 +3307,32 @@ const EnhancedDiscountSystem = {
         const additionalCards = document.querySelectorAll('.additional-codes-grid .code-card[data-category]');
         const allCards = [...featuredCards, ...additionalCards];
         
+        // Handle grid visibility based on category
+        const featuredGrid = document.querySelector('.featured-codes-grid');
+        const additionalGrid = document.querySelector('.additional-codes-grid');
+        
+        if (category === 'featured') {
+            // Featured filter: show featured grid, hide additional grid
+            if (featuredGrid) {
+                featuredGrid.style.display = 'grid';
+                featuredGrid.style.opacity = '1';
+            }
+            if (additionalGrid) {
+                additionalGrid.style.display = 'none';
+                additionalGrid.style.opacity = '0';
+            }
+        } else {
+            // All other filters: show both grids and filter individual cards
+            if (featuredGrid) {
+                featuredGrid.style.display = 'grid';
+                featuredGrid.style.opacity = '1';
+            }
+            if (additionalGrid) {
+                additionalGrid.style.display = 'grid';
+                additionalGrid.style.opacity = '1';
+            }
+        }
+        
         allCards.forEach((card, index) => {
             const cardCategory = card.getAttribute('data-category');
             let shouldShow = false;
@@ -3314,7 +3340,7 @@ const EnhancedDiscountSystem = {
             if (category === 'all') {
                 shouldShow = true;
             } else if (category === 'featured') {
-                // Show only the 4 featured codes
+                // Show only the 4 featured codes (this should be redundant due to grid hiding above)
                 shouldShow = card.closest('.featured-codes-grid') !== null;
             } else {
                 // Show specific category
