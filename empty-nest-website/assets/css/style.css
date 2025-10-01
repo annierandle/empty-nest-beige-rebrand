@@ -1495,7 +1495,7 @@ p, .body-text {
     text-transform: uppercase;
     color: #8A8A8A; /* Match partnerships - slightly lighter gray */
     margin-top: 0.5rem !important;
-    margin-bottom: 3rem !important;
+    margin-bottom: 1.5rem !important; /* REDUCED from 3rem to 1.5rem for tighter spacing to match other sections */
 }
 
 .refined-content {
@@ -1772,16 +1772,16 @@ p, .body-text {
 .brand-logo-img {
     width: auto !important;
     height: auto !important;
-    max-width: 95% !important;
-    max-height: 95% !important;
+    max-width: 100% !important; /* Use full container space for larger logos */
+    max-height: 100% !important; /* Use full container space for larger logos */
     object-fit: contain !important;
     object-position: center !important;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
     /* CRITICAL: Ensure logos scale properly regardless of original size */
-    min-width: 30px !important;
-    min-height: 30px !important;
+    min-width: 80px !important; /* Much larger minimum for 180px containers */
+    min-height: 80px !important; /* Much larger minimum for 180px containers */
     /* Additional optimization for brand logo display */
     background-color: transparent !important;
     border: none !important;
@@ -1864,8 +1864,8 @@ p, .body-text {
     }
     
     .brand-icon {
-        width: 40px;
-        height: 40px;
+        width: 120px !important; /* Maintain larger size on mobile/tablet */
+        height: 120px !important; /* Maintain larger size on mobile/tablet */
     }
 }
 
@@ -1961,7 +1961,6 @@ p, .body-text {
 /* STANDARDIZE ALL SECTION HEADER CONTAINERS - EXCEPT nest-approved */
 .about-header,
 .partnerships-typography,
-.refined-typography,
 .picks-header,
 .events-header,
 .media-header,
@@ -1974,6 +1973,55 @@ p, .body-text {
 /* NEST APPROVED TYPOGRAPHY - SPECIAL RULE TO MATCH refined-typography */
 .nest-approved-typography {
     margin-bottom: var(--content-gap) !important; /* MATCH .refined-typography EXACTLY */
+}
+
+/* REFINED TYPOGRAPHY - OVERRIDE TO MATCH OTHER SECTIONS */
+.refined-typography {
+    margin-bottom: var(--content-gap) !important; /* Match picks-header and other sections - SMALLER gap */
+}
+
+/* DISCOUNT CODE LOGOS - FORCE LARGER SIZE */
+.code-card .brand-icon,
+.discount-codes-compact .brand-icon {
+    width: 200px !important; /* FORCE much larger logos */
+    height: 200px !important; /* FORCE much larger logos */
+    min-width: 200px !important;
+    min-height: 200px !important;
+}
+
+.code-card .brand-logo-img,
+.discount-codes-compact .brand-logo-img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    min-width: 120px !important;
+    min-height: 120px !important;
+}
+
+/* FIX CLEARLY FILTERED BLACK BACKGROUND AND INCREASE SIZE */
+img[alt*="Clearly Filtered"] {
+    background: transparent !important;
+    mix-blend-mode: multiply !important;
+    filter: brightness(1.2) contrast(1.1) !important;
+    min-width: 180px !important; /* INCREASED logo size */
+    min-height: 180px !important; /* INCREASED logo size */
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+/* INCREASE SIZE FOR QUEEN OF THRONES LOGO */
+img[alt*="Queen of Thrones"] {
+    min-width: 180px !important; /* INCREASED logo size */
+    min-height: 180px !important; /* INCREASED logo size */
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+/* INCREASE SIZE FOR SLEEP WITH ME LOGO */
+img[alt*="SleepWithMe"] {
+    min-width: 180px !important; /* INCREASED logo size */
+    min-height: 180px !important; /* INCREASED logo size */
+    max-width: 100% !important;
+    max-height: 100% !important;
 }
 
 /* Ensure consistent spacing on mobile */
@@ -3271,7 +3319,10 @@ p, .body-text {
     }
     
     .signature-img {
-        max-width: 700px !important;
+        max-width: 250px !important; /* FIXED from problematic 700px to reasonable size */
+        opacity: 1 !important; /* Ensure visibility */
+        mix-blend-mode: normal !important; /* Normal blending */
+        filter: none !important; /* Remove problematic filters */
     }
     
     /* Small mobile category grid */
@@ -4487,7 +4538,7 @@ p, .body-text {
 
 .signature-img {
     width: auto;
-    max-width: 3200px !important; /* DOUBLED from 1600px to 3200px */
+    max-width: 250px !important; /* FIXED to reasonable size from problematic 3200px */
     height: auto;
     display: block;
     margin: 0;
@@ -4496,11 +4547,14 @@ p, .body-text {
     background-color: transparent !important;
     border: none;
     box-shadow: none;
+    opacity: 1 !important; /* Ensure visibility */
+    mix-blend-mode: normal !important; /* Normal blending to prevent black squares */
+    filter: none !important; /* Remove problematic filters */
     transition: all 0.3s ease;
     /* Remove white background if present in image */
     filter: drop-shadow(0 0 0 transparent);
-    /* Alternative: If image has white background, this can help blend */
-    mix-blend-mode: darken;
+    /* Removed problematic mix-blend-mode that was causing black square */
+    mix-blend-mode: normal;
 }
 
 .signature-img:hover {
@@ -5211,16 +5265,16 @@ p, .body-text {
 .brand-logo-img {
     width: auto !important;
     height: auto !important;
-    max-width: 95% !important;
-    max-height: 95% !important;
+    max-width: 100% !important; /* Use full container space for larger logos */
+    max-height: 100% !important; /* Use full container space for larger logos */
     object-fit: contain !important;
     object-position: center !important;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
     /* CRITICAL: Ensure logos scale properly regardless of original size */
-    min-width: 30px !important;
-    min-height: 30px !important;
+    min-width: 80px !important; /* Much larger minimum for 180px containers */
+    min-height: 80px !important; /* Much larger minimum for 180px containers */
     /* Additional optimization for brand logo display */
     background-color: transparent !important;
     border: none !important;
@@ -5303,8 +5357,8 @@ p, .body-text {
     }
     
     .brand-icon {
-        width: 40px;
-        height: 40px;
+        width: 120px !important; /* Maintain larger size on mobile/tablet */
+        height: 120px !important; /* Maintain larger size on mobile/tablet */
     }
 }
 
@@ -5615,8 +5669,8 @@ p, .body-text {
     .highlight-cover-image,
     .highlight-text-placeholder,
     .highlight-icon-placeholder {
-        width: 40px;
-        height: 40px;
+        width: 120px !important; /* Maintain larger size on mobile/tablet */
+        height: 120px !important; /* Maintain larger size on mobile/tablet */
     }
     
     .highlight-icon-placeholder svg {
@@ -5736,11 +5790,16 @@ p, .body-text {
     }
 }
 
-/* FORCE SIGNATURE IMAGE TO BE DOUBLE SIZE */
+/* FORCE SIGNATURE IMAGE TO BE VISIBLE AND PROPERLY SIZED */
 .signature-img {
-    max-width: 3200px !important;
+    max-width: 300px !important; /* Reasonable size instead of 3200px */
     width: auto !important;
     height: auto !important;
+    display: block !important; /* Force display */
+    opacity: 1 !important; /* Ensure visibility */
+    background: transparent !important; /* Transparent background */
+    mix-blend-mode: normal !important; /* Normal blending */
+    filter: none !important; /* Remove any problematic filters */
 }
 
 /* Shop Now button for Just Ingredients */
@@ -5757,7 +5816,7 @@ p, .body-text {
     background: var(--brand-blush);
     color: var(--white) !important;
     text-decoration: none;
-    border-radius: 20px;
+    border-radius: 0; /* Square corners for pink buttons as requested */
     font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
@@ -6114,8 +6173,8 @@ p, .body-text {
     }
     
     .book-carousel-btn {
-        width: 40px;
-        height: 40px;
+        width: 120px !important; /* Maintain larger size on mobile/tablet */
+        height: 120px !important; /* Maintain larger size on mobile/tablet */
     }
     
     .book-carousel-track {
@@ -6204,7 +6263,7 @@ div.about-tagline,
 div.page-header-tagline,
 div.blog-tagline {
     margin-top: 1.5rem !important; /* Proper breathing room from header */
-    margin-bottom: 5rem !important; /* Proper content separation */
+    margin-bottom: 1.5rem !important; /* REDUCED from 5rem to 1.5rem for consistent tight spacing */
 }
 
 /* NEST APPROVED EXCEPTION - Let it use proper spacing */
@@ -9082,8 +9141,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-icon {
-    width: 40px;
-    height: 40px;
+    width: 180px !important; /* MUCH larger for visibility */
+    height: 180px !important; /* MUCH larger for visibility */
     background: var(--color-primary);
     color: white;
     border-radius: 8px;
@@ -9708,7 +9767,7 @@ div.nest-approved-tagline,
     .media-tagline,
     .contact-tagline,
     .book-club-tagline {
-        margin-bottom: 4rem !important;
+        margin-bottom: 2rem !important; /* REDUCED from 4rem to 2rem for tighter mobile spacing */
     }
     
     /* Mobile content spacing */
@@ -10015,7 +10074,7 @@ div.nest-approved-tagline,
     color: white;
     border: none;
     padding: 1rem 2rem;
-    border-radius: 25px;
+    border-radius: 0; /* Square corners for pink buttons as requested */
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
@@ -10329,7 +10388,7 @@ div.nest-approved-tagline,
     color: white;
     border: none;
     padding: 0.75rem 1.5rem;
-    border-radius: 12px;
+    border-radius: 0; /* Square corners for pink buttons as requested */
     cursor: pointer;
     font-size: 1rem;
     font-weight: 600;
@@ -10704,5 +10763,670 @@ div.recipes-tagline,
     
     .recipe-modal-title {
         font-size: 2rem;
+    }
+}
+
+/* ===================================
+   COMPREHENSIVE UI FIXES - AGGRESSIVE CSS OVERRIDES
+   =================================== */
+
+/* 1. STOREFRONT QUOTES - SINGLE LINE FIX */
+.storefront-description {
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin-bottom: 0.25rem !important;
+}
+
+/* 2. JUST INGREDIENTS PILL STATS - SINGLE ROW FIX */
+.perk-highlights {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    justify-content: space-between !important;
+}
+
+.highlight-item {
+    flex: 1 !important;
+    min-width: 120px !important;
+    font-size: 0.75rem !important;
+    padding: 0.3rem 0.6rem !important;
+}
+
+/* 3. SHOP JUST INGREDIENTS BUTTON - ROUNDED CORNERS */
+.featured-shop-btn {
+    border-radius: 25px !important;
+}
+
+/* 4. PROFESSIONAL ICON REPLACEMENTS */
+.copy-icon {
+    font-family: inherit !important;
+}
+
+/* 5. BRAND LOGO SIZE FIXES - BALANCED SIZE FOR CARD LAYOUT */
+.code-card .brand-icon,
+.discount-codes-compact .brand-icon {
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    min-height: 80px !important;
+    flex-shrink: 0 !important;
+}
+
+.code-card .brand-logo-img,
+.discount-codes-compact .brand-logo-img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 80px !important;
+    max-height: 80px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+}
+
+/* 6. CLEARLY FILTERED LOGO - WHITE BACKGROUND WITH MULTIPLY BLEND */
+img[alt*="Clearly Filtered"] {
+    background: white !important;
+    mix-blend-mode: multiply !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 10px !important;
+    box-shadow: none !important;
+}
+
+/* 7. DISCOUNT CARD LAYOUT FIXES - PROPER CONTAINMENT WITH BALANCE */
+.code-card {
+    box-sizing: border-box !important;
+    min-height: 140px !important;
+    height: auto !important;
+    padding: 1rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 1rem !important;
+    overflow: hidden !important;
+    background: white !important;
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 8px !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Ensure card header takes available space */
+.code-card-header {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Brand icon container - optimal size for logos */
+.brand-icon {
+    flex-shrink: 0 !important;
+    width: 90px !important; /* Slightly smaller but adequate */
+    height: 70px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: visible !important; /* Let logos show fully */
+}
+
+/* Brand logo image - ensure it fits well */
+.brand-logo-img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+}
+
+/* Brand details container */
+.brand-details {
+    flex: 1 !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding-right: 0.5rem !important; /* Space from button */
+}
+
+.brand-desc {
+    font-size: 0.75rem !important;
+    line-height: 1.3 !important;
+    color: #666 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+}
+
+/* Code actions - properly contained but not overly restrictive */
+.code-actions {
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 0.5rem !important;
+    position: relative !important;
+    max-width: 25% !important;
+    min-width: 80px !important; /* Ensure minimum button width */
+}
+
+.code-btn {
+    font-size: 0.7rem !important;
+    padding: 0.5rem 0.7rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.25rem !important;
+    white-space: nowrap !important;
+    border-radius: 0 !important; /* Square buttons */
+    width: 100% !important; /* Use available button space */
+    max-width: 100px !important;
+    background: var(--brand-blush) !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    position: relative !important;
+}
+
+.code-text {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* Keep copy icon visible */
+.copy-icon {
+    flex-shrink: 0 !important;
+    margin-left: 0.25rem !important;
+}
+
+/* Hide category tags that might interfere */
+.category-tag {
+    display: none !important;
+}
+
+/* 8. STOREFRONT QUOTE SPACING */
+.storefront-description {
+    margin: 0.5rem 0 !important;
+    padding: 0.25rem 0 !important;
+}
+
+/* 9. STOREFRONT BUTTONS - ROUNDED */
+.storefront-btn {
+    border-radius: 25px !important;
+}
+
+/* 10. HIGHLIGHT ITEMS - CENTERED TEXT */
+.highlight-item {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 11. FORCE MOST PINK BUTTONS TO BE SQUARE (EXCEPT STOREFRONT) */
+.section-button,
+.shop-now-btn,
+.featured-code-btn,
+.show-more-btn,
+.cta-link {
+    border-radius: 0 !important;
+}
+
+/* 12. ENSURE FEATURED CODES GRID IS VISIBLE - OPTIMIZED LAYOUT */
+.featured-codes-grid,
+.additional-codes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 1.5rem !important;
+    margin-bottom: 3rem !important;
+    width: 100% !important;
+    justify-content: center !important;
+}
+
+.featured-codes-grid .code-card,
+.additional-codes-grid .code-card {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+}
+
+/* ===================================
+   DISCOUNT CARD CONTENT FIXES
+   =================================== */
+
+/* Brand description styling for better fit */
+.code-card .brand-desc {
+    font-size: 0.8rem !important;
+    line-height: 1.3 !important;
+    color: #666 !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 160px !important;
+}
+
+/* Hide category tags for cleaner card appearance */
+.code-card .category-tag {
+    display: none !important;
+}
+
+/* Code actions positioning */
+.code-actions {
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Code button styling */
+.code-btn {
+    font-size: 0.75rem !important;
+    padding: 0.6rem 0.8rem !important;
+    white-space: nowrap !important;
+    border-radius: 0 !important;
+    background: var(--brand-blush) !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.25rem !important;
+    min-width: 80px !important;
+    max-width: 120px !important;
+}
+
+.code-btn:hover {
+    background: #c9a6a6 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Code text styling */
+.code-text {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* Copy icon styling */
+.copy-icon {
+    flex-shrink: 0 !important;
+    font-size: 0.8rem !important;
+}
+
+/* ===================================
+   ABSOLUTE OVERRIDE FOR DISCOUNT CARDS
+   FINAL SOLUTION - NO MORE ISSUES!
+   =================================== */
+
+/* NUCLEAR OPTION: Complete override with VERTICAL LAYOUT - BIGGER LOGOS */
+.featured-codes-grid .code-card,
+.additional-codes-grid .code-card,
+.code-card.featured-card,
+.code-card {
+    /* FORCE CONTAINER DIMENSIONS - TALLER FOR BIG LOGOS */
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 340px !important;
+    min-height: 340px !important;
+    max-height: 340px !important;
+    
+    /* FORCE VERTICAL LAYOUT */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: center !important;
+    
+    /* FORCE SPACING */
+    padding: 1.5rem 1rem !important;
+    gap: 0.8rem !important;
+    margin: 0 !important;
+    
+    /* FORCE CONTAINMENT */
+    overflow: hidden !important;
+    
+    /* FORCE STYLING */
+    background: white !important;
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* FORCE CARD HEADER LAYOUT - VERTICAL STACK */
+.featured-codes-grid .code-card .code-card-header,
+.additional-codes-grid .code-card .code-card-header,
+.code-card-header {
+    /* FORCE FLEX CONTAINER */
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    text-align: center !important;
+    
+    /* FORCE CONTAINMENT */
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* FORCE BRAND ICON DIMENSIONS - EXTRA LARGE SIZE */
+.featured-codes-grid .code-card .brand-icon,
+.additional-codes-grid .code-card .brand-icon,
+.code-card .brand-icon,
+.brand-icon {
+    /* FORCE EXTRA LARGE DIMENSIONS - BIG LOGOS AS REQUESTED */
+    width: 180px !important;
+    height: 180px !important;
+    min-width: 180px !important;
+    min-height: 180px !important;
+    max-width: 180px !important;
+    max-height: 180px !important;
+    
+    /* FORCE POSITIONING */
+    flex-shrink: 0 !important;
+    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* FORCE STYLING */
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+/* FORCE BRAND LOGO IMAGE DIMENSIONS - EXTRA LARGE SIZE */
+.featured-codes-grid .code-card .brand-logo-img,
+.additional-codes-grid .code-card .brand-logo-img,
+.code-card .brand-logo-img,
+.brand-logo-img {
+    /* FORCE EXTRA LARGE IMAGE DIMENSIONS */
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 180px !important;
+    max-height: 180px !important;
+    min-width: 100px !important;
+    min-height: 100px !important;
+    
+    /* FORCE IMAGE FITTING */
+    object-fit: contain !important;
+    object-position: center !important;
+}
+
+/* FORCE BRAND DETAILS LAYOUT - MINIMAL SPACE */
+.featured-codes-grid .code-card .brand-details,
+.additional-codes-grid .code-card .brand-details,
+.code-card .brand-details,
+.brand-details {
+    /* FORCE FLEX CONTAINER - MINIMAL HEIGHT */
+    flex-shrink: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    
+    /* FORCE CONTAINMENT - MINIMAL SPACE */
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-height: 40px !important;
+}
+
+/* FORCE BRAND DESCRIPTION STYLING - COMPACT */
+.featured-codes-grid .code-card .brand-desc,
+.additional-codes-grid .code-card .brand-desc,
+.code-card .brand-desc,
+.brand-desc {
+    /* FORCE TEXT STYLING - SMALLER TO EMPHASIZE LOGO */
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
+    color: #666 !important;
+    font-weight: 400 !important;
+    
+    /* FORCE CONTAINMENT AND CENTERING - MINIMAL SPACE */
+    margin: 0 !important;
+    padding: 0.25rem 0 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    max-height: 30px !important;
+}
+
+/* HIDE ALL CATEGORY TAGS */
+.featured-codes-grid .code-card .category-tag,
+.additional-codes-grid .code-card .category-tag,
+.code-card .category-tag,
+.category-tag {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* FORCE CODE ACTIONS LAYOUT - BOTTOM OF CARD */
+.featured-codes-grid .code-card .code-actions,
+.additional-codes-grid .code-card .code-actions,
+.code-card .code-actions,
+.code-actions {
+    /* FORCE POSITIONING */
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    
+    /* FORCE LAYOUT */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* FORCE CODE BUTTON STYLING - COMPACT AT BOTTOM */
+.featured-codes-grid .code-card .code-btn,
+.additional-codes-grid .code-card .code-btn,
+.code-card .code-btn,
+.code-btn {
+    /* FORCE DIMENSIONS - SMALLER TO GIVE LOGO MORE SPACE */
+    width: 100% !important;
+    max-width: 160px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    
+    /* FORCE LAYOUT */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    
+    /* FORCE STYLING */
+    background: var(--brand-blush) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    
+    /* FORCE TEXT */
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    
+    /* FORCE SPACING */
+    padding: 0.6rem 0.8rem !important;
+    margin: 0 auto !important;
+    
+    /* FORCE CONTAINMENT */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.code-btn:hover {
+    background: #c9a6a6 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* FORCE CODE TEXT STYLING - LARGER FOR BOTTOM BUTTON */
+.featured-codes-grid .code-card .code-text,
+.additional-codes-grid .code-card .code-text,
+.code-card .code-text,
+.code-text {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 120px !important;
+}
+
+/* FORCE COPY ICON STYLING - LARGER FOR BOTTOM BUTTON */
+.featured-codes-grid .code-card .copy-icon,
+.additional-codes-grid .code-card .copy-icon,
+.code-card .copy-icon {
+    flex-shrink: 0 !important;
+    font-size: 0.8rem !important;
+    margin-left: 0.5rem !important;
+}
+
+/* FORCE GRID LAYOUTS */
+.featured-codes-grid,
+.additional-codes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* FORCE FEATURED STAR POSITIONING */
+.featured-star {
+    position: absolute !important;
+    top: 8px !important;
+    right: 8px !important;
+    font-size: 1rem !important;
+    z-index: 10 !important;
+}
+
+/* Mobile responsive fixes for vertical discount cards - BIG LOGOS MAINTAINED */
+@media (max-width: 768px) {
+    .featured-codes-grid,
+    .additional-codes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+        gap: 1rem !important;
+    }
+    
+    .code-card {
+        height: 320px !important;
+        min-height: 320px !important;
+        max-height: 320px !important;
+        padding: 1rem !important;
+    }
+    
+    .code-card .brand-icon {
+        width: 150px !important;
+        height: 150px !important;
+        min-width: 150px !important;
+        min-height: 150px !important;
+        max-width: 150px !important;
+        max-height: 150px !important;
+    }
+    
+    .code-card .brand-logo-img {
+        max-width: 150px !important;
+        max-height: 150px !important;
+        min-width: 80px !important;
+        min-height: 80px !important;
+    }
+    
+    .code-card .brand-desc {
+        font-size: 0.7rem !important;
+    }
+    
+    .code-btn {
+        width: 100% !important;
+        max-width: 140px !important;
+        height: 34px !important;
+        min-height: 34px !important;
+        max-height: 34px !important;
+        font-size: 0.65rem !important;
+        padding: 0.5rem 0.8rem !important;
+    }
+    
+    .code-text {
+        font-size: 0.6rem !important;
+        max-width: 90px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-codes-grid,
+    .additional-codes-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .code-card {
+        height: 280px !important;
+        min-height: 280px !important;
+        max-height: 280px !important;
+        padding: 0.8rem !important;
+        gap: 0.6rem !important;
+    }
+    
+    .code-card .brand-icon {
+        width: 120px !important;
+        height: 120px !important;
+        min-width: 120px !important;
+        min-height: 120px !important;
+        max-width: 120px !important;
+        max-height: 120px !important;
+    }
+    
+    .code-card .brand-logo-img {
+        max-width: 120px !important;
+        max-height: 120px !important;
+        min-width: 60px !important;
+        min-height: 60px !important;
+    }
+    
+    .code-card .brand-desc {
+        font-size: 0.7rem !important;
+    }
+    
+    .code-btn {
+        width: 100% !important;
+        max-width: 120px !important;
+        height: 32px !important;
+        min-height: 32px !important;
+        max-height: 32px !important;
+        font-size: 0.6rem !important;
+        padding: 0.4rem 0.6rem !important;
+    }
+    
+    .code-text {
+        font-size: 0.55rem !important;
+        max-width: 80px !important;
     }
 }

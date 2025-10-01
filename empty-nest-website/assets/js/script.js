@@ -179,11 +179,20 @@ class EmptyNestBrand {
 
         elementsToObserve.forEach(selector => {
             document.querySelectorAll(selector).forEach(element => {
-                scrollObserver.observe(element);
-                // Initial animation state
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(40px)';
-                element.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                // Skip discount code cards to prevent styling interference
+                const isDiscountCard = element.classList.contains('code-card') ||
+                                     element.closest('.featured-codes-grid') ||
+                                     element.closest('.additional-codes-grid');
+                
+                if (!isDiscountCard) {
+                    scrollObserver.observe(element);
+                    // Initial animation state
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(40px)';
+                    element.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                } else {
+                    console.log('Skipping discount card from scroll animation:', element.className);
+                }
             });
         });
     }
@@ -3526,10 +3535,13 @@ function createFloatingMessage(message, type = 'success') {
 document.addEventListener('DOMContentLoaded', () => {
     // Wait a bit to ensure other systems are initialized first
     setTimeout(() => {
-        if (document.querySelector('.discount-codes-system')) {
+        if (document.querySelector('.nest-approved-section') || document.querySelector('.featured-codes-grid')) {
+            console.log('Initializing EnhancedDiscountSystem...');
             EnhancedDiscountSystem.init();
+        } else {
+            console.log('Discount codes section not found');
         }
-    }, 100);
+    }, 500);
 });
 
 // Recipe Modal Functions
@@ -3601,3 +3613,90 @@ document.addEventListener('keydown', function(event) {
         closeRecipeModal();
     }
 });
+
+// ================================================================
+// NUCLEAR GRID FIX - FORCE DISCOUNT CODES TO DISPLAY PROPERLY
+// ================================================================
+
+function forceDiscountGridLayout() {
+    console.log('🔧 APPLYING NUCLEAR GRID FIX');
+    
+    // Force grid layout on discount code containers
+    const grids = document.querySelectorAll('.featured-codes-grid, .additional-codes-grid');
+    grids.forEach(grid => {
+        // Apply nuclear grid styles
+        grid.style.setProperty('display', 'grid', 'important');
+        grid.style.setProperty('grid-template-columns', 'repeat(3, 320px)', 'important');
+        grid.style.setProperty('justify-content', 'center', 'important');
+        grid.style.setProperty('gap', '2rem', 'important');
+        grid.style.setProperty('padding', '2rem', 'important');
+        grid.style.setProperty('margin', '0 auto', 'important');
+        grid.style.setProperty('width', '100%', 'important');
+        grid.style.setProperty('max-width', '1200px', 'important');
+        grid.style.setProperty('box-sizing', 'border-box', 'important');
+        
+        console.log('✅ Grid layout forced on:', grid.className);
+    });
+    
+    // Force card dimensions
+    const cards = document.querySelectorAll('.code-card');
+    cards.forEach(card => {
+        card.style.setProperty('width', '320px', 'important');
+        card.style.setProperty('height', '320px', 'important');
+        card.style.setProperty('min-width', '320px', 'important');
+        card.style.setProperty('min-height', '320px', 'important');
+        card.style.setProperty('max-width', '320px', 'important');
+        card.style.setProperty('max-height', '320px', 'important');
+        card.style.setProperty('background', 'white', 'important');
+        card.style.setProperty('border', '1px solid #E5E5E5', 'important');
+        card.style.setProperty('border-radius', '8px', 'important');
+    });
+    
+    // Fix black backgrounds on logos
+    const logoImages = document.querySelectorAll('.code-card img, .brand-logo-img');
+    logoImages.forEach(img => {
+        const src = img.src || '';
+        
+        // Check for specific problematic images
+        if (src.includes('5c9ec8ddd67b224de0701dc948538db8') || // Faster Way
+            src.includes('ab0bd2cd3f6ff0106dc9606233e14fb1') || // Article Consignment
+            src.includes('504f7169af982f2ddcc3b4612baf44a8') || // LUMEBOX
+            src.includes('d6cfefc0cfd42d3e03d627e1f7a2db43')) { // Too Cool T-Shirts
+            
+            img.style.setProperty('background', 'white', 'important');
+            img.style.setProperty('background-color', 'white', 'important');
+            img.style.setProperty('mix-blend-mode', 'multiply', 'important');
+            img.style.setProperty('filter', 'contrast(1.5) brightness(1.2)', 'important');
+            img.style.setProperty('padding', '15px', 'important');
+            img.style.setProperty('border-radius', '8px', 'important');
+            
+            console.log('🎨 Fixed black background for:', img.alt || 'Unknown logo');
+        } else {
+            // Apply general logo cleanup
+            img.style.setProperty('background', 'transparent', 'important');
+            img.style.setProperty('background-color', 'transparent', 'important');
+            img.style.setProperty('padding', '10px', 'important');
+        }
+    });
+    
+    console.log('✅ Nuclear grid fix applied successfully');
+}
+
+// Apply fix when page loads
+document.addEventListener('DOMContentLoaded', forceDiscountGridLayout);
+
+// Apply fix after a short delay to override any lazy loading
+window.addEventListener('load', () => {
+    setTimeout(forceDiscountGridLayout, 500);
+    setTimeout(forceDiscountGridLayout, 1000);
+    setTimeout(forceDiscountGridLayout, 2000);
+});
+
+// Apply fix when discount codes are filtered
+document.addEventListener('click', (e) => {
+    if (e.target.matches('.filter-btn')) {
+        setTimeout(forceDiscountGridLayout, 100);
+    }
+});
+
+console.log('🚀 Nuclear discount grid fix system initialized');
