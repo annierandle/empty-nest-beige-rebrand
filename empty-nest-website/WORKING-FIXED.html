@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empty Nest - WORKING Categories</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #F4EDE6; }
+        
+        h1 { text-align: center; color: #3A3A3A; }
+        
+        .filter-buttons { margin: 20px 0; text-align: center; }
+        .filter-btn {
+            background: #D9B6B6;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .filter-btn.active { background: #C8A5A5; }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 300px);
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .code-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 280px;
+        }
+        
+        .code-card.filter-hide { display: none; }
+        .code-card.filter-show { display: flex; }
+        
+        .brand-logo {
+            width: 180px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0 15px 0;
+            background: transparent;
+        }
+        
+        .brand-logo img {
+            max-width: 170px;
+            max-height: 90px;
+            object-fit: contain;
+            filter: brightness(1) contrast(1.1);
+        }
+        
+        .brand-logo-text {
+            font-family: Georgia, serif;
+            font-weight: 600;
+            color: #3A3A3A;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .brand-name { display: none; /* Hidden since we're using logos */ }
+        .brand-desc { font-size: 0.9rem; color: #666; margin: 5px 0; }
+        .discount-code { 
+            background: #D9B6B6; 
+            color: white; 
+            padding: 8px 15px; 
+            border-radius: 20px; 
+            font-weight: bold; 
+            font-size: 0.9rem;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+        .discount-code:hover { background: #C8A5A5; }
+        .category-tag { 
+            background: #D9B6B6; 
+            color: white; 
+            padding: 3px 8px; 
+            border-radius: 12px; 
+            font-size: 0.8rem; 
+        }
+        
+        .featured-star { font-size: 1.2rem; }
+        
+        @media (max-width: 1000px) {
+            .grid-container { grid-template-columns: repeat(2, 300px); }
+        }
+        
+        @media (max-width: 650px) {
+            .grid-container { grid-template-columns: 300px; }
+        }
+    </style>
+</head>
+<body>
+    <h1>🏡 Empty Nest Mom Life - Discount Codes</h1>
+    
+    <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterCards('featured')">⭐ Featured</button>
+        <button class="filter-btn" onclick="filterCards('wellness')">Wellness</button>
+        <button class="filter-btn" onclick="filterCards('beauty')">Beauty</button>
+        <button class="filter-btn" onclick="filterCards('home')">Home</button>
+        <button class="filter-btn" onclick="filterCards('food')">Food</button>
+        <button class="filter-btn" onclick="filterCards('lifestyle')">Lifestyle</button>
+        <button class="filter-btn" onclick="filterCards('all')">All Codes</button>
+    </div>
+    
+    <div class="grid-container">
+        <!-- WELLNESS CARDS -->
+        <div class="code-card featured-card" data-category="wellness">
+            <div class="featured-star">⭐</div>
+            <div class="brand-logo">
+                <img src="https://restoredwellnessclinic.com/wp-content/uploads/2024/11/Omnilux-Logo-removebg-preview-e1732101679166.png" alt="Omnilux LED" loading="lazy">
+            </div>
+            <div class="brand-desc">Professional red light therapy</div>
+            <div class="discount-code" onclick="copyCode('OMNILUX15')">OMNILUX15</div>
+            <div class="category-tag">WELLNESS</div>
+        </div>
+        
+        <div class="code-card featured-card" data-category="wellness">
+            <div class="featured-star">⭐</div>
+            <div class="brand-logo">
+                <img src="https://attachments.gorgias.help/cdn-cgi/image/quality=100,width=3840/https://attachments.gorgias.help/uploads.gorgias.io/bVpA37le49xJ5oEd/Secondary-Logo_CMYK_Black-9e85a33e-e4f4-4439-b717-bbec49697a6c.png" alt="ARMRA Colostrum" loading="lazy">
+            </div>
+            <div class="brand-desc">Daily immune support</div>
+            <div class="discount-code" onclick="copyCode('ARMRA10')">ARMRA10</div>
+            <div class="category-tag">WELLNESS</div>
+        </div>
+        
+
+        
+        <div class="code-card featured-card" data-category="wellness">
+            <div class="featured-star">⭐</div>
+            <div class="brand-logo">
+                <img src="https://cdn.cookielaw.org/logos/911fed17-661b-438d-8bed-dc4934735728/64388078-29d2-44ed-910b-db61d5bed368/437cd68d-eda1-44b1-894d-4e2f8580a891/Seed_Logo.jpg" alt="SEED Probiotics" loading="lazy">
+            </div>
+            <div class="brand-desc">Science-backed daily probiotic</div>
+            <div class="discount-code" onclick="copyCode('SEED15')">SEED15</div>
+            <div class="category-tag">WELLNESS</div>
+        </div>
+        
+        <!-- BEAUTY CARDS -->
+        <div class="code-card featured-card" data-category="beauty">
+            <div class="featured-star">⭐</div>
+            <div class="brand-logo">
+                <img src="https://lookaside.fbsbx.com/lookaside/crawler/instagram/sleepwithmebeauty/profile_pic.jpg" alt="SleepWithMe Beauty" loading="lazy">
+            </div>
+            <div class="brand-desc">Silk pillowcases for hair & skin</div>
+            <div class="discount-code" onclick="copyCode('NESTLIFE15')">NESTLIFE15</div>
+            <div class="category-tag">BEAUTY</div>
+        </div>
+        
+        <div class="code-card featured-card" data-category="beauty">
+            <div class="featured-star">⭐</div>
+            <div class="brand-logo">
+                <img src="https://thewonderjam.com/wp-content/uploads/Primally-Pure.png" alt="Primally Pure" loading="lazy">
+            </div>
+            <div class="brand-desc">Non-toxic natural beauty</div>
+            <div class="discount-code" onclick="copyCode('NATURALNEST15')">NATURALNEST15</div>
+            <div class="category-tag">BEAUTY</div>
+        </div>
+        
+        <div class="code-card" data-category="beauty">
+            <div class="brand-logo">
+                <img src="https://herheartstirs.com/wp-content/uploads/2020/03/Beautycounter.png" alt="Beautycounter" loading="lazy">
+            </div>
+            <div class="brand-desc">Clean makeup brand</div>
+            <div class="discount-code" onclick="copyCode('CLEANBEAUTY15')">CLEANBEAUTY15</div>
+            <div class="category-tag">BEAUTY</div>
+        </div>
+        
+
+        
+        <!-- HOME CARDS -->
+        <div class="code-card featured-card" data-category="home">
+            <div class="featured-star">⭐</div>
+            <div class="brand-logo">
+                <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/dc08d828-7077-4ed7-b741-f3a325587b83.__CR0,0,970,600_PT0_SX970_V1___.png" alt="Branch Basics" loading="lazy">
+            </div>
+            <div class="brand-desc">Non-toxic cleaning products</div>
+            <div class="discount-code" onclick="copyCode('EMPTYNEST10')">EMPTYNEST10</div>
+            <div class="category-tag">HOME</div>
+        </div>
+        
+        <div class="code-card" data-category="home">
+            <div class="brand-logo">
+                <img src="https://cdn.shopify.com/s/files/1/0291/2501/9692/files/ClearlyFiltered-Logo-Black.png" alt="Clearly Filtered" loading="lazy">
+            </div>
+            <div class="brand-desc">Water that tastes amazing</div>
+            <div class="discount-code" onclick="copyCode('CLEARLY10')">CLEARLY10</div>
+            <div class="category-tag">HOME</div>
+        </div>
+        
+        <div class="code-card" data-category="home">
+            <div class="brand-logo">
+                <img src="https://anthembranding.com/imager/media/Brands-retail/our-place/163734/our-place-logo-transparent_50fddbcdf1bc5728890207d304f83f3a.webp" alt="Our Place" loading="lazy">
+            </div>
+            <div class="brand-desc">Beautiful, non-toxic cookware</div>
+            <div class="discount-code" onclick="copyCode('OURPLACE10')">OURPLACE10</div>
+            <div class="category-tag">HOME</div>
+        </div>
+        
+        <div class="code-card" data-category="home">
+            <div class="brand-logo">
+                <img src="https://forceofnature.com/wp-content/uploads/2021/11/FON-logo-horz-black.png" alt="Force of Nature" loading="lazy">
+            </div>
+            <div class="brand-desc">Safe cleaning that really works</div>
+            <div class="discount-code" onclick="copyCode('FORCE10')">FORCE10</div>
+            <div class="category-tag">HOME</div>
+        </div>
+        
+        <!-- FOOD CARDS -->
+        <div class="code-card" data-category="food">
+            <div class="brand-logo">
+                <img src="https://cdn.shopify.com/s/files/1/0282/5294/4914/files/PurityCoffee-Logo-Black_300x.png" alt="Purity Coffee" loading="lazy">
+            </div>
+            <div class="brand-desc">Cleanest organic coffee</div>
+            <div class="discount-code" onclick="copyCode('PURITY10')">PURITY10</div>
+            <div class="category-tag">FOOD</div>
+        </div>
+        
+        <div class="code-card" data-category="food">
+            <div class="brand-logo">
+                <img src="https://cleanmondaymeals.com/wp-content/uploads/2024/03/Clean-Monday-Meals-Logo-Black.png" alt="Clean Monday Meals" loading="lazy">
+            </div>
+            <div class="brand-desc">Healthy meal delivery made simple</div>
+            <div class="discount-code" onclick="copyCode('NESTMEALS15')">NESTMEALS15</div>
+            <div class="category-tag">FOOD</div>
+        </div>
+        
+        <div class="code-card" data-category="food">
+            <div class="brand-logo">
+                <img src="https://ucarecdn.com/135a0744-8008-4cf1-ba3a-e02ecc196d2d/-/format/auto/-/preview/1024x1024/-/quality/lightest/Ryze%20Icons-02.png" alt="RYZE Superfoods" loading="lazy">
+            </div>
+            <div class="brand-desc">Mushroom coffee without the jitters</div>
+            <div class="discount-code" onclick="copyCode('RYZE15')">RYZE15</div>
+            <div class="category-tag">FOOD</div>
+        </div>
+        
+        <div class="code-card" data-category="food">
+            <div class="brand-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Thrive_Market_logo_%282020%29.svg/1200px-Thrive_Market_logo_%282020%29.svg.png" alt="Thrive Market" loading="lazy">
+            </div>
+            <div class="brand-desc">Organic groceries delivered to your door</div>
+            <div class="discount-code" onclick="copyCode('THRIVE25')">THRIVE25</div>
+            <div class="category-tag">FOOD</div>
+        </div>
+        
+        <!-- WELLNESS ADDITIONAL -->
+        <div class="code-card" data-category="wellness">
+            <div class="brand-logo">
+                <img src="https://mitchellholistichealth.com/wp-content/uploads/2023/07/original-3.png" alt="Queen of Thrones" loading="lazy">
+            </div>
+            <div class="brand-desc">Wellness tools for better sleep</div>
+            <div class="discount-code" onclick="copyCode('QUEENOFT10')">QUEENOFT10</div>
+            <div class="category-tag">WELLNESS</div>
+        </div>
+        
+        <div class="code-card" data-category="wellness">
+            <div class="brand-logo">
+                <img src="https://thelumebox.com/cdn/shop/files/LumeBox-Logo-White_1200x.png" alt="LUMEBOX" loading="lazy" style="filter: invert(1);">
+            </div>
+            <div class="brand-desc">Faster way to wellness</div>
+            <div class="discount-code" onclick="window.open('https://thelumebox.com/pages/lb68/?discount=emptynestmomlife', '_blank')">VISIT LINK</div>
+            <div class="category-tag">WELLNESS</div>
+        </div>
+        
+        <!-- LIFESTYLE -->
+        <div class="code-card" data-category="lifestyle">
+            <div class="brand-logo">
+                <img src="https://articleconsignment.com/wp-content/uploads/2022/03/Article-Consignment-Logo-Black.png" alt="Article Consignment" loading="lazy">
+            </div>
+            <div class="brand-desc">Pre-owned luxury goods</div>
+            <div class="discount-code" onclick="copyCode('EMPTYNESTMOMLIFE')">EMPTYNESTMOMLIFE</div>
+            <div class="category-tag">LIFESTYLE</div>
+        </div>
+        
+        <div class="code-card" data-category="lifestyle">
+            <div class="brand-logo">
+                <img src="https://toocooltshirtquilts.com/wp-content/uploads/2021/05/Too-Cool-T-Shirt-Quilts-Logo.png" alt="Too Cool T-Shirt Quilts" loading="lazy">
+            </div>
+            <div class="brand-desc">Custom memory quilts</div>
+            <div class="discount-code" onclick="copyCode('TSHIRTQUILTS10')">TSHIRTQUILTS10</div>
+            <div class="category-tag">LIFESTYLE</div>
+        </div>
+        
+        <div class="code-card" data-category="lifestyle">
+            <div class="brand-logo">
+                <img src="https://www.fasterwaytoweightloss.com/wp-content/uploads/2022/01/Faster-Way-Logo-Black.png" alt="Faster Way to Fat Loss" loading="lazy">
+            </div>
+            <div class="brand-desc">Health and fitness program</div>
+            <div class="discount-code" onclick="copyCode('FASTERWAY15')">FASTERWAY15</div>
+            <div class="category-tag">LIFESTYLE</div>
+        </div>
+    </div>
+    
+    <div id="debug-info" style="background: #f0f0f0; padding: 15px; margin: 20px; border-radius: 5px; text-align: center;">
+        <strong>Debug Info:</strong>
+        <div id="debug-content">Ready to test...</div>
+    </div>
+    
+    <script>
+        // EXACT SAME LOGIC AS THE WORKING TEST
+        function filterCards(category) {
+            console.log('🔍 Filtering for category:', category);
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Get all cards
+            const allCards = document.querySelectorAll('.code-card');
+            let visibleCount = 0;
+            
+            allCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const isFeatured = card.classList.contains('featured-card');
+                
+                let shouldShow = false;
+                
+                if (category === 'featured') {
+                    shouldShow = isFeatured;
+                } else if (category === 'all') {
+                    shouldShow = true;
+                } else {
+                    shouldShow = cardCategory === category;
+                }
+                
+                if (shouldShow) {
+                    card.classList.remove('filter-hide');
+                    card.classList.add('filter-show');
+                    visibleCount++;
+                } else {
+                    card.classList.remove('filter-show');
+                    card.classList.add('filter-hide');
+                }
+            });
+            
+            // Update debug info
+            document.getElementById('debug-content').innerHTML = 
+                `Category: <strong>${category}</strong><br>` +
+                `Total cards: ${allCards.length}<br>` +
+                `Visible cards: ${visibleCount}<br>` +
+                `Timestamp: ${new Date().toLocaleTimeString()}`;
+            
+            console.log(`✅ Filter complete - ${visibleCount}/${allCards.length} cards visible`);
+        }
+        
+        // Copy code function
+        window.copyCode = function(code) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(code).then(() => {
+                    alert(`✅ Copied: ${code}`);
+                }).catch(() => {
+                    prompt('Copy this code:', code);
+                });
+            } else {
+                prompt('Copy this code:', code);
+            }
+        };
+        
+        // Initialize
+        console.log('🚀 WORKING FIXED version loaded');
+        filterCards('featured');
+    </script>
+</body>
+</html>
