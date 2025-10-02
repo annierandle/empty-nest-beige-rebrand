@@ -107,13 +107,13 @@
     <h1>🏡 Empty Nest Mom Life - Discount Codes</h1>
     
     <div class="filter-buttons">
-        <button class="filter-btn active" onclick="filterCards('featured')">⭐ Featured</button>
-        <button class="filter-btn" onclick="filterCards('wellness')">Wellness</button>
-        <button class="filter-btn" onclick="filterCards('beauty')">Beauty</button>
-        <button class="filter-btn" onclick="filterCards('home')">Home</button>
-        <button class="filter-btn" onclick="filterCards('food')">Food</button>
-        <button class="filter-btn" onclick="filterCards('lifestyle')">Lifestyle</button>
-        <button class="filter-btn" onclick="filterCards('all')">All Codes</button>
+        <button class="filter-btn active" onclick="filterCards('featured', event)">⭐ Featured</button>
+        <button class="filter-btn" onclick="filterCards('wellness', event)">Wellness</button>
+        <button class="filter-btn" onclick="filterCards('beauty', event)">Beauty</button>
+        <button class="filter-btn" onclick="filterCards('home', event)">Home</button>
+        <button class="filter-btn" onclick="filterCards('food', event)">Food</button>
+        <button class="filter-btn" onclick="filterCards('lifestyle', event)">Lifestyle</button>
+        <button class="filter-btn" onclick="filterCards('all', event)">All Codes</button>
     </div>
     
     <div class="grid-container">
@@ -312,14 +312,16 @@
     
     <script>
         // EXACT SAME LOGIC AS THE WORKING TEST
-        function filterCards(category) {
+        function filterCards(category, event) {
             console.log('🔍 Filtering for category:', category);
             
             // Update active button
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
             
             // Get all cards
             const allCards = document.querySelectorAll('.code-card');
