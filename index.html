@@ -1612,8 +1612,6 @@
             transform: translateY(0) !important;
             visibility: visible !important;
             pointer-events: auto !important;
-            background: white !important;
-            border: 2px solid red !important; /* DEBUG: Make dropdown highly visible */
         }
         
         .dropdown-content {
@@ -1640,7 +1638,7 @@
         /* SQUARE JUST INGREDIENTS VIDEO LAYOUT */
         .featured-perk-container-horizontal {
             position: relative !important;
-            width: 400px !important;
+            width: 450px !important;
             height: 400px !important;
             margin: 0 auto !important;
             border-radius: 16px !important;
@@ -1745,6 +1743,122 @@
         
         .perk-header-section {
             margin-bottom: 1.5rem !important;
+        }
+        
+        /* SIGNATURE IMAGE FIXES */
+        .signature-container {
+            margin-top: 1.5rem !important;
+            text-align: left !important;
+        }
+        
+        .signature-image {
+            max-width: 200px !important;
+            height: auto !important;
+            background: transparent !important;
+            mix-blend-mode: multiply !important;
+            filter: contrast(1.2) !important;
+            display: block !important;
+        }
+        
+        /* NEST APPROVED HEADER LAYOUT FIXES */
+        .nest-approved-title {
+            white-space: nowrap !important;
+            display: inline !important;
+        }
+        
+        .nest-approved-tagline {
+            max-width: none !important;
+            width: auto !important;
+            white-space: nowrap !important;
+            display: inline-block !important;
+        }
+        
+        .nest-approved-typography {
+            text-align: center !important;
+        }
+        
+        /* JUST INGREDIENTS LOGO SIZE INCREASE */
+        .header-logo-horizontal {
+            transform: scale(2) !important;
+            transform-origin: left center !important;
+            margin-right: 2rem !important;
+        }
+        
+        /* JUST INGREDIENTS BUTTON - MATCH COLLECTION STYLE */
+        .featured-shop-btn-horizontal .btn-arrow {
+            color: white !important;
+            font-size: 1.2rem !important;
+        }
+        
+        /* EMPTY NEST PICKS SHOP ALL BUTTON - SMALLER PINK WITH SHARP CORNERS */
+        .picks-shop-all-button {
+            background: #D4A4A4 !important;
+            color: white !important;
+            padding: 0.5rem 1rem !important;
+            text-decoration: none !important;
+            border-radius: 4px !important;
+            font-weight: 600 !important;
+            font-size: 0.8rem !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.4rem !important;
+            transition: all 0.3s ease !important;
+            width: auto !important;
+            max-width: 120px !important;
+        }
+        
+        .picks-shop-all-button:hover {
+            background: #c47189 !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        .picks-shop-all-button svg {
+            width: 16px !important;
+            height: 16px !important;
+        }
+        
+        /* NEST CELEBRATION TEXT SIZE REDUCTION - MORE SUBTLE FOR PHOTO VISIBILITY */
+        .event-title {
+            font-size: 1.1rem !important;
+            font-weight: 500 !important;
+            line-height: 1.3 !important;
+        }
+        
+        .event-description {
+            font-size: 0.8rem !important;
+            font-weight: 300 !important;
+            opacity: 0.9 !important;
+            line-height: 1.4 !important;
+        }
+        
+        .event-category-tag {
+            font-size: 0.7rem !important;
+            padding: 0.3rem 0.6rem !important;
+            font-weight: 500 !important;
+        }
+        
+        .event-meta {
+            font-size: 0.7rem !important;
+        }
+        
+        /* EMPTY NEST EATS TEXT CONSISTENCY - MATCH NEST CELEBRATION SIZING */
+        .recipe-title {
+            font-size: 1.1rem !important;
+            font-weight: 500 !important;
+            line-height: 1.3 !important;
+        }
+        
+        .recipe-description {
+            font-size: 0.8rem !important;
+            font-weight: 300 !important;
+            opacity: 0.9 !important;
+            line-height: 1.4 !important;
+        }
+        
+        .recipe-category-tag {
+            font-size: 0.7rem !important;
+            padding: 0.3rem 0.6rem !important;
+            font-weight: 500 !important;
         }
     </style>
 </head>
@@ -1864,9 +1978,9 @@
                     <div class="about-story-section">
                         <h3 class="story-headline">THE JOURNEY SO FAR</h3>
                         <div class="story-content">
-                            <p>From helping my kids navigate their first apartments to finally taking those dream trips with my husband of 32 years, this stage is filled with unexpected joys and fresh possibilities.</p>
+                            <p style="font-size: 0.85rem !important; line-height: 1.4 !important;">From helping my kids navigate their first apartments to finally taking those dream trips with my husband of 32 years, this stage is filled with unexpected joys and fresh possibilities.</p>
                             
-                            <p>Recently, I shared our biggest transition yet: moving our family across the country from California to Tennessee. The entire journey of selling our family home, starting fresh in a new community, and making friends in our 50s has been equal parts terrifying and exhilarating.</p>
+                            <p style="font-size: 0.85rem !important; line-height: 1.4 !important;">Recently, I shared our biggest transition yet: moving our family across the country from California to Tennessee. The entire journey of selling our family home, starting fresh in a new community, and making friends in our 50s has been equal parts terrifying and exhilarating.</p>
                         </div>
                     </div>
                     
@@ -2056,13 +2170,15 @@
                         <div class="category-tile" data-category="home" onclick="openHighlightsModal('home')" style="background-image: url('assets/images/category-covers/Home.png')">
                             <div class="category-overlay"></div>
                             <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                                        <polyline points="9,22 9,12 15,12 15,22"/>
-                                    </svg>
+                                <div class="category-bottom-left">
+                                    <div class="category-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                            <polyline points="9,22 9,12 15,12 15,22"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="category-label">HOME</h3>
                                 </div>
-                                <h3 class="category-label">HOME</h3>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2076,12 +2192,14 @@
                         <div class="category-tile" data-category="wellness" onclick="openHighlightsModal('wellness')" style="background-image: url('assets/images/category-covers/Wellness.png')">
                             <div class="category-overlay"></div>
                             <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                                    </svg>
+                                <div class="category-bottom-left">
+                                    <div class="category-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="category-label">WELLNESS</h3>
                                 </div>
-                                <h3 class="category-label">WELLNESS</h3>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2095,16 +2213,18 @@
                         <div class="category-tile" data-category="travel" onclick="openHighlightsModal('travel')" style="background-image: url('assets/images/category-covers/Travel.png')">
                             <div class="category-overlay"></div>
                             <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                                        <polyline points="7.5,4.21 12,6.81 16.5,4.21"/>
-                                        <polyline points="7.5,19.79 7.5,14.6 3,12"/>
-                                        <polyline points="21,12 16.5,14.6 16.5,19.79"/>
-                                        <polyline points="12,22.81 12,17"/>
-                                    </svg>
+                                <div class="category-bottom-left">
+                                    <div class="category-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                            <polyline points="7.5,4.21 12,6.81 16.5,4.21"/>
+                                            <polyline points="7.5,19.79 7.5,14.6 3,12"/>
+                                            <polyline points="21,12 16.5,14.6 16.5,19.79"/>
+                                            <polyline points="12,22.81 12,17"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="category-label">TRAVEL</h3>
                                 </div>
-                                <h3 class="category-label">TRAVEL</h3>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2118,15 +2238,17 @@
                         <div class="category-tile" data-category="events" onclick="openHighlightsModal('events')" style="background-image: url('assets/images/category-covers/Events.png')">
                             <div class="category-overlay"></div>
                             <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                        <line x1="16" y1="2" x2="16" y2="6"/>
-                                        <line x1="8" y1="2" x2="8" y2="6"/>
-                                        <line x1="3" y1="10" x2="21" y2="10"/>
-                                    </svg>
+                                <div class="category-bottom-left">
+                                    <div class="category-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                            <line x1="16" y1="2" x2="16" y2="6"/>
+                                            <line x1="8" y1="2" x2="8" y2="6"/>
+                                            <line x1="3" y1="10" x2="21" y2="10"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="category-label">EVENTS</h3>
                                 </div>
-                                <h3 class="category-label">EVENTS</h3>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2140,16 +2262,18 @@
                         <div class="category-tile" data-category="food" onclick="openHighlightsModal('food')" style="background-image: url('assets/images/category-covers/Food.png')">
                             <div class="category-overlay"></div>
                             <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
-                                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-                                        <line x1="6" y1="1" x2="6" y2="4"/>
-                                        <line x1="10" y1="1" x2="10" y2="4"/>
-                                        <line x1="14" y1="1" x2="14" y2="4"/>
-                                    </svg>
+                                <div class="category-bottom-left">
+                                    <div class="category-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                                            <line x1="6" y1="1" x2="6" y2="4"/>
+                                            <line x1="10" y1="1" x2="10" y2="4"/>
+                                            <line x1="14" y1="1" x2="14" y2="4"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="category-label">FOOD</h3>
                                 </div>
-                                <h3 class="category-label">FOOD</h3>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2163,12 +2287,14 @@
                         <div class="category-tile" data-category="holidays" onclick="openHighlightsModal('holidays')" style="background-image: url('assets/images/category-covers/Holidays.png')">
                             <div class="category-overlay"></div>
                             <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
-                                    </svg>
+                                <div class="category-bottom-left">
+                                    <div class="category-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="category-label">HOLIDAYS</h3>
                                 </div>
-                                <h3 class="category-label">HOLIDAYS</h3>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2182,12 +2308,14 @@
                         <div class="category-tile" data-category="politics" onclick="openHighlightsModal('politics')" style="background-image: url('assets/images/category-covers/Politics.png')">
                             <div class="category-overlay"></div>
                             <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <polygon points="12,2 15.09,8.26 22,9 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9 8.91,8.26 12,2"/>
-                                    </svg>
+                                <div class="category-bottom-left">
+                                    <div class="category-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <polygon points="12,2 15.09,8.26 22,9 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9 8.91,8.26 12,2"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="category-label">POLITICS</h3>
                                 </div>
-                                <h3 class="category-label">POLITICS</h3>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2201,13 +2329,15 @@
                         <div class="category-tile" data-category="tips" onclick="openHighlightsModal('tips')" style="background-image: url('https://page.gensparksite.com/v1/base64_upload/2ac01dd15e9ff346a0aea698662380cd')">
                             <div class="category-overlay"></div>
                             <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <circle cx="12" cy="12" r="3"/>
-                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                                    </svg>
+                                <div class="category-bottom-left">
+                                    <div class="category-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <circle cx="12" cy="12" r="3"/>
+                                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="category-label">TIPS & TRICKS</h3>
                                 </div>
-                                <h3 class="category-label">TIPS & TRICKS</h3>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2221,13 +2351,15 @@
                         <div class="category-tile" data-category="fashion" onclick="openHighlightsModal('fashion')" style="background-image: url('assets/images/category-covers/Fashion.png'); background-position: center 30%;">
                             <div class="category-overlay"></div>
                             <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M6 2l3 6v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8z"/>
-                                        <path d="M18 2l-3 6v14a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V8z"/>
-                                    </svg>
+                                <div class="category-bottom-left">
+                                    <div class="category-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M6 2l3 6v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8z"/>
+                                            <path d="M18 2l-3 6v14a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V8z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="category-label">STYLE</h3>
                                 </div>
-                                <h3 class="category-label">STYLE</h3>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2241,12 +2373,14 @@
                         <div class="category-tile" data-category="beauty" onclick="openHighlightsModal('beauty')" style="background-image: url('assets/images/category-covers/Beauty.png')">
                             <div class="category-overlay"></div>
                             <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                                    </svg>
+                                <div class="category-bottom-left">
+                                    <div class="category-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="category-label">BEAUTY</h3>
                                 </div>
-                                <h3 class="category-label">BEAUTY</h3>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2260,14 +2394,16 @@
                         <div class="category-tile" data-category="business" onclick="openHighlightsModal('business')" style="background-image: url('assets/images/category-covers/Business.png')">
                             <div class="category-overlay"></div>
                             <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                                        <line x1="8" y1="21" x2="16" y2="21"/>
-                                        <line x1="12" y1="17" x2="12" y2="21"/>
-                                    </svg>
+                                <div class="category-bottom-left">
+                                    <div class="category-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="category-label">BUSINESS</h3>
                                 </div>
-                                <h3 class="category-label">BUSINESS</h3>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2452,7 +2588,7 @@
             
             <!-- Shop All Button -->
             <div class="picks-shop-all-wrapper">
-                <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" rel="noopener" class="picks-shop-all-button">
+                <a href="collections.html" class="picks-shop-all-button">
                     <span>SHOP ALL</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
