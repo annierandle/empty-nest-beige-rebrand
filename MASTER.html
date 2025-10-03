@@ -1453,7 +1453,7 @@
             margin-top: 3.5rem !important;
         }
         
-        /* INSIDE THE NEST CATEGORY SQUARES - REVERT TEXT SIZE AND POSITION ICONS */
+        /* INSIDE THE NEST CATEGORY SQUARES - BOTTOM LEFT POSITIONING */
         .category-content {
             position: absolute !important;
             bottom: 20px !important;
@@ -1466,21 +1466,27 @@
             gap: 8px !important;
         }
         
+        /* POSITION ICON AND TEXT IN BOTTOM LEFT */
+        .category-icon {
+            position: absolute !important;
+            bottom: 45px !important;
+            left: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            z-index: 4 !important;
+        }
+        
         .category-label {
+            position: absolute !important;
+            bottom: 20px !important;
+            left: 0 !important;
             font-size: 0.8rem !important;
             font-weight: 600 !important;
             color: white !important;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
             margin: 0 !important;
-        }
-        
-        .category-icon {
-            position: static !important;
-            transform: none !important;
-            margin-bottom: 4px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: flex-start !important;
+            z-index: 4 !important;
         }
         
         .category-click-hint {
@@ -1489,6 +1495,8 @@
             display: flex !important;
             align-items: center !important;
             gap: 4px !important;
+            position: relative !important;
+            margin-top: 60px !important;
         }
 
         /* ENHANCED JUST INGREDIENTS VISUAL DESIGN */
@@ -1501,30 +1509,97 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
         }
         
-        .featured-perk-container::before {
-            content: '🌿 ✨ 🌱 ✨ 🌿 ✨ 🌱 ✨' !important;
+        /* HORIZONTAL JUST INGREDIENTS VIDEO LAYOUT */
+        .featured-perk-container-horizontal {
+            position: relative !important;
+            width: 100% !important;
+            height: 250px !important;
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            background: #000 !important;
+        }
+        
+        .just-ingredients-video {
             position: absolute !important;
-            top: 10px !important;
+            top: 0 !important;
             left: 0 !important;
-            right: 0 !important;
-            text-align: center !important;
-            font-size: 1.2rem !important;
-            opacity: 0.6 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
             z-index: 1 !important;
         }
         
-        .featured-perk-container::after {
-            content: '💚 Clean • 🌟 Pure • 💎 Premium' !important;
+        .video-overlay-content {
             position: absolute !important;
-            bottom: 10px !important;
+            top: 0 !important;
             left: 0 !important;
-            right: 0 !important;
-            text-align: center !important;
-            font-size: 0.8rem !important;
-            color: #28a745 !important;
+            width: 100% !important;
+            height: 100% !important;
+            background: rgba(0, 0, 0, 0.4) !important;
+            display: flex !important;
+            align-items: center !important;
+            padding: 2rem !important;
+            gap: 2rem !important;
+            z-index: 2 !important;
+        }
+        
+        .perk-left-content {
+            flex: 0 0 auto !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1rem !important;
+        }
+        
+        .header-logo-horizontal {
+            width: 120px !important;
+            height: auto !important;
+            filter: brightness(0) invert(1) !important;
+        }
+        
+        .perk-center-content {
+            flex: 1 !important;
+            color: white !important;
+            text-align: left !important;
+        }
+        
+        .perk-center-content .featured-perk-tagline {
+            font-size: 1.2rem !important;
             font-weight: 600 !important;
-            opacity: 0.8 !important;
-            z-index: 1 !important;
+            margin-bottom: 0.5rem !important;
+            color: white !important;
+        }
+        
+        .perk-center-content .featured-perk-description {
+            font-size: 0.9rem !important;
+            line-height: 1.4 !important;
+            opacity: 0.9 !important;
+            color: white !important;
+        }
+        
+        .perk-right-content {
+            flex: 0 0 auto !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1rem !important;
+            align-items: flex-end !important;
+        }
+        
+        .featured-shop-btn-horizontal {
+            background: #D4A4A4 !important;
+            color: white !important;
+            padding: 0.75rem 1.5rem !important;
+            text-decoration: none !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.5rem !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .featured-shop-btn-horizontal:hover {
+            background: #c47189 !important;
+            transform: translateY(-2px) !important;
         }
         
         .perk-header-section,
@@ -1667,7 +1742,7 @@
                     <div class="about-story-section">
                         <h3 class="story-headline">WHAT LIGHTS ME UP</h3>
                         <div class="story-content">
-                            <p>When I'm not planning family gatherings or helping with apartment decorating, you'll find me grocery shopping or cooking, playing pickleball, learning golf, or running our award-winning PR company. My tips have been featured on TV, podcasts, and magazines, but my real passion is inspiring parents to embrace and enjoy this incredible new chapter.</p>
+                            <p style="font-size: 0.85rem !important; line-height: 1.4 !important;">When I'm not planning family gatherings or helping with apartment decorating, you'll find me grocery shopping or cooking, playing pickleball, learning golf, or running our award-winning PR company. My tips have been featured on TV, podcasts, and magazines, but my real passion is inspiring parents to embrace and enjoy this incredible new chapter.</p>
                             
                             <!-- Huge Scribbly Signature Text -->
                             <div class="signature-text">
@@ -1746,61 +1821,55 @@
                     <h3 class="subsection-title">COMMUNITY PERKS & EXCLUSIVE CODES</h3>
                 </div>
 
-                <!-- FEATURED COMMUNITY PERK - Just Ingredients Main Highlight -->
+                <!-- FEATURED COMMUNITY PERK - Just Ingredients Horizontal Video Layout -->
                 <div class="featured-community-perk">
-                    <div class="featured-perk-container">
-                        <!-- Logo in header position -->
-                        <div class="perk-header-section">
-                            <div class="perk-logo-header">
-                                <img src="assets/images/storefronts/just-ingredients-logo.png" alt="Just Ingredients" class="header-logo">
-                            </div>
-                            <div class="perk-trust-indicator">
-                                <span class="trust-badge">KELLIE APPROVED</span>
-                            </div>
-                        </div>
+                    <div class="featured-perk-container-horizontal">
+                        <!-- Video Background -->
+                        <video autoplay muted loop playsinline class="just-ingredients-video">
+                            <source src="assets/videos/just-ingredients.mp4" type="video/mp4">
+                        </video>
                         
-                        <!-- Content section with proper spacing -->
-                        <div class="featured-perk-content">
-                            <div class="perk-details">
+                        <!-- Overlay Content -->
+                        <div class="video-overlay-content">
+                            <!-- Left Side: Logo and Trust Badge -->
+                            <div class="perk-left-content">
+                                <div class="perk-logo-header">
+                                    <img src="assets/images/storefronts/just-ingredients-logo.png" alt="Just Ingredients" class="header-logo-horizontal">
+                                </div>
+                                <div class="perk-trust-indicator">
+                                    <span class="trust-badge">KELLIE APPROVED</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Center: Description -->
+                            <div class="perk-center-content">
                                 <p class="featured-perk-tagline">Clean supplements you can trust</p>
-                                <p class="featured-perk-description" style="font-size: 0.85rem !important; line-height: 1.4 !important; opacity: 0.8 !important;">
+                                <p class="featured-perk-description">
                                     Clean supplements you can trust—no fillers, no artificial ingredients, just pure nutrition I feel confident giving to my family.
                                 </p>
-                                <div class="perk-highlights" style="display: flex !important; flex-wrap: wrap !important; gap: 0.5rem !important; justify-content: space-between !important;">
-                                    <div class="highlight-item" style="flex: 1 !important; min-width: 120px !important; font-size: 0.75rem !important; padding: 0.3rem 0.6rem !important; text-align: center !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important;">
-                                        <span class="highlight-icon">🌿</span>
-                                        <span class="highlight-text">100% Clean</span>
-                                    </div>
-                                    <div class="highlight-item" style="flex: 1 !important; min-width: 120px !important; font-size: 0.75rem !important; padding: 0.3rem 0.6rem !important; text-align: center !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important;">
-                                        <span class="highlight-icon">🔬</span>
-                                        <span class="highlight-text">Third-Party Tested</span>
-                                    </div>
-                                    <div class="highlight-item" style="flex: 1 !important; min-width: 120px !important; font-size: 0.75rem !important; padding: 0.3rem 0.6rem !important; text-align: center !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important;">
-                                        <span class="highlight-icon">👨‍👩‍👧‍👦</span>
-                                        <span class="highlight-text">Family Safe</span>
+                            </div>
+                            
+                            <!-- Right Side: Code and Button -->
+                            <div class="perk-right-content">
+                                <div class="perk-offer">
+                                    <span class="offer-text">EXCLUSIVE OFFER</span>
+                                    <div class="perk-code-display">
+                                        <button onclick="copyCodeToClipboard('EMPTYNEST25', this)" class="featured-code-btn">
+                                            <span class="code-text">EMPTYNEST25</span>
+                                            <span class="copy-icon">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                            </svg>
+                                        </span>
+                                        </button>
                                     </div>
                                 </div>
+                                <a href="https://justingredients.com" target="_blank" rel="noopener" class="featured-shop-btn-horizontal">
+                                    <span class="btn-text">Shop Now</span>
+                                    <span class="btn-arrow">→</span>
+                                </a>
                             </div>
-                        </div>
-                        <div class="featured-perk-actions">
-                            <div class="perk-offer">
-                                <span class="offer-text">EXCLUSIVE COMMUNITY OFFER</span>
-                                <div class="perk-code-display">
-                                    <button onclick="copyCodeToClipboard('EMPTYNEST25', this)" class="featured-code-btn">
-                                        <span class="code-text">EMPTYNEST25</span>
-                                        <span class="copy-icon">
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                        </svg>
-                                    </span>
-                                    </button>
-                                </div>
-                            </div>
-                            <a href="https://justingredients.com" target="_blank" rel="noopener" class="featured-shop-btn" style="border-radius: 25px !important;">
-                                <span class="btn-text">Shop Just Ingredients</span>
-                                <span class="btn-arrow">→</span>
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -2173,7 +2242,7 @@
                             </div>
                             <h3 class="product-title">French Vanilla Protein Powder</h3>
                             <p class="product-price">$44.99</p>
-                            <a href="https://justingredients.com/products/french-vanilla-protein-powder" target="_blank" class="product-cta">Shop</a>
+                            <a href="https://justingredients.com" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
                         <!-- Product 2 -->
@@ -2183,7 +2252,7 @@
                             </div>
                             <h3 class="product-title">Magnesium Supplement</h3>
                             <p class="product-price">$32.99</p>
-                            <a href="https://justingredients.com/products/magnesium-supplement" target="_blank" class="product-cta">Shop</a>
+                            <a href="https://justingredients.com" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
                         <!-- Product 3 -->
@@ -2193,7 +2262,7 @@
                             </div>
                             <h3 class="product-title">Our Place Everything Pan</h3>
                             <p class="product-price">$150.00</p>
-                            <a href="https://fromourplace.com/products/always-essential-cooking-pan" target="_blank" class="product-cta">Shop</a>
+                            <a href="https://fromourplace.com" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
                         <!-- Product 4 -->
@@ -2203,7 +2272,7 @@
                             </div>
                             <h3 class="product-title">Tula Under Eye Brightener</h3>
                             <p class="product-price">$38.00</p>
-                            <a href="https://tulaskincare.com/products/brighten-up-eye-cream" target="_blank" class="product-cta">Shop</a>
+                            <a href="https://tulaskincare.com" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
                         <!-- Product 5 -->
@@ -2213,7 +2282,7 @@
                             </div>
                             <h3 class="product-title">Electric Wine Opener</h3>
                             <p class="product-price">$29.99</p>
-                            <a href="https://amazon.com/dp/B08XQJK8YX" target="_blank" class="product-cta">Shop</a>
+                            <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
                         <!-- Product 6 -->
@@ -2223,7 +2292,7 @@
                             </div>
                             <h3 class="product-title">Teeth Whitening Powder</h3>
                             <p class="product-price">$24.99</p>
-                            <a href="https://amazon.com/dp/B07XQZK3LM" target="_blank" class="product-cta">Shop</a>
+                            <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
                         <!-- Product 7 -->
@@ -2233,7 +2302,7 @@
                             </div>
                             <h3 class="product-title">Tineco iFloor 5 Breeze</h3>
                             <p class="product-price">$199.99</p>
-                            <a href="https://tineco.com/products/tineco-ifloor-5-breeze-complete" target="_blank" class="product-cta">Shop</a>
+                            <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
 
@@ -2249,7 +2318,7 @@
             
             <!-- Shop All Button -->
             <div class="picks-shop-all-wrapper">
-                <a href="collection.html" class="picks-shop-all-button">
+                <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" rel="noopener" class="picks-shop-all-button">
                     <span>SHOP ALL</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
