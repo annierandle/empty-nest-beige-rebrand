@@ -2247,6 +2247,187 @@
             letter-spacing: 0.5px !important;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7) !important;
         }
+
+        /* === ENHANCED EMPTY NEST PICKS STYLES === */
+        
+        /* Override Previous Product Title Styles for Enhanced Layout */
+        .picks-section .product-title,
+        .picks-section .product-item h3,
+        .picks-section .product-item .product-title {
+            font-size: 1.1rem !important;
+            font-weight: 600 !important;
+            opacity: 1 !important;
+            margin: 0 0 0.5rem 0 !important;
+            line-height: 1.4 !important;
+            color: #333 !important;
+        }
+        
+        /* Product Items - Enhanced Layout & Hover Effects */
+        .picks-section .product-item {
+            background: white !important;
+            border-radius: 12px !important;
+            padding: 1.5rem !important;
+            transition: all 0.4s ease !important;
+            cursor: pointer !important;
+            position: relative !important;
+            overflow: hidden !important;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+        }
+        
+        .picks-section .product-item:hover {
+            transform: translateY(-8px) scale(1.02) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Product Image Wrapper */
+        .picks-section .product-image-wrapper {
+            position: relative !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .picks-section .product-item:hover .product-image {
+            transform: scale(1.05) !important;
+        }
+        
+        .picks-section .product-image {
+            width: 100% !important;
+            height: 200px !important;
+            object-fit: cover !important;
+            border-radius: 8px !important;
+            transition: transform 0.3s ease !important;
+        }
+        
+        /* Kellie's Favorite Tags - Pill Style */
+        .picks-section .product-favorite-tag {
+            position: absolute !important;
+            top: 12px !important;
+            left: 12px !important;
+            background: #D4A4A4 !important;
+            color: white !important;
+            padding: 6px 12px !important;
+            border-radius: 25px !important;
+            font-size: 0.75rem !important;
+            font-weight: 600 !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 4px !important;
+            z-index: 10 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        .picks-section .product-favorite-tag svg {
+            width: 12px !important;
+            height: 12px !important;
+            fill: currentColor !important;
+        }
+        
+        /* Product Info Section */
+        .picks-section .product-info {
+            margin-bottom: 1rem !important;
+        }
+        
+        /* Product Descriptor */
+        .picks-section .product-descriptor {
+            font-size: 0.9rem !important;
+            color: #666 !important;
+            font-style: italic !important;
+            margin: 0 0 0.75rem 0 !important;
+            line-height: 1.3 !important;
+        }
+        
+        /* Product Price */
+        .picks-section .product-price {
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+            color: #333 !important;
+            margin: 0 !important;
+        }
+        
+        /* Product CTA Button */
+        .picks-section .product-cta {
+            background: #333 !important;
+            color: white !important;
+            padding: 0.75rem 1.5rem !important;
+            border: none !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            font-size: 0.9rem !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            transition: all 0.3s ease !important;
+            text-align: center !important;
+            width: 100% !important;
+        }
+        
+        .picks-section .product-cta:hover {
+            background: #000 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* Shop All Button - Black Pill Style */
+        .picks-shop-all-button {
+            background: #333 !important;
+            color: white !important;
+            padding: 1rem 2rem !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            font-size: 1rem !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            transition: all 0.3s ease !important;
+            border: none !important;
+        }
+        
+        .picks-shop-all-button:hover {
+            background: #000 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* Alternating Background Blocks for Visual Rhythm */
+        .picks-section {
+            background: linear-gradient(
+                180deg,
+                #FDF8F5 0%,
+                #FDF8F5 33%,
+                #F5EDE7 33%,
+                #F5EDE7 66%,
+                #FDF8F5 66%,
+                #FDF8F5 100%
+            ) !important;
+            padding: 4rem 0 !important;
+        }
+        
+        /* Enhanced Typography for Section Header */
+        .picks-section .picks-title {
+            font-size: 2.5rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 0.5rem !important;
+        }
+        
+        .picks-section .picks-tagline {
+            font-size: 1.1rem !important;
+            color: #666 !important;
+            margin-bottom: 3rem !important;
+            position: relative !important;
+            padding-bottom: 1.5rem !important;
+        }
+        
+        /* Horizontal Divider Under Tagline */
+        .picks-section .picks-tagline::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 60px !important;
+            height: 2px !important;
+            background: #D4A4A4 !important;
+            border-radius: 1px !important;
+        }
         
         .recipe-item {
             position: relative !important;
@@ -3665,7 +3846,7 @@
             <div class="picks-header">
                 <div class="picks-eyebrow">SHOP</div>
                 <h2 class="picks-title">EMPTY NEST PICKS</h2>
-                <div class="picks-tagline">Some of my all-time favorite products I absolutely can't live without</div>
+                <div class="picks-tagline">Curated finds I actually use at home, on the go, and in between.</div>
             </div>
             
             <!-- Product Carousel -->
@@ -3678,13 +3859,22 @@
                 
                 <div class="carousel-container">
                     <div class="carousel-track" id="carouselTrack">
-                        <!-- Product 1 -->
+                        <!-- Product 1 - Kellie's Favorite -->
                         <div class="product-item">
                             <div class="product-image-wrapper">
                                 <img src="assets/images/products/French-Vanilla-Protein-Powder.jpeg" alt="French Vanilla Protein Powder" class="product-image">
+                                <div class="product-favorite-tag">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <span>Kellie's Favorite</span>
+                                </div>
                             </div>
-                            <h3 class="product-title">French Vanilla Protein Powder</h3>
-                            <p class="product-price">$44.99</p>
+                            <div class="product-info">
+                                <h3 class="product-title">French Vanilla Protein Powder</h3>
+                                <p class="product-descriptor">Daily nutrition boost</p>
+                                <p class="product-price">$44.99</p>
+                            </div>
                             <a href="https://justingredients.com" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
@@ -3693,18 +3883,30 @@
                             <div class="product-image-wrapper">
                                 <img src="assets/images/products/Magnesium-Supplement.jpeg" alt="Magnesium Supplement" class="product-image">
                             </div>
-                            <h3 class="product-title">Magnesium Supplement</h3>
-                            <p class="product-price">$32.99</p>
+                            <div class="product-info">
+                                <h3 class="product-title">Magnesium Supplement</h3>
+                                <p class="product-descriptor">Better sleep & relaxation</p>
+                                <p class="product-price">$32.99</p>
+                            </div>
                             <a href="https://justingredients.com" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
-                        <!-- Product 3 -->
+                        <!-- Product 3 - Kellie's Favorite -->
                         <div class="product-item">
                             <div class="product-image-wrapper">
                                 <img src="assets/images/products/Our-Place-Everything-Pan.png" alt="Our Place Everything Pan" class="product-image">
+                                <div class="product-favorite-tag">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <span>Kellie's Favorite</span>
+                                </div>
                             </div>
-                            <h3 class="product-title">Our Place Everything Pan</h3>
-                            <p class="product-price">$150.00</p>
+                            <div class="product-info">
+                                <h3 class="product-title">Our Place Everything Pan</h3>
+                                <p class="product-descriptor">One pan, endless meals</p>
+                                <p class="product-price">$150.00</p>
+                            </div>
                             <a href="https://fromourplace.com" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
@@ -3713,18 +3915,30 @@
                             <div class="product-image-wrapper">
                                 <img src="assets/images/products/Tula-Under-Eye-Brightener.png" alt="Tula Under Eye Brightener" class="product-image">
                             </div>
-                            <h3 class="product-title">Tula Under Eye Brightener</h3>
-                            <p class="product-price">$38.00</p>
+                            <div class="product-info">
+                                <h3 class="product-title">Tula Under Eye Brightener</h3>
+                                <p class="product-descriptor">Instant eye refresh</p>
+                                <p class="product-price">$38.00</p>
+                            </div>
                             <a href="https://tulaskincare.com" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
-                        <!-- Product 5 -->
+                        <!-- Product 5 - Kellie's Favorite -->
                         <div class="product-item">
                             <div class="product-image-wrapper">
                                 <img src="assets/images/products/Electric-Wine-Opener.png" alt="Electric Wine Opener" class="product-image">
+                                <div class="product-favorite-tag">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                    <span>Kellie's Favorite</span>
+                                </div>
                             </div>
-                            <h3 class="product-title">Electric Wine Opener</h3>
-                            <p class="product-price">$29.99</p>
+                            <div class="product-info">
+                                <h3 class="product-title">Electric Wine Opener</h3>
+                                <p class="product-descriptor">Effortless entertaining</p>
+                                <p class="product-price">$29.99</p>
+                            </div>
                             <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
@@ -3733,8 +3947,11 @@
                             <div class="product-image-wrapper">
                                 <img src="assets/images/products/Teeth-Whitening-Powder.jpg" alt="Teeth Whitening Powder" class="product-image">
                             </div>
-                            <h3 class="product-title">Teeth Whitening Powder</h3>
-                            <p class="product-price">$24.99</p>
+                            <div class="product-info">
+                                <h3 class="product-title">Teeth Whitening Powder</h3>
+                                <p class="product-descriptor">Natural bright smile</p>
+                                <p class="product-price">$24.99</p>
+                            </div>
                             <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
@@ -3743,8 +3960,11 @@
                             <div class="product-image-wrapper">
                                 <img src="assets/images/products/Tineco-iFloor-5-Breeze-Vacuum.jpeg" alt="Tineco iFloor 5 Breeze Vacuum" class="product-image">
                             </div>
-                            <h3 class="product-title">Tineco iFloor 5 Breeze</h3>
-                            <p class="product-price">$199.99</p>
+                            <div class="product-info">
+                                <h3 class="product-title">Tineco iFloor 5 Breeze</h3>
+                                <p class="product-descriptor">Clean floors, less effort</p>
+                                <p class="product-price">$199.99</p>
+                            </div>
                             <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" class="product-cta">Shop</a>
                         </div>
                         
@@ -3762,7 +3982,7 @@
             <!-- Shop All Button -->
             <div class="picks-shop-all-wrapper">
                 <a href="collections.html" class="picks-shop-all-button">
-                    <span>SHOP ALL</span>
+                    <span>Shop All Picks</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
