@@ -1081,14 +1081,23 @@
             display: none !important;
         }
 
-        /* FIX NEST APPROVED ALIGNMENT - MOVE LEFT TO MATCH HEADER */
+        /* FIX NEST APPROVED ALIGNMENT - MATCH INSIDE THE NEST EXACTLY */
+        .nest-approved-wrapper {
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding: 4rem 2rem !important;
+        }
+        
         .nest-approved-typography {
             text-align: left !important;
-            padding-left: 0 !important;
+            padding-left: 2rem !important;
             padding-right: 0 !important;
+            margin-left: 0 !important;
+            max-width: 600px !important;
         }
         
         .nest-approved-eyebrow,
+        .nest-approved-title,
         .nest-approved-tagline {
             text-align: left !important;
         }
@@ -1448,56 +1457,82 @@
             z-index: 4 !important;
         }
 
-        /* SIGNATURE SPACING ADJUSTMENT - MORE SPACE ABOVE */
-        .signature-text {
+        /* SIGNATURE IMAGE STYLING */
+        .signature-container {
             margin-top: 3.5rem !important;
+            text-align: left !important;
+        }
+        
+        .signature-image {
+            max-width: 200px !important;
+            height: auto !important;
+            opacity: 1 !important;
+            background: transparent !important;
+            mix-blend-mode: normal !important;
+            filter: none !important;
+            display: block !important;
         }
         
         /* INSIDE THE NEST CATEGORY SQUARES - BOTTOM LEFT POSITIONING */
         .category-content {
             position: absolute !important;
-            bottom: 20px !important;
-            left: 20px !important;
-            right: 20px !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            top: 0 !important;
             z-index: 3 !important;
             display: flex !important;
             flex-direction: column !important;
-            align-items: flex-start !important;
-            gap: 8px !important;
+            justify-content: space-between !important;
+            padding: 20px !important;
         }
         
-        /* POSITION ICON AND TEXT IN BOTTOM LEFT */
-        .category-icon {
+        /* BOTTOM LEFT POSITIONING FOR TEXT AND ICON */
+        .category-bottom-left {
             position: absolute !important;
-            bottom: 45px !important;
-            left: 0 !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: flex-start !important;
+            bottom: 20px !important;
+            left: 20px !important;
             z-index: 4 !important;
         }
         
         .category-label {
-            position: absolute !important;
-            bottom: 20px !important;
-            left: 0 !important;
             font-size: 0.8rem !important;
             font-weight: 600 !important;
             color: white !important;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
             margin: 0 !important;
-            z-index: 4 !important;
+            margin-top: 5px !important;
         }
         
+        .category-icon {
+            display: block !important;
+            color: white !important;
+        }
+        
+        /* HOVER-ONLY VIEW HIGHLIGHTS BUTTON */
         .category-click-hint {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
             font-size: 0.7rem !important;
-            opacity: 0.9 !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
             display: flex !important;
             align-items: center !important;
             gap: 4px !important;
-            position: relative !important;
-            margin-top: 60px !important;
+            background: rgba(0, 0, 0, 0.7) !important;
+            color: white !important;
+            padding: 8px 12px !important;
+            border-radius: 20px !important;
+            transition: all 0.3s ease !important;
+            z-index: 5 !important;
         }
+        
+        .category-tile:hover .category-click-hint {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }"
 
         /* ENHANCED JUST INGREDIENTS VISUAL DESIGN */
         .featured-perk-container {
@@ -1509,11 +1544,12 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
         }
         
-        /* HORIZONTAL JUST INGREDIENTS VIDEO LAYOUT */
+        /* SQUARE JUST INGREDIENTS VIDEO LAYOUT */
         .featured-perk-container-horizontal {
             position: relative !important;
-            width: 100% !important;
-            height: 250px !important;
+            width: 400px !important;
+            height: 400px !important;
+            margin: 0 auto !important;
             border-radius: 16px !important;
             overflow: hidden !important;
             background: #000 !important;
@@ -1537,52 +1573,55 @@
             height: 100% !important;
             background: rgba(0, 0, 0, 0.4) !important;
             display: flex !important;
-            align-items: center !important;
-            padding: 2rem !important;
-            gap: 2rem !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            padding: 1.5rem !important;
             z-index: 2 !important;
         }
         
         .perk-left-content {
-            flex: 0 0 auto !important;
             display: flex !important;
-            flex-direction: column !important;
+            align-items: center !important;
             gap: 1rem !important;
         }
         
         .header-logo-horizontal {
-            width: 120px !important;
+            width: 100px !important;
             height: auto !important;
-            filter: brightness(0) invert(1) !important;
+            filter: none !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            padding: 0.5rem !important;
+            border-radius: 8px !important;
+            object-fit: contain !important;
         }
         
         .perk-center-content {
-            flex: 1 !important;
+            text-align: center !important;
             color: white !important;
-            text-align: left !important;
+            padding: 1rem !important;
         }
         
         .perk-center-content .featured-perk-tagline {
-            font-size: 1.2rem !important;
+            font-size: 1.1rem !important;
             font-weight: 600 !important;
-            margin-bottom: 0.5rem !important;
+            margin-bottom: 0.75rem !important;
             color: white !important;
         }
         
         .perk-center-content .featured-perk-description {
-            font-size: 0.9rem !important;
+            font-size: 0.85rem !important;
             line-height: 1.4 !important;
             opacity: 0.9 !important;
             color: white !important;
+            margin-bottom: 0 !important;
         }
         
         .perk-right-content {
-            flex: 0 0 auto !important;
             display: flex !important;
             flex-direction: column !important;
             gap: 1rem !important;
-            align-items: flex-end !important;
-        }
+            align-items: center !important;
+        }"
         
         .featured-shop-btn-horizontal {
             background: #D4A4A4 !important;
@@ -1744,9 +1783,9 @@
                         <div class="story-content">
                             <p style="font-size: 0.85rem !important; line-height: 1.4 !important;">When I'm not planning family gatherings or helping with apartment decorating, you'll find me grocery shopping or cooking, playing pickleball, learning golf, or running our award-winning PR company. My tips have been featured on TV, podcasts, and magazines, but my real passion is inspiring parents to embrace and enjoy this incredible new chapter.</p>
                             
-                            <!-- Huge Scribbly Signature Text -->
-                            <div class="signature-text">
-                                xo, Kellie Randle
+                            <!-- Signature Image -->
+                            <div class="signature-container">
+                                <img src="assets/images/kellie-signature-new.png" alt="xo, Kellie Randle" class="signature-image">
                             </div>
                         </div>
                     </div>
@@ -1900,15 +1939,17 @@
                         <div class="category-tile" data-category="family" onclick="openHighlightsModal('family')" style="background-image: url('assets/images/category-covers/Family.png')">
                             <div class="category-overlay"></div>
                             <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                                        <circle cx="9" cy="7" r="4"/>
-                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                    </svg>
+                                <div class="category-bottom-left">
+                                    <div class="category-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="9" cy="7" r="4"/>
+                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="category-label">FAMILY</h3>
                                 </div>
-                                <h3 class="category-label">FAMILY</h3>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
