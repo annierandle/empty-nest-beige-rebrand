@@ -1197,6 +1197,77 @@
             color: #333 !important;
             text-align: left !important;
             margin-top: 1.5rem !important;
+        }
+
+        /* === COMPREHENSIVE FIXES FOR 7 ISSUES === */
+        
+        /* FIX 1: Wine opener product button - sharp edges like other buttons */
+        .product-cta {
+            border-radius: 0 !important;
+            -webkit-border-radius: 0 !important;
+            -moz-border-radius: 0 !important;
+        }
+        
+        /* FIX 2: Shop All button - text side-by-side, unbold */
+        .picks-shop-all-button {
+            font-weight: 300 !important;
+        }
+        
+        .picks-shop-all-button span {
+            font-weight: 300 !important;
+            margin-right: 8px !important;
+        }
+        
+        /* FIX 3: Move fam favorite tags to top right corner of recipe cards */
+        .recipe-category-tag {
+            position: absolute !important;
+            top: 12px !important;
+            right: 12px !important;
+            z-index: 10 !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            color: #D4A4A4 !important;
+            padding: 4px 8px !important;
+            border-radius: 12px !important;
+            font-size: 0.7rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            backdrop-filter: blur(4px) !important;
+            border: 1px solid rgba(212, 164, 164, 0.2) !important;
+        }
+        
+        .recipe-item {
+            position: relative !important;
+        }
+        
+        /* FIX 4: Fry sauce image fix - ensure background image loads properly */
+        .recipe-item.fry-sauce {
+            background-image: url('assets/images/recipes/fry-sauce.jpg') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+        }
+        
+        /* FIX 6: Nest in the News subheader font to match main header */
+        .media-category-title {
+            font-family: var(--font-family-serif), 'Playfair Display', serif !important;
+            font-weight: 600 !important;
+            color: #2C2C2C !important;
+        }
+        
+        /* FIX 7: Move podcast subheader and pink line upward - reduce blank space */
+        .media-category {
+            margin-bottom: 0.5rem !important;
+            padding: 0.25rem 0 !important;
+        }
+        
+        .media-typography {
+            margin-bottom: 0.5rem !important;
+        }
+        
+        .media-tagline {
+            margin-bottom: 1rem !important;
+        }
             margin-bottom: 0 !important;
             transform: rotate(0deg) !important;
             opacity: 1 !important;
@@ -1457,10 +1528,11 @@
             z-index: 4 !important;
         }
 
-        /* SIGNATURE IMAGE STYLING */
+        /* SIGNATURE IMAGE STYLING - FIX BLACK BOX ISSUE */
         .signature-container {
             margin-top: 3.5rem !important;
             text-align: left !important;
+            background: transparent !important;
         }
         
         .signature-image {
@@ -1471,6 +1543,25 @@
             mix-blend-mode: normal !important;
             filter: none !important;
             display: block !important;
+        }
+        
+        /* FORCE SIGNATURE TO NOT INHERIT BLACK BACKGROUNDS */
+        .signature-container *,
+        .signature-image {
+            background-color: transparent !important;
+            background-image: none !important;
+            background: transparent !important;
+        }
+        
+        /* FIX NEST IN THE NEWS SPACING */
+        .media-tagline {
+            margin-top: 0.5rem !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        /* DOUBLE PODCAST COVER SIZES */
+        .media-logo-img {
+            max-height: 300px !important;
         }
         
         /* INSIDE THE NEST CATEGORY SQUARES - BOTTOM LEFT POSITIONING */
@@ -1638,7 +1729,7 @@
         /* SQUARE JUST INGREDIENTS VIDEO LAYOUT */
         .featured-perk-container-horizontal {
             position: relative !important;
-            width: 450px !important;
+            width: 550px !important;
             height: 400px !important;
             margin: 0 auto !important;
             border-radius: 16px !important;
@@ -1686,6 +1777,13 @@
             object-fit: contain !important;
         }
         
+        /* REMOVE LARGER WHITE BOX FROM JUST INGREDIENTS */
+        .perk-logo-header {
+            background: none !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+        
         .perk-center-content {
             text-align: center !important;
             color: white !important;
@@ -1714,8 +1812,9 @@
             align-items: center !important;
         }"
         
+        /* SHOP NOW BUTTON TO MATCH SHOP COLLECTION BUTTONS */
         .featured-shop-btn-horizontal {
-            background: #D4A4A4 !important;
+            background: #333 !important;
             color: white !important;
             padding: 0.75rem 1.5rem !important;
             text-decoration: none !important;
@@ -1725,10 +1824,12 @@
             align-items: center !important;
             gap: 0.5rem !important;
             transition: all 0.3s ease !important;
+            font-size: 0.9rem !important;
+            border: none !important;
         }
         
         .featured-shop-btn-horizontal:hover {
-            background: #c47189 !important;
+            background: #1a1a1a !important;
             transform: translateY(-2px) !important;
         }
         
@@ -1790,21 +1891,35 @@
             font-size: 1.2rem !important;
         }
         
-        /* EMPTY NEST PICKS SHOP ALL BUTTON - SMALLER PINK WITH SHARP CORNERS */
+        /* EMPTY NEST PICKS SHOP ALL BUTTON - CORRECT FONT AND CENTER ALIGNMENT */
+        .picks-shop-all-wrapper {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 100% !important;
+            margin-top: 2rem !important;
+        }
+        
         .picks-shop-all-button {
-            background: #D4A4A4 !important;
-            color: white !important;
-            padding: 0.5rem 1rem !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            padding: 12px 24px !important;
+            background: var(--brand-blush) !important;
+            color: var(--white) !important;
             text-decoration: none !important;
-            border-radius: 4px !important;
-            font-weight: 600 !important;
-            font-size: 0.8rem !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.95rem !important;
+            font-weight: 700 !important;
+            border-radius: 0 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.05em !important;
             display: flex !important;
             align-items: center !important;
             gap: 0.4rem !important;
             transition: all 0.3s ease !important;
             width: auto !important;
-            max-width: 120px !important;
+            max-width: 140px !important;
         }
         
         .picks-shop-all-button:hover {
@@ -2875,7 +2990,7 @@
                 </div>
 
                 <!-- Recipe 2 -->
-                <div class="recipe-item mediterranean-bowl">
+                <div class="recipe-item mediterranean-bowl" onclick="openRecipeModal('mediterranean-bowl')">
                     <div class="recipe-overlay">
                         <div class="recipe-content">
                             <h3 class="recipe-title">Mediterranean Power Bowl</h3>
@@ -2885,14 +3000,9 @@
                 </div>
 
                 <!-- Recipe 3 -->
-                <div class="recipe-item sheet-pan-salmon">
+                <div class="recipe-item sheet-pan-salmon" onclick="openRecipeModal('sheet-pan-salmon')">
                     <div class="recipe-overlay">
-                        <div class="recipe-category-tag">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="fam-favorite-icon">
-                                <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z"/>
-                            </svg>
-                            FAM FAVORITE
-                        </div>
+                        <div class="recipe-category-tag">⭐ FAM FAVORITE</div>
                         <div class="recipe-content">
                             <h3 class="recipe-title">Sheet Pan Lemon Salmon</h3>
                             <p class="recipe-description">20 mins</p>
@@ -2901,7 +3011,7 @@
                 </div>
 
                 <!-- Recipe 4 -->
-                <div class="recipe-item asian-lettuce-wraps">
+                <div class="recipe-item asian-lettuce-wraps" onclick="openRecipeModal('asian-lettuce-wraps')">
                     <div class="recipe-overlay">
                         <div class="recipe-content">
                             <h3 class="recipe-title">Asian Lettuce Wraps</h3>
@@ -2911,7 +3021,7 @@
                 </div>
 
                 <!-- Recipe 5 -->
-                <div class="recipe-item cauliflower-curry">
+                <div class="recipe-item cauliflower-curry" onclick="openRecipeModal('cauliflower-curry')">
                     <div class="recipe-overlay">
                         <div class="recipe-content">
                             <h3 class="recipe-title">Coconut Cauliflower Curry</h3>
@@ -2921,7 +3031,7 @@
                 </div>
 
                 <!-- Recipe 6 -->
-                <div class="recipe-item avocado-toast-bowl">
+                <div class="recipe-item avocado-toast-bowl" onclick="openRecipeModal('avocado-toast-bowl')">
                     <div class="recipe-overlay">
                         <div class="recipe-content">
                             <h3 class="recipe-title">Protein-Packed Avocado Toast</h3>
@@ -4310,30 +4420,167 @@
         const ingredients = document.getElementById('modalRecipeIngredients');
         const directions = document.getElementById('modalRecipeDirections');
         
-        if (recipeId === 'fry-sauce') {
-            title.textContent = 'Fry Sauce';
-            time.innerHTML = '<span class="recipe-time-badge">5 mins</span>';
+        // Recipe data with placeholder ingredients and directions
+        const recipes = {
+            'fry-sauce': {
+                title: 'Fry Sauce',
+                time: '5 mins',
+                ingredients: [
+                    '1/2 cup mayonnaise',
+                    '2 tablespoons ketchup',
+                    '1 tablespoon sweet relish',
+                    '1 teaspoon white vinegar',
+                    '1/2 teaspoon garlic powder',
+                    '1/4 teaspoon onion powder',
+                    'Salt and pepper to taste'
+                ],
+                directions: [
+                    'In a small bowl, combine mayonnaise and ketchup until well mixed.',
+                    'Add sweet relish, vinegar, garlic powder, and onion powder.',
+                    'Mix thoroughly until all ingredients are well combined.',
+                    'Season with salt and pepper to taste.',
+                    'Refrigerate for at least 15 minutes to let flavors blend.',
+                    'Serve with fries, burgers, or use as a sandwich spread.'
+                ]
+            },
+            'mediterranean-bowl': {
+                title: 'Mediterranean Power Bowl',
+                time: '25 mins',
+                ingredients: [
+                    '1 cup quinoa, cooked',
+                    '1 cucumber, diced',
+                    '1 cup cherry tomatoes, halved',
+                    '1/2 red onion, thinly sliced',
+                    '1/2 cup kalamata olives',
+                    '1/2 cup feta cheese, crumbled',
+                    '2 tablespoons olive oil',
+                    '1 tablespoon lemon juice',
+                    '1 teaspoon dried oregano',
+                    'Salt and pepper to taste'
+                ],
+                directions: [
+                    'Cook quinoa according to package instructions and let cool.',
+                    'Dice cucumber and halve cherry tomatoes.',
+                    'Thinly slice red onion and rinse under cold water.',
+                    'In a large bowl, combine cooked quinoa, cucumber, tomatoes, and onion.',
+                    'Add kalamata olives and crumbled feta cheese.',
+                    'Whisk together olive oil, lemon juice, oregano, salt, and pepper.',
+                    'Drizzle dressing over the bowl and toss gently to combine.',
+                    'Serve immediately or refrigerate for later.'
+                ]
+            },
+            'sheet-pan-salmon': {
+                title: 'Sheet Pan Lemon Salmon',
+                time: '20 mins',
+                ingredients: [
+                    '4 salmon fillets (6 oz each)',
+                    '1 lb asparagus, trimmed',
+                    '2 lemons, sliced',
+                    '3 tablespoons olive oil',
+                    '2 cloves garlic, minced',
+                    '1 teaspoon dried dill',
+                    '1/2 teaspoon paprika',
+                    'Salt and black pepper to taste',
+                    'Fresh parsley for garnish'
+                ],
+                directions: [
+                    'Preheat oven to 425°F (220°C).',
+                    'Line a large sheet pan with parchment paper.',
+                    'Place salmon fillets and asparagus on the sheet pan.',
+                    'Drizzle olive oil over salmon and asparagus.',
+                    'Season salmon with minced garlic, dill, paprika, salt, and pepper.',
+                    'Top salmon with lemon slices.',
+                    'Bake for 12-15 minutes until salmon flakes easily with a fork.',
+                    'Garnish with fresh parsley and serve immediately.'
+                ]
+            },
+            'asian-lettuce-wraps': {
+                title: 'Asian Lettuce Wraps',
+                time: '15 mins',
+                ingredients: [
+                    '1 lb ground turkey or chicken',
+                    '1 head butter lettuce, leaves separated',
+                    '1 tablespoon sesame oil',
+                    '2 cloves garlic, minced',
+                    '1 inch fresh ginger, grated',
+                    '3 tablespoons soy sauce',
+                    '1 tablespoon rice vinegar',
+                    '1 teaspoon sriracha (optional)',
+                    '2 green onions, chopped',
+                    '1/4 cup cilantro, chopped'
+                ],
+                directions: [
+                    'Heat sesame oil in a large skillet over medium-high heat.',
+                    'Add ground turkey and cook, breaking it up, until browned.',
+                    'Add garlic and ginger, cook for 1 minute until fragrant.',
+                    'Stir in soy sauce, rice vinegar, and sriracha.',
+                    'Cook for 2-3 minutes until sauce is absorbed.',
+                    'Remove from heat and stir in green onions and cilantro.',
+                    'Wash and dry lettuce leaves.',
+                    'Spoon meat mixture into lettuce cups and serve immediately.'
+                ]
+            },
+            'cauliflower-curry': {
+                title: 'Coconut Cauliflower Curry',
+                time: '30 mins',
+                ingredients: [
+                    '1 large head cauliflower, cut into florets',
+                    '1 can (14 oz) coconut milk',
+                    '1 onion, diced',
+                    '3 cloves garlic, minced',
+                    '1 inch fresh ginger, grated',
+                    '2 tablespoons curry powder',
+                    '1 teaspoon turmeric',
+                    '1 can (14 oz) diced tomatoes',
+                    '2 tablespoons coconut oil',
+                    'Salt to taste',
+                    'Fresh cilantro for garnish'
+                ],
+                directions: [
+                    'Heat coconut oil in a large pot over medium heat.',
+                    'Add diced onion and cook until softened, about 5 minutes.',
+                    'Add garlic, ginger, curry powder, and turmeric. Cook for 1 minute.',
+                    'Add cauliflower florets and stir to coat with spices.',
+                    'Pour in coconut milk and diced tomatoes.',
+                    'Bring to a simmer, then reduce heat and cover.',
+                    'Cook for 15-20 minutes until cauliflower is tender.',
+                    'Season with salt and garnish with fresh cilantro before serving.'
+                ]
+            },
+            'avocado-toast-bowl': {
+                title: 'Protein-Packed Avocado Toast',
+                time: '10 mins',
+                ingredients: [
+                    '2 slices whole grain bread',
+                    '2 ripe avocados',
+                    '2 hard-boiled eggs, sliced',
+                    '1 tablespoon lime juice',
+                    '1/4 teaspoon red pepper flakes',
+                    '2 tablespoons hemp hearts or chia seeds',
+                    '1/4 cup cherry tomatoes, halved',
+                    'Sea salt and black pepper to taste',
+                    'Microgreens for garnish (optional)'
+                ],
+                directions: [
+                    'Toast bread slices until golden brown.',
+                    'Mash avocados in a bowl with lime juice, salt, and pepper.',
+                    'Spread mashed avocado evenly on toast.',
+                    'Top with sliced hard-boiled eggs.',
+                    'Sprinkle with hemp hearts or chia seeds.',
+                    'Add cherry tomato halves on top.',
+                    'Season with red pepper flakes.',
+                    'Garnish with microgreens if desired and serve immediately.'
+                ]
+            }
+        };
+        
+        const recipe = recipes[recipeId];
+        if (recipe) {
+            title.textContent = recipe.title;
+            time.innerHTML = `<span class="recipe-time-badge">${recipe.time}</span>`;
             
-            // Ingredients
-            ingredients.innerHTML = `
-                <li>1/2 cup mayonnaise</li>
-                <li>2 tablespoons ketchup</li>
-                <li>1 tablespoon sweet relish</li>
-                <li>1 teaspoon white vinegar</li>
-                <li>1/2 teaspoon garlic powder</li>
-                <li>1/4 teaspoon onion powder</li>
-                <li>Salt and pepper to taste</li>
-            `;
-            
-            // Directions
-            directions.innerHTML = `
-                <li>In a small bowl, combine mayonnaise and ketchup until well mixed.</li>
-                <li>Add sweet relish, vinegar, garlic powder, and onion powder.</li>
-                <li>Mix thoroughly until all ingredients are well combined.</li>
-                <li>Season with salt and pepper to taste.</li>
-                <li>Refrigerate for at least 15 minutes to let flavors blend.</li>
-                <li>Serve with fries, burgers, or use as a sandwich spread.</li>
-            `;
+            ingredients.innerHTML = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
+            directions.innerHTML = recipe.directions.map(direction => `<li>${direction}</li>`).join('');
         }
         
         modal.style.display = 'block';
