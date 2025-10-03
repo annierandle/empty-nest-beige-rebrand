@@ -1213,6 +1213,150 @@
                 transform: scale(1.02) !important;
             }
         }
+
+        /* === GLOBAL DESIGN CONSISTENCY UPDATES === */
+        
+        /* UNIVERSAL SECTION BUTTON STYLING - SHOP COLLECTION STYLE */
+        .section-button,
+        .recipes-see-all-button,
+        .book-shop-button,
+        .section-button-wrapper a,
+        .recipes-section-button-wrapper a,
+        .book-section-button-wrapper a,
+        .media-section-button-wrapper a,
+        .events-section-button-wrapper a,
+        .products-section-button-wrapper a,
+        .picks-section-button-wrapper a,
+        a[href*="events.html"],
+        a[href*="media.html"],
+        a[href*="recipes.html"],
+        a[href*="products.html"],
+        a[href*="collections.html"] {
+            background: #000 !important;
+            color: white !important;
+            border: none !important;
+            padding: 12px 24px !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            font-size: 0.9rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            font-family: 'Inter', sans-serif !important;
+            min-width: 160px !important;
+        }
+        
+        .section-button:hover,
+        .recipes-see-all-button:hover,
+        .book-shop-button:hover,
+        .section-button-wrapper a:hover,
+        .recipes-section-button-wrapper a:hover,
+        .book-section-button-wrapper a:hover,
+        .media-section-button-wrapper a:hover,
+        .events-section-button-wrapper a:hover,
+        .products-section-button-wrapper a:hover,
+        .picks-section-button-wrapper a:hover {
+            background: #333 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+            color: white !important;
+            text-decoration: none !important;
+        }
+        
+        /* REMOVE ALL PINK SQUARE BUTTON STYLES */
+        .section-button[style*="border-radius: 0"],
+        .recipes-see-all-button[style*="border-radius: 0"],
+        a[style*="border-radius: 0"] {
+            border-radius: 25px !important;
+        }
+        
+        /* SECTION HEADER TAGLINE DIVIDERS */
+        .recipes-tagline::after,
+        .events-tagline::after,
+        .picks-tagline::after,
+        .approved-tagline::after,
+        .nest-approved-tagline::after,
+        .book-club-tagline::after,
+        .media-tagline::after,
+        .contact-subtitle::after,
+        .inside-tagline::after,
+        .refined-tagline::after {
+            content: '' !important;
+            display: block !important;
+            width: 60px !important;
+            height: 2px !important;
+            background: #D4A4A4 !important;
+            margin: 1rem 0 0 0 !important;
+        }
+        
+        /* CONSISTENT SECTION DIVIDERS */
+        section:not(:first-child) {
+            border-top: 2px solid rgba(120, 120, 120, 0.3) !important;
+            padding-top: 4rem !important;
+            margin-top: 4rem !important;
+        }
+        
+        /* Enhanced Section Divider Styles */
+        .hero-section + section,
+        section + section {
+            border-top: 2px solid rgba(120, 120, 120, 0.3) !important;
+            margin-top: 4rem !important;
+            padding-top: 4rem !important;
+        }
+        
+        /* Remove existing inconsistent borders */
+        .refined-section,
+        .picks-section,
+        .events-section,
+        .books-section,
+        .book-club-section,
+        .recipes-section,
+        .collaborators-section,
+        .media-section {
+            border-bottom: none !important;
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+        
+        /* Special handling for specific sections that need borders */
+        .book-club-section {
+            border-bottom: 3px solid rgba(100, 100, 100, 0.3) !important;
+            margin-bottom: 4rem !important;
+            padding-bottom: 4rem !important;
+        }
+        
+        /* Footer spacing */
+        .footer {
+            margin-top: 4rem !important;
+            padding-top: 4rem !important;
+            border-top: 2px solid rgba(120, 120, 120, 0.3) !important;
+        }
+        
+        /* Mobile Section Spacing */
+        @media (max-width: 768px) {
+            section:not(:first-child),
+            .hero-section + section,
+            section + section {
+                margin-top: 2.5rem !important;
+                padding-top: 2.5rem !important;
+            }
+            
+            .footer {
+                margin-top: 2.5rem !important;
+                padding-top: 2.5rem !important;
+            }
+            
+            .book-club-section {
+                margin-bottom: 2.5rem !important;
+                padding-bottom: 2.5rem !important;
+            }
+        }
         
         /* 9. DARKER SECTION BORDERS */
         .section,
@@ -3274,7 +3418,7 @@
         
         <!-- See All Content Button - Properly Centered -->
         <div class="section-button-wrapper">
-            <a href="#" class="section-button" style="border-radius: 0 !important;">
+            <a href="#" class="section-button">
                 <span>See All Content</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -3623,7 +3767,7 @@
             
             <!-- See All Nest Celebrations Button -->
             <div class="section-button-wrapper">
-                <a href="events.html" class="section-button" style="border-radius: 0 !important;">
+                <a href="events.html" class="section-button">
                     <span>See All Events</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -3817,7 +3961,7 @@
             
             <!-- See All Recipes Button -->
             <div class="recipes-section-button-wrapper">
-                <a href="recipes.html" class="recipes-see-all-button" style="border-radius: 0 !important;">
+                <a href="recipes.html" class="recipes-see-all-button">
                     <span>See All Recipes</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -4091,7 +4235,7 @@
                     
                     <!-- See All Coverage Button -->
                     <div class="section-button-wrapper">
-                        <a href="media.html" class="section-button" style="border-radius: 0 !important;">
+                        <a href="media.html" class="section-button">
                             <span>See All Coverage</span>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
