@@ -1201,6 +1201,37 @@
 
         /* === COMPREHENSIVE FIXES FOR 7 ISSUES === */
         
+        /* CRITICAL FIX: SIGNATURE BLACK SQUARE ISSUE */
+        .signature-text,
+        .about-signature,
+        .signature-image,
+        .signature-container,
+        .signature-container img,
+        img[src*="signature"],
+        img[src*="kellie-signature"],
+        img[src="assets/images/kellie-signature-new.png"] {
+            mix-blend-mode: normal !important;
+            background: transparent !important;
+            filter: none !important;
+            -webkit-filter: none !important;
+            backdrop-filter: none !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border: none !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        /* NEST CELEBRATIONS SHARP CORNERS */
+        .event-item,
+        .events-grid .event-item,
+        .nest-celebrations .event-item {
+            border-radius: 0 !important;
+            -webkit-border-radius: 0 !important;
+            -moz-border-radius: 0 !important;
+        }
+        
         /* RECIPE MODAL IMAGE FIXES */
         .recipe-modal-image {
             width: 100% !important;
@@ -1236,6 +1267,15 @@
             background-image: url('https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400') !important;
         }
         
+        /* JUST INGREDIENTS REDESIGN - CENTERED AND DOUBLE SIZE */
+        .featured-community-perk {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            width: 100% !important;
+            padding: 2rem 0 !important;
+        }
+        
         /* JUST INGREDIENTS REDESIGN */
         .code-card.just-ingredients-special {
             background: rgba(0, 0, 0, 0.25) !important;
@@ -1243,6 +1283,10 @@
             border: none !important;
             position: relative !important;
             overflow: hidden !important;
+            width: 640px !important;
+            max-width: 90vw !important;
+            height: 320px !important;
+            margin: 0 auto !important;
         }
         
         .code-card.just-ingredients-special::before {
@@ -1346,21 +1390,31 @@
             transform: translateY(-1px) !important;
         }
         
-        /* FIX 1: Wine opener product button - sharp edges like other buttons */
-        .product-cta {
+        /* FIX 1: Wine opener product button - sharp edges like other buttons - NUCLEAR OVERRIDE */
+        .product-cta,
+        .product-item .product-cta,
+        a.product-cta,
+        .carousel-track .product-cta,
+        #carouselTrack .product-cta {
             border-radius: 0 !important;
             -webkit-border-radius: 0 !important;
             -moz-border-radius: 0 !important;
         }
         
-        /* FIX 2: Shop All button - text side-by-side, unbold */
-        .picks-shop-all-button {
+        /* FIX 2: Shop All button - text side-by-side, unbold - NUCLEAR OVERRIDE */
+        .picks-shop-all-button,
+        .picks-shop-all-wrapper .picks-shop-all-button,
+        a.picks-shop-all-button {
             font-weight: 300 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
         }
         
-        .picks-shop-all-button span {
+        .picks-shop-all-button span,
+        .picks-shop-all-button .btn-text {
             font-weight: 300 !important;
-            margin-right: 8px !important;
+            margin-right: 0 !important;
         }
         
         /* FIX 3: Move fam favorite tags to top right corner of recipe cards - TRANSPARENT BACKGROUND */
@@ -1414,10 +1468,10 @@
             font-size: 1.2rem !important;
         }
         
-        /* FIX 7: Move podcast subheader and pink line upward - reduce blank space */
+        /* FIX 7: Nest in the News - CRITICAL SPACING AND FONT FIXES */
         .media-category {
-            margin-bottom: 0.5rem !important;
-            padding: 0.25rem 0 !important;
+            margin-bottom: 0.25rem !important;
+            padding: 0 !important;
         }
         
         .media-typography {
@@ -1426,6 +1480,19 @@
         
         .media-tagline {
             margin-bottom: 1rem !important;
+            font-style: normal !important;
+            font-weight: 300 !important;
+        }
+        
+        /* EQUALIZE SPACING BETWEEN LIVE TV AND PUBLISHED ROWS */
+        .media-logo-grid {
+            gap: 0.5rem !important;
+            margin-bottom: 0.25rem !important;
+        }
+        
+        /* PUSH PODCASTS UP TIGHTER */
+        .media-category:nth-child(3) {
+            margin-top: -0.5rem !important;
         }
             margin-bottom: 0 !important;
             transform: rotate(0deg) !important;
