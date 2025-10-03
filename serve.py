@@ -6,7 +6,7 @@ import shutil
 from datetime import datetime
 
 # Use port 3338 to avoid conflicts
-PORT = 3338
+PORT = 3334
 
 class FreshHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
