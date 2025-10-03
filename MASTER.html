@@ -1457,10 +1457,11 @@
             z-index: 4 !important;
         }
 
-        /* SIGNATURE IMAGE STYLING */
+        /* SIGNATURE IMAGE STYLING - FIX BLACK BOX ISSUE */
         .signature-container {
             margin-top: 3.5rem !important;
             text-align: left !important;
+            background: transparent !important;
         }
         
         .signature-image {
@@ -1471,6 +1472,25 @@
             mix-blend-mode: normal !important;
             filter: none !important;
             display: block !important;
+        }
+        
+        /* FORCE SIGNATURE TO NOT INHERIT BLACK BACKGROUNDS */
+        .signature-container *,
+        .signature-image {
+            background-color: transparent !important;
+            background-image: none !important;
+            background: transparent !important;
+        }
+        
+        /* FIX NEST IN THE NEWS SPACING */
+        .media-tagline {
+            margin-top: 0.5rem !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        /* DOUBLE PODCAST COVER SIZES */
+        .media-logo-img {
+            max-height: 300px !important;
         }
         
         /* INSIDE THE NEST CATEGORY SQUARES - BOTTOM LEFT POSITIONING */
@@ -1638,7 +1658,7 @@
         /* SQUARE JUST INGREDIENTS VIDEO LAYOUT */
         .featured-perk-container-horizontal {
             position: relative !important;
-            width: 450px !important;
+            width: 550px !important;
             height: 400px !important;
             margin: 0 auto !important;
             border-radius: 16px !important;
@@ -1686,6 +1706,13 @@
             object-fit: contain !important;
         }
         
+        /* REMOVE LARGER WHITE BOX FROM JUST INGREDIENTS */
+        .perk-logo-header {
+            background: none !important;
+            padding: 0 !important;
+            border: none !important;
+        }
+        
         .perk-center-content {
             text-align: center !important;
             color: white !important;
@@ -1714,8 +1741,9 @@
             align-items: center !important;
         }"
         
+        /* SHOP NOW BUTTON TO MATCH SHOP COLLECTION BUTTONS */
         .featured-shop-btn-horizontal {
-            background: #D4A4A4 !important;
+            background: #333 !important;
             color: white !important;
             padding: 0.75rem 1.5rem !important;
             text-decoration: none !important;
@@ -1725,10 +1753,12 @@
             align-items: center !important;
             gap: 0.5rem !important;
             transition: all 0.3s ease !important;
+            font-size: 0.9rem !important;
+            border: none !important;
         }
         
         .featured-shop-btn-horizontal:hover {
-            background: #c47189 !important;
+            background: #1a1a1a !important;
             transform: translateY(-2px) !important;
         }
         
@@ -1800,14 +1830,17 @@
         }
         
         .picks-shop-all-button {
-            background: #D4A4A4 !important;
-            color: white !important;
-            padding: 0.5rem 1rem !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            padding: 12px 24px !important;
+            background: var(--brand-blush) !important;
+            color: var(--white) !important;
             text-decoration: none !important;
-            border-radius: 4px !important;
-            font-family: var(--font-family-serif) !important;
-            font-weight: 600 !important;
-            font-size: 0.9rem !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.95rem !important;
+            font-weight: 700 !important;
+            border-radius: 0 !important;
             text-transform: uppercase !important;
             letter-spacing: 0.05em !important;
             display: flex !important;
