@@ -1357,6 +1357,146 @@
                 padding-bottom: 2.5rem !important;
             }
         }
+
+        /* === ENHANCED INSIDE THE NEST SECTION === */
+        
+        /* Light Blush Background */
+        .refined-section {
+            background: linear-gradient(135deg, rgba(245, 240, 235, 0.3) 0%, rgba(248, 243, 238, 0.5) 100%) !important;
+            background-image: 
+                radial-gradient(circle at 25% 75%, rgba(245, 240, 235, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 75% 25%, rgba(248, 243, 238, 0.2) 0%, transparent 50%) !important;
+            position: relative !important;
+        }
+        
+        /* Category Tile Enhancements */
+        .category-tile {
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+            position: relative !important;
+        }
+        
+        .category-tile:hover {
+            filter: brightness(1.15) !important;
+            transform: translateY(-2px) scale(1.02) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Category Grid Uniform Spacing */
+        .category-grid {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 1.25rem !important;
+            padding: 1rem 0 !important;
+        }
+        
+        /* Category Content Layout */
+        .category-bottom-left {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 12px !important;
+        }
+        
+        .category-text {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 2px !important;
+        }
+        
+        /* Category Icon Enhancements */
+        .category-icon {
+            transition: all 0.3s ease !important;
+            opacity: 0.9 !important;
+        }
+        
+        .category-tile:hover .category-icon {
+            opacity: 1 !important;
+            transform: scale(1.1) !important;
+            animation: iconBounce 0.6s ease-out !important;
+        }
+        
+        @keyframes iconBounce {
+            0% { transform: scale(1) !important; }
+            50% { transform: scale(1.15) !important; }
+            100% { transform: scale(1.1) !important; }
+        }
+        
+        /* Category Label Enhancements */
+        .category-label {
+            transition: all 0.3s ease !important;
+            font-size: 0.9rem !important;
+            font-weight: 700 !important;
+            color: white !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+            margin: 0 !important;
+        }
+        
+        .category-tile:hover .category-label {
+            transform: scale(1.05) !important;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8) !important;
+        }
+        
+        /* Category Sub-labels */
+        .category-sublabel {
+            font-size: 0.7rem !important;
+            font-weight: 400 !important;
+            color: rgba(255, 255, 255, 0.85) !important;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6) !important;
+            margin: 0 !important;
+            line-height: 1.2 !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+        
+        .category-tile:hover .category-sublabel {
+            color: white !important;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8) !important;
+        }
+        
+        /* Icon Consistency */
+        .category-icon svg {
+            width: 28px !important;
+            height: 28px !important;
+            stroke: white !important;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.6)) !important;
+        }
+        
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 1rem !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.8rem !important;
+            }
+            
+            .category-bottom-left {
+                gap: 8px !important;
+            }
+            
+            .category-icon svg {
+                width: 24px !important;
+                height: 24px !important;
+            }
+            
+            .category-label {
+                font-size: 0.8rem !important;
+            }
+            
+            .category-sublabel {
+                font-size: 0.65rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .category-grid {
+                grid-template-columns: repeat(1, 1fr) !important;
+            }
+        }
         
         /* 9. DARKER SECTION BORDERS */
         .section,
@@ -3147,14 +3287,17 @@
                             <div class="category-content">
                                 <div class="category-bottom-left">
                                     <div class="category-icon">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                                             <circle cx="9" cy="7" r="4"/>
                                             <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
                                             <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                                         </svg>
                                     </div>
-                                    <h3 class="category-label">FAMILY</h3>
+                                    <div class="category-text">
+                                        <h3 class="category-label">FAMILY</h3>
+                                        <p class="category-sublabel">Moments together</p>
+                                    </div>
                                 </div>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
@@ -3171,12 +3314,15 @@
                             <div class="category-content">
                                 <div class="category-bottom-left">
                                     <div class="category-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                                             <polyline points="9,22 9,12 15,12 15,22"/>
                                         </svg>
                                     </div>
-                                    <h3 class="category-label">HOME</h3>
+                                    <div class="category-text">
+                                        <h3 class="category-label">HOME</h3>
+                                        <p class="category-sublabel">Design, upkeep + getaways</p>
+                                    </div>
                                 </div>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
@@ -3193,11 +3339,14 @@
                             <div class="category-content">
                                 <div class="category-bottom-left">
                                     <div class="category-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                             <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                                         </svg>
                                     </div>
-                                    <h3 class="category-label">WELLNESS</h3>
+                                    <div class="category-text">
+                                        <h3 class="category-label">WELLNESS</h3>
+                                        <p class="category-sublabel">Health + balance</p>
+                                    </div>
                                 </div>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
@@ -3214,7 +3363,7 @@
                             <div class="category-content">
                                 <div class="category-bottom-left">
                                     <div class="category-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
                                             <polyline points="7.5,4.21 12,6.81 16.5,4.21"/>
                                             <polyline points="7.5,19.79 7.5,14.6 3,12"/>
@@ -3222,7 +3371,10 @@
                                             <polyline points="12,22.81 12,17"/>
                                         </svg>
                                     </div>
-                                    <h3 class="category-label">TRAVEL</h3>
+                                    <div class="category-text">
+                                        <h3 class="category-label">TRAVEL</h3>
+                                        <p class="category-sublabel">Trips + city recommendations</p>
+                                    </div>
                                 </div>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
@@ -3239,14 +3391,17 @@
                             <div class="category-content">
                                 <div class="category-bottom-left">
                                     <div class="category-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                                             <line x1="16" y1="2" x2="16" y2="6"/>
                                             <line x1="8" y1="2" x2="8" y2="6"/>
                                             <line x1="3" y1="10" x2="21" y2="10"/>
                                         </svg>
                                     </div>
-                                    <h3 class="category-label">EVENTS</h3>
+                                    <div class="category-text">
+                                        <h3 class="category-label">EVENTS</h3>
+                                        <p class="category-sublabel">Gatherings big + small</p>
+                                    </div>
                                 </div>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
@@ -3263,7 +3418,7 @@
                             <div class="category-content">
                                 <div class="category-bottom-left">
                                     <div class="category-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                             <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
                                             <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
                                             <line x1="6" y1="1" x2="6" y2="4"/>
@@ -3271,7 +3426,10 @@
                                             <line x1="14" y1="1" x2="14" y2="4"/>
                                         </svg>
                                     </div>
-                                    <h3 class="category-label">FOOD</h3>
+                                    <div class="category-text">
+                                        <h3 class="category-label">FOOD</h3>
+                                        <p class="category-sublabel">Recipes & favorites</p>
+                                    </div>
                                 </div>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
@@ -3288,11 +3446,14 @@
                             <div class="category-content">
                                 <div class="category-bottom-left">
                                     <div class="category-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                             <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
                                         </svg>
                                     </div>
-                                    <h3 class="category-label">HOLIDAYS</h3>
+                                    <div class="category-text">
+                                        <h3 class="category-label">HOLIDAYS</h3>
+                                        <p class="category-sublabel">Traditions & joy</p>
+                                    </div>
                                 </div>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
@@ -3309,11 +3470,14 @@
                             <div class="category-content">
                                 <div class="category-bottom-left">
                                     <div class="category-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                             <polygon points="12,2 15.09,8.26 22,9 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9 8.91,8.26 12,2"/>
                                         </svg>
                                     </div>
-                                    <h3 class="category-label">POLITICS</h3>
+                                    <div class="category-text">
+                                        <h3 class="category-label">POLITICS</h3>
+                                        <p class="category-sublabel">Perspectives & insights</p>
+                                    </div>
                                 </div>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
@@ -3330,12 +3494,15 @@
                             <div class="category-content">
                                 <div class="category-bottom-left">
                                     <div class="category-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                             <circle cx="12" cy="12" r="3"/>
                                             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
                                         </svg>
                                     </div>
-                                    <h3 class="category-label">TIPS & TRICKS</h3>
+                                    <div class="category-text">
+                                        <h3 class="category-label">TIPS & TRICKS</h3>
+                                        <p class="category-sublabel">Everyday hacks</p>
+                                    </div>
                                 </div>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
@@ -3352,12 +3519,15 @@
                             <div class="category-content">
                                 <div class="category-bottom-left">
                                     <div class="category-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                             <path d="M6 2l3 6v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8z"/>
                                             <path d="M18 2l-3 6v14a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V8z"/>
                                         </svg>
                                     </div>
-                                    <h3 class="category-label">STYLE</h3>
+                                    <div class="category-text">
+                                        <h3 class="category-label">STYLE</h3>
+                                        <p class="category-sublabel">Affordable looks + inspo</p>
+                                    </div>
                                 </div>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
@@ -3374,11 +3544,14 @@
                             <div class="category-content">
                                 <div class="category-bottom-left">
                                     <div class="category-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                                         </svg>
                                     </div>
-                                    <h3 class="category-label">BEAUTY</h3>
+                                    <div class="category-text">
+                                        <h3 class="category-label">BEAUTY</h3>
+                                        <p class="category-sublabel">Clean products + self-care</p>
+                                    </div>
                                 </div>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
@@ -3395,13 +3568,16 @@
                             <div class="category-content">
                                 <div class="category-bottom-left">
                                     <div class="category-icon">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
                                             <line x1="8" y1="21" x2="16" y2="21"/>
                                             <line x1="12" y1="17" x2="12" y2="21"/>
                                         </svg>
                                     </div>
-                                    <h3 class="category-label">BUSINESS</h3>
+                                    <div class="category-text">
+                                        <h3 class="category-label">BUSINESS</h3>
+                                        <p class="category-sublabel">Work + growth</p>
+                                    </div>
                                 </div>
                                 <div class="category-click-hint">
                                     <span>View Highlights</span>
