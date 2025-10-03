@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Filter Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        
+        .filter-buttons { margin: 20px 0; }
+        .filter-btn {
+            background: #D9B6B6;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .filter-btn.active { background: #C8A5A5; }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 300px);
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .code-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .code-card.filter-hide { display: none; }
+        .code-card.filter-show { display: flex; }
+        
+        .brand-name { font-weight: bold; font-size: 1.1rem; }
+        .brand-desc { font-size: 0.9rem; color: #666; }
+        .category-tag { 
+            background: #D9B6B6; 
+            color: white; 
+            padding: 3px 8px; 
+            border-radius: 12px; 
+            font-size: 0.8rem; 
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Category Filter Test</h1>
+    
+    <div class="filter-buttons">
+        <button class="filter-btn active" onclick="filterCards('featured')">Featured</button>
+        <button class="filter-btn" onclick="filterCards('wellness')">Wellness</button>
+        <button class="filter-btn" onclick="filterCards('beauty')">Beauty</button>
+        <button class="filter-btn" onclick="filterCards('home')">Home</button>
+        <button class="filter-btn" onclick="filterCards('food')">Food</button>
+        <button class="filter-btn" onclick="filterCards('all')">All Codes</button>
+    </div>
+    
+    <div class="grid-container">
+        <!-- WELLNESS CARDS -->
+        <div class="code-card featured-card" data-category="wellness">
+            <div class="brand-name">Omnilux</div>
+            <div class="brand-desc">Professional red light therapy</div>
+            <div class="category-tag">WELLNESS</div>
+        </div>
+        
+        <div class="code-card featured-card" data-category="wellness">
+            <div class="brand-name">ARMRA</div>
+            <div class="brand-desc">Daily immune support</div>
+            <div class="category-tag">WELLNESS</div>
+        </div>
+        
+        <div class="code-card featured-card" data-category="wellness">
+            <div class="brand-name">Joovv</div>
+            <div class="brand-desc">Premium red light panels</div>
+            <div class="category-tag">WELLNESS</div>
+        </div>
+        
+        <div class="code-card featured-card" data-category="wellness">
+            <div class="brand-name">Just Ingredients</div>
+            <div class="brand-desc">Clean supplements you can trust</div>
+            <div class="category-tag">WELLNESS</div>
+        </div>
+        
+        <!-- BEAUTY CARDS -->
+        <div class="code-card featured-card" data-category="beauty">
+            <div class="brand-name">SleepWithMe</div>
+            <div class="brand-desc">Silk pillowcases for hair & skin</div>
+            <div class="category-tag">BEAUTY</div>
+        </div>
+        
+        <div class="code-card featured-card" data-category="beauty">
+            <div class="brand-name">Primally Pure</div>
+            <div class="brand-desc">Non-toxic natural beauty</div>
+            <div class="category-tag">BEAUTY</div>
+        </div>
+        
+        <div class="code-card" data-category="beauty">
+            <div class="brand-name">Beautycounter</div>
+            <div class="brand-desc">Clean makeup brand</div>
+            <div class="category-tag">BEAUTY</div>
+        </div>
+        
+        <div class="code-card" data-category="beauty">
+            <div class="brand-name">DAE Hair</div>
+            <div class="brand-desc">Hair care that actually works</div>
+            <div class="category-tag">BEAUTY</div>
+        </div>
+        
+        <!-- HOME CARDS -->
+        <div class="code-card featured-card" data-category="home">
+            <div class="brand-name">Branch Basics</div>
+            <div class="brand-desc">Non-toxic cleaning products</div>
+            <div class="category-tag">HOME</div>
+        </div>
+        
+        <div class="code-card" data-category="home">
+            <div class="brand-name">Clearly Filtered</div>
+            <div class="brand-desc">Water that tastes amazing</div>
+            <div class="category-tag">HOME</div>
+        </div>
+        
+        <div class="code-card" data-category="home">
+            <div class="brand-name">Our Place</div>
+            <div class="brand-desc">Beautiful, non-toxic cookware</div>
+            <div class="category-tag">HOME</div>
+        </div>
+        
+        <div class="code-card" data-category="home">
+            <div class="brand-name">Force of Nature</div>
+            <div class="brand-desc">Safe cleaning that really works</div>
+            <div class="category-tag">HOME</div>
+        </div>
+        
+        <!-- FOOD CARDS -->
+        <div class="code-card" data-category="food">
+            <div class="brand-name">Purity Coffee</div>
+            <div class="brand-desc">Cleanest organic coffee</div>
+            <div class="category-tag">FOOD</div>
+        </div>
+        
+        <div class="code-card" data-category="food">
+            <div class="brand-name">Clean Monday Meals</div>
+            <div class="brand-desc">Healthy meal delivery made simple</div>
+            <div class="category-tag">FOOD</div>
+        </div>
+        
+        <div class="code-card" data-category="food">
+            <div class="brand-name">Ryze Superfoods</div>
+            <div class="brand-desc">Mushroom coffee without the jitters</div>
+            <div class="category-tag">FOOD</div>
+        </div>
+    </div>
+    
+    <div id="debug-info" style="background: #f0f0f0; padding: 15px; margin: 20px 0; border-radius: 5px;">
+        <strong>Debug Info:</strong>
+        <div id="debug-content">Ready to test...</div>
+    </div>
+    
+    <script>
+        function filterCards(category) {
+            console.log('🔍 Filtering for category:', category);
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Get all cards
+            const allCards = document.querySelectorAll('.code-card');
+            let visibleCount = 0;
+            
+            allCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const isFeatured = card.classList.contains('featured-card');
+                
+                let shouldShow = false;
+                
+                if (category === 'featured') {
+                    shouldShow = isFeatured;
+                } else if (category === 'all') {
+                    shouldShow = true;
+                } else {
+                    shouldShow = cardCategory === category;
+                }
+                
+                if (shouldShow) {
+                    card.classList.remove('filter-hide');
+                    card.classList.add('filter-show');
+                    visibleCount++;
+                } else {
+                    card.classList.remove('filter-show');
+                    card.classList.add('filter-hide');
+                }
+            });
+            
+            // Update debug info
+            document.getElementById('debug-content').innerHTML = 
+                `Category: <strong>${category}</strong><br>` +
+                `Total cards: ${allCards.length}<br>` +
+                `Visible cards: ${visibleCount}<br>` +
+                `Timestamp: ${new Date().toLocaleTimeString()}`;
+            
+            console.log(`✅ Filter complete - ${visibleCount}/${allCards.length} cards visible`);
+        }
+        
+        // Initialize
+        console.log('🚀 Category filter test loaded');
+        filterCards('featured');
+    </script>
+</body>
+</html>

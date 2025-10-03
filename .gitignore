@@ -1,0 +1,6 @@
+empty-nest-deploy/
+# Large media files
+*.mov
+*.mp4
+*.avi
+empty-nest-website/assets/images/

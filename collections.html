@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Empty Nest Mom Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --font-family-serif: 'Playfair Display', serif;
+            --text-primary: #333;
+            --accent-color: #D4A4A4;
+            --accent-hover: #c47189;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        /* NAVIGATION - MATCHING HOME PAGE */
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            color: #666;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: #D4A4A4;
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            margin-top: 100px;
+            padding: 2rem 0;
+        }
+
+        .collections-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* HEADER TYPOGRAPHY - MATCHING EMPTY NEST PICKS EXACTLY */
+        .shop-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .shop-eyebrow {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.7rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.2em !important;
+            text-transform: uppercase !important;
+            color: #666 !important;
+            margin-bottom: 0.25rem !important;
+        }
+
+        .shop-title {
+            font-family: var(--font-family-serif) !important;
+            font-size: clamp(4rem, 6vw, 6rem) !important;
+            font-weight: 700 !important;
+            line-height: 1.2 !important;
+            letter-spacing: 0.1em !important;
+            color: var(--text-primary) !important;
+            text-transform: uppercase !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        .shop-tagline {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 400 !important;
+            color: #666 !important;
+            letter-spacing: 0.01em !important;
+            line-height: 1.4 !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+        }
+
+        /* PRODUCT GRID - MODERN LAYOUT */
+        .products-section {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-placeholder {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .product-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .product-button {
+            width: 100%;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.875rem 1.5rem;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .product-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(212, 164, 164, 0.4);
+        }
+
+        /* COLLECTION CATEGORIES */
+        .collections-section {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .collection-card {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
+            border-radius: 16px;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .collection-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .collection-description {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .collection-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .collection-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .shop-title {
+                font-size: 3rem !important;
+            }
+            
+            .products-grid,
+            .collections-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .products-section,
+            .collections-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .nav-wrapper {
+                padding: 0 1rem;
+            }
+
+            .shop-header {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .shop-title {
+                font-size: 2.5rem !important;
+                letter-spacing: 0.05em !important;
+            }
+
+            .products-section,
+            .collections-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .product-info {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-wrapper">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/9b798de6f8dafc5ff670b99a1905db5e" alt="Empty Nest">
+                </a>
+            </div>
+            
+            <!-- Social Icons -->
+            <div class="nav-right">
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon" aria-label="Amazon"><i class="fab fa-amazon"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="collections-wrapper">
+            <!-- Header - Matching Empty Nest Picks Exactly -->
+            <div class="shop-header">
+                <div class="shop-eyebrow">SHOP</div>
+                <h1 class="shop-title">EMPTY NEST SHOP</h1>
+                <div class="shop-tagline">Exclusive merch and curated favorites for your empty nest journey</div>
+            </div>
+
+            <!-- Exclusive Merch Products -->
+            <section class="products-section">
+                <div class="section-header">
+                    <h2 class="section-title" style="font-family: var(--font-family-serif); font-size: 2.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-primary); margin-bottom: 1rem;">EXCLUSIVE MERCH</h2>
+                    <p class="section-description" style="font-size: 1rem; color: #666; max-width: 600px; margin: 0 auto;">Limited edition items designed exclusively for the Empty Nest community</p>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Tea Towels Product -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">Tea Towels<br>Cotton & Poly Blend</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Empty Nest Tea Towels</h3>
+                            <p class="product-description">Premium cotton-poly blend tea towels featuring exclusive Empty Nest designs. Perfect for your kitchen or as thoughtful gifts.</p>
+                            <div class="product-price">$22.55</div>
+                            <a href="https://empty-nest-mom-life.printify.me/category/all/1" target="_blank" rel="noopener" class="product-button">
+                                <span>Shop Now</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">Coffee Mugs<br>Coming Soon</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Empty Nest Coffee Mugs</h3>
+                            <p class="product-description">Start your mornings right with our signature coffee mugs designed for the empty nest lifestyle.</p>
+                            <div class="product-price">Coming Soon</div>
+                            <button class="product-button" disabled style="opacity: 0.6; cursor: not-allowed;">
+                                <span>Coming Soon</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">T-Shirts<br>Coming Soon</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Empty Nest T-Shirts</h3>
+                            <p class="product-description">Comfortable and stylish tees that celebrate your new chapter with pride and confidence.</p>
+                            <div class="product-price">Coming Soon</div>
+                            <button class="product-button" disabled style="opacity: 0.6; cursor: not-allowed;">
+                                <span>Coming Soon</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Curated Collections -->
+            <section class="collections-section">
+                <div class="section-header">
+                    <h2 class="section-title" style="font-family: var(--font-family-serif); font-size: 2.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-primary); margin-bottom: 1rem;">CURATED COLLECTIONS</h2>
+                    <p class="section-description" style="font-size: 1rem; color: #666; max-width: 600px; margin: 0 auto;">Thoughtfully curated collections for every aspect of your empty nest journey</p>
+                </div>
+                
+                <div class="collections-grid">
+                    <!-- Empty Nest Essentials -->
+                    <div class="collection-card">
+                        <h3 class="collection-title">Empty Nest Essentials</h3>
+                        <p class="collection-description">Home and lifestyle products to help you create your perfect nest</p>
+                        <a href="https://www.amazon.com/shop/emptynestmomlife/list/3K8QMJZ7NJ8NR" target="_blank" rel="noopener" class="collection-link">
+                            <span>Shop Collection</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Style & Beauty -->
+                    <div class="collection-card" style="background: linear-gradient(135deg, #c47189, #a85a73);">
+                        <h3 class="collection-title">Style & Beauty</h3>
+                        <p class="collection-description">Fashion and beauty picks to help you feel confident and radiant</p>
+                        <a href="https://www.amazon.com/shop/emptynestmomlife/list/2JN9SLGTVSMC0" target="_blank" rel="noopener" class="collection-link">
+                            <span>Shop Collection</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Wellness & Self-Care -->
+                    <div class="collection-card" style="background: linear-gradient(135deg, #b8a099, #9a8077);">
+                        <h3 class="collection-title">Wellness & Self-Care</h3>
+                        <p class="collection-description">Products to support your physical and mental well-being</p>
+                        <a href="https://www.amazon.com/shop/emptynestmomlife/list/1HDYJPKMR5RZW" target="_blank" rel="noopener" class="collection-link">
+                            <span>Shop Collection</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Holiday House -->
+                    <div class="collection-card" style="background: linear-gradient(135deg, #8B4B6B, #6d3a54);">
+                        <h3 class="collection-title">Holiday House</h3>
+                        <p class="collection-description">Festive decorations and entertaining essentials for celebrations</p>
+                        <a href="https://www.amazon.com/shop/emptynestmomlife/list/28WXFQ3HMGNR1" target="_blank" rel="noopener" class="collection-link">
+                            <span>Shop Collection</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Travel Ready -->
+                    <div class="collection-card" style="background: linear-gradient(135deg, #A66B8B, #8a5573);">
+                        <h3 class="collection-title">Travel Ready</h3>
+                        <p class="collection-description">Adventure essentials for exploring the world in style</p>
+                        <a href="https://www.amazon.com/shop/emptynestmomlife/list/3BVLZ1QF2PGMY" target="_blank" rel="noopener" class="collection-link">
+                            <span>Shop Collection</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Gift Ideas -->
+                    <div class="collection-card" style="background: linear-gradient(135deg, #9B7FA0, #7d6580);">
+                        <h3 class="collection-title">Thoughtful Gifts</h3>
+                        <p class="collection-description">Meaningful presents for everyone on your list</p>
+                        <a href="https://www.amazon.com/shop/emptynestmomlife/list/2MF8QXKL6YBPG" target="_blank" rel="noopener" class="collection-link">
+                            <span>Shop Collection</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

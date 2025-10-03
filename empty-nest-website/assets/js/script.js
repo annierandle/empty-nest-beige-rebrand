@@ -179,11 +179,20 @@ class EmptyNestBrand {
 
         elementsToObserve.forEach(selector => {
             document.querySelectorAll(selector).forEach(element => {
-                scrollObserver.observe(element);
-                // Initial animation state
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(40px)';
-                element.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                // Skip discount code cards to prevent styling interference
+                const isDiscountCard = element.classList.contains('code-card') ||
+                                     element.closest('.featured-codes-grid') ||
+                                     element.closest('.additional-codes-grid');
+                
+                if (!isDiscountCard) {
+                    scrollObserver.observe(element);
+                    // Initial animation state
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(40px)';
+                    element.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+                } else {
+                    console.log('Skipping discount card from scroll animation:', element.className);
+                }
             });
         });
     }
@@ -3116,3 +3125,578 @@ function showCompactCopyFeedback(buttonElement, code) {
     showEnhancedToast(`Copied "${code}" to clipboard!`);
 }
 // Nest Approved Manager is initialized in the DOMContentLoaded block above
+
+// ===================================
+// DISCOUNT CODES CATEGORY FILTERING
+// ===================================
+
+class DiscountCodesManager {
+    constructor() {
+        this.currentCategory = 'featured';
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.showCategory('featured');
+    }
+
+    setupEventListeners() {
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const category = e.target.getAttribute('data-category');
+                this.switchCategory(category, e.target);
+            });
+        });
+    }
+
+    switchCategory(category, clickedBtn) {
+        // Update active button
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        clickedBtn.classList.add('active');
+
+        // Show codes for selected category
+        this.showCategory(category);
+        this.currentCategory = category;
+    }
+
+    showCategory(category) {
+        const allItems = document.querySelectorAll('.discount-code-item');
+        
+        allItems.forEach(item => {
+            const itemCategories = item.getAttribute('data-category').split(' ');
+            
+            if (category === 'featured') {
+                // Show only items that have 'featured' category
+                if (itemCategories.includes('featured')) {
+                    item.style.display = 'block';
+                    this.animateIn(item);
+                } else {
+                    item.style.display = 'none';
+                }
+            } else {
+                // Show items that match the selected category (but not featured-only items)
+                if (itemCategories.includes(category) && !itemCategories.includes('featured')) {
+                    item.style.display = 'block';
+                    this.animateIn(item);
+                } else {
+                    item.style.display = 'none';
+                }
+            }
+        });
+    }
+
+    animateIn(element) {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            element.style.transition = 'all 0.3s ease';
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }, 100);
+    }
+}
+
+// Initialize discount codes manager when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if we're on a page with discount codes
+    if (document.querySelector('.discount-codes-grid')) {
+        window.discountCodesManager = new DiscountCodesManager();
+    }
+});
+
+// ====== ENHANCED DISCOUNT CODES SYSTEM (NAMESPACED) ======
+
+// Enhanced Discount Codes Manager - Separate from existing system
+const EnhancedDiscountSystem = {
+    isAdditionalCodesVisible: false,
+    activeFilter: 'featured',
+    
+    init() {
+        this.initializeFilterButtons();
+        this.setupKeyboardNavigation();
+        // Initialize with featured codes showing by default
+        setTimeout(() => {
+            this.filterCodes('featured');
+        }, 100);
+        console.log('Enhanced discount codes system initialized successfully');
+    },
+    
+    initializeFilterButtons() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = btn.textContent.toLowerCase().includes('all') ? 'all' : 
+                               btn.textContent.toLowerCase().replace(/\s+/g, '');
+                this.filterCodes(category);
+            });
+        });
+    },
+    
+
+    
+    setupKeyboardNavigation() {
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isAdditionalCodesVisible) {
+                this.toggleAdditionalCodes();
+            }
+        });
+    },
+    
+    toggleAdditionalCodes() {
+        const additionalGrid = document.getElementById('additionalCodesGrid');
+        const showMoreBtn = document.querySelector('.show-more-btn .btn-text');
+        const btnIcon = document.querySelector('.show-more-btn .btn-icon');
+        
+        if (!additionalGrid || !showMoreBtn) return;
+        
+        this.isAdditionalCodesVisible = !this.isAdditionalCodesVisible;
+        
+        if (this.isAdditionalCodesVisible) {
+            // Show additional codes
+            additionalGrid.style.display = 'grid';
+            setTimeout(() => {
+                additionalGrid.classList.add('visible');
+            }, 50);
+            
+            showMoreBtn.textContent = 'Show Less Codes';
+            if (btnIcon) {
+                btnIcon.style.transform = 'rotate(180deg)';
+            }
+            
+            // Scroll to additional codes after animation
+            setTimeout(() => {
+                additionalGrid.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'nearest' 
+                });
+            }, 300);
+        } else {
+            // Hide additional codes
+            additionalGrid.classList.remove('visible');
+            setTimeout(() => {
+                additionalGrid.style.display = 'none';
+            }, 500);
+            
+            showMoreBtn.textContent = 'Show More Codes';
+            if (btnIcon) {
+                btnIcon.style.transform = 'rotate(0deg)';
+            }
+        }
+        
+        // Re-apply current filter to new visible codes
+        if (this.activeFilter !== 'all') {
+            setTimeout(() => {
+                this.filterCodes(this.activeFilter);
+            }, 100);
+        }
+    },
+    
+    filterCodes(category) {
+        this.activeFilter = category;
+        
+        // Update active filter button
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if ((category === 'all' && btn.textContent.includes('All Codes')) ||
+                (category === 'featured' && btn.textContent.includes('Featured Codes')) ||
+                (category !== 'all' && category !== 'featured' && btn.textContent.toLowerCase().includes(category))) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Get all code cards (both featured and additional)
+        const featuredCards = document.querySelectorAll('.featured-codes-grid .code-card[data-category]');
+        const additionalCards = document.querySelectorAll('.additional-codes-grid .code-card[data-category]');
+        const allCards = [...featuredCards, ...additionalCards];
+        
+        // Handle grid visibility based on category
+        const featuredGrid = document.querySelector('.featured-codes-grid');
+        const additionalGrid = document.querySelector('.additional-codes-grid');
+        
+        if (category === 'featured') {
+            // Featured filter: show featured grid, hide additional grid
+            if (featuredGrid) {
+                featuredGrid.style.display = 'grid';
+                featuredGrid.style.opacity = '1';
+            }
+            if (additionalGrid) {
+                additionalGrid.style.display = 'none';
+                additionalGrid.style.opacity = '0';
+            }
+        } else {
+            // All other filters: show both grids and filter individual cards
+            if (featuredGrid) {
+                featuredGrid.style.display = 'grid';
+                featuredGrid.style.opacity = '1';
+            }
+            if (additionalGrid) {
+                additionalGrid.style.display = 'grid';
+                additionalGrid.style.opacity = '1';
+            }
+        }
+        
+        allCards.forEach((card, index) => {
+            const cardCategory = card.getAttribute('data-category');
+            let shouldShow = false;
+            
+            if (category === 'all') {
+                shouldShow = true;
+            } else if (category === 'featured') {
+                // Show only the 4 featured codes (this should be redundant due to grid hiding above)
+                shouldShow = card.closest('.featured-codes-grid') !== null;
+            } else {
+                // Show specific category
+                shouldShow = cardCategory === category;
+            }
+            
+            // Add staggered animation delay
+            card.style.transitionDelay = `${index * 50}ms`;
+            
+            if (shouldShow) {
+                card.classList.remove('filter-hidden');
+                card.classList.add('filter-visible');
+                card.style.display = 'block';
+            } else {
+                card.classList.add('filter-hidden');
+                card.classList.remove('filter-visible');
+                // Don't set display:none immediately to allow transition
+                setTimeout(() => {
+                    if (card.classList.contains('filter-hidden')) {
+                        card.style.display = 'none';
+                    }
+                }, 300);
+            }
+        });
+        
+        // Update results count
+        setTimeout(() => {
+            this.updateResultsCount(category);
+        }, 350);
+    },
+    
+    updateResultsCount(category) {
+        const visibleCards = document.querySelectorAll('.code-card.filter-visible:not([style*="display: none"])');
+        
+        // Remove existing count display
+        const existingCount = document.querySelector('.filter-results-count');
+        if (existingCount) {
+            existingCount.remove();
+        }
+        
+        // Add new count display if filtering
+        if (category !== 'all') {
+            const filterControls = document.querySelector('.discount-filter-controls');
+            if (filterControls && visibleCards.length > 0) {
+                const countDisplay = document.createElement('div');
+                countDisplay.className = 'filter-results-count';
+                const displayText = category === 'featured' ? 'featured' : category;
+                countDisplay.innerHTML = `
+                    <span class="count-text">
+                        Showing ${visibleCards.length} ${displayText} ${visibleCards.length === 1 ? 'code' : 'codes'}
+                    </span>
+                `;
+                filterControls.appendChild(countDisplay);
+            }
+        }
+    }
+};
+
+// Global functions for onclick handlers in HTML
+function toggleAdditionalCodes() {
+    EnhancedDiscountSystem.toggleAdditionalCodes();
+}
+
+function filterDiscountCodes(category) {
+    EnhancedDiscountSystem.filterCodes(category);
+}
+
+// Enhanced copy to clipboard with better user feedback
+function copyCodeToClipboard(code, button) {
+    if (!code || !button) return;
+    
+    // Create temporary textarea for copying
+    const tempInput = document.createElement('textarea');
+    tempInput.value = code;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    
+    try {
+        // Try modern clipboard API first
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(code).then(() => {
+                showCopyFeedback(button, true);
+            }).catch(() => {
+                // Fallback to execCommand
+                const success = document.execCommand('copy');
+                showCopyFeedback(button, success);
+            });
+        } else {
+            // Fallback to execCommand
+            const success = document.execCommand('copy');
+            showCopyFeedback(button, success);
+        }
+    } catch (err) {
+        showCopyFeedback(button, false);
+        console.error('Copy failed:', err);
+    } finally {
+        document.body.removeChild(tempInput);
+    }
+}
+
+// Show visual feedback for copy action
+function showCopyFeedback(button, success) {
+    const originalText = button.querySelector('.code-text').textContent;
+    const originalIcon = button.querySelector('.copy-icon').textContent;
+    
+    if (success) {
+        // Success feedback
+        button.classList.add('copied');
+        button.querySelector('.code-text').textContent = 'COPIED!';
+        button.querySelector('.copy-icon').textContent = '✓';
+        
+        // Create floating success message
+        createFloatingMessage('Code copied to clipboard!', 'success');
+        
+        // Reset after delay
+        setTimeout(() => {
+            button.classList.remove('copied');
+            button.querySelector('.code-text').textContent = originalText;
+            button.querySelector('.copy-icon').textContent = originalIcon;
+        }, 2000);
+    } else {
+        // Error feedback
+        button.classList.add('copy-error');
+        button.querySelector('.copy-icon').textContent = '✗';
+        
+        createFloatingMessage('Copy failed. Please try again.', 'error');
+        
+        // Reset after delay
+        setTimeout(() => {
+            button.classList.remove('copy-error');
+            button.querySelector('.copy-icon').textContent = originalIcon;
+        }, 2000);
+    }
+}
+
+// Create floating notification message
+function createFloatingMessage(message, type = 'success') {
+    // Remove existing messages
+    const existingMessages = document.querySelectorAll('.floating-message');
+    existingMessages.forEach(msg => msg.remove());
+    
+    const messageEl = document.createElement('div');
+    messageEl.className = `floating-message ${type}`;
+    messageEl.textContent = message;
+    
+    // Style the message
+    Object.assign(messageEl.style, {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        background: type === 'success' ? '#28a745' : '#dc3545',
+        color: 'white',
+        padding: '12px 20px',
+        borderRadius: '6px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+        zIndex: '10000',
+        fontSize: '14px',
+        fontWeight: '500',
+        transform: 'translateX(100%)',
+        opacity: '0',
+        transition: 'all 0.3s ease'
+    });
+    
+    document.body.appendChild(messageEl);
+    
+    // Animate in
+    setTimeout(() => {
+        messageEl.style.transform = 'translateX(0)';
+        messageEl.style.opacity = '1';
+    }, 10);
+    
+    // Animate out and remove
+    setTimeout(() => {
+        messageEl.style.transform = 'translateX(100%)';
+        messageEl.style.opacity = '0';
+        setTimeout(() => {
+            messageEl.remove();
+        }, 300);
+    }, 3000);
+}
+
+// Initialize enhanced discount codes system
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait a bit to ensure other systems are initialized first
+    setTimeout(() => {
+        if (document.querySelector('.nest-approved-section') || document.querySelector('.featured-codes-grid')) {
+            console.log('Initializing EnhancedDiscountSystem...');
+            EnhancedDiscountSystem.init();
+        } else {
+            console.log('Discount codes section not found');
+        }
+    }, 500);
+});
+
+// Recipe Modal Functions
+const recipeData = {
+    'fry-sauce': {
+        title: 'FRY SAUCE',
+        time: '5 mins',
+        image: 'assets/images/fry-sauce-recipe.jpg',
+        ingredients: [
+            '2/3 cup mayonnaise',
+            '1/3 cup ketchup'
+        ],
+        directions: [
+            'Mix all ingredients until smooth.',
+            'Refrigerate until ready to serve.',
+            'Eat with fries, chicken nuggets, or anything else yummy!'
+        ]
+    }
+};
+
+function openRecipeModal(recipeId) {
+    const recipe = recipeData[recipeId];
+    if (!recipe) return;
+    
+    // Populate modal content
+    document.getElementById('modalRecipeTitle').textContent = recipe.title;
+    document.getElementById('modalRecipeTime').textContent = recipe.time;
+    document.getElementById('modalRecipeImage').src = recipe.image;
+    
+    // Populate ingredients
+    const ingredientsList = document.getElementById('modalRecipeIngredients');
+    ingredientsList.innerHTML = '';
+    recipe.ingredients.forEach(ingredient => {
+        const li = document.createElement('li');
+        li.textContent = ingredient;
+        ingredientsList.appendChild(li);
+    });
+    
+    // Populate directions
+    const directionsList = document.getElementById('modalRecipeDirections');
+    directionsList.innerHTML = '';
+    recipe.directions.forEach(direction => {
+        const li = document.createElement('li');
+        li.textContent = direction;
+        directionsList.appendChild(li);
+    });
+    
+    // Show modal
+    document.getElementById('recipeModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeRecipeModal() {
+    document.getElementById('recipeModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside of it
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('recipeModal');
+    if (event.target === modal) {
+        closeRecipeModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeRecipeModal();
+    }
+});
+
+// ================================================================
+// NUCLEAR GRID FIX - FORCE DISCOUNT CODES TO DISPLAY PROPERLY
+// ================================================================
+
+function forceDiscountGridLayout() {
+    console.log('🔧 APPLYING NUCLEAR GRID FIX');
+    
+    // Force grid layout on discount code containers
+    const grids = document.querySelectorAll('.featured-codes-grid, .additional-codes-grid');
+    grids.forEach(grid => {
+        // Apply nuclear grid styles
+        grid.style.setProperty('display', 'grid', 'important');
+        grid.style.setProperty('grid-template-columns', 'repeat(3, 320px)', 'important');
+        grid.style.setProperty('justify-content', 'center', 'important');
+        grid.style.setProperty('gap', '2rem', 'important');
+        grid.style.setProperty('padding', '2rem', 'important');
+        grid.style.setProperty('margin', '0 auto', 'important');
+        grid.style.setProperty('width', '100%', 'important');
+        grid.style.setProperty('max-width', '1200px', 'important');
+        grid.style.setProperty('box-sizing', 'border-box', 'important');
+        
+        console.log('✅ Grid layout forced on:', grid.className);
+    });
+    
+    // Force card dimensions
+    const cards = document.querySelectorAll('.code-card');
+    cards.forEach(card => {
+        card.style.setProperty('width', '320px', 'important');
+        card.style.setProperty('height', '320px', 'important');
+        card.style.setProperty('min-width', '320px', 'important');
+        card.style.setProperty('min-height', '320px', 'important');
+        card.style.setProperty('max-width', '320px', 'important');
+        card.style.setProperty('max-height', '320px', 'important');
+        card.style.setProperty('background', 'white', 'important');
+        card.style.setProperty('border', '1px solid #E5E5E5', 'important');
+        card.style.setProperty('border-radius', '8px', 'important');
+    });
+    
+    // Fix black backgrounds on logos
+    const logoImages = document.querySelectorAll('.code-card img, .brand-logo-img');
+    logoImages.forEach(img => {
+        const src = img.src || '';
+        
+        // Check for specific problematic images
+        if (src.includes('5c9ec8ddd67b224de0701dc948538db8') || // Faster Way
+            src.includes('ab0bd2cd3f6ff0106dc9606233e14fb1') || // Article Consignment
+            src.includes('504f7169af982f2ddcc3b4612baf44a8') || // LUMEBOX
+            src.includes('d6cfefc0cfd42d3e03d627e1f7a2db43')) { // Too Cool T-Shirts
+            
+            img.style.setProperty('background', 'white', 'important');
+            img.style.setProperty('background-color', 'white', 'important');
+            img.style.setProperty('mix-blend-mode', 'multiply', 'important');
+            img.style.setProperty('filter', 'contrast(1.5) brightness(1.2)', 'important');
+            img.style.setProperty('padding', '15px', 'important');
+            img.style.setProperty('border-radius', '8px', 'important');
+            
+            console.log('🎨 Fixed black background for:', img.alt || 'Unknown logo');
+        } else {
+            // Apply general logo cleanup
+            img.style.setProperty('background', 'transparent', 'important');
+            img.style.setProperty('background-color', 'transparent', 'important');
+            img.style.setProperty('padding', '10px', 'important');
+        }
+    });
+    
+    console.log('✅ Nuclear grid fix applied successfully');
+}
+
+// Apply fix when page loads
+document.addEventListener('DOMContentLoaded', forceDiscountGridLayout);
+
+// Apply fix after a short delay to override any lazy loading
+window.addEventListener('load', () => {
+    setTimeout(forceDiscountGridLayout, 500);
+    setTimeout(forceDiscountGridLayout, 1000);
+    setTimeout(forceDiscountGridLayout, 2000);
+});
+
+// Apply fix when discount codes are filtered
+document.addEventListener('click', (e) => {
+    if (e.target.matches('.filter-btn')) {
+        setTimeout(forceDiscountGridLayout, 100);
+    }
+});
+
+console.log('🚀 Nuclear discount grid fix system initialized');
