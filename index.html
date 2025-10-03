@@ -2012,15 +2012,11 @@
 
         /* === COMPREHENSIVE FIXES FOR 7 ISSUES === */
         
-        /* CRITICAL FIX: SIGNATURE BLACK SQUARE ISSUE */
+        /* LEGACY SIGNATURE FIX - KEEP FOR OLD ELEMENTS */
         .signature-text,
         .about-signature,
         .signature-image,
-        .signature-container,
-        .signature-container img,
-        img[src*="signature"],
-        img[src*="kellie-signature"],
-        img[src="assets/images/kellie-signature-new.png"] {
+        .signature-container {
             mix-blend-mode: normal !important;
             background: transparent !important;
             filter: none !important;
@@ -2034,19 +2030,24 @@
             visibility: visible !important;
         }
         
-        /* ENHANCED KELLIE SIGNATURE - COMPLETE OVERRIDE */
-        .kellie-signature-container,
-        .kellie-signature-image,
-        img[src*="kellie-signature.png"] {
+        /* CLEAN SIGNATURE IMPLEMENTATION - NO BLACK BOX */
+        .clean-signature-container {
             background: transparent !important;
-            background-color: transparent !important;
-            background-image: none !important;
-            box-shadow: none !important;
-            border: none !important;
-            outline: none !important;
-            mix-blend-mode: multiply !important;
-            filter: brightness(0.2) !important;
-            -webkit-filter: brightness(0.2) !important;
+            margin-top: 24px !important;
+            margin-bottom: max(-8px, 0px) !important;
+            text-align: left !important;
+        }
+        
+        .clean-signature-image {
+            display: block !important;
+            background: transparent !important;
+            width: clamp(520px, 48vw, 640px) !important;
+            height: auto !important;
+            aspect-ratio: 901 / 95 !important;
+            margin: 0 !important;
+            pointer-events: none !important;
+            z-index: 1 !important;
+            mix-blend-mode: normal !important;
         }
         
         /* NEST CELEBRATIONS SHARP CORNERS */
@@ -3028,65 +3029,7 @@
             }
         }
 
-        /* === ENHANCED KELLIE SIGNATURE STYLING === */
-        
-        /* Signature Container */
-        .kellie-signature-container {
-            margin-top: 24px !important;
-            margin-bottom: -8px !important;
-            text-align: left !important;
-            background: transparent !important;
-            z-index: 1 !important;
-            position: relative !important;
-            display: block !important;
-            width: 100% !important;
-        }
-        
-        /* Enhanced Signature Image - Responsive Sizing */
-        .kellie-signature-image {
-            display: block !important;
-            background: transparent !important;
-            object-fit: contain !important;
-            pointer-events: none !important;
-            z-index: 1 !important;
-            
-            /* Responsive width with clamp */
-            width: clamp(260px, 80vw, 320px) !important;
-            height: auto !important;
-            
-            /* Brand charcoal color with blend mode */
-            filter: brightness(0.2) !important;
-            mix-blend-mode: multiply !important;
-            opacity: 0.95 !important;
-            
-            /* Remove any black box issues */
-            background-color: transparent !important;
-            background-image: none !important;
-            backdrop-filter: none !important;
-            -webkit-filter: brightness(0.2) !important;
-        }
-        
-        /* Alternative Masked Version (Fallback) */
-        .kellie-signature-masked {
-            display: block !important;
-            background-color: #2F2F2F !important;
-            
-            /* CSS Mask Properties */
-            -webkit-mask-image: url('assets/images/kellie-signature.png') !important;
-            mask-image: url('assets/images/kellie-signature.png') !important;
-            -webkit-mask-repeat: no-repeat !important;
-            mask-repeat: no-repeat !important;
-            -webkit-mask-size: contain !important;
-            mask-size: contain !important;
-            
-            /* Responsive sizing */
-            width: clamp(260px, 80vw, 320px) !important;
-            height: 120px !important;
-            margin-top: 24px !important;
-            margin-bottom: -8px !important;
-            z-index: 1 !important;
-            pointer-events: none !important;
-        }
+        /* === CLEAN SIGNATURE STYLING === */
         
         /* Typography & Rhythm for About Content */
         .about-content .about-header {
@@ -3119,53 +3062,16 @@
             max-width: 60ch !important;
         }
         
-        /* Override any existing signature styles */
-        .kellie-signature-container *,
-        .kellie-signature-image {
-            background-color: transparent !important;
-            background-image: none !important;
-            background: transparent !important;
-        }
-        
-        /* Tablet Responsive */
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .kellie-signature-image,
-            .kellie-signature-masked {
-                width: clamp(380px, 55vw, 460px) !important;
-            }
-            
-            .kellie-signature-masked {
-                height: 140px !important;
-            }
-        }
-        
-        /* Desktop Responsive */
-        @media (min-width: 1025px) {
-            .kellie-signature-image,
-            .kellie-signature-masked {
-                width: clamp(520px, 48vw, 640px) !important;
-            }
-            
-            .kellie-signature-masked {
-                height: 180px !important;
-            }
-        }
-        
-        /* Ensure no collision with section divider */
-        .kellie-signature-container {
-            margin-bottom: max(-8px, 0px) !important;
-        }
-        
-        /* Performance: Lazy loading on mobile, preload on desktop */
+        /* Responsive Sizing for Clean Signature */
         @media (max-width: 768px) {
-            .kellie-signature-image {
-                loading: lazy !important;
+            .clean-signature-image {
+                width: clamp(260px, 80vw, 320px) !important;
             }
         }
         
-        @media (min-width: 769px) {
-            .kellie-signature-image {
-                loading: eager !important;
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .clean-signature-image {
+                width: clamp(380px, 55vw, 460px) !important;
             }
         }
 
@@ -4399,9 +4305,9 @@
                         <div class="story-content">
                             <p style="font-size: 0.85rem !important; line-height: 1.4 !important;">When I'm not planning family gatherings or helping with apartment decorating, you'll find me grocery shopping or cooking, playing pickleball, learning golf, or running our award-winning PR company. My tips have been featured on TV, podcasts, and magazines, but my real passion is inspiring parents to embrace and enjoy this incredible new chapter.</p>
                             
-                            <!-- Enhanced Signature Image -->
-                            <div class="kellie-signature-container">
-                                <img src="assets/images/kellie-signature.png" alt="" aria-hidden="true" class="kellie-signature-image">
+                            <!-- Clean Signature Image -->
+                            <div class="clean-signature-container">
+                                <img src="assets/images/kellie-signature.png" alt="" aria-hidden="true" class="clean-signature-image">
                             </div>
                         </div>
                     </div>
@@ -6090,35 +5996,11 @@
             });
         });
         
-        // 4. FIX KELLIE'S SIGNATURE IMAGE
-        const signatureSelectors = [
-            '.signature-img',
-            'img[alt*="Signature"]',
-            'img[src*="signature"]',
-            'img[src*="kellie-signature"]'
-        ];
-        
-        signatureSelectors.forEach(selector => {
-            const signatures = document.querySelectorAll(selector);
-            signatures.forEach(sig => {
-                sig.style.setProperty('max-width', '250px', 'important');
-                sig.style.setProperty('opacity', '1', 'important');
-                sig.style.setProperty('background', 'transparent', 'important');
-                sig.style.setProperty('mix-blend-mode', 'normal', 'important');
-                sig.style.setProperty('filter', 'none', 'important');
-                sig.style.setProperty('display', 'block', 'important');
-                sig.style.setProperty('visibility', 'visible', 'important');
-                
-                // Force reload of signature image with cache-bust
-                const currentSrc = sig.src;
-                if (currentSrc) {
-                    const separator = currentSrc.includes('?') ? '&' : '?';
-                    sig.src = currentSrc + separator + 'force=' + Date.now();
-                }
-                
-                console.log('✅ Fixed signature image:', sig);
-            });
-        });
+        // 4. CLEAN SIGNATURE - NO COMPLEX FIXING NEEDED
+        const cleanSignature = document.querySelector('.clean-signature-image');
+        if (cleanSignature) {
+            console.log('✅ Clean signature image loaded:', cleanSignature.src);
+        }
         
         // 5. FIX STOREFRONT QUOTES - MAKE THEM SINGLE LINE
         const storeQuotes = document.querySelectorAll('.storefront-description');
