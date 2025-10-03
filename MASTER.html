@@ -720,10 +720,10 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
         }
         
-        /* Kellie's Favorite Tags */
+        /* Kellie's Favorite Tags - FIXED POSITIONING */
         .book-favorite-tag {
             position: absolute !important;
-            bottom: -8px !important;
+            bottom: 8px !important;
             left: 50% !important;
             transform: translateX(-50%) !important;
             background: #D4A4A4 !important;
@@ -1059,6 +1059,158 @@
                 font-size: 0.75rem !important;
                 max-width: 180px !important;
                 padding: 6px 10px !important;
+            }
+        }
+
+        /* === ENHANCED EMPTY NEST EATS SECTION === */
+        
+        /* Light Textured Background */
+        .recipes-section {
+            background: linear-gradient(135deg, rgba(245, 240, 235, 0.4) 0%, rgba(248, 243, 238, 0.6) 100%) !important;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(245, 240, 235, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(248, 243, 238, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(245, 240, 235, 0.2) 0%, transparent 50%) !important;
+            position: relative !important;
+        }
+        
+        /* Recipe Card Hover Effects */
+        .recipe-item {
+            position: relative !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+            overflow: hidden !important;
+        }
+        
+        .recipe-item:hover {
+            transform: scale(1.03) !important;
+        }
+        
+        .recipe-overlay {
+            position: relative !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .recipe-item:hover .recipe-overlay::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: rgba(0, 0, 0, 0.4) !important;
+            z-index: 1 !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        /* Recipe Title Enhancement on Hover */
+        .recipe-title {
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            z-index: 2 !important;
+        }
+        
+        .recipe-item:hover .recipe-title {
+            transform: scale(1.05) !important;
+            color: white !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+        }
+        
+        /* Recipe Time Badge */
+        .recipe-time-badge {
+            position: absolute !important;
+            bottom: 12px !important;
+            left: 12px !important;
+            background: rgba(0, 0, 0, 0.7) !important;
+            color: white !important;
+            padding: 6px 10px !important;
+            border-radius: 16px !important;
+            font-size: 0.75rem !important;
+            font-weight: 500 !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 4px !important;
+            z-index: 3 !important;
+            backdrop-filter: blur(4px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        .recipe-time-badge svg {
+            color: white !important;
+            flex-shrink: 0 !important;
+        }
+        
+        /* Recipe Content Positioning */
+        .recipe-content {
+            position: relative !important;
+            z-index: 2 !important;
+        }
+        
+        /* See All Recipes Button */
+        .recipes-section-button-wrapper {
+            display: flex !important;
+            justify-content: center !important;
+            margin-top: 3rem !important;
+            padding-top: 2rem !important;
+        }
+        
+        .recipes-see-all-button {
+            background: #000 !important;
+            color: white !important;
+            border: none !important;
+            padding: 12px 24px !important;
+            border-radius: 0 !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            font-size: 0.9rem !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+        }
+        
+        .recipes-see-all-button:hover {
+            background: #333 !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+            color: white !important;
+            text-decoration: none !important;
+        }
+        
+        .recipes-see-all-button svg {
+            transition: transform 0.3s ease !important;
+        }
+        
+        .recipes-see-all-button:hover svg {
+            transform: translate(2px, -2px) !important;
+        }
+        
+        /* Enhanced Recipe Category Tags */
+        .recipe-category-tag {
+            position: relative !important;
+            z-index: 3 !important;
+        }
+        
+        /* Mobile Recipe Enhancements */
+        @media (max-width: 768px) {
+            .recipe-time-badge {
+                bottom: 8px !important;
+                left: 8px !important;
+                padding: 4px 8px !important;
+                font-size: 0.7rem !important;
+            }
+            
+            .recipes-section-button-wrapper {
+                margin-top: 2rem !important;
+                padding-top: 1.5rem !important;
+            }
+            
+            .recipe-item:hover .recipe-title {
+                transform: scale(1.02) !important;
             }
         }
         
@@ -1660,7 +1812,7 @@
             overflow: hidden !important;
             width: 640px !important;
             max-width: 90vw !important;
-            height: 320px !important;
+            height: 380px !important;
             margin: 0 auto !important;
         }
         
@@ -1758,6 +1910,9 @@
             margin: 0 auto !important;
             cursor: pointer !important;
             transition: all 0.3s ease !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            font-size: 0.9rem !important;
         }
         
         .just-ingredients-button:hover {
@@ -2811,7 +2966,7 @@
                         <div>
                             <div class="just-ingredients-code">EMPTYNEST25</div>
                             <a href="https://justingredients.com" target="_blank" class="just-ingredients-button">
-                                <span>Shop Collection</span>
+                                <span>Explore</span>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M7 17L17 7M17 7H7M17 7V17"></path>
                                 </svg>
@@ -3567,7 +3722,13 @@
                         <div class="recipe-category-tag">⭐ FAM FAVORITE</div>
                         <div class="recipe-content">
                             <h3 class="recipe-title">Fry Sauce</h3>
-                            <p class="recipe-description">5 mins</p>
+                        </div>
+                        <div class="recipe-time-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>5 mins</span>
                         </div>
                     </div>
                 </div>
@@ -3577,7 +3738,13 @@
                     <div class="recipe-overlay">
                         <div class="recipe-content">
                             <h3 class="recipe-title">Mediterranean Power Bowl</h3>
-                            <p class="recipe-description">25 mins</p>
+                        </div>
+                        <div class="recipe-time-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>25 mins</span>
                         </div>
                     </div>
                 </div>
@@ -3588,7 +3755,13 @@
                         <div class="recipe-category-tag">⭐ FAM FAVORITE</div>
                         <div class="recipe-content">
                             <h3 class="recipe-title">Sheet Pan Lemon Salmon</h3>
-                            <p class="recipe-description">20 mins</p>
+                        </div>
+                        <div class="recipe-time-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>20 mins</span>
                         </div>
                     </div>
                 </div>
@@ -3598,7 +3771,13 @@
                     <div class="recipe-overlay">
                         <div class="recipe-content">
                             <h3 class="recipe-title">Asian Lettuce Wraps</h3>
-                            <p class="recipe-description">15 mins</p>
+                        </div>
+                        <div class="recipe-time-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>15 mins</span>
                         </div>
                     </div>
                 </div>
@@ -3608,7 +3787,13 @@
                     <div class="recipe-overlay">
                         <div class="recipe-content">
                             <h3 class="recipe-title">Coconut Cauliflower Curry</h3>
-                            <p class="recipe-description">30 mins</p>
+                        </div>
+                        <div class="recipe-time-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>30 mins</span>
                         </div>
                     </div>
                 </div>
@@ -3618,10 +3803,26 @@
                     <div class="recipe-overlay">
                         <div class="recipe-content">
                             <h3 class="recipe-title">Protein-Packed Avocado Toast</h3>
-                            <p class="recipe-description">10 mins</p>
+                        </div>
+                        <div class="recipe-time-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            <span>10 mins</span>
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- See All Recipes Button -->
+            <div class="recipes-section-button-wrapper">
+                <a href="recipes.html" class="recipes-see-all-button" style="border-radius: 0 !important;">
+                    <span>See All Recipes</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
