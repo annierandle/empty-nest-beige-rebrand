@@ -1384,12 +1384,16 @@
             position: relative !important;
         }
         
-        /* FIX 4: Fry sauce image fix - ensure background image loads properly */
-        .recipe-item.fry-sauce {
-            background-image: url('assets/images/fry-sauce-recipe.jpg') !important;
+        /* FIX 4: Ensure ALL recipe items have proper background images */
+        .recipe-item {
             background-size: cover !important;
             background-position: center !important;
             background-repeat: no-repeat !important;
+            cursor: pointer !important;
+        }
+        
+        .recipe-item.fry-sauce {
+            background-image: url('assets/images/fry-sauce-recipe.jpg') !important;
         }
         
         /* FIX 6: Nest in the News subheader font to match main header */
