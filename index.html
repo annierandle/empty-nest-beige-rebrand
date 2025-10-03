@@ -2428,6 +2428,284 @@
             background: #D4A4A4 !important;
             border-radius: 1px !important;
         }
+
+        /* === ENHANCED NEST CELEBRATIONS STYLES === */
+        
+        /* Section Background - Soft Blush Gradient */
+        .events-section {
+            background: linear-gradient(
+                180deg,
+                rgba(255, 248, 245, 0.4) 0%,
+                rgba(245, 237, 231, 0.3) 50%,
+                rgba(255, 248, 245, 0.4) 100%
+            ) !important;
+            padding: 5rem 0 !important;
+        }
+        
+        /* Section Header with Horizontal Divider */
+        .events-section .events-tagline {
+            font-size: 1.1rem !important;
+            color: #666 !important;
+            margin-bottom: 3rem !important;
+            position: relative !important;
+            padding-bottom: 1.5rem !important;
+        }
+        
+        .events-section .events-tagline::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 60px !important;
+            height: 2px !important;
+            background: #D4A4A4 !important;
+            border-radius: 1px !important;
+        }
+        
+        /* Events Grid - 2x3 Layout with Better Spacing */
+        .events-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            grid-template-rows: repeat(2, 1fr) !important;
+            gap: 2rem !important;
+            margin-bottom: 3rem !important;
+            padding: 0 1rem !important;
+        }
+        
+        /* Event Cards - Enhanced Layout & Hover Effects */
+        .events-section .event-item {
+            position: relative !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            background: white !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+            transition: all 0.4s ease !important;
+            cursor: pointer !important;
+            aspect-ratio: 4/3 !important;
+            min-height: 280px !important;
+        }
+        
+        /* Event Images */
+        .events-section .event-image {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            transition: transform 0.4s ease !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+        }
+        
+        /* Celebratory Hover Effects */
+        .events-section .event-item:hover {
+            transform: translateY(-6px) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        .events-section .event-item:hover .event-image {
+            transform: scale(1.02) !important;
+        }
+        
+        .events-section .event-item:hover .event-overlay {
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.1) 0%,
+                rgba(0, 0, 0, 0.3) 40%,
+                rgba(0, 0, 0, 0.7) 100%
+            ) !important;
+        }
+        
+        .events-section .event-item:hover .event-title {
+            font-size: 1.3rem !important;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        /* Soft Sparkle Effect on Hover */
+        .events-section .event-item:hover::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 70%
+            ) !important;
+            z-index: 5 !important;
+            opacity: 0 !important;
+            transition: opacity 0.4s ease !important;
+        }
+        
+        .events-section .event-item:hover::before {
+            opacity: 1 !important;
+        }
+        
+        /* Event Overlay */
+        .events-section .event-overlay {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0.1) 0%,
+                rgba(0, 0, 0, 0.2) 40%,
+                rgba(0, 0, 0, 0.6) 100%
+            ) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-end !important;
+            padding: 1.5rem !important;
+            transition: all 0.4s ease !important;
+            z-index: 2 !important;
+        }
+        
+        /* Category Tags - Pill Style in Top-Left */
+        .events-section .event-category-tag {
+            position: absolute !important;
+            top: 12px !important;
+            left: 12px !important;
+            background: rgba(212, 164, 164, 0.9) !important;
+            backdrop-filter: blur(8px) !important;
+            color: white !important;
+            padding: 6px 12px !important;
+            border-radius: 25px !important;
+            font-size: 0.75rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            z-index: 10 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        /* Event Content */
+        .events-section .event-content {
+            z-index: 3 !important;
+            position: relative !important;
+        }
+        
+        /* Event Titles */
+        .events-section .event-title {
+            font-size: 1.2rem !important;
+            font-weight: 700 !important;
+            color: white !important;
+            margin-bottom: 8px !important;
+            line-height: 1.3 !important;
+            transition: all 0.3s ease !important;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+        }
+        
+        /* Event Meta Row */
+        .events-section .event-meta {
+            display: flex !important;
+            gap: 1rem !important;
+            margin-top: 8px !important;
+        }
+        
+        .events-section .event-meta-item {
+            display: flex !important;
+            align-items: center !important;
+            gap: 4px !important;
+            font-size: 0.85rem !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500 !important;
+        }
+        
+        .events-section .event-meta-item svg {
+            width: 12px !important;
+            height: 12px !important;
+            opacity: 0.8 !important;
+        }
+        
+        /* See All Events Button - Black Pill Style */
+        .events-section .section-button {
+            background: #333 !important;
+            color: white !important;
+            padding: 1rem 2rem !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            font-size: 1rem !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            transition: all 0.3s ease !important;
+            border: none !important;
+            margin: 0 auto !important;
+        }
+        
+        .events-section .section-button:hover {
+            background: #000 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .events-section .section-button-wrapper {
+            text-align: center !important;
+            margin-top: 2rem !important;
+        }
+        
+        /* Focus States for Accessibility */
+        .events-section .event-item:focus,
+        .events-section .event-item:focus-visible {
+            outline: 3px solid #D4A4A4 !important;
+            outline-offset: 2px !important;
+            border-radius: 12px !important;
+        }
+        
+        .events-section .section-button:focus,
+        .events-section .section-button:focus-visible {
+            outline: 3px solid #D4A4A4 !important;
+            outline-offset: 2px !important;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .events-grid {
+                grid-template-columns: 1fr !important;
+                grid-template-rows: auto !important;
+                gap: 1.5rem !important;
+            }
+            
+            .events-section .event-item {
+                min-height: 240px !important;
+            }
+        }
+        
+        @media (max-width: 992px) and (min-width: 769px) {
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-rows: repeat(3, 1fr) !important;
+            }
+        }
+        
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            .events-section .event-item,
+            .events-section .event-image,
+            .events-section .event-overlay,
+            .events-section .event-title,
+            .events-section .section-button {
+                transition: none !important;
+            }
+            
+            .events-section .event-item:hover {
+                transform: none !important;
+            }
+            
+            .events-section .event-item:hover .event-image {
+                transform: none !important;
+            }
+            
+            .events-section .section-button:hover {
+                transform: none !important;
+            }
+        }
         
         .recipe-item {
             position: relative !important;
@@ -4005,12 +4283,12 @@
             <!-- Event Cards Grid -->
             <div class="events-grid">
                 <!-- Christmas Parties -->
-                <a href="christmas-parties.html" class="event-item christmas-parties">
+                <a href="christmas-parties.html" class="event-item christmas-parties" aria-label="View Christmas Parties event details">
+                    <img src="assets/images/events/christmas-parties.jpg" alt="Christmas Parties - Corporate holiday celebrations" class="event-image" loading="lazy">
                     <div class="event-overlay">
                         <div class="event-category-tag">CORPORATE</div>
                         <div class="event-content">
                             <h3 class="event-title">Christmas Parties</h3>
-                            <p class="event-description">Corporate holiday celebrations for Randle Communications</p>
                             <div class="event-meta">
                                 <div class="event-meta-item">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4031,12 +4309,12 @@
                 </a>
 
                 <!-- Wedding Events -->
-                <div class="event-item wedding-events">
+                <div class="event-item wedding-events" role="button" tabindex="0" aria-label="View Wedding Events details">
+                    <img src="assets/images/events/wedding-events.jpg" alt="Wedding Events - Intimate beachside engagement celebration" class="event-image" loading="lazy">
                     <div class="event-overlay">
                         <div class="event-category-tag">WEDDINGS</div>
                         <div class="event-content">
                             <h3 class="event-title">Wedding Events</h3>
-                            <p class="event-description">Intimate beachside engagement celebration</p>
                             <div class="event-meta">
                                 <div class="event-meta-item">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4057,12 +4335,12 @@
                 </div>
 
                 <!-- Family Gatherings -->
-                <div class="event-item family-gatherings">
+                <div class="event-item family-gatherings" role="button" tabindex="0" aria-label="View Family Gatherings event details">
+                    <img src="assets/images/events/family-gatherings.jpg" alt="Family Gatherings - Memorable family celebrations and intimate get-togethers" class="event-image" loading="lazy">
                     <div class="event-overlay">
                         <div class="event-category-tag">LIFESTYLE</div>
                         <div class="event-content">
                             <h3 class="event-title">Family Gatherings</h3>
-                            <p class="event-description">Memorable family celebrations and intimate get-togethers</p>
                             <div class="event-meta">
                                 <div class="event-meta-item">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4083,12 +4361,12 @@
                 </div>
 
                 <!-- Favorite Things -->
-                <div class="event-item favorite-things">
+                <div class="event-item favorite-things" role="button" tabindex="0" aria-label="View Favorite Things event details">
+                    <img src="assets/images/events/favorite-things.jpg" alt="Favorite Things - Intimate girls' night with themed cocktails and sweet treats" class="event-image" loading="lazy">
                     <div class="event-overlay">
                         <div class="event-category-tag">LIFESTYLE</div>
                         <div class="event-content">
                             <h3 class="event-title">Favorite Things</h3>
-                            <p class="event-description">An intimate girls' night filled with themed cocktails, sweet treats, and lots of love</p>
                             <div class="event-meta">
                                 <div class="event-meta-item">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4109,12 +4387,12 @@
                 </div>
 
                 <!-- Mimi's 80th Birthday -->
-                <div class="event-item mimis-birthday">
+                <div class="event-item mimis-birthday" role="button" tabindex="0" aria-label="View Mimi's 80th Birthday event details">
+                    <img src="assets/images/events/mimis-birthday.jpg" alt="Mimi's 80th Birthday - Disco-inspired themed birthday with Greek Isles glam" class="event-image" loading="lazy">
                     <div class="event-overlay">
                         <div class="event-category-tag">LIFESTYLE</div>
                         <div class="event-content">
                             <h3 class="event-title">Mimi's 80th Birthday</h3>
-                            <p class="event-description">A disco-inspired themed birthday channeling Greek Isles glam</p>
                             <div class="event-meta">
                                 <div class="event-meta-item">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4135,12 +4413,12 @@
                 </div>
 
                 <!-- Tailgates -->
-                <div class="event-item tailgates">
+                <div class="event-item tailgates" role="button" tabindex="0" aria-label="View Tailgates event details">
+                    <img src="assets/images/events/tailgates.jpg" alt="Tailgates - Game day celebrations and sports-themed gatherings" class="event-image" loading="lazy">
                     <div class="event-overlay">
                         <div class="event-category-tag">TRAVEL</div>
                         <div class="event-content">
                             <h3 class="event-title">Tailgates</h3>
-                            <p class="event-description">Game day celebrations and sports-themed gatherings</p>
                             <div class="event-meta">
                                 <div class="event-meta-item">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4150,7 +4428,7 @@
                                 </div>
                                 <div class="event-meta-item">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentTime" stroke-width="2"/>
                                         <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
                                     </svg>
                                     <span>South Bend</span>
