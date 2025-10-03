@@ -2706,6 +2706,312 @@
                 transform: none !important;
             }
         }
+
+        /* === ENHANCED LET'S CONNECT SECTION === */
+        
+        /* Section Container */
+        .contact-section {
+            padding: 5rem 0 !important;
+            background: #FFFFFF !important;
+        }
+        
+        /* Header with Horizontal Divider */
+        .contact-header {
+            text-align: center !important;
+            margin-bottom: 3rem !important;
+        }
+        
+        .contact-title {
+            font-size: 2.5rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 8px !important;
+            color: #333 !important;
+        }
+        
+        .contact-tagline {
+            font-size: 1.1rem !important;
+            color: #666 !important;
+            margin-bottom: 12px !important;
+            position: relative !important;
+            padding-bottom: 40px !important;
+        }
+        
+        /* Horizontal Divider Below Tagline */
+        .contact-tagline::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 12px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 60px !important;
+            height: 1px !important;
+            background: #D4A4A4 !important;
+        }
+        
+        /* Two-Column Layout */
+        .contact-layout {
+            display: flex !important;
+            gap: 3rem !important;
+            align-items: flex-start !important;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding: 0 2rem !important;
+        }
+        
+        .contact-visual,
+        .contact-content {
+            flex: 1 !important;
+        }
+        
+        /* Image Panel */
+        .contact-image-panel {
+            position: relative !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+        }
+        
+        .contact-img {
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .contact-image-overlay {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: rgba(0, 0, 0, 0) !important;
+            transition: all 0.3s ease !important;
+            pointer-events: none !important;
+        }
+        
+        /* Image Hover Effect */
+        .contact-image-panel:hover .contact-image-overlay {
+            background: rgba(0, 0, 0, 0.03) !important;
+        }
+        
+        /* Form Styling */
+        .contact-form {
+            background: white !important;
+            border-radius: 12px !important;
+            padding: 2rem !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+        }
+        
+        /* Form Groups and Spacing */
+        .form-row {
+            display: flex !important;
+            gap: 1rem !important;
+            margin-bottom: 20px !important;
+        }
+        
+        .form-group {
+            margin-bottom: 20px !important;
+        }
+        
+        .form-group-half {
+            flex: 1 !important;
+            margin-bottom: 0 !important;
+        }
+        
+        /* Form Labels */
+        .form-label {
+            display: block !important;
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            color: #333 !important;
+            margin-bottom: 6px !important;
+        }
+        
+        .required {
+            color: #D4A4A4 !important;
+            font-weight: 700 !important;
+        }
+        
+        /* Form Inputs */
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100% !important;
+            padding: 12px 16px !important;
+            border: 1px solid #ddd !important;
+            border-radius: 8px !important;
+            font-size: 1rem !important;
+            font-family: inherit !important;
+            background: white !important;
+            transition: all 0.3s ease !important;
+            box-sizing: border-box !important;
+        }
+        
+        .form-textarea {
+            resize: vertical !important;
+            min-height: 120px !important;
+        }
+        
+        /* Focus States */
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: 3px solid rgba(212, 164, 164, 0.3) !important;
+            border-color: #D4A4A4 !important;
+            box-shadow: 0 0 0 3px rgba(212, 164, 164, 0.1) !important;
+        }
+        
+        /* Error States */
+        .form-input.error,
+        .form-select.error,
+        .form-textarea.error {
+            border-color: #e74c3c !important;
+            background: rgba(231, 76, 60, 0.02) !important;
+        }
+        
+        .error-message {
+            color: #e74c3c !important;
+            font-size: 0.85rem !important;
+            margin-top: 4px !important;
+            display: none !important;
+        }
+        
+        .error-message.show {
+            display: block !important;
+        }
+        
+        /* Submit Button - Black Pill Style */
+        .contact-submit-btn {
+            background: #333 !important;
+            color: white !important;
+            padding: 12px 24px !important;
+            border: none !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            font-size: 1rem !important;
+            cursor: pointer !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            transition: all 0.3s ease !important;
+            text-decoration: none !important;
+            margin-left: auto !important;
+        }
+        
+        .form-submit {
+            display: flex !important;
+            justify-content: flex-end !important;
+            margin-top: 24px !important;
+        }
+        
+        .contact-submit-btn:hover {
+            background: #000 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .contact-submit-btn:focus {
+            outline: 3px solid rgba(212, 164, 164, 0.5) !important;
+            outline-offset: 2px !important;
+        }
+        
+        /* Success State */
+        .contact-success {
+            text-align: center !important;
+            padding: 3rem 2rem !important;
+            background: white !important;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+        }
+        
+        .success-icon {
+            margin-bottom: 1.5rem !important;
+        }
+        
+        .success-title {
+            font-size: 1.5rem !important;
+            font-weight: 600 !important;
+            color: #333 !important;
+            margin: 0 !important;
+        }
+        
+        /* Honeypot Field (Hidden) */
+        .honeypot-field {
+            position: absolute !important;
+            left: -9999px !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+        
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .contact-layout {
+                flex-direction: column !important;
+                gap: 2rem !important;
+                padding: 0 1rem !important;
+            }
+            
+            .contact-tagline {
+                padding-bottom: 32px !important;
+            }
+            
+            .contact-tagline::after {
+                bottom: 0 !important;
+            }
+            
+            .form-row {
+                flex-direction: column !important;
+                gap: 0 !important;
+            }
+            
+            .form-group-half {
+                margin-bottom: 20px !important;
+            }
+            
+            .form-submit {
+                justify-content: center !important;
+            }
+            
+            .contact-submit-btn {
+                width: 90% !important;
+                justify-content: center !important;
+                margin: 0 !important;
+            }
+            
+            .contact-form {
+                padding: 1.5rem !important;
+            }
+        }
+        
+        /* Tablet Responsive */
+        @media (max-width: 992px) and (min-width: 769px) {
+            .contact-layout {
+                gap: 2.5rem !important;
+            }
+        }
+        
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            .contact-image-panel,
+            .contact-img,
+            .contact-image-overlay,
+            .form-input,
+            .form-select,
+            .form-textarea,
+            .contact-submit-btn {
+                transition: none !important;
+            }
+            
+            .contact-image-panel:hover .contact-image-overlay {
+                background: rgba(0, 0, 0, 0) !important;
+            }
+            
+            .contact-submit-btn:hover {
+                transform: none !important;
+            }
+        }
         
         .recipe-item {
             position: relative !important;
@@ -4925,50 +5231,94 @@
     <!-- Let's Connect Section -->
     <section id="lets-connect" class="contact-section">
         <div class="contact-wrapper">
+            <!-- Header & Divider -->
+            <div class="contact-header">
+                <div class="contact-eyebrow">CONTACT</div>
+                <h1 class="contact-title">LET'S CONNECT</h1>
+                <p class="contact-tagline">Please fill out the form below and I will be in touch.</p>
+            </div>
+            
             <div class="contact-layout">
                 <!-- Left Column: Image -->
                 <div class="contact-visual">
-                    <div class="contact-image">
-                        <img src="assets/images/contact-photo.jpeg" alt="Kellie Randle" class="contact-img">
+                    <div class="contact-image-panel">
+                        <img src="assets/images/contact-photo.jpeg" alt="Kellie Randle - Empty Nest Mom Life founder ready to connect and collaborate" class="contact-img" loading="lazy">
+                        <div class="contact-image-overlay"></div>
                     </div>
                 </div>
                 
                 <!-- Right Column: Contact Form -->
                 <div class="contact-content">
-                    <header class="contact-header">
-                        <div class="contact-eyebrow">CONTACT</div>
-                        <h2 class="contact-title">LET'S CONNECT</h2>
-                        <p class="contact-subtitle">Please fill out the form below and I will be in touch.</p>
-                    </header>
-                    
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="fullName" class="form-label">FIRST AND LAST NAME</label>
-                            <input type="text" id="fullName" name="fullName" class="form-input" required>
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <!-- Honeypot field for spam prevention -->
+                        <div class="honeypot-field">
+                            <label for="website">Website (leave blank)</label>
+                            <input type="text" id="website" name="website" tabindex="-1">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group form-group-half">
+                                <label for="firstName" class="form-label">First Name <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" required aria-describedby="firstName-error">
+                                <div class="error-message" id="firstName-error" role="alert"></div>
+                            </div>
+                            
+                            <div class="form-group form-group-half">
+                                <label for="lastName" class="form-label">Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" required aria-describedby="lastName-error">
+                                <div class="error-message" id="lastName-error" role="alert"></div>
+                            </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email" class="form-label">EMAIL ADDRESS</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
+                            <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" class="form-input" required aria-describedby="email-error">
+                            <div class="error-message" id="email-error" role="alert"></div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="subject" class="form-label">SUBJECT OF INQUIRY</label>
-                            <input type="text" id="subject" name="subject" class="form-input" required>
+                            <label for="inquiryType" class="form-label">How can I help?</label>
+                            <select id="inquiryType" name="inquiryType" class="form-select">
+                                <option value="">Select an option...</option>
+                                <option value="general">General</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="events">Events</option>
+                                <option value="press">Press</option>
+                            </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="message" class="form-label">LEAVE US A NOTE</label>
-                            <textarea id="message" name="message" class="form-textarea" rows="4" required></textarea>
+                            <label for="subject" class="form-label">Subject of Inquiry <span class="required">*</span></label>
+                            <input type="text" id="subject" name="subject" class="form-input" required aria-describedby="subject-error">
+                            <div class="error-message" id="subject-error" role="alert"></div>
                         </div>
                         
-                        <button type="submit" class="contact-submit-btn" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-                            <span>submit form</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                            </svg>
-                        </button>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" required aria-describedby="message-error"></textarea>
+                            <div class="error-message" id="message-error" role="alert"></div>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="contact-submit-btn">
+                                <span>Send Message</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
                     </form>
+                    
+                    <!-- Success State (Hidden by default) -->
+                    <div class="contact-success" id="contactSuccess" style="display: none;">
+                        <div class="success-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="#4CAF50" stroke-width="2"/>
+                                <path d="M9 12l2 2 4-4" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="success-title">Thanks! I'll be in touch shortly.</h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -6387,6 +6737,165 @@
             closeRecipeModal();
         }
     }
+    
+    // === ENHANCED CONTACT FORM FUNCTIONALITY ===
+    
+    // Form validation and submission with rate limiting
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contactForm');
+        const successDiv = document.getElementById('contactSuccess');
+        
+        // Rate limiting: track submission attempts
+        let lastSubmission = 0;
+        const RATE_LIMIT_MS = 10000; // 10 seconds between submissions
+        
+        // Email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        // Validation functions
+        function validateField(field, errorDiv) {
+            const value = field.value.trim();
+            let isValid = true;
+            let errorMessage = '';
+            
+            // Check if field is required and empty
+            if (field.hasAttribute('required') && !value) {
+                errorMessage = `${getFieldLabel(field)} is required.`;
+                isValid = false;
+            } else if (field.type === 'email' && value && !emailRegex.test(value)) {
+                errorMessage = 'Please enter a valid email address.';
+                isValid = false;
+            } else if (field.name === 'firstName' && value && value.length < 2) {
+                errorMessage = 'First name must be at least 2 characters.';
+                isValid = false;
+            } else if (field.name === 'lastName' && value && value.length < 2) {
+                errorMessage = 'Last name must be at least 2 characters.';
+                isValid = false;
+            } else if (field.name === 'subject' && value && value.length < 5) {
+                errorMessage = 'Subject must be at least 5 characters.';
+                isValid = false;
+            } else if (field.name === 'message' && value && value.length < 10) {
+                errorMessage = 'Message must be at least 10 characters.';
+                isValid = false;
+            }
+            
+            // Update UI
+            if (isValid) {
+                field.classList.remove('error');
+                errorDiv.classList.remove('show');
+                errorDiv.textContent = '';
+            } else {
+                field.classList.add('error');
+                errorDiv.classList.add('show');
+                errorDiv.textContent = errorMessage;
+            }
+            
+            return isValid;
+        }
+        
+        function getFieldLabel(field) {
+            const label = form.querySelector(`label[for="${field.id}"]`);
+            return label ? label.textContent.replace(' *', '') : field.name;
+        }
+        
+        // Add real-time validation
+        form.querySelectorAll('.form-input, .form-textarea').forEach(field => {
+            const errorDiv = document.getElementById(`${field.name}-error`);
+            
+            // Validate on blur
+            field.addEventListener('blur', () => {
+                validateField(field, errorDiv);
+            });
+            
+            // Clear errors on input
+            field.addEventListener('input', () => {
+                if (field.classList.contains('error')) {
+                    field.classList.remove('error');
+                    errorDiv.classList.remove('show');
+                    errorDiv.textContent = '';
+                }
+            });
+        });
+        
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Rate limiting check
+            const now = Date.now();
+            if (now - lastSubmission < RATE_LIMIT_MS) {
+                alert('Please wait before submitting again.');
+                return;
+            }
+            
+            // Honeypot check
+            const honeypot = form.querySelector('input[name="website"]');
+            if (honeypot && honeypot.value) {
+                // Likely spam, fail silently
+                console.log('Spam submission blocked');
+                return;
+            }
+            
+            // Validate all fields
+            let isFormValid = true;
+            form.querySelectorAll('.form-input, .form-textarea').forEach(field => {
+                const errorDiv = document.getElementById(`${field.name}-error`);
+                if (!validateField(field, errorDiv)) {
+                    isFormValid = false;
+                }
+            });
+            
+            if (!isFormValid) {
+                // Focus on first error field
+                const firstError = form.querySelector('.form-input.error, .form-textarea.error');
+                if (firstError) {
+                    firstError.focus();
+                }
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = form.querySelector('.contact-submit-btn');
+            const originalText = submitBtn.querySelector('span').textContent;
+            submitBtn.querySelector('span').textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission (replace with actual endpoint)
+            setTimeout(() => {
+                // Update rate limiting
+                lastSubmission = now;
+                
+                // Hide form and show success message
+                form.style.display = 'none';
+                successDiv.style.display = 'block';
+                
+                // Scroll to success message
+                successDiv.scrollIntoView({ behavior: 'smooth' });
+                
+                console.log('✅ Contact form submitted successfully');
+                
+                // Reset form after delay (for demo purposes)
+                setTimeout(() => {
+                    form.reset();
+                    form.style.display = 'block';
+                    successDiv.style.display = 'none';
+                    submitBtn.querySelector('span').textContent = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Clear any remaining error states
+                    form.querySelectorAll('.form-input, .form-textarea').forEach(field => {
+                        field.classList.remove('error');
+                    });
+                    form.querySelectorAll('.error-message').forEach(error => {
+                        error.classList.remove('show');
+                        error.textContent = '';
+                    });
+                }, 5000); // Reset after 5 seconds for demo
+            }, 1500); // Simulate network delay
+        });
+        
+        console.log('✅ Enhanced contact form functionality initialized');
+    });
     </script>
 </body>
 </html>
