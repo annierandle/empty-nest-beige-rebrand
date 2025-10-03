@@ -1201,6 +1201,151 @@
 
         /* === COMPREHENSIVE FIXES FOR 7 ISSUES === */
         
+        /* RECIPE MODAL IMAGE FIXES */
+        .recipe-modal-image {
+            width: 100% !important;
+            height: 200px !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            border-radius: 8px !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .recipe-modal-image.fry-sauce {
+            background-image: url('assets/images/fry-sauce-recipe.jpg') !important;
+        }
+        
+        .recipe-modal-image.mediterranean-bowl {
+            background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400') !important;
+        }
+        
+        .recipe-modal-image.sheet-pan-salmon {
+            background-image: url('https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400') !important;
+        }
+        
+        .recipe-modal-image.asian-lettuce-wraps {
+            background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400') !important;
+        }
+        
+        .recipe-modal-image.cauliflower-curry {
+            background-image: url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400') !important;
+        }
+        
+        .recipe-modal-image.avocado-toast-bowl {
+            background-image: url('https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400') !important;
+        }
+        
+        /* JUST INGREDIENTS REDESIGN */
+        .code-card.just-ingredients-special {
+            background: rgba(0, 0, 0, 0.25) !important;
+            backdrop-filter: blur(2px) !important;
+            border: none !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        
+        .code-card.just-ingredients-special::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background-image: url('assets/videos/just-ingredients.mp4') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            z-index: -1 !important;
+        }
+        
+        .just-ingredients-content {
+            position: relative !important;
+            z-index: 2 !important;
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            padding: 1.5rem !important;
+        }
+        
+        .just-ingredients-header {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: flex-start !important;
+            margin-bottom: 1rem !important;
+        }
+        
+        .just-ingredients-logo {
+            max-width: 120px !important;
+            height: auto !important;
+        }
+        
+        .kellie-approved-badge {
+            background: #D4A4A4 !important;
+            color: white !important;
+            padding: 4px 12px !important;
+            border-radius: 20px !important;
+            font-size: 0.7rem !important;
+            font-weight: 600 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+        }
+        
+        .just-ingredients-text {
+            text-align: center !important;
+            color: white !important;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8) !important;
+        }
+        
+        .just-ingredients-text h3 {
+            font-size: 1.4rem !important;
+            font-weight: 600 !important;
+            margin-bottom: 0.5rem !important;
+            color: white !important;
+        }
+        
+        .just-ingredients-text p {
+            font-size: 0.9rem !important;
+            line-height: 1.4 !important;
+            margin-bottom: 1rem !important;
+            color: white !important;
+        }
+        
+        .just-ingredients-code {
+            background: transparent !important;
+            border: 2px solid white !important;
+            color: white !important;
+            padding: 8px 16px !important;
+            border-radius: 25px !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            margin: 1rem auto !important;
+            display: block !important;
+            width: fit-content !important;
+        }
+        
+        .just-ingredients-button {
+            background: #000 !important;
+            color: white !important;
+            border: none !important;
+            padding: 12px 24px !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            margin: 0 auto !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .just-ingredients-button:hover {
+            background: #333 !important;
+            transform: translateY(-1px) !important;
+        }
+        
         /* FIX 1: Wine opener product button - sharp edges like other buttons */
         .product-cta {
             border-radius: 0 !important;
@@ -1218,13 +1363,13 @@
             margin-right: 8px !important;
         }
         
-        /* FIX 3: Move fam favorite tags to top right corner of recipe cards */
+        /* FIX 3: Move fam favorite tags to top right corner of recipe cards - TRANSPARENT BACKGROUND */
         .recipe-category-tag {
             position: absolute !important;
             top: 12px !important;
             right: 12px !important;
             z-index: 10 !important;
-            background: rgba(255, 255, 255, 0.95) !important;
+            background: transparent !important;
             color: #D4A4A4 !important;
             padding: 4px 8px !important;
             border-radius: 12px !important;
@@ -1232,8 +1377,7 @@
             font-weight: 600 !important;
             text-transform: uppercase !important;
             letter-spacing: 0.5px !important;
-            backdrop-filter: blur(4px) !important;
-            border: 1px solid rgba(212, 164, 164, 0.2) !important;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7) !important;
         }
         
         .recipe-item {
@@ -1242,7 +1386,7 @@
         
         /* FIX 4: Fry sauce image fix - ensure background image loads properly */
         .recipe-item.fry-sauce {
-            background-image: url('assets/images/recipes/fry-sauce.jpg') !important;
+            background-image: url('assets/images/fry-sauce-recipe.jpg') !important;
             background-size: cover !important;
             background-position: center !important;
             background-repeat: no-repeat !important;
@@ -1253,6 +1397,17 @@
             font-family: var(--font-family-serif), 'Playfair Display', serif !important;
             font-weight: 600 !important;
             color: #2C2C2C !important;
+        }
+        
+        /* CORRECT NEST IN THE NEWS FONT FIXES */
+        .media-category h3,
+        .media-category-title,
+        #nest-in-the-news .media-category h3,
+        #nest-in-the-news h3 {
+            font-family: var(--font-family-serif), 'Playfair Display', serif !important;
+            font-weight: 600 !important;
+            color: #2C2C2C !important;
+            font-size: 1.2rem !important;
         }
         
         /* FIX 7: Move podcast subheader and pink line upward - reduce blank space */
@@ -2182,55 +2337,39 @@
                     <h3 class="subsection-title">COMMUNITY PERKS & EXCLUSIVE CODES</h3>
                 </div>
 
-                <!-- FEATURED COMMUNITY PERK - Just Ingredients Horizontal Video Layout -->
-                <div class="featured-community-perk">
-                    <div class="featured-perk-container-horizontal">
-                        <!-- Video Background -->
-                        <video autoplay muted loop playsinline class="just-ingredients-video">
-                            <source src="assets/videos/just-ingredients.mp4" type="video/mp4">
-                        </video>
+                <!-- REDESIGNED JUST INGREDIENTS CARD -->
+                <div class="code-card just-ingredients-special">
+                    <!-- Video Background -->
+                    <video autoplay muted loop playsinline class="just-ingredients-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+                        <source src="assets/videos/just-ingredients.mp4" type="video/mp4">
+                    </video>
+                    
+                    <!-- Dark Overlay -->
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.25); z-index: 0;"></div>
+                    
+                    <!-- Content -->
+                    <div class="just-ingredients-content">
+                        <!-- Top Row: Logo and Badge -->
+                        <div class="just-ingredients-header">
+                            <img src="assets/images/storefronts/just-ingredients-logo.png" alt="Just Ingredients" class="just-ingredients-logo">
+                            <div class="kellie-approved-badge">KELLIE APPROVED</div>
+                        </div>
                         
-                        <!-- Overlay Content -->
-                        <div class="video-overlay-content">
-                            <!-- Left Side: Logo and Trust Badge -->
-                            <div class="perk-left-content">
-                                <div class="perk-logo-header">
-                                    <img src="assets/images/storefronts/just-ingredients-logo.png" alt="Just Ingredients" class="header-logo-horizontal">
-                                </div>
-                                <div class="perk-trust-indicator">
-                                    <span class="trust-badge">KELLIE APPROVED</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Center: Description -->
-                            <div class="perk-center-content">
-                                <p class="featured-perk-tagline">Clean supplements you can trust</p>
-                                <p class="featured-perk-description">
-                                    Clean supplements you can trust—no fillers, no artificial ingredients, just pure nutrition I feel confident giving to my family.
-                                </p>
-                            </div>
-                            
-                            <!-- Right Side: Code and Button -->
-                            <div class="perk-right-content">
-                                <div class="perk-offer">
-                                    <span class="offer-text">EXCLUSIVE OFFER</span>
-                                    <div class="perk-code-display">
-                                        <button onclick="copyCodeToClipboard('EMPTYNEST25', this)" class="featured-code-btn">
-                                            <span class="code-text">EMPTYNEST25</span>
-                                            <span class="copy-icon">
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                            </svg>
-                                        </span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <a href="https://justingredients.com" target="_blank" rel="noopener" class="featured-shop-btn-horizontal">
-                                    <span class="btn-text">Shop Now</span>
-                                    <span class="btn-arrow">→</span>
-                                </a>
-                            </div>
+                        <!-- Center: Text Content -->
+                        <div class="just-ingredients-text">
+                            <h3>Clean supplements you can trust</h3>
+                            <p>Clean supplements you can trust—no fillers, no artificial ingredients, just pure nutrition I feel confident giving to my family.</p>
+                        </div>
+                        
+                        <!-- Bottom: Code and Button -->
+                        <div>
+                            <div class="just-ingredients-code">EMPTYNEST25</div>
+                            <a href="https://justingredients.com" target="_blank" class="just-ingredients-button">
+                                <span>Shop Collection</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"></path>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -2580,9 +2719,7 @@
                 </button>
             </div>
             <div class="recipe-modal-body">
-                <div class="recipe-modal-image">
-                    <img id="modalRecipeImage" src="" alt="Recipe" />
-                </div>
+                <div id="modalRecipeImage" class="recipe-modal-image"></div>
                 <div class="recipe-modal-info">
                     <div class="recipe-modal-time">
                         <span id="modalRecipeTime"></span>
@@ -4578,6 +4715,10 @@
         if (recipe) {
             title.textContent = recipe.title;
             time.innerHTML = `<span class="recipe-time-badge">${recipe.time}</span>`;
+            
+            // Set background image for modal
+            const modalImage = document.getElementById('modalRecipeImage');
+            modalImage.className = `recipe-modal-image ${recipeId}`;
             
             ingredients.innerHTML = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
             directions.innerHTML = recipe.directions.map(direction => `<li>${direction}</li>`).join('');
