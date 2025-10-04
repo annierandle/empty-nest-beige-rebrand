@@ -1987,92 +1987,84 @@
         
         /* === CLEAN SIGNATURE IMPLEMENTATION === */
         
-        /* KELLIE SIGNATURE - CLEAN IMPLEMENTATION WITH HARD RESET */
+        /* KELLIE SIGNATURE - CLEAN TRANSPARENT PNG IMPLEMENTATION */
         .k-signature-frame {
-            /* Complete hard reset - eliminate all possible styling conflicts */
-            all: unset !important;
-            display: block !important;
-            background: none !important;
+            /* Clean wrapper with no background styling */
+            background: transparent !important;
             background-color: transparent !important;
             background-image: none !important;
-            border: 0 !important;
-            border-radius: 0 !important;
+            border: none !important;
             box-shadow: none !important;
             outline: none !important;
             padding: 0 !important;
-            margin: 1.5rem 0 0 0 !important;
+            margin: 24px 0 -8px 0 !important;
             width: auto !important;
             height: auto !important;
-            position: relative !important;
-            z-index: 1 !important;
+            display: block !important;
             text-align: left !important;
             overflow: visible !important;
         }
         
-        .k-signature-frame::before,
-        .k-signature-frame::after {
-            display: none !important;
-            content: none !important;
-        }
-        
         .k-signature {
-            /* Complete hard reset for the image */
-            all: unset !important;
-            display: block !important;
-            background: none !important;
+            /* Clean image display - no masks, blends, or filters */
+            background: transparent !important;
             background-color: transparent !important;
             background-image: none !important;
-            border: 0 !important;
-            border-radius: 0 !important;
+            border: none !important;
             box-shadow: none !important;
             outline: none !important;
             filter: none !important;
             mix-blend-mode: normal !important;
-            opacity: 1 !important;
-            visibility: visible !important;
             
-            /* Sizing and positioning */
-            width: clamp(280px, 35vw, 420px) !important;
+            /* Responsive sizing as specified */
+            width: clamp(520px, 48vw, 640px) !important;
             height: auto !important;
-            aspect-ratio: 901 / 95 !important;
-            max-width: 420px !important;
+            max-width: 640px !important;
             margin: 0 !important;
             padding: 0 !important;
             
-            /* Image-specific properties */
+            /* Image properties */
+            display: block !important;
             object-fit: contain !important;
             object-position: left center !important;
-            image-rendering: -webkit-optimize-contrast !important;
-            image-rendering: crisp-edges !important;
             
-            /* Accessibility and interaction */
+            /* Non-interactive as specified */
             pointer-events: none !important;
             user-select: none !important;
-            -webkit-user-select: none !important;
-            -moz-user-select: none !important;
-            -ms-user-select: none !important;
         }
         
+        /* Remove all pseudo-elements */
+        .k-signature-frame::before,
+        .k-signature-frame::after,
         .k-signature::before,
         .k-signature::after {
             display: none !important;
             content: none !important;
         }
         
-        /* Additional safety overrides */
-        .k-signature-frame *:not(.k-signature) {
-            display: none !important;
+        /* Responsive breakpoints */
+        @media (max-width: 1024px) {
+            .k-signature {
+                width: clamp(380px, 45vw, 460px) !important;
+                max-width: 460px !important;
+            }
         }
         
-        /* Responsive adjustments */
         @media (max-width: 768px) {
             .k-signature {
-                width: clamp(240px, 60vw, 320px) !important;
+                width: clamp(260px, 80vw, 320px) !important;
                 max-width: 320px !important;
             }
             
             .k-signature-frame {
-                margin: 1rem 0 0 0 !important;
+                margin: 16px 0 0 0 !important;
+            }
+        }
+        
+        /* Collision prevention - set bottom margin to 0 if needed */
+        @media (max-height: 800px) {
+            .k-signature-frame {
+                margin-bottom: 0 !important;
             }
         }
         
@@ -4543,9 +4535,9 @@
                         <div class="story-content">
                             <p style="font-size: 0.85rem !important; line-height: 1.4 !important;">When I'm not planning family gatherings or helping with apartment decorating, you'll find me grocery shopping or cooking, playing pickleball, learning golf, or running our award-winning PR company. My tips have been featured on TV, podcasts, and magazines, but my real passion is inspiring parents to embrace and enjoy this incredible new chapter.</p>
                             
-                            <!-- Kellie's Signature - New Implementation -->
+                            <!-- Kellie's Signature - Clean Implementation -->
                             <div class="k-signature-frame">
-                                <img class="k-signature" src="assets/images/kellie-signature.png" alt="Kellie's signature" />
+                                <img class="k-signature" src="assets/images/kellie-signature-charcoal@3x.png" alt="" aria-hidden="true" />
                             </div>
                         </div>
                     </div>
