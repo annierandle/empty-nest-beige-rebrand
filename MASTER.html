@@ -1529,15 +1529,7 @@
             max-height: 100% !important;
         }
         
-        /* 4. SIGNATURE FIX */
-        .signature-img {
-            max-width: 250px !important;
-            opacity: 1 !important;
-            background: transparent !important;
-            mix-blend-mode: normal !important;
-            filter: none !important;
-            display: block !important;
-        }
+
         
         html, body {
             overflow-x: hidden;
@@ -1782,20 +1774,7 @@
             margin-top: 1rem !important;
         }
         
-        /* HUGE SIGNATURE FONT STYLING */
-        .signature-text {
-            font-family: 'Great Vibes', cursive !important;
-            font-size: 5rem !important;
-            font-weight: 400 !important;
-            color: #333 !important;
-            text-align: left !important;
-            margin-top: 2rem !important;
-            margin-bottom: 0 !important;
-            transform: rotate(-3deg) !important;
-            opacity: 1 !important;
-            font-style: italic !important;
-            line-height: 0.8 !important;
-        }
+
 
         /* FIX NEST APPROVED HEADER ALIGNMENT - CENTER LIKE OTHER HEADERS */
         .nest-approved-section,
@@ -2000,54 +1979,40 @@
             margin-top: 0 !important;
         }
 
-        /* SIGNATURE IMPROVEMENTS */
-        .signature-text {
-            font-family: 'Great Vibes', cursive !important;
-            font-size: 4.5rem !important;
-            font-weight: 400 !important;
-            color: #333 !important;
-            text-align: left !important;
-            margin-top: 1.5rem !important;
-        }
+
 
         /* === COMPREHENSIVE FIXES FOR 7 ISSUES === */
         
-        /* LEGACY SIGNATURE FIX - KEEP FOR OLD ELEMENTS */
-        .signature-text,
-        .about-signature,
-        .signature-image,
-        .signature-container {
-            mix-blend-mode: normal !important;
+
+        
+        /* === CLEAN SIGNATURE IMPLEMENTATION === */
+        
+        /* Hard reset - no black box can appear */
+        .k-signature,
+        .k-signature * {
             background: transparent !important;
-            filter: none !important;
-            -webkit-filter: none !important;
-            backdrop-filter: none !important;
-            background-color: transparent !important;
-            background-image: none !important;
             box-shadow: none !important;
-            border: none !important;
-            opacity: 1 !important;
-            visibility: visible !important;
+            filter: none !important;
+            mix-blend-mode: normal !important;
         }
         
-        /* CLEAN SIGNATURE IMPLEMENTATION - NO BLACK BOX */
-        .clean-signature-container {
-            background: transparent !important;
-            margin-top: 24px !important;
-            margin-bottom: max(-8px, 0px) !important;
-            text-align: left !important;
-        }
-        
-        .clean-signature-image {
+        .k-signature {
             display: block !important;
-            background: transparent !important;
             width: clamp(520px, 48vw, 640px) !important;
             height: auto !important;
             aspect-ratio: 901 / 95 !important;
-            margin: 0 !important;
+            margin-top: 24px !important;
+            margin-bottom: clamp(-8px, 0vw, 0px) !important; /* clamp to 0 if it collides */
             pointer-events: none !important;
             z-index: 1 !important;
-            mix-blend-mode: normal !important;
+        }
+        
+        /* Reset the wrapper */
+        .k-signature-wrap {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: 0 !important;
+            text-align: left !important;
         }
         
         /* NEST CELEBRATIONS SHARP CORNERS */
@@ -3062,15 +3027,15 @@
             max-width: 60ch !important;
         }
         
-        /* Responsive Sizing for Clean Signature */
+        /* Responsive Signature Sizing */
         @media (max-width: 768px) {
-            .clean-signature-image {
+            .k-signature {
                 width: clamp(260px, 80vw, 320px) !important;
             }
         }
         
         @media (max-width: 1024px) and (min-width: 769px) {
-            .clean-signature-image {
+            .k-signature {
                 width: clamp(380px, 55vw, 460px) !important;
             }
         }
@@ -3938,30 +3903,7 @@
             z-index: 4 !important;
         }
 
-        /* SIGNATURE IMAGE STYLING - FIX BLACK BOX ISSUE */
-        .signature-container {
-            margin-top: 3.5rem !important;
-            text-align: left !important;
-            background: transparent !important;
-        }
-        
-        .signature-image {
-            max-width: 200px !important;
-            height: auto !important;
-            opacity: 1 !important;
-            background: transparent !important;
-            mix-blend-mode: normal !important;
-            filter: none !important;
-            display: block !important;
-        }
-        
-        /* FORCE SIGNATURE TO NOT INHERIT BLACK BACKGROUNDS */
-        .signature-container *,
-        .signature-image {
-            background-color: transparent !important;
-            background-image: none !important;
-            background: transparent !important;
-        }
+
         
         /* FIX NEST IN THE NEWS SPACING */
         .media-tagline {
@@ -4256,20 +4198,7 @@
             margin-bottom: 1.5rem !important;
         }
         
-        /* SIGNATURE IMAGE FIXES */
-        .signature-container {
-            margin-top: 1.5rem !important;
-            text-align: left !important;
-        }
-        
-        .signature-image {
-            max-width: 200px !important;
-            height: auto !important;
-            background: transparent !important;
-            mix-blend-mode: multiply !important;
-            filter: contrast(1.2) !important;
-            display: block !important;
-        }
+
         
         /* NEST APPROVED HEADER LAYOUT FIXES */
         .nest-approved-title {
@@ -4551,9 +4480,9 @@
                         <div class="story-content">
                             <p style="font-size: 0.85rem !important; line-height: 1.4 !important;">When I'm not planning family gatherings or helping with apartment decorating, you'll find me grocery shopping or cooking, playing pickleball, learning golf, or running our award-winning PR company. My tips have been featured on TV, podcasts, and magazines, but my real passion is inspiring parents to embrace and enjoy this incredible new chapter.</p>
                             
-                            <!-- Clean Signature Image -->
-                            <div class="clean-signature-container">
-                                <img src="assets/images/kellie-signature.png" alt="" aria-hidden="true" class="clean-signature-image">
+                            <!-- Kellie's Signature -->
+                            <div class="k-signature-wrap">
+                                <img class="k-signature" src="assets/images/kellie-signature.png?v=2" alt="" aria-hidden="true" loading="eager" decoding="async" />
                             </div>
                         </div>
                     </div>
@@ -6242,11 +6171,7 @@
             });
         });
         
-        // 4. CLEAN SIGNATURE - NO COMPLEX FIXING NEEDED
-        const cleanSignature = document.querySelector('.clean-signature-image');
-        if (cleanSignature) {
-            console.log('✅ Clean signature image loaded:', cleanSignature.src);
-        }
+
         
         // 5. FIX STOREFRONT QUOTES - MAKE THEM SINGLE LINE
         const storeQuotes = document.querySelectorAll('.storefront-description');
@@ -7685,22 +7610,7 @@
         console.log('✅ Parallax effect for lifestyle collage initialized');
     });
     
-    // Signature underline animation (respects reduced motion)
-    document.addEventListener('DOMContentLoaded', function() {
-        const signatureMask = document.querySelector('.signature-mask');
-        
-        if (signatureMask) {
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            
-            if (prefersReducedMotion) {
-                // Show signature immediately without animation
-                signatureMask.style.animation = 'none';
-                signatureMask.style.transform = 'scaleX(1)';
-            }
-            
-            console.log('✅ Signature underline animation configured');
-        }
-    });
+
     </script>
 </body>
 </html>
