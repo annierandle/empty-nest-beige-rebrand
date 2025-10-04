@@ -1987,85 +1987,73 @@
         
         /* === CLEAN SIGNATURE IMPLEMENTATION === */
         
-        /* KELLIE SIGNATURE - CLEAN TRANSPARENT PNG IMPLEMENTATION */
-        .k-signature-frame {
-            /* Clean wrapper with no background styling */
+        /* KELLIE SIGNATURE - ULTRA CLEAN PLAIN IMAGE */
+        .kellie-signature {
+            
+            /* Complete style reset - no chrome whatsoever */
             background: transparent !important;
             background-color: transparent !important;
             background-image: none !important;
             border: none !important;
-            box-shadow: none !important;
-            outline: none !important;
-            padding: 0 !important;
-            margin: 24px 0 -8px 0 !important;
-            width: auto !important;
-            height: auto !important;
-            display: block !important;
-            text-align: left !important;
-            overflow: visible !important;
-        }
-        
-        .k-signature {
-            /* Clean image display - no masks, blends, or filters */
-            background: transparent !important;
-            background-color: transparent !important;
-            background-image: none !important;
-            border: none !important;
+            border-radius: none !important;
             box-shadow: none !important;
             outline: none !important;
             filter: none !important;
             mix-blend-mode: normal !important;
             
-            /* Responsive sizing as specified */
+            /* Natural image rendering */
+            display: block !important;
             width: clamp(520px, 48vw, 640px) !important;
             height: auto !important;
             max-width: 640px !important;
-            margin: 0 !important;
+            margin: 24px 0 -8px 0 !important;
             padding: 0 !important;
             
-            /* Image properties */
-            display: block !important;
+            /* Image fit and positioning */
             object-fit: contain !important;
             object-position: left center !important;
             
-            /* Non-interactive as specified */
+            /* Decorative and non-interactive */
             pointer-events: none !important;
             user-select: none !important;
         }
         
         /* Remove all pseudo-elements */
-        .k-signature-frame::before,
-        .k-signature-frame::after,
-        .k-signature::before,
-        .k-signature::after {
+        .kellie-signature::before,
+        .kellie-signature::after {
             display: none !important;
             content: none !important;
         }
         
-        /* Responsive breakpoints */
+        /* Responsive sizing */
         @media (max-width: 1024px) {
-            .k-signature {
+            .kellie-signature {
                 width: clamp(380px, 45vw, 460px) !important;
                 max-width: 460px !important;
             }
         }
         
         @media (max-width: 768px) {
-            .k-signature {
+            .kellie-signature {
                 width: clamp(260px, 80vw, 320px) !important;
                 max-width: 320px !important;
-            }
-            
-            .k-signature-frame {
                 margin: 16px 0 0 0 !important;
             }
         }
         
-        /* Collision prevention - set bottom margin to 0 if needed */
+        /* Collision prevention */
         @media (max-height: 800px) {
-            .k-signature-frame {
+            .kellie-signature {
                 margin-bottom: 0 !important;
             }
+        }
+        
+        /* Parent hygiene - ensure no dark surface styling on signature containers */
+        .about-story-section:has(.kellie-signature),
+        .story-content:has(.kellie-signature) {
+            background: transparent !important;
+            background-color: transparent !important;
+            background-image: none !important;
         }
         
         /* NEST CELEBRATIONS SHARP CORNERS */
@@ -3175,9 +3163,9 @@
         }
         
         .enhanced-hero-content {
-            max-width: clamp(1200px, 88vw, 1400px) !important;
+            max-width: clamp(1200px, 88vw, 1360px) !important;
             margin: 0 auto !important;
-            padding: 0 2rem !important;
+            padding: 0 clamp(32px, 5vw, 72px) !important;
             width: 100% !important;
         }
         
@@ -3185,13 +3173,14 @@
         .enhanced-hero-grid {
             display: grid !important;
             grid-template-columns: 7fr 5fr !important;
-            gap: clamp(48px, 8vw, 64px) !important;
+            gap: clamp(48px, 8vw, 56px) !important;
             align-items: center !important;
         }
         
         /* Left Text Column (Spans 6-7) */
         .enhanced-hero-text {
             max-width: 100% !important;
+            margin-left: 24px !important;
         }
         
         /* Kicker */
@@ -3490,6 +3479,11 @@
                 font-size: clamp(16px, 2vw, 18px) !important;
             }
             
+            /* Tablet text offset for breathing room */
+            .enhanced-hero-text {
+                margin-left: 16px !important;
+            }
+            
             /* Scale down collage ~15% */
             .card-home {
                 width: clamp(238px, 27vw, 306px) !important;
@@ -3521,6 +3515,7 @@
             
             .enhanced-hero-text {
                 text-align: center !important;
+                margin-left: 0 !important;
             }
             
             .enhanced-hero-actions {
@@ -4535,10 +4530,8 @@
                         <div class="story-content">
                             <p style="font-size: 0.85rem !important; line-height: 1.4 !important;">When I'm not planning family gatherings or helping with apartment decorating, you'll find me grocery shopping or cooking, playing pickleball, learning golf, or running our award-winning PR company. My tips have been featured on TV, podcasts, and magazines, but my real passion is inspiring parents to embrace and enjoy this incredible new chapter.</p>
                             
-                            <!-- Kellie's Signature - Clean Implementation -->
-                            <div class="k-signature-frame">
-                                <img class="k-signature" src="assets/images/kellie-signature-charcoal@3x.png" alt="" aria-hidden="true" />
-                            </div>
+                            <!-- Kellie's Signature - Plain Image -->
+                            <img class="kellie-signature" src="assets/images/kellie-signature-charcoal@3x.png" alt="" aria-hidden="true" />
                         </div>
                     </div>
                 </div>
