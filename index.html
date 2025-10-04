@@ -1987,32 +1987,93 @@
         
         /* === CLEAN SIGNATURE IMPLEMENTATION === */
         
-        /* Hard reset - no black box can appear */
-        .k-signature,
-        .k-signature * {
-            background: transparent !important;
+        /* KELLIE SIGNATURE - CLEAN IMPLEMENTATION WITH HARD RESET */
+        .k-signature-frame {
+            /* Complete hard reset - eliminate all possible styling conflicts */
+            all: unset !important;
+            display: block !important;
+            background: none !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            border: 0 !important;
+            border-radius: 0 !important;
             box-shadow: none !important;
-            filter: none !important;
-            mix-blend-mode: normal !important;
+            outline: none !important;
+            padding: 0 !important;
+            margin: 1.5rem 0 0 0 !important;
+            width: auto !important;
+            height: auto !important;
+            position: relative !important;
+            z-index: 1 !important;
+            text-align: left !important;
+            overflow: visible !important;
+        }
+        
+        .k-signature-frame::before,
+        .k-signature-frame::after {
+            display: none !important;
+            content: none !important;
         }
         
         .k-signature {
+            /* Complete hard reset for the image */
+            all: unset !important;
             display: block !important;
-            width: clamp(520px, 48vw, 640px) !important;
+            background: none !important;
+            background-color: transparent !important;
+            background-image: none !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            outline: none !important;
+            filter: none !important;
+            mix-blend-mode: normal !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            
+            /* Sizing and positioning */
+            width: clamp(280px, 35vw, 420px) !important;
             height: auto !important;
             aspect-ratio: 901 / 95 !important;
-            margin-top: 24px !important;
-            margin-bottom: clamp(-8px, 0vw, 0px) !important; /* clamp to 0 if it collides */
+            max-width: 420px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            
+            /* Image-specific properties */
+            object-fit: contain !important;
+            object-position: left center !important;
+            image-rendering: -webkit-optimize-contrast !important;
+            image-rendering: crisp-edges !important;
+            
+            /* Accessibility and interaction */
             pointer-events: none !important;
-            z-index: 1 !important;
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
         }
         
-        /* Reset the wrapper */
-        .k-signature-wrap {
-            background: transparent !important;
-            box-shadow: none !important;
-            border: 0 !important;
-            text-align: left !important;
+        .k-signature::before,
+        .k-signature::after {
+            display: none !important;
+            content: none !important;
+        }
+        
+        /* Additional safety overrides */
+        .k-signature-frame *:not(.k-signature) {
+            display: none !important;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .k-signature {
+                width: clamp(240px, 60vw, 320px) !important;
+                max-width: 320px !important;
+            }
+            
+            .k-signature-frame {
+                margin: 1rem 0 0 0 !important;
+            }
         }
         
         /* NEST CELEBRATIONS SHARP CORNERS */
@@ -2074,10 +2135,11 @@
             backdrop-filter: blur(2px) !important;
             border: none !important;
             position: relative !important;
-            overflow: hidden !important;
+            overflow: visible !important;
             width: 640px !important;
             max-width: 90vw !important;
-            height: 380px !important;
+            min-height: 420px !important;
+            height: auto !important;
             margin: 0 auto !important;
         }
         
@@ -2097,11 +2159,12 @@
         .just-ingredients-content {
             position: relative !important;
             z-index: 2 !important;
-            height: 100% !important;
+            min-height: 420px !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: space-between !important;
             padding: 1.5rem !important;
+            padding-bottom: 2rem !important;
         }
         
         .just-ingredients-header {
@@ -2172,7 +2235,7 @@
             align-items: center !important;
             justify-content: center !important;
             gap: 8px !important;
-            margin: 0 auto !important;
+            margin: 1rem auto !important;
             cursor: pointer !important;
             transition: all 0.3s ease !important;
             text-transform: uppercase !important;
@@ -4480,9 +4543,9 @@
                         <div class="story-content">
                             <p style="font-size: 0.85rem !important; line-height: 1.4 !important;">When I'm not planning family gatherings or helping with apartment decorating, you'll find me grocery shopping or cooking, playing pickleball, learning golf, or running our award-winning PR company. My tips have been featured on TV, podcasts, and magazines, but my real passion is inspiring parents to embrace and enjoy this incredible new chapter.</p>
                             
-                            <!-- Kellie's Signature -->
-                            <div class="k-signature-wrap">
-                                <img class="k-signature" src="assets/images/kellie-signature.png?v=2" alt="" aria-hidden="true" loading="eager" decoding="async" />
+                            <!-- Kellie's Signature - New Implementation -->
+                            <div class="k-signature-frame">
+                                <img class="k-signature" src="assets/images/kellie-signature.png" alt="Kellie's signature" />
                             </div>
                         </div>
                     </div>
