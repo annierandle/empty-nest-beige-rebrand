@@ -3075,37 +3075,107 @@
             }
         }
 
-        /* === KINETIC TYPE HERO SECTION === */
+        /* === ENHANCED KINETIC TYPE HERO SECTION === */
         
-        /* Hero Container */
-        .kinetic-hero {
-            background: #FDF8F5 !important; /* Soft brand cream */
-            padding: 6rem 0 4rem 0 !important;
-            min-height: 70vh !important;
-            position: relative !important;
+        /* === HOMEPAGE-ONLY HEADER COMPACTION === */
+        
+        /* Base header styling - homepage only */
+        .navigation {
+            height: 60px !important;
+            min-height: 60px !important;
+            padding: 10px 0 !important;
+            transition: all 0.3s ease !important;
         }
         
-        .kinetic-hero-content {
-            max-width: 1400px !important;
+        .nav-wrapper {
+            height: 100% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            max-width: clamp(1200px, 88vw, 1400px) !important;
             margin: 0 auto !important;
             padding: 0 2rem !important;
         }
         
-        /* Grid Layout */
-        .kinetic-hero-grid {
+        /* Compact logo sizing */
+        .logo-image {
+            max-height: 22px !important;
+            height: auto !important;
+            width: auto !important;
+        }
+        
+        /* Compact social icons */
+        .social-icons {
+            display: flex !important;
+            align-items: center !important;
+            gap: 13px !important;
+        }
+        
+        .social-icon {
+            font-size: 17px !important;
+            color: #666 !important;
+            transition: color 0.3s ease !important;
+        }
+        
+        .social-icon:hover {
+            color: #D4A4A4 !important;
+        }
+        
+        .nav-right {
+            display: flex !important;
+            align-items: center !important;
+            gap: 16px !important;
+        }
+        
+        /* Scroll state enhancement */
+        .navigation.scrolled {
+            border-bottom: 1px solid rgba(212, 164, 164, 0.2) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        }
+        
+        /* Optional compaction after 900px */
+        @media (min-width: 900px) {
+            .navigation {
+                height: 58px !important;
+                min-height: 58px !important;
+            }
+        }
+        
+        /* === ENHANCED HERO SECTION === */
+        
+        /* Hero Container - Scale Up and Balance */
+        .enhanced-kinetic-hero {
+            background: #FDF8F5 !important;
+            min-height: clamp(76vh, 82vh, 90vh) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: clamp(64px, 10vh, 96px) 0 clamp(64px, 8vh, 80px) 0 !important;
+            position: relative !important;
+        }
+        
+        .enhanced-hero-content {
+            max-width: clamp(1200px, 88vw, 1400px) !important;
+            margin: 0 auto !important;
+            padding: 0 2rem !important;
+            width: 100% !important;
+        }
+        
+        /* 12-Column Grid: Text 7 cols, Media 5 cols */
+        .enhanced-hero-grid {
             display: grid !important;
-            grid-template-columns: 1fr auto !important;
-            gap: 4rem !important;
-            align-items: start !important;
+            grid-template-columns: 7fr 5fr !important;
+            gap: clamp(48px, 8vw, 64px) !important;
+            align-items: center !important;
         }
         
-        /* Text Stack - Left Column */
-        .kinetic-hero-text {
-            max-width: 700px !important; /* 6-7 columns equivalent */
+        /* Left Text Column (Spans 6-7) */
+        .enhanced-hero-text {
+            max-width: 100% !important;
         }
         
-        /* Kicker (Small Caps) */
-        .kinetic-hero-kicker {
+        /* Kicker */
+        .enhanced-hero-kicker {
             font-size: 0.75rem !important;
             font-weight: 600 !important;
             letter-spacing: 0.15em !important;
@@ -3114,291 +3184,437 @@
             margin-bottom: 12px !important;
         }
         
-        /* H1 Headline - One Step Larger */
-        .kinetic-hero-headline {
-            font-size: clamp(3.5rem, 8vw, 5rem) !important;
+        /* Enhanced H1 Typography */
+        .enhanced-hero-headline {
+            font-size: clamp(56px, 8vw, 92px) !important;
             font-weight: 700 !important;
             line-height: 1.1 !important;
+            letter-spacing: -0.3px !important;
             color: #333 !important;
-            margin-bottom: 16px !important;
+            margin-bottom: 20px !important;
             font-family: 'Playfair Display', serif !important;
+            text-wrap: balance !important;
         }
         
-        /* Subhead */
-        .kinetic-hero-subhead {
-            font-size: clamp(1rem, 2vw, 1.125rem) !important;
+        /* Enhanced Subhead */
+        .enhanced-hero-subhead {
+            font-size: clamp(16px, 2.2vw, 20px) !important;
             line-height: 1.5 !important;
             color: #666 !important;
-            max-width: 65ch !important;
-            margin-bottom: 12px !important;
+            max-width: 60ch !important;
+            margin-bottom: 16px !important;
             font-family: 'Inter', sans-serif !important;
+            font-weight: 400 !important;
         }
         
-        /* Rotating Micro-Line */
-        .kinetic-rotator {
+        /* Subtle Divider Under Subhead */
+        .hero-subhead-divider {
+            width: 40px !important;
+            height: 1px !important;
+            background: #D4A4A4 !important;
+            margin: 0 0 12px 0 !important;
+        }
+        
+        /* Compact Rotating Pill Chips */
+        .kinetic-chip-rotator {
+            margin-bottom: 28px !important;
+        }
+        
+        .chip-container {
             position: relative !important;
-            height: 1.8rem !important;
+            height: 34px !important;
             overflow: hidden !important;
-            margin-bottom: 24px !important;
         }
         
-        .rotator-word {
+        .kinetic-chip {
             position: absolute !important;
             left: 0 !important;
             top: 0 !important;
-            font-size: 1rem !important;
+            background: #E8E8E8 !important;
+            color: #666 !important;
+            padding: 8px 16px !important;
+            border-radius: 17px !important;
+            font-size: clamp(13px, 1.2vw, 14px) !important;
             font-weight: 500 !important;
-            letter-spacing: 0.02em !important;
-            color: #D4A4A4 !important;
-            opacity: 0 !important;
-            transform: translateY(20px) !important;
-            transition: all 0.25s ease-out !important;
             font-family: 'Inter', sans-serif !important;
+            border: none !important;
+            cursor: pointer !important;
+            opacity: 0 !important;
+            transform: translateX(-24px) !important;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            white-space: nowrap !important;
+            text-transform: capitalize !important;
         }
         
-        .rotator-word.active {
+        .kinetic-chip.active {
             opacity: 1 !important;
-            transform: translateY(0) !important;
+            transform: translateX(0) !important;
+            background: #D4A4A4 !important;
+            color: white !important;
         }
         
-        /* Signature Underline Animation */
-        .kinetic-signature-underline {
-            position: relative !important;
-            width: 160px !important;
-            height: 24px !important;
-            margin: -12px 0 24px 0 !important;
-            opacity: 0.7 !important;
+        .kinetic-chip:focus {
+            outline: 3px solid #D4A4A4 !important;
+            outline-offset: 2px !important;
         }
         
-        .signature-mask {
-            width: 100% !important;
-            height: 100% !important;
-            background-color: #D4A4A4 !important;
-            -webkit-mask-image: url('assets/images/kellie-signature.png') !important;
-            mask-image: url('assets/images/kellie-signature.png') !important;
-            -webkit-mask-size: contain !important;
-            mask-size: contain !important;
-            -webkit-mask-repeat: no-repeat !important;
-            mask-repeat: no-repeat !important;
-            -webkit-mask-position: left center !important;
-            mask-position: left center !important;
-            transform: scaleX(0) !important;
-            transform-origin: left center !important;
-            animation: drawSignature 800ms ease-out 0.5s forwards !important;
+        /* Collage Card Focus States */
+        .collage-card:focus {
+            outline: 3px solid #D4A4A4 !important;
+            outline-offset: 2px !important;
+            border-radius: 12px !important;
         }
         
-        @keyframes drawSignature {
-            to {
-                transform: scaleX(1) !important;
+        /* Enhanced Contrast for Accessibility */
+        @media (prefers-contrast: high) {
+            .enhanced-hero-kicker {
+                color: #333 !important;
+                font-weight: 600 !important;
+            }
+            
+            .enhanced-hero-subhead {
+                color: #444 !important;
+            }
+            
+            .kinetic-chip {
+                border: 1px solid #666 !important;
+                background: #f0f0f0 !important;
+                color: #333 !important;
+            }
+            
+            .kinetic-chip.active {
+                background: #333 !important;
+                color: white !important;
+                border-color: #333 !important;
             }
         }
         
         /* CTA Buttons */
-        .kinetic-hero-actions {
+        .enhanced-hero-actions {
             display: flex !important;
-            gap: 20px !important;
+            gap: clamp(20px, 4vw, 24px) !important;
             align-items: center !important;
             flex-wrap: wrap !important;
         }
         
-        /* Primary Button - Black Pill */
-        .kinetic-btn-primary {
+        /* Enhanced CTA Buttons */
+        .enhanced-hero-actions {
+            display: flex !important;
+            gap: clamp(20px, 3vw, 24px) !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+        }
+        
+        /* Primary Black Pill Button */
+        .enhanced-btn-primary {
             background: #333 !important;
             color: white !important;
-            padding: 14px 28px !important;
+            padding: clamp(14px, 1.8vw, 16px) clamp(24px, 3vw, 32px) !important;
             border: none !important;
-            border-radius: 25px !important;
+            border-radius: 26px !important;
             font-weight: 600 !important;
-            font-size: 1rem !important;
+            font-size: clamp(15px, 1.2vw, 16px) !important;
             text-decoration: none !important;
             display: inline-flex !important;
             align-items: center !important;
             gap: 8px !important;
-            transition: all 0.3s ease !important;
+            height: clamp(48px, 6vw, 52px) !important;
+            min-height: 48px !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            font-family: 'Inter', sans-serif !important;
         }
         
-        .kinetic-btn-primary:hover {
+        .enhanced-btn-primary:hover {
             background: #000 !important;
             transform: translateY(-2px) !important;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
         }
         
-        .kinetic-btn-primary:focus {
-            outline: 3px solid rgba(212, 164, 164, 0.5) !important;
+        .enhanced-btn-primary:focus {
+            outline: 3px solid rgba(212, 164, 164, 0.6) !important;
             outline-offset: 2px !important;
         }
         
-        /* Secondary Button - Outlined Pill */
-        .kinetic-btn-secondary {
+        /* Secondary Outlined Pill Button */
+        .enhanced-btn-secondary {
             background: transparent !important;
             color: #333 !important;
-            padding: 14px 28px !important;
+            padding: clamp(12px, 1.6vw, 14px) clamp(24px, 3vw, 32px) !important;
             border: 2px solid #333 !important;
-            border-radius: 25px !important;
+            border-radius: 26px !important;
             font-weight: 600 !important;
-            font-size: 1rem !important;
+            font-size: clamp(15px, 1.2vw, 16px) !important;
             text-decoration: none !important;
             display: inline-flex !important;
             align-items: center !important;
-            transition: all 0.3s ease !important;
+            height: clamp(48px, 6vw, 52px) !important;
+            min-height: 48px !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            font-family: 'Inter', sans-serif !important;
         }
         
-        .kinetic-btn-secondary:hover {
+        .enhanced-btn-secondary:hover {
             background: #333 !important;
             color: white !important;
             transform: translateY(-1px) !important;
         }
         
-        .kinetic-btn-secondary:focus {
-            outline: 3px solid rgba(212, 164, 164, 0.5) !important;
+        .enhanced-btn-secondary:focus {
+            outline: 3px solid rgba(212, 164, 164, 0.6) !important;
             outline-offset: 2px !important;
         }
         
-        /* Right Decorative Block */
-        .kinetic-hero-visual {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            min-width: 200px !important;
-        }
-        
-        .decorative-abstract-block {
+        /* Right Media Collage (Spans 5-6) */
+        .enhanced-hero-visual {
             position: relative !important;
-            width: 160px !important;
-            height: 160px !important;
-            opacity: 0.1 !important;
         }
         
-        .abstract-element-1 {
+        /* Enhanced Media Collage */
+        .lifestyle-collage {
+            position: relative !important;
+            height: clamp(480px, 60vh, 520px) !important;
+            margin-right: clamp(8px, 2vw, 16px) !important; /* Right-edge bleed */
+        }
+        
+        /* Enhanced Collage Cards - Desktop Sizes */
+        .collage-card {
             position: absolute !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            text-decoration: none !important;
+            z-index: 1 !important;
+        }
+        
+        /* Card A (Top) - Largest */
+        .card-home {
+            width: clamp(280px, 32vw, 360px) !important;
+            height: clamp(373px, 42.5vw, 480px) !important; /* 3:4 ratio */
+            top: 0 !important;
+            left: 0 !important;
+            z-index: 3 !important;
+        }
+        
+        /* Card B (Middle) */
+        .card-food {
+            width: clamp(240px, 28vw, 320px) !important;
+            height: clamp(320px, 37.3vw, 426px) !important; /* 3:4 ratio */
+            top: clamp(60px, 8vh, 80px) !important;
+            right: clamp(-20px, -2vw, 0px) !important;
+            z-index: 2 !important;
+        }
+        
+        /* Card C (Bottom) */
+        .card-travel {
+            width: clamp(220px, 26vw, 300px) !important;
+            height: clamp(293px, 34.7vw, 400px) !important; /* 3:4 ratio */
+            bottom: 0 !important;
+            left: clamp(40px, 5vw, 60px) !important;
+            z-index: 1 !important;
+        }
+        
+        .collage-image {
             width: 100% !important;
             height: 100% !important;
-            background: linear-gradient(135deg, #D4A4A4, #E5C4A4) !important;
-            border-radius: 50% 20% 50% 20% !important;
-            transform: rotate(15deg) !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
         
-        .abstract-element-2 {
+        .card-overlay {
             position: absolute !important;
-            top: 20px !important;
-            left: 20px !important;
-            width: 60% !important;
-            height: 60% !important;
-            background: rgba(255, 255, 255, 0.8) !important;
-            border-radius: 20% 50% 20% 50% !important;
-            transform: rotate(-30deg) !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: rgba(0, 0, 0, 0.08) !important;
+            transition: background 0.4s ease !important;
         }
         
-        /* Mobile Responsive */
+        /* Enhanced Hover Effects */
+        .collage-card:hover {
+            transform: scale(1.015) translateY(-3px) !important;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .collage-card:hover .collage-image {
+            transform: scale(1.02) !important;
+        }
+        
+        .collage-card:hover .card-overlay {
+            background: rgba(0, 0, 0, 0.03) !important;
+        }
+        
+        /* Subtle Parallax Effect */
+        .lifestyle-collage {
+            transform: translateY(var(--parallax-offset, 0px)) !important;
+            transition: transform 0.1s ease-out !important;
+        }
+        
+        /* Strong Section Divider */
+        .hero-section-divider {
+            width: 100% !important;
+            height: 2px !important;
+            background: linear-gradient(90deg, transparent 0%, #D4A4A4 20%, #D4A4A4 80%, transparent 100%) !important;
+            margin-top: 2rem !important;
+        }
+        
+        /* Tablet Responsive (≤ 1024px) */
+        @media (max-width: 1024px) {
+            .enhanced-hero-headline {
+                font-size: clamp(48px, 7vw, 72px) !important;
+            }
+            
+            .enhanced-hero-subhead {
+                font-size: clamp(16px, 2vw, 18px) !important;
+            }
+            
+            /* Scale down collage ~15% */
+            .card-home {
+                width: clamp(238px, 27vw, 306px) !important;
+                height: clamp(317px, 36vw, 408px) !important;
+            }
+            
+            .card-food {
+                width: clamp(204px, 24vw, 272px) !important;
+                height: clamp(272px, 32vw, 362px) !important;
+            }
+            
+            .card-travel {
+                width: clamp(187px, 22vw, 255px) !important;
+                height: clamp(249px, 29vw, 340px) !important;
+            }
+        }
+        
+        /* Mobile (≤ 768px) - Stack Layout */
         @media (max-width: 768px) {
-            .kinetic-hero {
-                padding: 4rem 0 3rem 0 !important;
-                min-height: 60vh !important;
+            .enhanced-kinetic-hero {
+                min-height: clamp(70vh, 75vh, 80vh) !important;
+                text-align: center !important;
             }
             
-            .kinetic-hero-content {
-                padding: 0 1rem !important;
-            }
-            
-            .kinetic-hero-grid {
+            .enhanced-hero-grid {
                 grid-template-columns: 1fr !important;
-                gap: 2rem !important;
+                gap: clamp(32px, 8vw, 40px) !important;
             }
             
-            .kinetic-hero-text {
-                max-width: 100% !important;
+            .enhanced-hero-text {
+                text-align: center !important;
             }
             
-            .kinetic-hero-subhead {
-                font-size: 0.9rem !important;
-                max-width: 100% !important;
-            }
-            
-            .kinetic-hero-actions {
+            .enhanced-hero-actions {
                 flex-direction: column !important;
-                align-items: stretch !important;
-                gap: 12px !important;
+                align-items: center !important;
+                gap: clamp(12px, 3vw, 16px) !important;
             }
             
-            .kinetic-btn-primary,
-            .kinetic-btn-secondary {
+            .enhanced-btn-primary,
+            .enhanced-btn-secondary {
+                width: 90% !important;
+                max-width: 320px !important;
                 justify-content: center !important;
-                width: 100% !important;
-                max-width: 300px !important;
             }
             
-            .kinetic-hero-visual {
+            /* Horizontal Scroll Mini-Collage */
+            .lifestyle-collage {
+                display: flex !important;
+                gap: 16px !important;
+                height: auto !important;
+                overflow-x: auto !important;
+                scroll-snap-type: x mandatory !important;
+                padding: 0 1rem !important;
+                margin: 0 -1rem !important;
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+            }
+            
+            .lifestyle-collage::-webkit-scrollbar {
                 display: none !important;
             }
             
-            .kinetic-signature-underline {
-                width: 120px !important;
-                height: 18px !important;
+            .collage-card {
+                position: static !important;
+                flex: 0 0 auto !important;
+                scroll-snap-align: center !important;
+                width: clamp(220px, 60vw, 260px) !important;
+                height: clamp(293px, 80vw, 346px) !important;
             }
         }
         
-        /* Tablet Responsive */
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .kinetic-hero-grid {
-                gap: 3rem !important;
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .navigation {
+                padding: 8px 0 !important;
+                height: 56px !important;
             }
             
-            .decorative-abstract-block {
-                width: 120px !important;
-                height: 120px !important;
+            .nav-wrapper {
+                padding: 0 1rem !important;
+            }
+            
+            .logo-image {
+                max-height: 20px !important;
+            }
+            
+            .social-icons {
+                gap: 10px !important;
+            }
+            
+            .social-icon {
+                font-size: 16px !important;
             }
         }
         
         /* Reduced Motion Support */
         @media (prefers-reduced-motion: reduce) {
-            .rotator-word {
+            .kinetic-chip {
                 transition: none !important;
                 transform: none !important;
             }
             
-            .rotator-word:not([data-word="Family"]):not([data-word="Home"]) {
+            .kinetic-chip:not([data-word="Family"]):not([data-word="Home"]) {
                 display: none !important;
             }
             
-            .rotator-word[data-word="Family"] {
-                opacity: 1 !important;
+            .kinetic-chip[data-word="Family"],
+            .kinetic-chip[data-word="Home"] {
                 position: static !important;
-                display: inline !important;
-            }
-            
-            .rotator-word[data-word="Home"] {
                 opacity: 1 !important;
-                position: static !important;
-                display: inline !important;
+                display: inline-block !important;
+                margin-right: 8px !important;
             }
             
-            .rotator-word[data-word="Family"]::after {
-                content: ", " !important;
-            }
-            
-            .signature-mask {
-                animation: none !important;
-                transform: scaleX(1) !important;
-            }
-            
-            .kinetic-btn-primary:hover,
-            .kinetic-btn-secondary:hover {
+            .collage-card:hover {
                 transform: none !important;
+            }
+            
+            .collage-card:hover .collage-image {
+                transform: none !important;
+            }
+            
+            .lifestyle-collage {
+                transform: none !important;
+            }
+            
+            .enhanced-btn-primary:hover,
+            .enhanced-btn-secondary:hover {
+                transform: translateY(0) !important;
             }
         }
         
         /* High Contrast Support */
         @media (prefers-contrast: high) {
-            .kinetic-hero-kicker {
+            .enhanced-hero-kicker {
                 color: #333 !important;
             }
             
-            .rotator-word {
-                color: #333 !important;
+            .kinetic-chip {
+                border: 1px solid #666 !important;
             }
             
-            .decorative-abstract-block {
-                opacity: 0.3 !important;
+            .kinetic-chip.active {
+                background: #333 !important;
             }
         }
         
@@ -4213,55 +4429,85 @@
         </div>
     </nav>
 
-    <!-- Kinetic Type Hero Section -->
-    <section id="home" class="kinetic-hero">
-        <div class="kinetic-hero-content">
-            <div class="kinetic-hero-grid">
+    <!-- Enhanced Kinetic Type Hero Section -->
+    <section id="home" class="enhanced-kinetic-hero">
+        <div class="enhanced-hero-content">
+            <div class="enhanced-hero-grid">
                 <!-- Left Content - Text Stack -->
-                <div class="kinetic-hero-text">
-                    <div class="kinetic-hero-kicker">LIFESTYLE • REFINED • ELEVATED</div>
-                    <h1 class="kinetic-hero-headline">Make the Next Part Yours</h1>
-                    <p class="kinetic-hero-subhead">Practical tips, pretty ideas, and real-life recommendations for the empty-nest years.</p>
+                <div class="enhanced-hero-text">
+                    <div class="enhanced-hero-kicker">LIFESTYLE • REFINED • ELEVATED</div>
+                    <h1 class="enhanced-hero-headline">Make the Next Part Yours</h1>
+                    <p class="enhanced-hero-subhead">Practical tips, pretty ideas, and real-life recommendations for the empty-nest years.</p>
                     
-                    <!-- Rotating Micro-Line -->
-                    <div class="kinetic-rotator" aria-live="off" aria-hidden="true">
-                        <span class="rotator-word active" data-word="Family">Family</span>
-                        <span class="rotator-word" data-word="Home">Home</span>
-                        <span class="rotator-word" data-word="Wellness">Wellness</span>
-                        <span class="rotator-word" data-word="Travel">Travel</span>
-                        <span class="rotator-word" data-word="Food">Food</span>
-                        <span class="rotator-word" data-word="Celebrations">Celebrations</span>
-                        <span class="rotator-word" data-word="Picks">Picks</span>
-                    </div>
+                    <!-- Subtle Divider Under Subhead -->
+                    <div class="hero-subhead-divider"></div>
                     
-                    <!-- Optional Signature Underline -->
-                    <div class="kinetic-signature-underline" aria-hidden="true">
-                        <div class="signature-mask"></div>
+                    <!-- Rotating Pill Chips -->
+                    <div class="kinetic-chip-rotator" aria-live="off" role="group">
+                        <div class="chip-container">
+                            <span class="kinetic-chip active" data-word="Family" tabindex="0" role="button">Family</span>
+                            <span class="kinetic-chip" data-word="Home" tabindex="-1" role="button">Home</span>
+                            <span class="kinetic-chip" data-word="Wellness" tabindex="-1" role="button">Wellness</span>
+                            <span class="kinetic-chip" data-word="Travel" tabindex="-1" role="button">Travel</span>
+                            <span class="kinetic-chip" data-word="Food" tabindex="-1" role="button">Food</span>
+                            <span class="kinetic-chip" data-word="Celebrations" tabindex="-1" role="button">Celebrations</span>
+                            <span class="kinetic-chip" data-word="Picks" tabindex="-1" role="button">Picks</span>
+                        </div>
                     </div>
                     
                     <!-- CTA Buttons -->
-                    <div class="kinetic-hero-actions">
-                        <a href="https://www.instagram.com/emptynestmomlife/" target="_blank" class="kinetic-btn-primary">
+                    <div class="enhanced-hero-actions">
+                        <a href="https://www.instagram.com/emptynestmomlife/" target="_blank" class="enhanced-btn-primary">
                             <span>Follow Along</span>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </a>
-                        <a href="#lets-connect" class="kinetic-btn-secondary">
+                        <a href="#lets-connect" class="enhanced-btn-secondary">
                             <span>Let's Collaborate</span>
                         </a>
                     </div>
                 </div>
                 
-                <!-- Right Decorative Block (Optional/Minimal) -->
-                <div class="kinetic-hero-visual">
-                    <div class="decorative-abstract-block">
-                        <div class="abstract-element-1"></div>
-                        <div class="abstract-element-2"></div>
+                <!-- Right Media Collage -->
+                <div class="enhanced-hero-visual">
+                    <div class="lifestyle-collage">
+                        <!-- Card 1: Home/Interior - Largest, Top Priority -->
+                        <a href="#inside-the-nest" class="collage-card card-home" aria-label="Explore home design and lifestyle content">
+                            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=480&h=640&fit=crop&auto=format&q=85&fm=webp" 
+                                 alt="Modern living room with natural wood furniture, soft lighting, and cozy textiles showcasing empty nest home design" 
+                                 class="collage-image" 
+                                 loading="eager"
+                                 sizes="(max-width: 768px) 260px, (max-width: 1024px) 306px, 360px">
+                            <div class="card-overlay"></div>
+                        </a>
+                        
+                        <!-- Card 2: Food/Dining - Middle Priority -->
+                        <a href="#empty-nest-eats" class="collage-card card-food" aria-label="Discover recipes and cooking inspiration">
+                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=426&h=568&fit=crop&auto=format&q=85&fm=webp" 
+                                 alt="Beautifully plated healthy meal with fresh ingredients and elegant table setting perfect for empty nesters" 
+                                 class="collage-image" 
+                                 loading="lazy"
+                                 sizes="(max-width: 768px) 260px, (max-width: 1024px) 272px, 320px">
+                            <div class="card-overlay"></div>
+                        </a>
+                        
+                        <!-- Card 3: Travel/Lifestyle - Lowest Priority -->
+                        <a href="#empty-nest-picks" class="collage-card card-travel" aria-label="View curated lifestyle and travel recommendations">
+                            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=533&fit=crop&auto=format&q=85&fm=webp" 
+                                 alt="Serene mountain lake landscape representing travel and adventure opportunities for empty nest couples" 
+                                 class="collage-image" 
+                                 loading="lazy"
+                                 sizes="(max-width: 768px) 260px, (max-width: 1024px) 255px, 300px">
+                            <div class="card-overlay"></div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Strong Section Divider -->
+        <div class="hero-section-divider"></div>
     </section>
 
     <!-- Meet Kellie Section - Redesigned 2-Column Layout -->
@@ -7268,51 +7514,61 @@
         console.log('✅ Enhanced contact form functionality initialized');
     });
     
-    // === KINETIC TYPE HERO FUNCTIONALITY ===
+    // === ENHANCED KINETIC TYPE HERO FUNCTIONALITY ===
     
-    // Rotating micro-line animation
+    // Rotating pill chips animation
     document.addEventListener('DOMContentLoaded', function() {
-        const rotator = document.querySelector('.kinetic-rotator');
-        const words = document.querySelectorAll('.rotator-word');
+        const chipRotator = document.querySelector('.kinetic-chip-rotator');
+        const chips = document.querySelectorAll('.kinetic-chip');
         
-        if (!rotator || words.length === 0) return;
+        if (!chipRotator || chips.length === 0) {
+            console.log('❌ Kinetic chips not found');
+            return;
+        }
         
         // Check for reduced motion preference
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         
         if (prefersReducedMotion) {
             // Show only "Family" and "Home" without animation
-            words.forEach((word, index) => {
-                if (word.dataset.word === 'Family' || word.dataset.word === 'Home') {
-                    word.classList.add('active');
+            chips.forEach((chip) => {
+                if (chip.dataset.word === 'Family' || chip.dataset.word === 'Home') {
+                    chip.classList.add('active');
+                    chip.style.position = 'static';
+                    chip.style.opacity = '1';
+                    chip.style.display = 'inline-block';
+                    chip.style.marginRight = '8px';
                 } else {
-                    word.style.display = 'none';
+                    chip.style.display = 'none';
                 }
             });
-            console.log('✅ Kinetic rotator: Reduced motion mode - showing Family, Home only');
+            console.log('✅ Kinetic chips: Reduced motion mode - showing Family, Home only');
             return;
         }
         
         let currentIndex = 0;
-        const rotationInterval = 2500; // 2500ms per item
+        const rotationInterval = 2500; // 2500ms per chip (2.5s)
         const crossfadeTime = 250; // 250ms crossfade
         
-        function rotateWords() {
-            // Fade out current word
-            words[currentIndex].classList.remove('active');
+        // Ensure first chip is active
+        chips[0].classList.add('active');
+        
+        function rotateChips() {
+            // Fade out current chip
+            chips[currentIndex].classList.remove('active');
             
-            // Move to next word
-            currentIndex = (currentIndex + 1) % words.length;
+            // Move to next chip
+            currentIndex = (currentIndex + 1) % chips.length;
             
-            // Fade in next word after crossfade delay
+            // Fade in next chip after crossfade delay
             setTimeout(() => {
-                words[currentIndex].classList.add('active');
+                chips[currentIndex].classList.add('active');
             }, crossfadeTime);
         }
         
         // Start rotation after initial delay
         setTimeout(() => {
-            const interval = setInterval(rotateWords, rotationInterval);
+            const interval = setInterval(rotateChips, rotationInterval);
             
             // Cleanup on page unload
             window.addEventListener('beforeunload', () => {
@@ -7320,7 +7576,113 @@
             });
         }, rotationInterval);
         
-        console.log('✅ Kinetic rotator initialized with', words.length, 'words');
+        // Make chips clickable for accessibility
+        chips.forEach((chip, index) => {
+            chip.addEventListener('click', function() {
+                if (prefersReducedMotion) return;
+                
+                // Update current index
+                chips[currentIndex].classList.remove('active');
+                currentIndex = index;
+                chip.classList.add('active');
+                
+                // Update tabindex for accessibility
+                chips.forEach((c, i) => {
+                    c.setAttribute('tabindex', i === index ? '0' : '-1');
+                });
+            });
+            
+            // Keyboard accessibility
+            chip.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    chip.click();
+                }
+            });
+        });
+        
+        console.log('✅ Enhanced kinetic chips initialized with', chips.length, 'chips');
+    });
+    
+    // Header scroll enhancement
+    document.addEventListener('DOMContentLoaded', function() {
+        const nav = document.querySelector('.navigation');
+        
+        if (!nav) return;
+        
+        let ticking = false;
+        
+        function updateHeader() {
+            const scrolled = window.pageYOffset > 10;
+            
+            if (scrolled) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick, { passive: true });
+        
+        console.log('✅ Header scroll enhancement initialized');
+    });
+    
+    // Parallax effect for lifestyle collage
+    document.addEventListener('DOMContentLoaded', function() {
+        const collage = document.querySelector('.lifestyle-collage');
+        const heroSection = document.querySelector('.enhanced-kinetic-hero');
+        
+        if (!collage || !heroSection) {
+            console.log('❌ Parallax elements not found');
+            return;
+        }
+        
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        if (prefersReducedMotion) {
+            console.log('✅ Parallax disabled due to reduced motion preference');
+            return;
+        }
+        
+        let ticking = false;
+        
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const heroRect = heroSection.getBoundingClientRect();
+            const heroHeight = heroSection.offsetHeight;
+            
+            // Only apply parallax when hero is in viewport
+            if (heroRect.bottom > 0 && heroRect.top < window.innerHeight) {
+                const parallaxSpeed = 0.08; // 2-3px subtle parallax effect
+                const yPos = -(scrolled * parallaxSpeed);
+                
+                collage.style.setProperty('--parallax-offset', `${yPos}px`);
+            }
+            
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }
+        
+        // Throttled scroll event
+        window.addEventListener('scroll', requestTick, { passive: true });
+        
+        console.log('✅ Parallax effect for lifestyle collage initialized');
     });
     
     // Signature underline animation (respects reduced motion)
