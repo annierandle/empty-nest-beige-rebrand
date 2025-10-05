@@ -67,6 +67,8 @@
             }
         }
         
+        /* ========================================\n           REUSABLE HEADER COMPONENT\n           ========================================\n           \n           USAGE EXAMPLE:\n           \n           <div class=\"global-section-header\">\n               <div class=\"eyebrow\">OPTIONAL EYEBROW TEXT</div>\n               <h1 class=\"title\">MAIN SECTION TITLE</h1>\n               <div class=\"tagline\">OPTIONAL TAGLINE TEXT</div>\n               <div class=\"rule\"></div>\n           </div>\n           \n           SPACING FLOW:\n           - Section top margin: clamp(56px, 8vw, 120px)\n           - Eyebrow → Title: 8px gap\n           - Title → Tagline: 12px gap  \n           - Tagline → Rule: 12px gap\n           - Rule → Content: 48px desktop, 40px tablet, 28px mobile\n           \n           ======================================== */\n        \n        /* Complete header component for easy implementation */\n        .global-section-header {\n            margin-top: clamp(56px, 8vw, 120px) !important;\n            margin-bottom: 0 !important;\n            text-align: left !important;\n        }\n        \n        .global-section-header .eyebrow {\n            font-family: Inter, system-ui, sans-serif !important;\n            font-size: 12px !important;\n            font-weight: 400 !important;\n            letter-spacing: 0.18em !important;\n            text-transform: uppercase !important;\n            color: #9FA4A8 !important;\n            margin: 0 0 8px 0 !important;\n        }\n        \n        .global-section-header .title {\n            font-family: \"Canela Display\", \"Canela Deck\", \"Playfair Display\", \"Cormorant Garamond\", serif !important;\n            font-weight: 700 !important;\n            text-transform: uppercase !important;\n            letter-spacing: 0.02em !important;\n            line-height: 1.04 !important;\n            color: #2F3135 !important;\n            font-size: clamp(44px, 6vw, 84px) !important;\n            margin: 0 0 12px 0 !important;\n        }\n        \n        @media (max-width: 768px) {\n            .global-section-header .title {\n                font-size: clamp(32px, 8vw, 44px) !important;\n            }\n        }\n        \n        .global-section-header .tagline {\n            font-family: Inter, system-ui, sans-serif !important;\n            font-size: 12px !important;\n            font-weight: 400 !important;\n            letter-spacing: 0.10em !important;\n            text-transform: uppercase !important;\n            color: #8C8F93 !important;\n            margin: 0 0 12px 0 !important;\n        }\n        \n        .global-section-header .rule {\n            width: 64px !important;\n            height: 2px !important;\n            background: #E9DDD5 !important;\n            border-radius: 2px !important;\n            margin: 0 0 48px 0 !important;\n            border: none !important;\n        }\n        \n        @media (max-width: 1024px) {\n            .global-section-header .rule {\n                margin-bottom: 40px !important;\n            }\n        }\n        \n        @media (max-width: 768px) {\n            .global-section-header .rule {\n                margin-bottom: 28px !important;\n            }\n        }
+        
         /* Fallback masked signature for better color control */
         .kellie-signature-masked {
             display: none;
@@ -201,9 +203,14 @@
             --neutral-15: #F1F5F9;
         }
         
-        /* Global Section Headers Reset */
+        /* ========================================
+           GLOBAL HEADER SYSTEM - UNIFIED TYPOGRAPHY
+           ======================================== */
+           
+        /* Section Headlines (H1 / Main Titles) */
         .section-header h1,
         .section-header h2,
+        .section-title,
         .hero-headline,
         .about-title,
         .nest-approved-title,
@@ -216,17 +223,42 @@
         .contact-title,
         .partnerships-title,
         .refined-title {
-            font-family: var(--DISPLAY_SERIF) !important;
-            font-weight: bold !important;
-            font-size: clamp(48px, 6.2vw, 96px) !important;
-            line-height: 1.05 !important;
-            letter-spacing: -0.2px !important;
+            font-family: "Canela Display", "Canela Deck", "Playfair Display", "Cormorant Garamond", serif !important;
+            font-weight: 700 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.02em !important;
+            line-height: 1.04 !important;
+            color: #2F3135 !important;
             text-align: left !important;
             margin: 0 0 12px 0 !important;
+            /* Desktop sizing */
+            font-size: clamp(44px, 6vw, 84px) !important;
         }
         
-        /* Global Kickers (Small Caps Labels) */
+        /* Mobile headline sizing override */
+        @media (max-width: 768px) {
+            .section-header h1,
+            .section-header h2,
+            .section-title,
+            .hero-headline,
+            .about-title,
+            .nest-approved-title,
+            .picks-title,
+            .recipes-title,
+            .celebrations-title,
+            .events-title,
+            .book-club-title,
+            .media-title,
+            .contact-title,
+            .partnerships-title,
+            .refined-title {
+                font-size: clamp(32px, 8vw, 44px) !important;
+            }
+        }
+        
+        /* Eyebrow Labels (Small line above title) */
         .section-header .eyebrow,
+        .section-eyebrow,
         .about-eyebrow,
         .nest-approved-eyebrow,
         .picks-eyebrow,
@@ -238,18 +270,19 @@
         .contact-eyebrow,
         .partnerships-eyebrow,
         .refined-eyebrow {
-            font-family: 'Inter', sans-serif !important;
-            font-size: 0.75rem !important;
-            font-weight: 500 !important;
-            letter-spacing: 0.375em !important;
+            font-family: Inter, system-ui, sans-serif !important;
+            font-size: 12px !important;
+            font-weight: 400 !important;
+            letter-spacing: 0.18em !important;
             text-transform: uppercase !important;
-            color: var(--neutral-60) !important;
+            color: #9FA4A8 !important;
             text-align: left !important;
             margin: 0 0 8px 0 !important;
         }
         
-        /* Global Taglines */
+        /* Taglines (Small line under title) */
         .section-header .tagline,
+        .section-tagline,
         .about-tagline,
         .nest-approved-tagline,
         .picks-tagline,
@@ -261,29 +294,68 @@
         .contact-tagline,
         .partnerships-tagline,
         .refined-tagline {
-            font-family: 'Inter', sans-serif !important;
-            font-size: 15px !important;
+            font-family: Inter, system-ui, sans-serif !important;
+            font-size: 12px !important;
             font-weight: 400 !important;
-            letter-spacing: 0.25em !important;
-            color: var(--neutral-50) !important;
+            letter-spacing: 0.10em !important;
+            text-transform: uppercase !important;
+            color: #8C8F93 !important;
             text-align: left !important;
             margin: 0 0 12px 0 !important;
-            text-transform: uppercase !important;
         }
         
-        /* Global Thin Dividers */
+        /* Section Rules (Dividers under tagline) */
         .section-header .divider,
+        .section-rule,
         .tagline-divider {
             width: 64px !important;
-            height: 1px !important;
-            background: var(--neutral-20) !important;
+            height: 2px !important;
+            background: #E9DDD5 !important;
+            border-radius: 2px !important;
             margin: 0 0 48px 0 !important;
+            border: none !important;
+        }
+        
+        /* Responsive rule bottom margins */
+        @media (max-width: 1024px) {
+            .section-header .divider,
+            .section-rule,
+            .tagline-divider {
+                margin-bottom: 40px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-header .divider,
+            .section-rule,
+            .tagline-divider {
+                margin-bottom: 28px !important;
+            }
         }
         
         /* Section Header Container Spacing */
         .section-header {
             text-align: left !important;
-            margin-bottom: 48px !important;
+            margin-top: clamp(56px, 8vw, 120px) !important;
+            margin-bottom: 0 !important;
+        }
+        
+        /* Global header structure and flow */
+        .section-header .eyebrow + .section-title,
+        .section-header .eyebrow + h1,
+        .section-header .eyebrow + h2 {
+            margin-top: 0 !important;
+        }
+        
+        .section-header .section-title + .tagline,
+        .section-header h1 + .tagline,
+        .section-header h2 + .tagline {
+            margin-top: 0 !important;
+        }
+        
+        .section-header .tagline + .divider,
+        .section-header .tagline + .section-rule {
+            margin-top: 0 !important;
         }
     </style>
     
@@ -1868,11 +1940,12 @@
     <!-- Nest Approved Section -->
     <section id="nest-approved" class="nest-approved-section">
         <div class="nest-approved-wrapper">
-            <!-- Header Typography - Matching Screenshot Exactly -->
-            <div class="nest-approved-typography" style="text-align: left !important; margin: 0 !important; padding: 0 !important; margin-left: 0 !important; transform: none !important;">
-                <div class="nest-approved-eyebrow" style="font-family: 'Inter', sans-serif !important; font-size: 0.75rem !important; font-weight: 400 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; color: #8B7355 !important; margin-bottom: 0.75rem !important;">CURATED FOR YOU</div>
-                <h2 class="nest-approved-title" style="font-family: 'Playfair Display', serif !important; font-size: 4rem !important; font-weight: 400 !important; letter-spacing: 0.02em !important; text-transform: uppercase !important; margin: 0 !important; padding: 0 !important; text-align: left !important; color: #2D3748 !important; line-height: 0.9 !important;">NEST APPROVED</h2>
-                <div class="nest-approved-tagline" style="font-family: 'Inter', sans-serif !important; font-size: 1rem !important; font-weight: 300 !important; color: #666666 !important; margin-top: 1rem !important; margin-bottom: 3rem !important; line-height: 1.4 !important;">TRUSTED BRANDS I GENUINELY LOVE AND EXCLUSIVE OFFERS FOR MY COMMUNITY</div>
+            <!-- Global Header System Implementation -->
+            <div class="global-section-header">
+                <div class="eyebrow">CURATED FOR YOU</div>
+                <h2 class="title">NEST APPROVED</h2>
+                <div class="tagline">TRUSTED BRANDS I GENUINELY LOVE AND EXCLUSIVE OFFERS FOR MY COMMUNITY</div>
+                <div class="rule"></div>
             </div>
             
             <div class="nest-approved-content">
