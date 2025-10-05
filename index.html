@@ -56,6 +56,17 @@
             z-index: 2;
         }
         
+        /* Navbar Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .navigation {
+                height: 56px !important;
+            }
+            .nav-wrapper {
+                height: 56px !important;
+                padding: 0 16px !important;
+            }
+        }
+        
         /* Fallback masked signature for better color control */
         .kellie-signature-masked {
             display: none;
@@ -1420,44 +1431,48 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navigation" style="position: sticky; top: 0; z-index: 1000; background: #FAF5F1; border-bottom: 1px solid #F1F5F9; transition: box-shadow 0.3s ease;">
-        <div class="nav-wrapper" style="max-width: clamp(1200px, 88vw, 1360px); margin: 0 auto; padding: 0 clamp(12px, 4vw, 24px); height: clamp(56px, 8vw, 64px); display: flex; align-items: center; justify-content: space-between;">
+    <nav class="navigation" style="position: sticky; top: 0; z-index: 1000; background: rgba(250, 245, 241, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(237, 232, 227, 0.6); transition: all 0.3s ease;">
+        <div class="nav-wrapper" style="max-width: 100%; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between;">
             
             <!-- Logo -->
             <a href="#home" class="nav-logo" style="display: flex; align-items: center; text-decoration: none;" aria-label="Empty Nest - Home">
-                <div style="height: clamp(28px, 4vw, 32px); background: #D9B6B6; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 4px; padding: 0 16px; font-size: clamp(0.8rem, 2vw, 1rem);">Empty Nest</div>
+                <img src="assets/images/empty-nest-logo.svg" alt="Empty Nest" style="height: 24px; width: auto; display: block;" />
             </a>
             
             <!-- Right Section: Social Icons + Hamburger -->
             <div class="nav-right" style="display: flex; align-items: center; gap: 16px;">
                 
-                <!-- Social Icons (Desktop Only) -->
+                <!-- Social Icons -->
                 <div class="social-icons" style="display: flex; align-items: center; gap: 16px;">
                     <a href="#" class="social-icon" aria-label="Instagram" 
-                       style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: var(--neutral-70); text-decoration: none; transition: color 0.2s ease;"
-                       onmouseover="this.style.color='#1A1A1A'" onmouseout="this.style.color='var(--neutral-70)'">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                       style="width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; opacity: 0.8; text-decoration: none; transition: opacity 0.2s ease; outline: none;"
+                       onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'"
+                       onfocus="this.style.outline='2px solid #D4A4A4'; this.style.outlineOffset='2px'" onblur="this.style.outline='none'">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#6B7280">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
                     </a>
                     <a href="#" class="social-icon" aria-label="Facebook" 
-                       style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: var(--neutral-70); text-decoration: none; transition: color 0.2s ease;"
-                       onmouseover="this.style.color='#1A1A1A'" onmouseout="this.style.color='var(--neutral-70)'">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                       style="width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; opacity: 0.8; text-decoration: none; transition: opacity 0.2s ease; outline: none;"
+                       onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'"
+                       onfocus="this.style.outline='2px solid #D4A4A4'; this.style.outlineOffset='2px'" onblur="this.style.outline='none'">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#6B7280">
                             <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                         </svg>
                     </a>
                     <a href="#" class="social-icon" aria-label="TikTok" 
-                       style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: var(--neutral-70); text-decoration: none; transition: color 0.2s ease;"
-                       onmouseover="this.style.color='#1A1A1A'" onmouseout="this.style.color='var(--neutral-70)'">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                       style="width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; opacity: 0.8; text-decoration: none; transition: opacity 0.2s ease; outline: none;"
+                       onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'"
+                       onfocus="this.style.outline='2px solid #D4A4A4'; this.style.outlineOffset='2px'" onblur="this.style.outline='none'">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#6B7280">
                             <path d="M19.321 5.562a5.122 5.122 0 01-.443-.258 6.228 6.228 0 01-1.137-.966c-.849-.966-1.248-2.085-1.248-3.193V.5H13.54v14.97c0 1.337-.849 2.572-2.182 2.572-1.248 0-2.267-1.004-2.267-2.233 0-1.229 1.019-2.233 2.267-2.233.258 0 .497.043.718.128V10.64c-.221-.043-.46-.064-.718-.064C8.474 10.576 6 13.06 6 16.189s2.474 5.613 5.358 5.613c2.949 0 5.358-2.485 5.358-5.613V8.757c1.163.803 2.574 1.272 4.122 1.272v-3.055c-.627 0-1.213-.171-1.717-.472-.849-.515-1.503-1.272-1.8-2.14z"/>
                         </svg>
                     </a>
                     <a href="#" class="social-icon" aria-label="Amazon" 
-                       style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: var(--neutral-70); text-decoration: none; transition: color 0.2s ease;"
-                       onmouseover="this.style.color='#1A1A1A'" onmouseout="this.style.color='var(--neutral-70)'">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                       style="width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; opacity: 0.8; text-decoration: none; transition: opacity 0.2s ease; outline: none;"
+                       onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'"
+                       onfocus="this.style.outline='2px solid #D4A4A4'; this.style.outlineOffset='2px'" onblur="this.style.outline='none'">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#6B7280">
                             <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.093.52-.368.368-.726.653-1.076.855-1.875.91-3.846 1.365-5.916 1.365-2.947 0-5.713-.624-8.295-1.87l-.482-.233c-.266-.13-.532-.317-.798-.56-.062-.06-.098-.115-.108-.168-.01-.052 0-.098.03-.137.03-.04.068-.063.116-.07zm23.696.752c-.124-.013-.23.05-.318.19-.087.14-.13.29-.13.448 0 .202.043.375.13.52.087.144.194.216.318.216.176 0 .314-.096.414-.288.1-.192.15-.384.15-.576 0-.244-.05-.44-.15-.588-.1-.148-.238-.222-.414-.222zm.259 2.274c-2.368-.717-4.668-1.075-6.9-1.075-3.33 0-6.336.717-9.018 2.15-.402.215-.603.215-.603 0 0-.144.134-.287.402-.43C10.25 20.615 13.256 19.9 16.652 19.9c2.233 0 4.533.358 6.9 1.075.335.143.502.286.502.43 0 .215-.201.215-.603 0z"/>
                         </svg>
                     </a>
@@ -1465,12 +1480,12 @@
                 
                 <!-- Hamburger Menu -->
                 <button class="menu-button" id="menuButton" aria-label="Menu" 
-                        style="width: 24px; height: 24px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; background: none; border: none; cursor: pointer; padding: 0; margin-left: 8px;"
+                        style="width: 24px; height: 24px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; background: none; border: none; cursor: pointer; padding: 0; margin-left: 8px; outline: none;"
                         onfocus="this.style.outline='2px solid #D4A4A4'; this.style.outlineOffset='2px'"
                         onblur="this.style.outline='none'">
-                    <span class="hamburger-line" style="width: 18px; height: 2px; background: var(--neutral-70); transition: all 0.3s ease; display: block;"></span>
-                    <span class="hamburger-line" style="width: 18px; height: 2px; background: var(--neutral-70); transition: all 0.3s ease; display: block;"></span>
-                    <span class="hamburger-line" style="width: 18px; height: 2px; background: var(--neutral-70); transition: all 0.3s ease; display: block;"></span>
+                    <span class="hamburger-line" style="width: 18px; height: 2px; background: #6B7280; transition: all 0.3s ease; display: block;"></span>
+                    <span class="hamburger-line" style="width: 18px; height: 2px; background: #6B7280; transition: all 0.3s ease; display: block;"></span>
+                    <span class="hamburger-line" style="width: 18px; height: 2px; background: #6B7280; transition: all 0.3s ease; display: block;"></span>
                 </button>
             </div>
         </div>
