@@ -1863,40 +1863,60 @@
             
             <div class="nest-approved-content">
 
-            <!-- SECTION 1: My Curated Collections -->
+            <!-- SECTION 1: My Curated Collections - Final Polish -->
             <div class="curated-collections">
                 <h3 class="subsection-title">MY CURATED COLLECTIONS</h3>
-                <div class="storefront-cards">
-                    <!-- Amazon Storefront -->
-                    <div class="storefront-card">
-                        <div class="card-badge">Storefront</div>
-                        <div class="storefront-content">
-                            <div class="storefront-logo">
-                                <div style="width: 80px; height: 30px; background: #FF9900; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 4px;">Amazon</div>
-                            </div>
-                            <div class="storefront-text">
-                                <h4 class="storefront-name">Amazon Storefront</h4>
-                                <p class="storefront-description" style="font-size: 0.7rem !important; line-height: 1.2 !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; margin: 0.5rem 0 !important; padding: 0.25rem 0 !important;">"My tried-and-true favorites for every room and occasion"</p>
-                                <p class="storefront-note">From kitchen essentials to travel must-haves, I've curated collections of products that have truly elevated my daily life.</p>
-                            </div>
+                <div class="storefront-cards" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 3rem;">
+                    <!-- Amazon Storefront - Final Polish -->
+                    <div class="storefront-card" style="background: white; border-radius: 18px; box-shadow: 0 10px 24px rgba(0,0,0,0.08); padding: 2rem; text-align: center; position: relative; transition: all 0.3s ease;">
+                        <div class="card-badge" style="position: absolute; top: 1rem; left: 1rem; background: rgba(45, 55, 72, 0.1); color: #2D3748; padding: 4px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">STOREFRONT</div>
+                        
+                        <!-- 120x120px Logo Container -->
+                        <div class="storefront-logo" style="margin: 1rem auto 1.5rem auto; width: 120px; height: 120px; background: #FF9900; display: flex; align-items: center; justify-content: center; border-radius: 16px; box-shadow: 0 4px 12px rgba(255, 153, 0, 0.2);">
+                            <div style="color: white; font-weight: bold; font-size: 1.2rem; font-family: 'Inter', sans-serif;">amazon</div>
                         </div>
-                        <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" rel="noopener" class="storefront-btn" style="border-radius: 25px !important;">Shop Collection</a>
+                        
+                        <div class="storefront-content">
+                            <h4 class="storefront-name" style="font-size: 1.1rem; font-weight: 600; color: #2D3748; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Amazon Storefront</h4>
+                            <p class="storefront-description" style="font-size: 14px; color: rgba(0,0,0,0.6); line-height: 1.4; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">From kitchen essentials to travel must-haves, I've curated collections of products that have truly elevated my daily life.</p>
+                        </div>
+                        
+                        <!-- Global Black Pill Button -->
+                        <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" rel="noopener" class="storefront-btn" 
+                           style="background: #2D3748; color: white; padding: 12px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; font-family: 'Inter', sans-serif; letter-spacing: 0.5px;"
+                           onmouseover="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(45, 55, 72, 0.25)'"
+                           onmouseout="this.style.background='#2D3748'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(45, 55, 72, 0.15)'"
+                           onfocus="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(45, 55, 72, 0.25)'"
+                           onblur="this.style.background='#2D3748'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(45, 55, 72, 0.15)'">
+                            <span class="btn-text">SHOP COLLECTION</span>
+                            <span class="btn-arrow" style="transition: transform 0.3s ease;">→</span>
+                        </a>
                     </div>
 
-                    <!-- ShopMy Storefront -->
-                    <div class="storefront-card">
-                        <div class="card-badge">Storefront</div>
-                        <div class="storefront-content">
-                            <div class="storefront-logo">
-                                <div style="width: 80px; height: 30px; background: #6C63FF; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 4px;">ShopMy</div>
-                            </div>
-                            <div class="storefront-text">
-                                <h4 class="storefront-name">ShopMy</h4>
-                                <p class="storefront-description" style="font-size: 0.7rem !important; line-height: 1.2 !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; margin: 0.5rem 0 !important; padding: 0.25rem 0 !important;">"Weekly finds and current obsessions, updated regularly"</p>
-                                <p class="storefront-note">Discover my latest discoveries and seasonal favorites. I update these collections weekly with fresh finds and current trends.</p>
-                            </div>
+                    <!-- ShopMy Storefront - Final Polish -->
+                    <div class="storefront-card" style="background: white; border-radius: 18px; box-shadow: 0 10px 24px rgba(0,0,0,0.08); padding: 2rem; text-align: center; position: relative; transition: all 0.3s ease;">
+                        <div class="card-badge" style="position: absolute; top: 1rem; left: 1rem; background: rgba(45, 55, 72, 0.1); color: #2D3748; padding: 4px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">STOREFRONT</div>
+                        
+                        <!-- 120x120px Logo Container -->
+                        <div class="storefront-logo" style="margin: 1rem auto 1.5rem auto; width: 120px; height: 120px; background: #6C63FF; display: flex; align-items: center; justify-content: center; border-radius: 16px; box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);">
+                            <div style="color: white; font-weight: bold; font-size: 1.2rem; font-family: 'Inter', sans-serif;">shopmy</div>
                         </div>
-                        <a href="https://shopmy.us/shop/krandle" target="_blank" rel="noopener" class="storefront-btn" style="border-radius: 25px !important;">Shop Collection</a>
+                        
+                        <div class="storefront-content">
+                            <h4 class="storefront-name" style="font-size: 1.1rem; font-weight: 600; color: #2D3748; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">ShopMy</h4>
+                            <p class="storefront-description" style="font-size: 14px; color: rgba(0,0,0,0.6); line-height: 1.4; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">Discover my latest discoveries and seasonal favorites. I update these collections weekly with fresh finds and current trends.</p>
+                        </div>
+                        
+                        <!-- Global Black Pill Button -->
+                        <a href="https://shopmy.us/shop/krandle" target="_blank" rel="noopener" class="storefront-btn" 
+                           style="background: #2D3748; color: white; padding: 12px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; font-family: 'Inter', sans-serif; letter-spacing: 0.5px;"
+                           onmouseover="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(45, 55, 72, 0.25)'"
+                           onmouseout="this.style.background='#2D3748'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(45, 55, 72, 0.15)'"
+                           onfocus="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(45, 55, 72, 0.25)'"
+                           onblur="this.style.background='#2D3748'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(45, 55, 72, 0.15)'">
+                            <span class="btn-text">SHOP COLLECTION</span>
+                            <span class="btn-arrow" style="transition: transform 0.3s ease;">→</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1907,34 +1927,32 @@
                     <h3 class="subsection-title">COMMUNITY PERKS & EXCLUSIVE CODES</h3>
                 </div>
 
-                <!-- FEATURED COMMUNITY PERK - Just Ingredients Main Highlight -->
+                <!-- FEATURED COMMUNITY PERK - Just Ingredients Video Block Final Polish -->
                 <div class="featured-community-perk" style="margin: 3rem 0;">
-                    <div class="featured-perk-container" style="position: relative; overflow: hidden; border-radius: 8px; min-height: 350px; background: #f7f7f7;">
-                        <!-- Video Background -->
+                    <!-- 16:9 Container with Final Polish -->
+                    <div class="featured-perk-container" style="position: relative; overflow: hidden; border-radius: 18px; box-shadow: 0 14px 34px rgba(0,0,0,0.12); aspect-ratio: 16/9; width: 100%; background: #f7f7f7;">
+                        <!-- Looping Video Background -->
                         <video autoplay muted loop playsinline class="just-ingredients-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
                             <source src="assets/videos/just-ingredients-video.mp4" type="video/mp4">
                         </video>
                         
-                        <!-- Dark Overlay for Text Readability -->
-                        <div class="video-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.25); z-index: 2;"></div>
+                        <!-- Soft Scrim Overlay for Text Contrast -->
+                        <div class="video-overlay" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 35%; background: linear-gradient(0deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0) 100%); z-index: 2;"></div>
                         
                         <!-- Content Overlay -->
-                        <div class="just-ingredients-content" style="position: relative; z-index: 3; padding: 2rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between; min-height: 350px;">
+                        <div class="just-ingredients-content" style="position: relative; z-index: 3; padding: 2rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
                             
-                            <!-- Top Row: Logo Left, Badge Right -->
-                            <div class="top-row" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
-                                <div class="logo-section">
-                                    <img src="assets/images/storefronts/just-ingredients-logo.png" alt="Just Ingredients" style="height: 40px; width: auto;">
-                                </div>
+                            <!-- Top-Right: Kellie Approved Green Pill Badge -->
+                            <div class="top-row" style="display: flex; justify-content: flex-end; align-items: flex-start;">
                                 <div class="badge-section">
-                                    <span class="kellie-approved-badge" style="background: rgba(255, 255, 255, 0.9); color: #2D3748; padding: 6px 14px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;">KELLIE APPROVED</span>
+                                    <span class="kellie-approved-badge" style="background: #22C55E; color: white; padding: 8px 16px; border-radius: 25px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3); font-family: 'Inter', sans-serif;">KELLIE APPROVED</span>
                                 </div>
                             </div>
                             
                             <!-- Center: Text Content -->
-                            <div class="center-content" style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; color: white; max-width: 400px; margin: 0 auto;">
-                                <h4 class="perk-heading" style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif;">Clean supplements you can trust</h4>
-                                <p class="perk-description" style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.5rem; font-family: 'Inter', sans-serif; opacity: 0.95;">Clean supplements you can trust—no fillers, no artificial ingredients, just pure nutrition I feel confident giving to my family.</p>
+                            <div class="center-content" style="flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; color: white; max-width: 500px; margin: 0 auto;">
+                                <h4 class="perk-heading" style="font-size: 1.4rem; font-weight: 600; margin-bottom: 0.75rem; font-family: 'Inter', sans-serif; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Clean supplements you can trust</h4>
+                                <p class="perk-description" style="font-size: 1rem; line-height: 1.5; margin-bottom: 1.5rem; font-family: 'Inter', sans-serif; opacity: 0.95; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">Clean supplements you can trust—no fillers, no artificial ingredients, just pure nutrition I feel confident giving to my family.</p>
                                 
                                 <!-- Discount Code Pill -->
                                 <div class="discount-code-section" style="margin-bottom: 1.5rem;">
@@ -1950,11 +1968,16 @@
                                 </div>
                             </div>
                             
-                            <!-- Bottom: Shop Button (Same style as above cards) -->
+                            <!-- Bottom Center: Global Pill Button -->
                             <div class="bottom-section" style="text-align: center;">
-                                <a href="https://justingredients.com" target="_blank" rel="noopener" class="shop-collection-btn" style="background: #2D3748; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: background-color 0.3s ease; font-family: 'Inter', sans-serif;">
+                                <a href="https://justingredients.com" target="_blank" rel="noopener" class="shop-collection-btn" 
+                                   style="background: #2D3748; color: white; padding: 12px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; font-family: 'Inter', sans-serif; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(45, 55, 72, 0.3);"
+                                   onmouseover="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(45, 55, 72, 0.4)'"
+                                   onmouseout="this.style.background='#2D3748'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(45, 55, 72, 0.3)'"
+                                   onfocus="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(45, 55, 72, 0.4)'"
+                                   onblur="this.style.background='#2D3748'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(45, 55, 72, 0.3)'">
                                     <span class="btn-text">SHOP COLLECTION</span>
-                                    <span class="btn-arrow">→</span>
+                                    <span class="btn-arrow" style="transition: transform 0.3s ease;">→</span>
                                 </a>
                             </div>
                             
