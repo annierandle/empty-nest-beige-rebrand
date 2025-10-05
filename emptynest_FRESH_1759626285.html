@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<!-- NUCLEAR FRESH VERSION - TIMESTAMP: 1759626285 - BYPASS ALL CACHING -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="cache-bust" content="nuclear-fresh-1759626285">
+    <title>Empty Nest FRESH - No Cache Version</title>
+    
+    <!-- Brand Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@200;300;400;500;600&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes:wght@400&display=swap" rel="stylesheet">
+    
+    <!-- Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* COMPLETE INLINE CSS - NO EXTERNAL DEPENDENCIES */
+        :root {
+            --font-display: "Playfair Display", serif;
+            --font-sans: "Inter", system-ui, sans-serif;
+            --primary-bg: #FEFCF9;
+            --text-primary: #2B2F33;
+            --text-secondary: rgba(0,0,0,0.65);
+            --divider-color: rgba(0,0,0,0.12);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* SECTION HEADER SYSTEM */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-kicker {
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-weight: 600;
+            color: rgba(0,0,0,0.55);
+            margin-bottom: 8px;
+            font-size: 0.75rem;
+        }
+        
+        .section-title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(48px, 6.2vw, 96px);
+            line-height: 1.05;
+            letter-spacing: 0.8px;
+            margin: 0 0 12px 0;
+            color: #2B2F33;
+            text-transform: uppercase;
+        }
+        
+        .section-tagline {
+            font-family: var(--font-sans);
+            letter-spacing: 4px;
+            color: rgba(0,0,0,0.5);
+            margin: 0 0 12px 0;
+            font-size: 0.875rem;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+        
+        .section-divider {
+            width: 64px;
+            height: 1px;
+            background: var(--divider-color);
+            margin: 0 auto 44px auto;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #FEFCF9 0%, #F8F5F0 100%);
+            padding: 120px 0;
+        }
+        
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(64px, 8vw, 120px);
+            font-weight: 700;
+            line-height: 0.95;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #2B2F33;
+        }
+        
+        .hero-subtitle {
+            font-family: var(--font-sans);
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: rgba(0,0,0,0.6);
+            text-transform: uppercase;
+        }
+        
+        /* SECTION SPACING */
+        .section {
+            padding: 120px 0;
+        }
+        
+        .section:nth-child(even) {
+            background: rgba(248, 245, 240, 0.3);
+        }
+        
+        /* ========================================= */
+        /* INSIDE THE NEST - RESPONSIVE GRID        */
+        /* ========================================= */
+        .inside-nest-grid {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 20px !important;
+            width: 100% !important;
+            margin-bottom: 48px !important;
+        }
+        
+        .inside-nest-card {
+            position: relative !important;
+            width: 100% !important;
+            aspect-ratio: 4/3 !important;
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            background-size: cover !important;
+            background-position: center !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            cursor: pointer !important;
+        }
+        
+        .inside-nest-card:hover {
+            transform: scale(1.03) !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+        }
+        
+        .inside-nest-card::before {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 35% !important;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7)) !important;
+            z-index: 1 !important;
+        }
+        
+        .inside-nest-icon {
+            position: absolute !important;
+            top: 16px !important;
+            left: 16px !important;
+            font-size: 18px !important;
+            color: white !important;
+            opacity: 0.8 !important;
+            z-index: 2 !important;
+        }
+        
+        .inside-nest-content {
+            position: absolute !important;
+            bottom: 16px !important;
+            left: 16px !important;
+            z-index: 2 !important;
+        }
+        
+        .inside-nest-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: white !important;
+            margin-bottom: 4px !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
+        }
+        
+        .inside-nest-subtitle {
+            font-size: 12px !important;
+            color: rgba(255,255,255,0.75) !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+        }
+        
+        /* ========================================= */
+        /* EMPTY NEST PICKS - HORIZONTAL CAROUSEL   */
+        /* ========================================= */
+        .carousel-container {
+            overflow-x: auto !important;
+            scroll-behavior: smooth !important;
+            scroll-snap-type: x mandatory !important;
+            margin-bottom: 48px !important;
+            padding-bottom: 8px !important;
+        }
+        
+        .carousel-container::-webkit-scrollbar {
+            height: 4px !important;
+        }
+        
+        .carousel-container::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05) !important;
+            border-radius: 2px !important;
+        }
+        
+        .carousel-container::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.2) !important;
+            border-radius: 2px !important;
+        }
+        
+        .picks-carousel {
+            display: flex !important;
+            gap: 20px !important;
+            padding: 0 4px !important;
+            min-width: 100% !important;
+        }
+        
+        .picks-card {
+            flex: 0 0 280px !important;
+            aspect-ratio: 4/5 !important;
+            position: relative !important;
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            background-size: cover !important;
+            background-position: center !important;
+            scroll-snap-align: start !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            cursor: pointer !important;
+        }
+        
+        .picks-card:hover {
+            transform: scale(1.03) !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+        }
+        
+        .picks-card::before {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 40% !important;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8)) !important;
+            z-index: 1 !important;
+        }
+        
+        .picks-content {
+            position: absolute !important;
+            bottom: 20px !important;
+            left: 20px !important;
+            right: 20px !important;
+            z-index: 2 !important;
+        }
+        
+        .picks-title {
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            color: white !important;
+            margin-bottom: 6px !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4) !important;
+        }
+        
+        .picks-subtitle {
+            font-size: 12px !important;
+            color: rgba(255,255,255,0.75) !important;
+            margin-bottom: 12px !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+        }
+        
+        .picks-price {
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            color: white !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4) !important;
+        }
+        
+        /* ========================================= */
+        /* NEST CELEBRATIONS - 3x2 GRID             */
+        /* ========================================= */
+        .celebrations-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            grid-template-rows: repeat(2, 1fr) !important;
+            gap: 20px !important;
+            width: 100% !important;
+            margin-bottom: 48px !important;
+            min-height: 600px !important;
+        }
+        
+        .celebration-card {
+            position: relative !important;
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            background-size: cover !important;
+            background-position: center !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            cursor: pointer !important;
+            min-height: 280px !important;
+        }
+        
+        .celebration-card:hover {
+            transform: scale(1.03) !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+        }
+        
+        .celebration-card::before {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 35% !important;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7)) !important;
+            z-index: 1 !important;
+        }
+        
+        .celebration-content {
+            position: absolute !important;
+            bottom: 20px !important;
+            left: 20px !important;
+            right: 20px !important;
+            z-index: 2 !important;
+        }
+        
+        .celebration-date {
+            font-size: 12px !important;
+            color: rgba(255,255,255,0.75) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            margin-bottom: 6px !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+        }
+        
+        .celebration-title {
+            font-size: 18px !important;
+            font-weight: 600 !important;
+            color: white !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4) !important;
+        }
+        
+        /* ========================================= */
+        /* BLACK PILL CTA BUTTON                    */
+        /* ========================================= */
+        .cta-button {
+            background: #111 !important;
+            color: white !important;
+            padding: 16px 32px !important;
+            border: none !important;
+            border-radius: 9999px !important;
+            font-family: var(--font-sans) !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.5px !important;
+            text-transform: uppercase !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+        }
+        
+        .cta-button:hover {
+            background: #333 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+        }
+        
+        /* ========================================= */
+        /* RESPONSIVE BREAKPOINTS                    */
+        /* ========================================= */
+        @media (max-width: 1024px) {
+            .inside-nest-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 16px !important;
+            }
+            
+            .celebrations-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-rows: repeat(3, 1fr) !important;
+                gap: 16px !important;
+            }
+            
+            .picks-card {
+                flex: 0 0 240px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 80px 0;
+            }
+            
+            .inside-nest-grid {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+            
+            .celebrations-grid {
+                grid-template-columns: 1fr !important;
+                grid-template-rows: repeat(6, 1fr) !important;
+                gap: 12px !important;
+            }
+            
+            .picks-card {
+                flex: 0 0 200px !important;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+        }
+        
+        /* ========================================= */
+        /* TESTING VERIFICATION                      */
+        /* ========================================= */
+        .test-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #00ff00;
+            color: #000;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            z-index: 9999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- TEST INDICATOR -->
+    <div class="test-indicator">
+        ✅ FRESH VERSION LOADED - TIMESTAMP: 1759626285
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">EMPTY NEST</h1>
+            <p class="hero-subtitle">Mom Life Reimagined</p>
+        </div>
+    </section>
+
+    <!-- INSIDE THE NEST SECTION -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-kicker">Lifestyle Categories</div>
+                <h2 class="section-title">INSIDE THE NEST</h2>
+                <div class="section-tagline">Discover Your Nest Life</div>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="inside-nest-grid">
+                <div class="inside-nest-card" style="background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop');">
+                    <i class="inside-nest-icon fas fa-spa"></i>
+                    <div class="inside-nest-content">
+                        <div class="inside-nest-title">Wellness</div>
+                        <div class="inside-nest-subtitle">Red light therapy & supplements</div>
+                    </div>
+                </div>
+                <div class="inside-nest-card" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop');">
+                    <i class="inside-nest-icon fas fa-heart"></i>
+                    <div class="inside-nest-content">
+                        <div class="inside-nest-title">Beauty</div>
+                        <div class="inside-nest-subtitle">Non-toxic natural skincare</div>
+                    </div>
+                </div>
+                <div class="inside-nest-card" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop');">
+                    <i class="inside-nest-icon fas fa-home"></i>
+                    <div class="inside-nest-content">
+                        <div class="inside-nest-title">Home</div>
+                        <div class="inside-nest-subtitle">Non-toxic cleaning & decor</div>
+                    </div>
+                </div>
+                <div class="inside-nest-card" style="background-image: url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop');">
+                    <i class="inside-nest-icon fas fa-utensils"></i>
+                    <div class="inside-nest-content">
+                        <div class="inside-nest-title">Food</div>
+                        <div class="inside-nest-subtitle">Healthy recipes & nutrition</div>
+                    </div>
+                </div>
+                <div class="inside-nest-card" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop');">
+                    <i class="inside-nest-icon fas fa-star"></i>
+                    <div class="inside-nest-content">
+                        <div class="inside-nest-title">Lifestyle</div>
+                        <div class="inside-nest-subtitle">Personal growth & inspiration</div>
+                    </div>
+                </div>
+                <div class="inside-nest-card" style="background-image: url('https://images.unsplash.com/photo-1509023464722-18d996393ca8?w=400&h=300&fit=crop');">
+                    <i class="inside-nest-icon fas fa-plane"></i>
+                    <div class="inside-nest-content">
+                        <div class="inside-nest-title">Travel</div>
+                        <div class="inside-nest-subtitle">Tailgates & adventures</div>
+                    </div>
+                </div>
+                <div class="inside-nest-card" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop');">
+                    <i class="inside-nest-icon fas fa-calendar"></i>
+                    <div class="inside-nest-content">
+                        <div class="inside-nest-title">Events</div>
+                        <div class="inside-nest-subtitle">Celebrations & gatherings</div>
+                    </div>
+                </div>
+                <div class="inside-nest-card" style="background-image: url('https://images.unsplash.com/photo-1494790108755-2616c0763fb5?w=400&h=300&fit=crop');">
+                    <i class="inside-nest-icon fas fa-percentage"></i>
+                    <div class="inside-nest-content">
+                        <div class="inside-nest-title">Discount Codes</div>
+                        <div class="inside-nest-subtitle">Exclusive savings</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#" class="cta-button">See All Content</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMPTY NEST PICKS SECTION -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-kicker">Trusted Brands</div>
+                <h2 class="section-title">EMPTY NEST PICKS</h2>
+                <div class="section-tagline">Exclusive Discount Codes</div>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="carousel-container">
+                <div class="picks-carousel">
+                    <div class="picks-card" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=280&h=350&fit=crop');">
+                        <div class="picks-content">
+                            <div class="picks-title">Joovv Red Light</div>
+                            <div class="picks-subtitle">Professional therapy panels</div>
+                            <div class="picks-price">Save 20%</div>
+                        </div>
+                    </div>
+                    <div class="picks-card" style="background-image: url('https://images.unsplash.com/photo-1556906781-9a412961c28c?w=280&h=350&fit=crop');">
+                        <div class="picks-content">
+                            <div class="picks-title">Primally Pure</div>
+                            <div class="picks-subtitle">Non-toxic natural beauty</div>
+                            <div class="picks-price">Save 15%</div>
+                        </div>
+                    </div>
+                    <div class="picks-card" style="background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=280&h=350&fit=crop');">
+                        <div class="picks-content">
+                            <div class="picks-title">Force of Nature</div>
+                            <div class="picks-subtitle">Non-toxic cleaning products</div>
+                            <div class="picks-price">Save 40%</div>
+                        </div>
+                    </div>
+                    <div class="picks-card" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=280&h=350&fit=crop');">
+                        <div class="picks-content">
+                            <div class="picks-title">Just Ingredients</div>
+                            <div class="picks-subtitle">Clean supplements you trust</div>
+                            <div class="picks-price">Save 25%</div>
+                        </div>
+                    </div>
+                    <div class="picks-card" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=280&h=350&fit=crop');">
+                        <div class="picks-content">
+                            <div class="picks-title">Nutrafol</div>
+                            <div class="picks-subtitle">Hair growth supplements</div>
+                            <div class="picks-price">Save 20%</div>
+                        </div>
+                    </div>
+                    <div class="picks-card" style="background-image: url('https://images.unsplash.com/photo-1509023464722-18d996393ca8?w=280&h=350&fit=crop');">
+                        <div class="picks-content">
+                            <div class="picks-title">The Honey Pot</div>
+                            <div class="picks-subtitle">Plant-derived feminine care</div>
+                            <div class="picks-price">Save 15%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#" class="cta-button">See All Content</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEST CELEBRATIONS SECTION -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-kicker">Events & Gatherings</div>
+                <h2 class="section-title">NEST CELEBRATIONS</h2>
+                <div class="section-tagline">Creating Memorable Experiences</div>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="celebrations-grid">
+                <div class="celebration-card" style="background-image: url('https://images.unsplash.com/photo-1464207687429-7505649dae38?w=400&h=280&fit=crop');">
+                    <div class="celebration-content">
+                        <div class="celebration-date">Dec 24</div>
+                        <div class="celebration-title">Holiday Brunch</div>
+                    </div>
+                </div>
+                <div class="celebration-card" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&h=280&fit=crop');">
+                    <div class="celebration-content">
+                        <div class="celebration-date">Jan 15</div>
+                        <div class="celebration-title">Wine Tasting Evening</div>
+                    </div>
+                </div>
+                <div class="celebration-card" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=280&fit=crop');">
+                    <div class="celebration-content">
+                        <div class="celebration-date">Feb 14</div>
+                        <div class="celebration-title">Valentine's Dinner</div>
+                    </div>
+                </div>
+                <div class="celebration-card" style="background-image: url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=280&fit=crop');">
+                    <div class="celebration-content">
+                        <div class="celebration-date">Mar 20</div>
+                        <div class="celebration-title">Spring Garden Party</div>
+                    </div>
+                </div>
+                <div class="celebration-card" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=280&fit=crop');">
+                    <div class="celebration-content">
+                        <div class="celebration-date">Apr 22</div>
+                        <div class="celebration-title">Cooking Workshop</div>
+                    </div>
+                </div>
+                <div class="celebration-card" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=280&fit=crop');">
+                    <div class="celebration-content">
+                        <div class="celebration-date">2022-2024</div>
+                        <div class="celebration-title">Tailgates</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#" class="cta-button">See All Content</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

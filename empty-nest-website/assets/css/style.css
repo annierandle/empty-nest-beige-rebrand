@@ -12,9 +12,11 @@
     /* DESIGN SYSTEM COLOR PALETTE */
     --soft-sand: #F4EDE6;
     --warm-blush: #D9B6B6;
+    --brand-blush: #D9B6B6;
     --deep-charcoal: #3A3A3A;
     --sage-green: #9BB2A0;
-    --accent-gold: #B28B5B;
+    --accent-gold: var(--brand-blush); /* Updated to use blush pink instead of gold/brown */
+    --rich-brown: var(--brand-blush); /* Brown color redirected to brand blush for consistency */
     --white: #FFFFFF;
     
     /* Typography Colors */
@@ -85,6 +87,48 @@
     --content-gap: clamp(8px, 1.5vw, 16px);        /* Reduced content gaps */
     --card-gap-desktop: 24px;
     --card-gap-mobile: 16px;
+}
+
+/* ===================================
+   GLOBAL OVERFLOW AND LAYOUT FIXES
+   =================================== */
+
+/* Prevent horizontal overflow on all sections */
+section,
+.section,
+[class*="-section"] {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Ensure all wrappers have proper constraints */
+[class*="-wrapper"],
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    box-sizing: border-box;
+}
+
+/* Typography containers should not cause overflow */
+[class*="-typography"],
+[class*="-header"] {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+/* Ensure all titles wrap properly */
+h1, h2, h3, h4, h5, h6,
+[class*="-title"] {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    word-wrap: break-word;
+    hyphens: auto;
+    box-sizing: border-box;
 }
 
 /* ===================================
@@ -439,7 +483,7 @@ p, .body-text {
     width: 250px;
     background: var(--bg-secondary);
     box-shadow: var(--card-shadow);
-    border-radius: var(--border-radius);
+    border-radius: 0; /* Square corners for all buttons as requested */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -567,7 +611,7 @@ p, .body-text {
     text-decoration: none;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    border-radius: var(--border-radius);
+    border-radius: 0; /* Square corners for all buttons as requested */
     transition: var(--transition-normal);
     display: inline-flex;
     align-items: center;
@@ -676,8 +720,8 @@ p, .body-text {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 60px;
-    height: 60px;
+    width: 180px !important; /* TRIPLED from 60px for MUCH larger logos */
+    height: 180px !important; /* TRIPLED from 60px for MUCH larger logos */
     border: 2px solid rgba(255, 255, 255, 0.7);
     transform: translate(-50%, -50%) rotate(45deg);
 }
@@ -795,7 +839,7 @@ p, .body-text {
 .brand-card {
     background: var(--bg-secondary);
     border: 1px solid rgba(155, 178, 160, 0.2);
-    border-radius: var(--border-radius);
+    border-radius: 0; /* Square corners for all buttons as requested */
     padding: var(--space-lg) var(--space-xl);
     transition: var(--transition-normal);
     box-shadow: var(--card-shadow);
@@ -837,11 +881,14 @@ p, .body-text {
 }
 
 .brand-logo-img {
-    max-width: 70%; /* Ensure logos are no wider than 70% of card width */
-    max-height: 40px; /* Reduced to half size from 80px */
+    max-width: 98% !important; /* MAXIMIZED width usage */
+    max-height: 220px !important; /* INCREASED to match larger containers */
+    min-height: 80px !important; /* Increased minimum size */
     width: auto;
     height: auto;
     object-fit: contain;
+    /* Disable problematic blend modes for brand logos */
+    mix-blend-mode: normal !important;
 }
 
 .brand-content {
@@ -1067,7 +1114,7 @@ p, .body-text {
 .codes-badge {
     background: #F6E6E6; /* Soft blush pink as requested */
     padding: 10px 18px; /* Slightly larger for better badge appearance */
-    border-radius: 25px; /* More rounded badge */
+    border-radius: 0; /* Square corners for pink elements as requested */
     border: none; /* Remove border for cleaner look */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
@@ -1195,12 +1242,12 @@ p, .body-text {
 /* Referral links styling */
 .referral-link {
     cursor: default !important;
-    background: rgba(139, 111, 71, 0.1) !important;
+    background: rgba(217, 182, 182, 0.1) /* Changed from brown to blush pink */ !important;
     color: var(--rich-brown) !important;
 }
 
 .referral-link:hover {
-    background: rgba(139, 111, 71, 0.2) !important;
+    background: rgba(217, 182, 182, 0.2) /* Changed from brown to blush pink */ !important;
     transform: none !important;
 }
 
@@ -1231,7 +1278,7 @@ p, .body-text {
     text-decoration: none;
     font-weight: 700;
     padding: 12px 24px;
-    border-radius: 24px;
+    border-radius: 0; /* Square corners for pink buttons as requested */
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
@@ -1246,7 +1293,7 @@ p, .body-text {
     background: var(--rich-brown);
     color: var(--white);
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4);
+    box-shadow: 0 6px 20px rgba(217, 182, 182, 0.4) /* Changed from brown to blush pink */;
 }
 
 .cta-text {
@@ -1390,8 +1437,8 @@ p, .body-text {
     right: 0;
     bottom: 0;
     background-image: 
-        linear-gradient(rgba(139, 111, 71, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139, 111, 71, 0.02) 1px, transparent 1px);
+        linear-gradient(rgba(217, 182, 182, 0.02) /* Changed from brown to blush pink */ 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217, 182, 182, 0.02) /* Changed from brown to blush pink */ 1px, transparent 1px);
     background-size: 40px 40px; /* Grid size */
     pointer-events: none;
     z-index: 0;
@@ -1416,7 +1463,7 @@ p, .body-text {
 
 .refined-typography {
     text-align: left; /* Match partnerships section alignment */
-    margin-bottom: var(--content-gap) !important;
+    margin-bottom: var(--content-gap) !important; /* Match picks and other sections - much smaller spacing */
 }
 
 .refined-eyebrow {
@@ -1434,10 +1481,10 @@ p, .body-text {
     font-size: clamp(4rem, 6vw, 6rem);
     font-weight: 700;
     line-height: 1.2;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em; /* Updated to match other headers */
     color: var(--text-primary);
     text-transform: uppercase;
-    margin-bottom: 4rem !important; /* Consistent spacing with other section titles */
+    margin-bottom: 0 !important; /* No margin for titles with taglines */
 }
 
 .refined-tagline {
@@ -1447,7 +1494,8 @@ p, .body-text {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: #8A8A8A; /* Match partnerships - slightly lighter gray */
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.5rem !important; /* REDUCED from 3rem to 1.5rem for tighter spacing to match other sections */
 }
 
 .refined-content {
@@ -1461,8 +1509,8 @@ p, .body-text {
 .category-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4x3 grid for desktop (12 tiles: 4+4+4) */
-    gap: 1rem; /* Normal spacing */
-    margin: 1.5rem 0;
+    gap: 1.5rem; /* Increased spacing */
+    margin: 0 0 2rem 0; /* Let tagline margin-bottom handle all spacing */
     padding: 0;
     max-width: var(--container-max-width);
     width: 100%;
@@ -1470,7 +1518,8 @@ p, .body-text {
 
 .category-tile {
     position: relative;
-    height: clamp(80px, 8vw, 100px); /* MUCH smaller - normal website size */
+    aspect-ratio: 1;
+    height: auto;
     border-radius: 0; /* Sharp corners to match product cards */
     overflow: visible; /* Changed from hidden to visible to prevent clipping */
     cursor: pointer;
@@ -1608,6 +1657,238 @@ p, .body-text {
     filter: brightness(1.05); /* Subtle brightness increase */
 }
 
+/* ===================================
+   DISCOUNT CODES SECTION - FULL SYSTEM
+   =================================== */
+
+.discount-section {
+    background: var(--white);
+    padding: 5rem 2rem;
+    position: relative;
+}
+
+.discount-wrapper {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.discount-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.discount-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brand-blush);
+    margin-bottom: 1rem;
+}
+
+.discount-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 0.1rem;
+    line-height: 1;
+}
+
+.discount-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+/* Compact Discount Codes Grid */
+.discount-codes-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.code-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.code-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--brand-blush);
+}
+
+.code-content {
+    flex: 1;
+}
+
+.brand-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-icon {
+    width: 180px !important; /* TRIPLED from 60px for MUCH larger logos */
+    height: 180px !important; /* TRIPLED from 60px for MUCH larger logos */
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.brand-icon-text {
+    background: linear-gradient(135deg, #8B5A3C, #A0785A);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.brand-icon-text:hover {
+    background: linear-gradient(135deg, #6D4530, #8B5A3C);
+    transform: scale(1.05);
+}
+
+.brand-logo-img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important; /* Use full container space for larger logos */
+    max-height: 100% !important; /* Use full container space for larger logos */
+    object-fit: contain !important;
+    object-position: center !important;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+    /* CRITICAL: Ensure logos scale properly regardless of original size */
+    min-width: 80px !important; /* Much larger minimum for 180px containers */
+    min-height: 80px !important; /* Much larger minimum for 180px containers */
+    /* Additional optimization for brand logo display */
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    /* Disable problematic blend modes for brand logos */
+    mix-blend-mode: normal !important;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.brand-details {
+    flex: 1;
+}
+
+.brand-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+    line-height: 1.2;
+}
+
+.product-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.code-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    margin-left: 1rem;
+}
+
+.discount-code {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--brand-blush);
+    background: #F6E6E6; /* Changed from brown #fef7f0 to soft blush pink to match brand colors */
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+}
+
+.discount-percent {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+/* Responsive Design for Discount Codes */
+@media (max-width: 768px) {
+    .discount-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .discount-codes-compact {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .code-card {
+        padding: 1.25rem;
+    }
+    
+    .brand-info {
+        gap: 0.75rem;
+    }
+    
+    .brand-icon {
+        width: 120px !important; /* Maintain larger size on mobile/tablet */
+        height: 120px !important; /* Maintain larger size on mobile/tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .discount-section {
+        padding: 3rem 1rem;
+    }
+    
+    .code-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .code-action {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 0;
+    }
+}
+
 .category-tile:hover .category-overlay {
     background: linear-gradient(to top, rgba(51, 51, 51, 0.8) 0%, rgba(51, 51, 51, 0.4) 40%, transparent 100%);
 }
@@ -1631,7 +1912,7 @@ p, .body-text {
     text-decoration: none !important;
     font-weight: 700 !important;
     padding: 12px 24px !important;
-    border-radius: 24px !important;
+    border-radius: 0 !important; /* Square corners for all pink buttons */
     transition: all 0.3s ease !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -1648,7 +1929,7 @@ p, .body-text {
     background: var(--rich-brown) !important;
     color: var(--white) !important;
     transform: translateY(-2px) scale(1.02) !important;
-    box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4) !important;
+    box-shadow: 0 6px 20px rgba(217, 182, 182, 0.4) /* Changed from brown to blush pink */ !important;
 }
 
     transform: translate(4px, -4px);
@@ -1677,18 +1958,70 @@ p, .body-text {
     margin-bottom: 4rem !important; 
 }*/
 
-/* STANDARDIZE ALL SECTION HEADER CONTAINERS */
+/* STANDARDIZE ALL SECTION HEADER CONTAINERS - EXCEPT nest-approved */
 .about-header,
 .partnerships-typography,
-.refined-typography,
-.nest-approved-typography,
 .picks-header,
 .events-header,
 .media-header,
 .recipes-header,
 .book-club-typography,
 .contact-header {
-    margin-bottom: 4rem !important; /* Standardized spacing for ALL section headers */
+    margin-bottom: 5rem !important; /* Increased for better separation */
+}
+
+/* NEST APPROVED TYPOGRAPHY - SPECIAL RULE TO MATCH refined-typography */
+.nest-approved-typography {
+    margin-bottom: var(--content-gap) !important; /* MATCH .refined-typography EXACTLY */
+}
+
+/* REFINED TYPOGRAPHY - OVERRIDE TO MATCH OTHER SECTIONS */
+.refined-typography {
+    margin-bottom: var(--content-gap) !important; /* Match picks-header and other sections - SMALLER gap */
+}
+
+/* DISCOUNT CODE LOGOS - FORCE LARGER SIZE */
+.code-card .brand-icon,
+.discount-codes-compact .brand-icon {
+    width: 200px !important; /* FORCE much larger logos */
+    height: 200px !important; /* FORCE much larger logos */
+    min-width: 200px !important;
+    min-height: 200px !important;
+}
+
+.code-card .brand-logo-img,
+.discount-codes-compact .brand-logo-img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    min-width: 120px !important;
+    min-height: 120px !important;
+}
+
+/* FIX CLEARLY FILTERED BLACK BACKGROUND AND INCREASE SIZE */
+img[alt*="Clearly Filtered"] {
+    background: transparent !important;
+    mix-blend-mode: multiply !important;
+    filter: brightness(1.2) contrast(1.1) !important;
+    min-width: 180px !important; /* INCREASED logo size */
+    min-height: 180px !important; /* INCREASED logo size */
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+/* INCREASE SIZE FOR QUEEN OF THRONES LOGO */
+img[alt*="Queen of Thrones"] {
+    min-width: 180px !important; /* INCREASED logo size */
+    min-height: 180px !important; /* INCREASED logo size */
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+/* INCREASE SIZE FOR SLEEP WITH ME LOGO */
+img[alt*="SleepWithMe"] {
+    min-width: 180px !important; /* INCREASED logo size */
+    min-height: 180px !important; /* INCREASED logo size */
+    max-width: 100% !important;
+    max-height: 100% !important;
 }
 
 /* Ensure consistent spacing on mobile */
@@ -1718,7 +2051,7 @@ p, .body-text {
 .media-section {
     background: linear-gradient(135deg, #FAF8F6 0%, #F7F3EE 50%, #FAF8F6 100%);
     padding: var(--section-padding) 0;
-    border-top: 1px solid rgba(139, 111, 71, 0.1); /* Subtle border for section separation */
+    border-top: 1px solid rgba(217, 182, 182, 0.1) /* Changed from brown to blush pink */; /* Subtle border for section separation */
 }
 
 .media-wrapper {
@@ -1895,7 +2228,7 @@ p, .body-text {
 /* Media Grid Layout */
 .media-grid {
     display: grid;
-    gap: 2rem;
+    gap: 1rem; /* Reduced from 2rem to make rows tighter */
 }
 
 .media-category {
@@ -2045,6 +2378,7 @@ p, .body-text {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    opacity: 0.7; /* Consistent transparency for all logos */
 }
 
 .media-logo-item:hover {
@@ -2053,8 +2387,7 @@ p, .body-text {
 }
 
 .media-logo-item.media-logo-inactive {
-    opacity: 0.7;
-    cursor: default;
+    cursor: default; /* Only difference is cursor for inactive ones */
 }
 
 .media-logo-item.media-logo-inactive:hover {
@@ -2077,6 +2410,9 @@ p, .body-text {
     object-fit: contain;
     filter: saturate(0.95) brightness(1.05);
     transition: filter 0.3s ease;
+    /* Fix black background issues */
+    mix-blend-mode: normal !important;
+    background: transparent !important;
 }
 
 /* Fix Sierra Oaks Living logo visibility */
@@ -2087,6 +2423,78 @@ p, .body-text {
 
 .media-logo-item:hover .media-logo-img {
     filter: saturate(1) brightness(1.1);
+}
+
+/* Double the size of podcast covers */
+.media-logo-img[alt*="Podcast"] {
+    max-height: 300px; /* Double the standard 150px */
+}
+
+/* Make Let's Connect match other taglines size */
+.contact-section .contact-title {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 1.5rem !important;
+    color: #666 !important;
+}
+
+/* Fix book covers - remove white backgrounds to match First Lie Wins */
+.book-cover-wrapper {
+    background: transparent !important; /* Remove white background from wrapper */
+}
+
+.book-cover:not([alt*="First Lie Wins"]) {
+    mix-blend-mode: multiply;
+    filter: contrast(1.2) brightness(0.9) saturate(1.1);
+    background: transparent !important;
+}
+
+/* Alternative approach - make all book covers consistent */
+.book-cover {
+    background: transparent !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Center the See All Content button in Inside the Nest section */
+.refined-section .section-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 3rem auto 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Fix Meet Kellie image display */
+.about-video-container .about-image,
+.about-video-container .lifestyle-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0;
+    display: block;
+}
+
+.refined-section .section-button {
+    background: var(--warm-blush);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 0; /* Square corners as requested */
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.refined-section .section-button:hover {
+    background: var(--deep-charcoal);
+    transform: translateY(-2px);
 }
 
 .media-text-logo {
@@ -2238,7 +2646,7 @@ p, .body-text {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: #8A8A8A;
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    margin-top: 1.5rem !important; /* Proper breathing room from header */
 }
 
 /* ===== CAROUSEL LAYOUT ===== */
@@ -2248,7 +2656,7 @@ p, .body-text {
     gap: 1.5rem;
     position: relative;
     width: 100%;
-    margin-left: 2rem;
+    margin: 6rem 0 0 2rem; /* Add top margin for proper spacing from tagline */
 }
 
 .carousel-btn {
@@ -2296,7 +2704,7 @@ p, .body-text {
 .product-item {
     background: var(--bg-secondary);
     border: 1px solid rgba(155, 178, 160, 0.2);
-    border-radius: var(--border-radius);
+    border-radius: 0; /* Square corners for all buttons as requested */
     padding: var(--space-xs) var(--space-xs) var(--space-sm);
     /* Dynamic width to fit 5 products in any container */
     min-width: calc((100% - 6rem) / 5);
@@ -2325,9 +2733,9 @@ p, .body-text {
     margin-bottom: 0.4rem;
     background: transparent;
     width: 100%;
-    max-width: 80px;
+    max-width: 140px; /* Increased from 80px for better product highlighting */
     height: auto;
-    max-height: 80px;
+    max-height: 140px; /* Increased from 80px for better product highlighting */
 }
 
 .product-image {
@@ -2345,8 +2753,8 @@ p, .body-text {
 
 .product-title {
     font-family: var(--font-family-sans);
-    font-size: var(--font-size-base);
-    font-weight: 500;
+    font-size: 0.75rem; /* Decreased from base size to emphasize images over text */
+    font-weight: 400; /* Reduced weight to de-emphasize text */
     color: var(--text-primary);
     margin-bottom: var(--space-xs);
     line-height: 1.3;
@@ -2359,7 +2767,7 @@ p, .body-text {
     text-decoration: none;
     border: 1px solid var(--accent-gold);
     padding: var(--space-xs) var(--space-md);
-    border-radius: var(--border-radius);
+    border-radius: 0; /* Square corners for all buttons as requested */
     font-family: var(--font-family-sans);
     font-size: var(--font-size-sm);
     font-weight: 500;
@@ -2473,6 +2881,11 @@ p, .body-text {
     margin-bottom: 3rem;
 }
 
+/* First story section - add extra top spacing from header */
+.about-story-section:first-of-type {
+    margin-top: 2.5rem !important;
+}
+
 .story-headline {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
@@ -2517,7 +2930,7 @@ p, .body-text {
     width: 100% !important;
     position: relative;
     background: #F8F8F8;
-    margin: 2rem auto !important;
+    margin: 0 auto !important;
     min-width: 500px !important;
 }
 
@@ -2649,7 +3062,8 @@ p, .body-text {
     }
     
     .category-tile {
-        height: clamp(70px, 8vw, 90px); /* Very small on tablets */
+        aspect-ratio: 1;
+        height: auto;
     }
     
     /* Picks section responsive */
@@ -2784,7 +3198,8 @@ p, .body-text {
     }
     
     .category-tile {
-        height: clamp(60px, 6vw, 80px); /* Very small on mobile */
+        aspect-ratio: 1;
+        height: auto;
     }
     
         padding: 16px 24px;
@@ -2885,8 +3300,8 @@ p, .body-text {
     .book-club-title,
     .media-title,
     .contact-title {
-        font-size: 3rem !important;
-        margin-bottom: 3rem !important; /* Reduced spacing for mobile */
+        font-size: 0.65rem !important; /* Match tagline mobile size */
+        margin-bottom: 1.5rem !important; /* Match tagline spacing */
     }
     
     .partnerships-title {
@@ -2904,7 +3319,10 @@ p, .body-text {
     }
     
     .signature-img {
-        max-width: 700px !important;
+        max-width: 250px !important; /* FIXED from problematic 700px to reasonable size */
+        opacity: 1 !important; /* Ensure visibility */
+        mix-blend-mode: normal !important; /* Normal blending */
+        filter: none !important; /* Remove problematic filters */
     }
     
     /* Small mobile category grid */
@@ -2957,7 +3375,7 @@ p, .body-text {
     align-items: center;
     gap: 8px;
     padding: 14px 28px;
-    background: var(--brand-blush);
+    background: var(--rich-brown); /* Changed to darker brown */
     color: var(--white);
     text-decoration: none;
     border-radius: 25px;
@@ -2968,14 +3386,14 @@ p, .body-text {
     text-transform: uppercase;
     transition: all 0.3s ease;
     border: none;
-    box-shadow: 0 4px 16px rgba(212, 164, 164, 0.3);
+    box-shadow: 0 4px 16px rgba(217, 182, 182, 0.3) /* Changed from brown to blush pink */; /* Updated shadow for brown */
 }
 
 .picks-shop-all-button:hover {
-    background: var(--rich-brown);
+    background: #7A5E3A; /* Even darker brown on hover */
     color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4);
+    box-shadow: 0 6px 20px rgba(122, 94, 58, 0.4);
 }
 
 .picks-shop-all-button svg {
@@ -2990,7 +3408,8 @@ p, .body-text {
     }
     
     .category-tile {
-        height: 160px; /* Compact on tiny screens */
+        aspect-ratio: 1;
+        height: auto;
     }
     
         padding: 14px 20px;
@@ -3063,23 +3482,24 @@ p, .body-text {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--text-secondary);
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    margin-top: 1.5rem !important; /* Proper breathing room from header */
 }
 
-/* Event Grid - responsive card layout */
+/* Event Grid - responsive card layout - SQUARE CARDS */
 .events-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
     max-width: var(--container-max-width);
-    margin: 0 auto;
+    margin: 6rem auto 0 auto; /* Add top margin for spacing from tagline */
 }
 
-/* Event Items - background image with overlay design */
+/* Event Items - background image with overlay design - PERFECT SQUARES */
 .event-item {
     position: relative;
-    height: clamp(150px, 15vw, 200px);
-    border-radius: 0;
+    aspect-ratio: 1; /* Forces perfect square */
+    height: auto; /* Let aspect-ratio control height */
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
@@ -3210,7 +3630,7 @@ p, .body-text {
     }
     
     .event-item {
-        height: clamp(120px, 12vw, 160px);
+        aspect-ratio: 1; /* Maintain square on tablet */
     }
     
     .event-overlay {
@@ -3229,7 +3649,7 @@ p, .body-text {
     }
     
     .event-item {
-        height: clamp(100px, 10vw, 140px);
+        aspect-ratio: 1; /* Maintain square on mobile */
     }
     
     .event-overlay {
@@ -3295,10 +3715,10 @@ p, .body-text {
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--text-secondary);
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    margin-top: 1.5rem !important; /* Proper breathing room from header */
 }
 
-/* Recipe Grid - EXACT COPY FROM EVENTS */
+/* Recipe Grid - MATCHING EVENTS GRID - SQUARE CARDS */
 .recipes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -3307,11 +3727,12 @@ p, .body-text {
     margin: 0 auto;
 }
 
-/* Recipe Items - background image with overlay design */
+/* Recipe Items - background image with overlay design - PERFECT SQUARES MATCHING EVENTS */
 .recipe-item {
     position: relative;
-    height: clamp(150px, 15vw, 200px);
-    border-radius: 0;
+    aspect-ratio: 1; /* Forces perfect square - same as events */
+    height: auto; /* Let aspect-ratio control height */
+    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
@@ -3333,8 +3754,9 @@ p, .body-text {
     background-image: url('https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
 }
 
-.recipe-item.quinoa-stuffed-peppers {
-    background-image: url('https://images.unsplash.com/photo-1571490149725-6e8aac8ca540?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+.recipe-item.fry-sauce {
+    background-image: url('../images/fry-sauce-recipe.jpg');
+    cursor: pointer;
 }
 
 .recipe-item.asian-lettuce-wraps {
@@ -3423,6 +3845,25 @@ p, .body-text {
 }
 
 /* Responsive Design for Recipes Section */
+@media (max-width: 1024px) {
+    .recipes-section {
+        padding: 100px 30px;
+    }
+    
+    .recipes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .recipe-item {
+        aspect-ratio: 1; /* Maintain square on tablet */
+    }
+    
+    .recipe-overlay {
+        padding: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .recipes-section {
         padding: 60px 20px;
@@ -3438,7 +3879,7 @@ p, .body-text {
     }
     
     .recipe-item {
-        height: clamp(100px, 10vw, 140px);
+        aspect-ratio: 1; /* Maintain square on mobile */
     }
     
     .recipe-overlay {
@@ -3922,22 +4363,24 @@ p, .body-text {
 }
 
 .contact-title {
-    font-family: var(--font-family-serif);
-    font-size: clamp(4rem, 6vw, 6rem) !important;
-    font-weight: 700 !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0.05em !important;
-    color: var(--text-primary);
-    margin-bottom: 4rem !important; /* Increased spacing between section title and content */
+    font-family: 'Inter', sans-serif; /* Match tagline font */
+    font-size: 0.8rem; /* Match tagline size - much smaller */
+    font-weight: 400; /* Match tagline weight */
+    letter-spacing: 0.25em; /* Match tagline spacing */
+    color: #8A8A8A; /* Match tagline color */
+    margin-bottom: 1.5rem !important; /* Match tagline spacing */
     text-transform: uppercase;
+    line-height: 1.4 !important;
 }
 
 .contact-subtitle {
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8A8A8A;
+    margin-top: -0.2rem !important;
     margin-bottom: 2rem;
 }
 
@@ -3988,14 +4431,19 @@ p, .body-text {
 }
 
 .contact-submit-btn {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
     background: var(--brand-blush);
+    color: var(--white);
     border: none;
-    border-radius: 25px;
-    padding: 12px 28px;
+    border-radius: 0; /* Square corners for pink buttons as requested */
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
@@ -4055,7 +4503,7 @@ p, .body-text {
     }
     
     .contact-title {
-        font-size: 3rem;
+        font-size: 0.65rem; /* Match tagline mobile size */
     }
     
     .contact-layout {
@@ -4069,8 +4517,8 @@ p, .body-text {
     }
     
     .contact-title {
-        font-size: 2.5rem;
-        margin-bottom: 2rem !important; /* Further reduced spacing for small mobile */
+        font-size: 0.6rem; /* Match tagline small mobile size */
+        margin-bottom: 1rem !important; /* Match tagline spacing */
     }
     
     .form-group {
@@ -4090,7 +4538,7 @@ p, .body-text {
 
 .signature-img {
     width: auto;
-    max-width: 3200px !important; /* DOUBLED from 1600px to 3200px */
+    max-width: 250px !important; /* FIXED to reasonable size from problematic 3200px */
     height: auto;
     display: block;
     margin: 0;
@@ -4099,11 +4547,14 @@ p, .body-text {
     background-color: transparent !important;
     border: none;
     box-shadow: none;
+    opacity: 1 !important; /* Ensure visibility */
+    mix-blend-mode: normal !important; /* Normal blending to prevent black squares */
+    filter: none !important; /* Remove problematic filters */
     transition: all 0.3s ease;
     /* Remove white background if present in image */
     filter: drop-shadow(0 0 0 transparent);
-    /* Alternative: If image has white background, this can help blend */
-    mix-blend-mode: darken;
+    /* Removed problematic mix-blend-mode that was causing black square */
+    mix-blend-mode: normal;
 }
 
 .signature-img:hover {
@@ -4638,7 +5089,7 @@ p, .body-text {
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    border-radius: 24px;
+    border-radius: 0; /* Square corners for pink buttons as requested */
     transition: all 0.3s ease;
     border: none;
 }
@@ -4697,6 +5148,238 @@ p, .body-text {
 .category-tile:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ===================================
+   DISCOUNT CODES SECTION - FULL SYSTEM
+   =================================== */
+
+.discount-section {
+    background: var(--white);
+    padding: 5rem 2rem;
+    position: relative;
+}
+
+.discount-wrapper {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.discount-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.discount-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brand-blush);
+    margin-bottom: 1rem;
+}
+
+.discount-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 0.1rem;
+    line-height: 1;
+}
+
+.discount-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+/* Compact Discount Codes Grid */
+.discount-codes-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.code-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.code-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--brand-blush);
+}
+
+.code-content {
+    flex: 1;
+}
+
+.brand-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-icon {
+    width: 180px !important; /* TRIPLED from 60px for MUCH larger logos */
+    height: 180px !important; /* TRIPLED from 60px for MUCH larger logos */
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.brand-icon-text {
+    background: linear-gradient(135deg, #8B5A3C, #A0785A);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.brand-icon-text:hover {
+    background: linear-gradient(135deg, #6D4530, #8B5A3C);
+    transform: scale(1.05);
+}
+
+.brand-logo-img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 100% !important; /* Use full container space for larger logos */
+    max-height: 100% !important; /* Use full container space for larger logos */
+    object-fit: contain !important;
+    object-position: center !important;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+    /* CRITICAL: Ensure logos scale properly regardless of original size */
+    min-width: 80px !important; /* Much larger minimum for 180px containers */
+    min-height: 80px !important; /* Much larger minimum for 180px containers */
+    /* Additional optimization for brand logo display */
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    /* Disable problematic blend modes for brand logos */
+    mix-blend-mode: normal !important;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.brand-details {
+    flex: 1;
+}
+
+.brand-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+    line-height: 1.2;
+}
+
+.product-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.code-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    margin-left: 1rem;
+}
+
+.discount-code {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--brand-blush);
+    background: #F6E6E6; /* Changed from brown #fef7f0 to soft blush pink to match brand colors */
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+}
+
+.discount-percent {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+/* Responsive Design for Discount Codes */
+@media (max-width: 768px) {
+    .discount-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .discount-codes-compact {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .code-card {
+        padding: 1.25rem;
+    }
+    
+    .brand-info {
+        gap: 0.75rem;
+    }
+    
+    .brand-icon {
+        width: 120px !important; /* Maintain larger size on mobile/tablet */
+        height: 120px !important; /* Maintain larger size on mobile/tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .discount-section {
+        padding: 3rem 1rem;
+    }
+    
+    .code-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .code-action {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 0;
+    }
 }
 
 .category-tile:hover .category-overlay {
@@ -4986,8 +5669,8 @@ p, .body-text {
     .highlight-cover-image,
     .highlight-text-placeholder,
     .highlight-icon-placeholder {
-        width: 40px;
-        height: 40px;
+        width: 120px !important; /* Maintain larger size on mobile/tablet */
+        height: 120px !important; /* Maintain larger size on mobile/tablet */
     }
     
     .highlight-icon-placeholder svg {
@@ -5065,7 +5748,7 @@ p, .body-text {
 .about-section .about-video-container {
     max-width: 100% !important;
     width: 100% !important;
-    margin: 2rem auto !important;
+    margin: 0 auto !important;
 }
 
 /* FORCE About images minimal spacing */
@@ -5107,11 +5790,16 @@ p, .body-text {
     }
 }
 
-/* FORCE SIGNATURE IMAGE TO BE DOUBLE SIZE */
+/* FORCE SIGNATURE IMAGE TO BE VISIBLE AND PROPERLY SIZED */
 .signature-img {
-    max-width: 3200px !important;
+    max-width: 300px !important; /* Reasonable size instead of 3200px */
     width: auto !important;
     height: auto !important;
+    display: block !important; /* Force display */
+    opacity: 1 !important; /* Ensure visibility */
+    background: transparent !important; /* Transparent background */
+    mix-blend-mode: normal !important; /* Normal blending */
+    filter: none !important; /* Remove any problematic filters */
 }
 
 /* Shop Now button for Just Ingredients */
@@ -5128,7 +5816,7 @@ p, .body-text {
     background: var(--brand-blush);
     color: var(--white) !important;
     text-decoration: none;
-    border-radius: 20px;
+    border-radius: 0; /* Square corners for pink buttons as requested */
     font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
@@ -5143,7 +5831,7 @@ p, .body-text {
     background: var(--rich-brown);
     color: var(--white) !important;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(139, 111, 71, 0.4);
+    box-shadow: 0 4px 12px rgba(217, 182, 182, 0.4) /* Changed from brown to blush pink */;
 }
 
 /* Make sure the promo code is clickable and styled */
@@ -5212,16 +5900,17 @@ p, .body-text {
 .content-button-wrapper {
     text-align: center;
     padding: 2rem 0;
-    margin-top: 2rem;
+    margin: 2rem auto 0 auto;
+    width: 100%;
 }
 
 .content-view-button {
-    background: var(--brand-blush);
-    color: var(--white);
+    background: var(--brand-blush) /* Changed from brown #8b6f47 to blush pink */;
+    color: white;
     text-decoration: none;
     font-weight: 700;
     padding: 12px 24px;
-    border-radius: 24px;
+    border-radius: 0; /* Square corners for pink buttons as requested */
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
@@ -5234,10 +5923,10 @@ p, .body-text {
 }
 
 .content-view-button:hover {
-    background: var(--rich-brown);
-    color: var(--white);
+    background: #6d5636;
+    color: white;
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 20px rgba(139, 111, 71, 0.4);
+    box-shadow: 0 6px 20px rgba(217, 182, 182, 0.4) /* Changed from brown to blush pink */;
 }
 
 /* ===================================
@@ -5247,7 +5936,7 @@ p, .body-text {
 .book-club-section {
     background: var(--white); /* White background for contrast with media section */
     padding: var(--section-padding) 0; /* Increased padding for more breathing room */
-    border-top: 1px solid rgba(139, 111, 71, 0.1); /* Subtle border for section separation */
+    border-top: 1px solid rgba(217, 182, 182, 0.1) /* Changed from brown to blush pink */; /* Subtle border for section separation */
 }
 
 .book-club-wrapper {
@@ -5349,26 +6038,31 @@ p, .body-text {
 
 .book-carousel-track {
     display: flex;
-    gap: 2rem;
+    gap: 3rem; /* Increased from 2rem for better visual spacing */
     transition: transform 0.4s ease;
     align-items: flex-start;
 }
 
 .book-item {
     flex: 0 0 auto;
-    width: 120px;
+    width: 220px;
     position: relative;
 }
 
 .book-cover-wrapper {
     position: relative;
-    width: 120px;
-    height: 180px;
+    width: 280px; /* Significantly increased from 220px */
+    height: 420px; /* Significantly increased from 330px */
     border-radius: 0; /* SHARP EDGES: Match other design elements for consistency */
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     transition: all 0.3s ease;
-    background: var(--white);
+    background: transparent; /* Remove white background for clean book covers */
+    /* Add padding for cushioned spacing like Empty Nest Picks */
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .book-cover-wrapper:hover {
@@ -5377,9 +6071,11 @@ p, .body-text {
 }
 
 .book-cover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Changed from cover to contain for proper spacing */
     display: block;
     border-radius: 0; /* SHARP EDGES: Match other design elements for consistency */
     /* Remove background from book covers to create floating effect */
@@ -5477,8 +6173,8 @@ p, .body-text {
     }
     
     .book-carousel-btn {
-        width: 40px;
-        height: 40px;
+        width: 120px !important; /* Maintain larger size on mobile/tablet */
+        height: 120px !important; /* Maintain larger size on mobile/tablet */
     }
     
     .book-carousel-track {
@@ -5486,12 +6182,12 @@ p, .body-text {
     }
     
     .book-item {
-        width: 150px;
+        width: 180px;
     }
     
     .book-cover-wrapper {
-        width: 150px;
-        height: 225px;
+        width: 180px;
+        height: 270px;
     }
 }
 
@@ -5527,17 +6223,18 @@ p, .body-text {
     
     .book-item {
         scroll-snap-align: center;
-        width: 120px;
+        width: 160px;
     }
     
     .book-cover-wrapper {
-        width: 120px;
-        height: 180px;
+        width: 160px;
+        height: 240px;
     }
 }
 
-/* NUCLEAR OPTION - ABSOLUTE FINAL OVERRIDE FOR TAGLINE SPACING */
+/* NUCLEAR OPTION - DISABLED - This was causing tight tagline spacing */
 /* Using most specific selectors and placed at end of file to override everything */
+/*
 .partnerships-section .partnerships-wrapper .partnerships-layout .partnerships-typography .partnerships-tagline,
 .recipes-section .recipes-wrapper .recipes-header .recipes-tagline,
 .refined-section .refined-wrapper .refined-header .refined-tagline,
@@ -5546,13 +6243,15 @@ p, .body-text {
 .picks-section .picks-wrapper .picks-header .picks-tagline,
 .book-club-section .book-club-wrapper .book-club-header .book-club-tagline,
 .about-section .about-wrapper .about-header .about-tagline,
-.nest-approved-section .nest-approved-wrapper .nest-approved-header .nest-approved-tagline,
 .contact-section .contact-wrapper .contact-header .contact-tagline {
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    margin-top: -0.2rem !important;
     margin-bottom: 0 !important;
 }
+*/
 
-/* EVEN MORE NUCLEAR - Direct class targeting - ALL SECTIONS */
+/* NEST APPROVED EXCEPTION - Remove from problematic overrides */
+
+/* EVEN MORE NUCLEAR - Direct class targeting - ALL SECTIONS EXCEPT nest-approved */
 div.partnerships-tagline,
 div.recipes-tagline,
 div.refined-tagline,
@@ -5562,16 +6261,33 @@ div.picks-tagline,
 div.book-club-tagline,
 div.about-tagline,
 div.page-header-tagline,
-div.nest-approved-tagline,
 div.blog-tagline {
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
-    margin-bottom: 0 !important;
+    margin-top: 1.5rem !important; /* Proper breathing room from header */
+    margin-bottom: 1.5rem !important; /* REDUCED from 5rem to 1.5rem for consistent tight spacing */
 }
 
-/* UNIVERSAL TAGLINE OVERRIDE - Catches any missed tagline classes */
+/* NEST APPROVED EXCEPTION - Let it use proper spacing */
+div.nest-approved-tagline {
+    /* Remove from override - let the proper CSS rules apply */
+}
+
+/* UNIVERSAL TAGLINE OVERRIDE - DISABLED FOR CLEAN LAYOUT */
+/* 
 [class*="tagline"] {
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    margin-top: -0.2rem !important;
     margin-bottom: 0 !important;
+}
+*/
+
+/* ALL TAGLINE RULES - RESET TO NORMAL BEHAVIOR EXCEPT nest-approved */
+[class*="tagline"]:not(.nest-approved-tagline) {
+    margin-top: 0.4rem !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+    transform: none !important;
+    display: block !important;
+    line-height: 1.4 !important;
 }
 
 /* UNIVERSAL EYEBROW OVERRIDE - Extra tight category marker spacing */
@@ -5592,10 +6308,10 @@ div.blog-tagline {
     margin-bottom: 0 !important; /* Remove bottom margin for titles with taglines */
 }
 
-/* CONTENT SPACING - Add top margin to content after taglines */
-[class*="tagline"] + * {
-    margin-top: 4rem !important; /* Proper spacing after tagline to content */
-}
+/* CONTENT SPACING - DISABLED - Using specific section rules instead */
+/* [class*="tagline"] + * {
+    margin-top: 4rem !important;
+} */
 
 /* ===================================
    FINAL HEADER FIX - NUCLEAR OPTION
@@ -5714,7 +6430,7 @@ h1, h2, h3, h4, h5, h6,
 .capitalize { text-transform: capitalize; }
 
 /* MODERN UI UTILITIES */
-.rounded { border-radius: var(--border-radius); }
+.rounded { border-radius: 0; /* Square corners for all buttons as requested */ }
 .rounded-none { border-radius: 0; }
 .rounded-full { border-radius: 50%; }
 
@@ -5873,8 +6589,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .category-icon {
-    width: 60px;
-    height: 60px;
+    width: 180px !important; /* TRIPLED from 60px for MUCH larger logos */
+    height: 180px !important; /* TRIPLED from 60px for MUCH larger logos */
     background: var(--bg-accent);
     border-radius: 50%;
     display: flex;
@@ -6054,16 +6770,29 @@ h1, h2, h3, h4, h5, h6,
 .nest-approved-section {
     background: linear-gradient(135deg, #FAF8F6 0%, #F7F3EE 50%, #FAF8F6 100%);
     padding: var(--section-padding) 0;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .nest-approved-wrapper {
     max-width: var(--container-max-width);
     margin: 0 auto;
+    padding: 0 var(--container-padding-desktop);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .nest-approved-typography {
     text-align: left;
-    margin-left: 2rem;
+    margin-bottom: var(--content-gap) !important; /* MATCH .refined-typography EXACTLY */
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    box-sizing: border-box;
+    display: block;
+    clear: both;
 }
 
 .nest-approved-eyebrow {
@@ -6073,50 +6802,68 @@ h1, h2, h3, h4, h5, h6,
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--text-secondary);
-    margin-bottom: 0.25rem; /* Even tighter - category marker style */
+    margin-bottom: 0.25rem; /* MATCH .refined-eyebrow EXACTLY */
+    margin-top: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    display: block !important;
+    clear: both !important;
 }
 
 .nest-approved-title {
     font-family: var(--font-family-serif);
-    font-size: clamp(4rem, 6vw, 6rem) !important;
-    font-weight: 700 !important;
-    line-height: 1.2 !important;
-    letter-spacing: 0.05em !important;
+    font-size: clamp(4rem, 6vw, 6rem); /* MATCH .refined-title EXACTLY */
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.1em; /* MATCH .refined-title EXACTLY */
     color: var(--text-primary);
     text-transform: uppercase;
-    margin-bottom: 4rem !important; /* Will be overridden by universal rule above */
+    margin-bottom: 0 !important; /* MATCH .refined-title - No margin for titles with taglines */
+    padding: 0 !important;
+    display: block !important;
+    text-align: left !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    word-wrap: break-word !important;
+    hyphens: auto !important;
+    clear: both !important;
+    float: none !important;
 }
 
 .nest-approved-tagline {
     font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #8A8A8A;
-    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+    font-size: 0.8rem; /* MATCH .refined-tagline EXACTLY */
+    font-weight: 400; /* MATCH .refined-tagline EXACTLY */
+    letter-spacing: 0.25em; /* MATCH .refined-tagline EXACTLY */
+    text-transform: uppercase; /* MATCH .refined-tagline EXACTLY */
+    color: #8A8A8A; /* MATCH .refined-tagline EXACTLY */
+    margin-top: 0.5rem !important; /* MATCH .refined-tagline EXACTLY */
+    margin-bottom: 1.5rem !important; /* REDUCED from 3rem to 1.5rem for tighter spacing */
+    padding: 0 !important;
+    line-height: 1.4 !important;
+    display: block !important;
+    clear: both !important;
+    width: 100% !important;
+    float: none !important;
 }
 
 .nest-approved-content {
-    padding: 0 2rem;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* CURATED COLLECTIONS - Logo-Focused Visual Hierarchy */
 .curated-collections {
+    margin-top: 0 !important; /* No top margin - let storefront-cards handle spacing */
     margin-bottom: var(--space-xxxl);
 }
 
-/* CONSISTENT SUBSECTION TITLE STYLING FOR ALL NEST APPROVED SUBTITLES */
+/* SUBSECTION TITLE - HIDDEN TO MATCH OTHER SECTIONS STRUCTURE */
 .subsection-title {
-    font-family: var(--font-family-serif);
-    font-size: clamp(2rem, 3vw, 2.5rem);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    text-align: left;
-    margin-left: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    display: none !important; /* CRITICAL FIX: Hide subsection titles to match other sections */
 }
 
 /* Ensure curated collections h3 uses the same styling */
@@ -6245,7 +6992,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .storefront-btn:hover {
-    background: var(--accent-gold);
+    background: var(--brand-blush); /* Changed from accent-gold to blush pink */
     transform: translateY(-2px);
 }
 
@@ -6681,18 +7428,18 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .category-tag.wellness {
-    background: #e8f5e8;
-    color: #2d6e3e;
+    background: #f5f5f5;
+    color: #666666;
 }
 
 .category-tag.beauty {
-    background: #fce8f3;
-    color: #8b2f65;
+    background: #f5f5f5;
+    color: #666666;
 }
 
 .category-tag.home {
-    background: #e8f2ff;
-    color: #1e4d7b;
+    background: #f5f5f5;
+    color: #666666;
 }
 
 .category-tag.lifestyle {
@@ -6812,11 +7559,12 @@ h1, h2, h3, h4, h5, h6,
 
 .affiliate-disclosure p {
     font-family: var(--font-family-sans);
-    font-size: var(--font-size-sm);
+    font-size: 0.65rem;
     color: var(--text-light);
     font-style: italic;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
+    opacity: 0.8;
 }
 
 /* ENHANCED NEST APPROVED FEATURES */
@@ -6966,13 +7714,30 @@ h1, h2, h3, h4, h5, h6,
         padding: var(--section-padding) 0;
     }
     
-    .nest-approved-header {
+    .nest-approved-wrapper {
+        padding: 0 var(--container-padding-tablet);
+    }
+    
+    .nest-approved-typography {
         margin-left: 0;
         text-align: left;
+        width: 100%;
+    }
+    
+    .nest-approved-title {
+        font-size: clamp(2rem, 5vw, 3rem) !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0.03em !important;
+    }
+    
+    .nest-approved-tagline {
+        margin-left: var(--space-md) !important; /* Match content alignment on mobile */
+        width: calc(100% - var(--space-md)) !important;
     }
     
     .nest-approved-content {
         padding: 0;
+        width: 100%;
     }
     
     .subsection-title,
@@ -7051,7 +7816,16 @@ h1, h2, h3, h4, h5, h6,
         padding: var(--section-padding) 0;
     }
     
-    /* Title sizing handled by global clamp() system */
+    .nest-approved-wrapper {
+        padding: 0 var(--container-padding-mobile);
+    }
+    
+    .nest-approved-title {
+        font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+        line-height: 1.4 !important;
+        letter-spacing: 0.02em !important;
+        word-break: break-word !important;
+    }
     
     .discount-codes-grid {
         grid-template-columns: 1fr;
@@ -7111,8 +7885,8 @@ h1, h2, h3, h4, h5, h6,
 /* Accessibility - Screen Reader Announcements */
 /* Brand Initial Logo Styles for Dynamic Content */
 .brand-initial-logo {
-    width: 60px;
-    height: 60px;
+    width: 180px !important; /* TRIPLED from 60px for MUCH larger logos */
+    height: 180px !important; /* TRIPLED from 60px for MUCH larger logos */
     border-radius: 50%;
     background: var(--accent-gold);
     color: var(--white);
@@ -8141,6 +8915,8 @@ h1, h2, h3, h4, h5, h6,
 /* This is the MOST AGGRESSIVE solution to eliminate ALL gaps between titles and taglines */
 
 /* UNIVERSAL TAGLINE OVERRIDE - Targets ANY element with "tagline" in the class name */
+/* DISABLED: Universal tagline override causing tight spacing */
+/*
 [class*="tagline"], [class*="Tagline"], [class*="TAGLINE"] {
     margin-top: -1rem !important;
     margin-bottom: 0 !important;
@@ -8149,9 +8925,10 @@ h1, h2, h3, h4, h5, h6,
     position: relative !important;
     top: -0.5rem !important;
 }
+*/
 
-/* SPECIFIC TAGLINE OVERRIDES - Even more aggressive targeting */
-.nest-approved-tagline,
+/* SPECIFIC TAGLINE OVERRIDES - DISABLED FOR CLEAN LAYOUT */
+/*
 .book-club-tagline,
 .media-tagline, 
 .refined-tagline,
@@ -8166,6 +8943,36 @@ h1, h2, h3, h4, h5, h6,
     top: -0.8rem !important;
     transform: translateY(-0.5rem) !important;
 }
+*/
+
+/* REMOVED - CONFLICTED WITH STANDARDIZED RULES
+.nest-approved-section .nest-approved-tagline,
+div.nest-approved-tagline,
+.nest-approved-tagline {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-top: 0.4rem !important;
+    margin-bottom: 1rem !important;
+    margin-left: 2rem !important;
+    padding: 0 !important;
+    line-height: 1.4 !important;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    z-index: 10 !important;
+    width: calc(100% - 2rem) !important;
+    max-width: calc(100% - 2rem) !important;
+    clear: both !important;
+    float: none !important;
+    font-size: 0.9rem !important;
+    color: #666666 !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    letter-spacing: 0.05em !important;
+}
 
 /* TITLE OVERRIDE - Remove ALL bottom margins/padding from titles that have taglines */
 .nest-approved-title,
@@ -8179,20 +8986,2447 @@ h1, h2, h3, h4, h5, h6,
     padding-bottom: 0 !important;
 }
 
-/* CONTENT SPACING - Add top margin to content after taglines */
-[class*="tagline"] + *,
+/* CONTENT SPACING - DISABLED - Using specific section rules instead */
+/* [class*="tagline"] + *,
 [class*="Tagline"] + *,
 [class*="TAGLINE"] + * {
     margin-top: 4rem !important;
+} */
+
+/* ===================================
+   REMOVED: FINAL COMPREHENSIVE HEADER SYSTEM OVERRIDE
+   This was causing all text to become large headers
+   User wants only "INSIDE THE NEST" formatting for section headers
+   =================================== */
+
+/* COMMENTED OUT - WAS TOO BROAD AND AFFECTED ALL TEXT:
+section h1, section h2, section h3,
+.nest-approved-section .nest-approved-title,
+.partnerships-section .partnerships-title,
+.refined-section .refined-title,
+.picks-section .picks-title,
+.events-section .events-title,
+.recipes-section .recipes-title,
+.about-section .about-title,
+.media-section .media-title,
+.contact-section .contact-title,
+.book-club-section .book-club-title,
+.page-header .page-header-title,
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-serif) !important;
+    font-size: clamp(2.5rem, 4vw, 4rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    color: var(--text-primary) !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 1rem 0 !important;
+    padding: 0 !important;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    float: none !important;
+    clear: both !important;
+    z-index: auto !important;
+    word-wrap: break-word !important;
+    hyphens: auto !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    box-sizing: border-box !important;
+}
+**/
+
+/* ===================================
+   SECTION HEADER STANDARDIZATION
+   Copy EXACT formatting from INSIDE THE NEST (.refined-*) 
+   Apply ONLY to main section headers
+   =================================== */
+
+/* MAIN SECTION TITLES - MATCH EMPTY NEST PICKS LETTER SPACING */
+.nest-approved-title,
+.picks-title,
+.events-title,
+.recipes-title,
+.media-title,
+.contact-title,
+.book-club-title {
+    /* Standardized formatting for titles WITH taglines */
+    font-family: var(--font-family-serif) !important;
+    font-size: clamp(4rem, 6vw, 6rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.1em !important; /* Increased for better spacing consistency */
+    color: var(--text-primary) !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0 !important; /* No margin for titles with taglines */
+    padding-bottom: 0 !important;
 }
 
-/* EMERGENCY OVERRIDE for any remaining gaps - targets anything after section titles */
-.section-title + .tagline,
-.section-title + [class*="tagline"],
-h1 + [class*="tagline"],
-h2 + [class*="tagline"] {
-    margin-top: -2rem !important;
+/* TITLES WITHOUT TAGLINES - Need proper spacing after title */
+.about-title {
+    /* Standardized formatting for titles WITHOUT taglines */
+    font-family: var(--font-family-serif) !important;
+    font-size: clamp(4rem, 6vw, 6rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.1em !important; /* Consistent letter spacing */
+    color: var(--text-primary) !important;
+    text-transform: uppercase !important;
+    margin-bottom: 5rem !important; /* Consistent spacing to content for titles without taglines */
+    padding-bottom: 0 !important;
+}
+
+/* EYEBROWS - MATCH .refined-eyebrow EXACTLY */
+.about-eyebrow,
+.nest-approved-eyebrow,
+.picks-eyebrow,
+.events-eyebrow,
+.recipes-eyebrow,
+.media-eyebrow,
+.contact-eyebrow,
+.book-club-eyebrow {
+    /* Copy exact .refined-eyebrow formatting */
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    color: var(--text-secondary) !important;
+    margin-bottom: 0.25rem !important;
+}
+
+/* ===================================
+   COMPACT DISCOUNT CODES REDESIGN
+   Clean, minimal design for 4 featured codes only
+   =================================== */
+
+.discount-codes-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.code-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.code-card:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.code-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.brand-icon {
+    width: 180px !important; /* MUCH larger for visibility */
+    height: 180px !important; /* MUCH larger for visibility */
+    background: var(--color-primary);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.brand-icon:hover {
+    background: #7a7a7a;
+    text-decoration: none;
+    color: white;
+}
+
+.brand-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.brand-name {
+    font-family: var(--font-family-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+    line-height: 1.2;
+}
+
+.brand-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.55rem; /* Reduced from 0.65rem for single line fit */
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.1;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    max-width: 100%;
+}
+
+.code-actions {
+    flex-shrink: 0;
+}
+
+.code-btn {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.code-btn:hover {
+    background: var(--brand-blush) /* Changed from brown #8B4513 to blush pink */;
+    transform: translateY(-1px);
+}
+
+.code-btn:active {
+    transform: translateY(0);
+}
+
+.copy-icon {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .discount-codes-compact {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .code-card {
+        padding: 1.25rem;
+    }
+    
+    .brand-name {
+        font-size: 0.9rem;
+    }
+    
+    .brand-desc {
+        font-size: 0.75rem;
+    }
+    
+    .code-btn {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* TAGLINES - ULTRA-HIGH SPECIFICITY - MAXIMUM AUTHORITY OVERRIDE - EXCEPT NEST APPROVED */
+.about-section .about-tagline,
+.picks-section .picks-tagline, 
+.events-section .events-tagline,
+.recipes-section .recipes-tagline,
+.media-section .media-tagline,
+.contact-section .contact-tagline,
+.book-club-section .book-club-tagline,
+div.about-tagline,
+div.picks-tagline,
+div.events-tagline,
+div.recipes-tagline,
+div.media-tagline,
+div.contact-tagline,
+div.book-club-tagline,
+.about-tagline,
+.picks-tagline,
+.events-tagline,
+.recipes-tagline,
+.media-tagline,
+.contact-tagline,
+.book-club-tagline {
+    /* PERFECT BREATHING ROOM - Optimal spacing from header and content */
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    color: #8A8A8A !important;
+    margin-top: 1rem !important; /* Increased breathing room from header */
+    margin-bottom: 5rem !important; /* Standardized content separation */
+    padding: 0 !important;
+    line-height: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+}
+
+/* NEST APPROVED TAGLINE - SPECIAL RULES TO MATCH REFINED SECTION EXACTLY */
+.nest-approved-section .nest-approved-tagline,
+div.nest-approved-tagline,
+.nest-approved-tagline {
+    /* MATCH REFINED TAGLINE EXACTLY - NO OVERRIDES */
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    color: #8A8A8A !important;
+    margin-top: 0.5rem !important; /* MATCH .refined-tagline */
+    margin-bottom: 1.5rem !important; /* REDUCED from 3rem to 1.5rem for tighter spacing */
+    padding: 0 !important;
+    line-height: 1.4 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+}
+
+/* ====== COMPREHENSIVE HEADER SPACING FIX ====== */
+/* FINAL OVERRIDE - Fix all section header spacing issues */
+
+/* ALL SECTION EYEBROWS - Consistent spacing */
+.partnerships-eyebrow,
+.refined-eyebrow,
+.nest-approved-eyebrow,
+.picks-eyebrow,
+.events-eyebrow,
+.recipes-eyebrow,
+.about-eyebrow,
+.media-eyebrow,
+.contact-eyebrow,
+.book-club-eyebrow {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    color: var(--text-secondary) !important;
+    margin-bottom: 0.25rem !important;
+    margin-top: 0 !important;
+}
+
+/* ALL SECTION TITLES - Consistent formatting */
+.partnerships-title,
+.refined-title,
+.nest-approved-title,
+.picks-title,
+.events-title,
+.recipes-title,
+.about-title,
+.media-title,
+.contact-title,
+.book-club-title {
+    font-family: var(--font-family-serif) !important;
+    font-size: clamp(4rem, 6vw, 6rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.1em !important;
+    color: var(--text-primary) !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* PROBLEMATIC SECTION TAGLINES ONLY - ULTRA-SPECIFIC OVERRIDES */
+/* Using ultra-specific selectors to override any conflicting rules */
+/* EXCLUDES nest-approved-tagline which was already perfect */
+.partnerships-section .partnerships-tagline,
+.refined-section .refined-tagline,
+.picks-section .picks-tagline,
+.events-section .events-tagline,
+.recipes-section .recipes-tagline,
+.media-section .media-tagline,
+.contact-section .contact-tagline,
+.book-club-section .book-club-tagline,
+.partnerships-tagline,
+.refined-tagline,
+.picks-tagline,
+.events-tagline,
+.recipes-tagline,
+.media-tagline,
+.contact-tagline,
+.book-club-tagline {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    color: #8A8A8A !important;
+    margin-top: 1rem !important; /* Perfect breathing room from header */
+    margin-bottom: 6rem !important; /* Increased for better content separation */
+    padding: 0 !important;
+    line-height: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+}
+
+/* CONTENT SPACING AFTER TAGLINES - DISABLED - Using tagline margin-bottom instead */
+/* .partnerships-tagline + *,
+.refined-tagline + *,
+.nest-approved-tagline + *,
+.picks-tagline + *,
+.events-tagline + *,
+.recipes-tagline + *,
+.media-tagline + *,
+.contact-tagline + *,
+.book-club-tagline + * {
+    margin-top: 5rem !important;
+} */
+
+/* ABOUT SECTION - No tagline, needs different spacing */
+.about-title {
+    margin-bottom: 5rem !important;
+}
+
+/* SECTION HEADER CONTAINERS - Final override */
+.partnerships-typography,
+.refined-typography,
+.nest-approved-typography,
+.picks-header,
+.events-header,
+.recipes-header,
+.about-header,
+.media-header,
+.contact-header,
+.book-club-typography {
+    margin-bottom: 0 !important; /* Let content spacing handle this */
+}
+
+/* ENSURE CONTENT CONTAINERS HAVE PROPER TOP SPACING */
+.category-grid,
+.refined-content,
+.picks-content,
+.events-content {
+    margin-top: 0 !important; /* Reset any negative margins */
+}
+
+/* CONTENT WITH PERFECT BREATHING ROOM SPACING */
+.carousel-wrapper,
+.storefront-cards,
+.category-grid,
+.recipes-grid {
+    margin-top: 6rem !important; /* MATCH Perfect spacing from picks section */
+}
+
+/* Events grid gets special spacing treatment */
+.events-grid {
+    margin-top: 6rem !important; /* Override with proper spacing from tagline */
+}
+
+/* ===== MEDIA SECTION (NEST IN THE NEWS) ===== */
+.media-section {
+    background: var(--white);
+    padding: 8rem 0;
+}
+
+.media-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.media-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.media-typography {
+    text-align: left; /* Match other sections alignment */
+    margin-bottom: 2rem !important; /* Further reduced to match other sections */
+}
+
+.media-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.media-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 400;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin-bottom: 0 !important;
+}
+
+.media-tagline {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8A8A8A;
+    margin-top: -0.2rem !important; /* Negative margin to pull up tight to header */
+}
+
+.media-content {
+    /* Container for all media content */
+}
+
+.media-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.media-category {
+    position: relative;
+}
+
+.media-category::after {
+    content: '';
+    position: absolute;
+    bottom: -2rem;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #E8E5E1 20%, #E8E5E1 80%, transparent 100%);
+}
+
+.media-category:last-child::after {
+    display: none;
+}
+
+.media-category-title {
+    font-family: 'Playfair Display', serif; /* Changed to match main titles - more elegant */
+    font-size: 1.1rem; /* Slightly larger for better hierarchy */
+    font-weight: 500; /* Medium weight for elegance */
+    letter-spacing: 0.1em; /* Reduced for better readability */
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.media-category-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 100%;
+    background: var(--accent);
+}
+
+.media-logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    align-items: center;
+}
+
+.media-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: var(--white); /* Restore white background for logo visibility */
+    border: 1px solid #F5F2ED; /* Restore subtle border */
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    min-height: 100px;
+    text-align: center;
+}
+
+.media-logo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+/* Hover effect now included in main .media-logo-item rule above */
+
+.media-logo-item.media-logo-inactive {
+    opacity: 0.6;
+    filter: grayscale(20%);
+}
+
+.media-logo-item.media-logo-inactive:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.media-logo-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Force center alignment for all content */
+}
+
+.media-logo-img {
+    max-width: 200px; /* Increased from 150px for better visibility */
+    max-height: 80px;  /* Increased from 60px for better visibility */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block; /* Ensure block-level for proper centering */
+    margin: 0 auto; /* Force horizontal centering */
+    /* Fix black background issues */
+    mix-blend-mode: normal !important;
+    background: transparent !important;
+}
+
+.media-text-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    text-align: center;
+    line-height: 1.2;
+    padding: 0.5rem;
+}
+
+.media-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Increased from 250px for larger podcast covers */
+    gap: 1.5rem; /* Slightly reduced gap for better fit */
+}
+
+.media-visual-item {
+    position: relative;
+    background: transparent; /* Remove white background */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    max-width: 280px;
+    aspect-ratio: 1; /* Ensure square containers for podcast covers */
+}
+
+.media-visual-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.media-visual-image {
+    position: relative;
+    width: 100%;
+    height: 280px; /* Increased height for much better visibility */
+    overflow: hidden;
+    display: block; /* Changed to block for better control */
+    background: transparent;
+    padding: 0;
+}
+
+.media-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Changed to contain to show full image without cropping */
+    object-position: center;
+    border-radius: 8px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block; /* Ensure block display */
+}
+
+.media-visual-item:hover .media-img {
+    transform: scale(1.05);
+}
+
+.media-visual-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 2rem 1.5rem 1.5rem;
+    color: white;
+}
+
+.media-overlay-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.media-overlay-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.media-overlay-action {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.media-visual-item:hover .media-overlay-action {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .media-section {
+        padding: 6rem 0;
+    }
+    
+    .media-wrapper {
+        padding: 0 1rem;
+    }
+    
+    .media-header {
+        margin-bottom: 4rem;
+    }
+    
+    .media-grid {
+        gap: 3rem;
+    }
+    
+    .media-logo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .media-visual-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .media-logo-item {
+        padding: 1rem;
+        min-height: 80px;
+    }
+    
+    .media-logo-img {
+        max-width: 150px; /* Increased for better mobile visibility */
+        max-height: 60px;  /* Increased for better mobile visibility */
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .partnerships-title,
+    .refined-title,
+    .nest-approved-title,
+    .picks-title,
+    .events-title,
+    .recipes-title,
+    .about-title,
+    .media-title,
+    .book-club-title {
+        font-size: 3rem !important;
+    }
+    
+    .contact-title {
+        font-size: 0.65rem !important; /* Match tagline mobile size */
+    }
+    
+    .partnerships-tagline,
+    .refined-tagline,
+    .nest-approved-tagline,
+    .picks-tagline,
+    .events-tagline,
+    .recipes-tagline,
+    .media-tagline,
+    .contact-tagline,
+    .book-club-tagline {
+        margin-bottom: 2rem !important; /* REDUCED from 4rem to 2rem for tighter mobile spacing */
+    }
+    
+    /* Mobile content spacing */
+    .events-grid {
+        margin-top: 4rem !important;
+    }
+    
+    .category-grid {
+        margin-top: 4rem !important;
+    }
+    
+    .carousel-wrapper {
+        margin-top: 4rem !important;
+    }
+    
+    .about-title {
+        margin-bottom: 3rem !important;
+    }
+}
+
+/* ====== ENHANCED DISCOUNT CODES SYSTEM ====== */
+/* Featured Codes Grid */
+.featured-codes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    justify-content: start;
+}
+
+.featured-code {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-code::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand-blush) /* Changed from brown #8B4513 to blush pink */, var(--brand-blush) /* Changed from brown #CD853F to blush pink */);
+}
+
+.featured-code:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    border-color: var(--brand-blush) /* Changed from brown #CD853F to blush pink */;
+}
+
+/* Filter Controls */
+.discount-filter-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 2rem 0 2.5rem 0;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background: #fff;
+    border: 2px solid #e8e8e8;
+    border-radius: 25px;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+
+.filter-btn:hover {
+    border-color: var(--brand-blush);
+    color: var(--brand-blush);
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background: var(--brand-blush); /* Changed from brown gradient to solid blush pink */
+    border-color: var(--brand-blush);
+    color: white;
+    box-shadow: 0 4px 12px rgba(217, 182, 182, 0.4); /* Updated shadow to use blush pink */
+}
+
+.filter-btn.featured {
+    position: relative;
+}
+
+.star-icon {
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+}
+
+.filter-btn.featured.active .star-icon {
+    color: #FFD700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+/* Additional Codes Grid */
+.additional-codes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 1;
+    transition: all 0.3s ease;
+    justify-content: start;
+}
+
+/* Individual Discount Code Cards */
+.code-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 0.75rem;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 340px; /* Increased to accommodate larger logos: 220px + 120px = 340px */
+    width: 280px;
+}
+
+/* Featured Card Star */
+.featured-star {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    z-index: 2;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    animation: pulse-star 2s infinite;
+}
+
+@keyframes pulse-star {
+    0%, 100% { 
+        transform: scale(1);
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+    50% { 
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+    }
+}
+
+.featured-card {
+    border-color: #FFD700;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+.code-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border-color: var(--brand-blush) /* Changed from brown #CD853F to blush pink */;
+}
+
+/* Code Header */
+.code-card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0.6rem;
+}
+
+.brand-icon {
+    width: 100%;
+    height: 180px; /* 3x bigger: 60px * 3 = 180px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 8px;
+    padding: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.brand-logo-img {
+    max-width: 90%;
+    max-height: 210px; /* 3x bigger: 70px * 3 = 210px */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+    background: transparent;
+    /* Disable problematic blend modes for brand logos */
+    mix-blend-mode: normal !important;
+}
+
+.brand-details {
+    flex-grow: 1;
+}
+
+/* Brand name removed - now using logos only */
+
+.brand-desc {
+    color: #666;
+    font-size: 0.8rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+}
+
+.category-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.65rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: white;
+}
+
+.category-tag.wellness {
+    background: #f5f5f5;
+    color: #666666;
+}
+
+.category-tag.beauty {
+    background: #f5f5f5;
+    color: #666666;
+}
+
+.category-tag.home {
+    background: #f5f5f5;
+    color: #666666;
+}
+
+.category-tag.food {
+    background: #f5f5f5;
+    color: #666666;
+}
+
+/* Code Actions */
+.code-actions {
+    margin-top: auto;
+}
+
+.code-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--brand-blush) /* Changed from brown #8B4513 to blush pink */, var(--brand-blush) /* Changed from brown #CD853F to blush pink */);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.code-btn:hover {
+    background: linear-gradient(135deg, #7a3d11, #b8762f);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139,69,19,0.3);
+}
+
+.code-btn:active {
+    transform: translateY(0);
+}
+
+.code-btn.copied {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.code-text {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.copy-icon {
+    font-size: 1.1rem;
+}
+
+/* Show More/Less Toggle */
+.show-more-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.show-more-btn {
+    background: linear-gradient(135deg, var(--brand-blush) /* Changed from brown #8B4513 to blush pink */, var(--brand-blush) /* Changed from brown #CD853F to blush pink */);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0; /* Square corners for pink buttons as requested */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(139,69,19,0.3);
+}
+
+.show-more-btn:hover {
+    background: linear-gradient(135deg, #7a3d11, #b8762f);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(139,69,19,0.4);
+}
+
+.show-more-btn:active {
+    transform: translateY(0);
+}
+
+/* Animation for filtering */
+.code-card.filter-hidden {
+    opacity: 0 !important;
+    transform: scale(0.8) !important;
+    transition: all 0.3s ease !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
+.code-card.filter-visible {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    transition: all 0.3s ease !important;
+    visibility: visible !important;
+}
+
+/* Ensure additional codes are properly hidden when featured filter is active */
+.filter-btn.featured.active ~ .featured-codes-grid ~ .additional-codes-grid .code-card.filter-hidden {
+    display: none !important;
+}
+
+/* Filter results count */
+.filter-results-count {
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.count-text {
+    font-weight: 500;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .featured-codes-grid,
+    .additional-codes-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .discount-filter-controls {
+        gap: 1rem;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .filter-btn {
+        width: 200px;
+        text-align: center;
+    }
+    
+    .code-card {
+        padding: 1.25rem;
+    }
+    
+    .code-card-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .brand-icon {
+        height: 150px;
+    }
+    
+    .code-card {
+        min-height: 300px;
+        padding: 1.5rem;
+    }
+    
+    .brand-details {
+        text-align: center;
+    }
+    
+    .code-btn {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-codes-grid,
+    .additional-codes-grid {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+    }
+    
+    .code-card {
+        margin: 0 0.5rem;
+        padding: 1rem;
+    }
+    
+    .show-more-btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ====== FEATURED COMMUNITY PERK SECTION ====== */
+.featured-community-perk {
+    margin: 0 0 3rem 0;
+    padding: 0;
+}
+
+.featured-perk-container {
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    border: 2px solid #e8e8e8;
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.featured-perk-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    border-color: var(--brand-blush) /* Changed from brown #CD853F to blush pink */;
+}
+
+.featured-perk-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-blush) /* Changed from brown #8B4513 to blush pink */, var(--brand-blush) /* Changed from brown #CD853F to blush pink */, var(--brand-blush) /* Changed from brown #8B4513 to blush pink */);
+}
+
+/* Perk Header Section */
+.perk-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.perk-logo-header {
+    background: white;
+    border-radius: 16px;
+    padding: 1rem 2rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.perk-logo-header:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.header-logo {
+    height: 140px; /* Significantly increased from 80px to fill white box space */
+    max-width: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+/* Featured Perk Content Layout */
+.featured-perk-content {
+    margin-bottom: 2rem;
+}
+
+.perk-trust-indicator {
+    text-align: center;
+}
+
+.trust-badge {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    box-shadow: 0 3px 8px rgba(40,167,69,0.3);
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/* Perk Details */
+.perk-details {
+    flex-grow: 1;
+}
+
+.featured-perk-tagline {
+    font-size: 1.2rem;
+    color: var(--brand-blush) /* Changed from brown #8B4513 to blush pink */;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+.featured-perk-description {
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+}
+
+/* Perk Highlights */
+.perk-highlights {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    background: #f8f9fa;
+    border-color: var(--brand-blush) /* Changed from brown #CD853F to blush pink */;
+    transform: translateY(-1px);
+}
+
+.highlight-icon {
+    font-size: 1.1rem;
+}
+
+.highlight-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Featured Perk Actions */
+.featured-perk-actions {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid #e8e8e8;
+}
+
+/* Perk Offer */
+.perk-offer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.offer-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--brand-blush) /* Changed from brown #8B4513 to blush pink */;
+}
+
+.perk-code-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.perk-discount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #28a745;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.featured-code-btn {
+    background: linear-gradient(135deg, var(--brand-blush) /* Changed from brown #8B4513 to blush pink */, var(--brand-blush) /* Changed from brown #CD853F to blush pink */);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0; /* Square corners for pink buttons as requested */
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(139,69,19,0.3);
+}
+
+.featured-code-btn:hover {
+    background: linear-gradient(135deg, #7a3d11, #b8762f);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(139,69,19,0.4);
+}
+
+.featured-code-btn:active {
+    transform: translateY(0);
+}
+
+.featured-code-btn.copied {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.featured-code-btn .code-text {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.featured-code-btn .copy-icon {
+    font-size: 1.1rem;
+}
+
+/* Featured Shop Button */
+.featured-shop-btn {
+    background: linear-gradient(135deg, #333, #555);
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.featured-shop-btn:hover {
+    background: linear-gradient(135deg, #222, #444);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    color: white;
+}
+
+.featured-shop-btn .btn-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.featured-shop-btn:hover .btn-arrow {
+    transform: translateX(3px);
+}
+
+/* Mobile Responsive Design for Featured Perk */
+@media (max-width: 768px) {
+    .featured-community-perk {
+        margin: 3rem 0 2rem 0;
+        padding: 0 1rem;
+    }
+    
+    .featured-perk-container {
+        padding: 1rem;
+        max-width: none;
+        margin: 0;
+    }
+    
+    .perk-header-section {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+    
+    .header-logo {
+        height: 60px;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .featured-perk-content {
+        text-align: center;
+    }
+    
+    .perk-highlights {
+        justify-content: center;
+    }
+    
+    .featured-perk-actions {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .perk-code-display {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .featured-shop-btn {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-perk-container {
+        padding: 1.5rem 1rem;
+        border-radius: 16px;
+    }
+    
+    .featured-perk-title {
+        font-size: 1.6rem;
+    }
+    
+    .perk-highlights {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .highlight-item {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .perk-code-display {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .featured-code-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .featured-shop-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Mobile spacing for events grid */
+    .events-grid {
+        margin-top: 4rem !important; /* Responsive spacing on mobile */
+    }
+}
+
+/* ===== FINAL TAGLINE SPACING AUTHORITY - ULTIMATE OVERRIDE ===== */
+/* This MUST be the last CSS rule to override any conflicting rules above */
+/* ONLY affects problematic sections - NOT nest-approved which was already perfect */
+.picks-section .picks-wrapper .picks-header .picks-tagline,
+.events-section .events-wrapper .events-header .events-tagline,
+.recipes-section .recipes-wrapper .recipes-header .recipes-tagline,
+.picks-section .picks-tagline,
+.events-section .events-tagline,
+.recipes-section .recipes-tagline,
+div.picks-tagline,
+div.events-tagline,  
+div.recipes-tagline,
+.picks-tagline,
+.events-tagline,
+.recipes-tagline {
+    margin-top: 1rem !important; /* Perfect breathing room - not too tight, not too far */
+    margin-bottom: 4rem !important; /* Proper content separation */
+    padding-top: 0 !important; /* No extra padding */
+    line-height: 1.2 !important; /* Readable line height */
+}
+
+/* RECIPE MODAL STYLES */
+.recipe-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.recipe-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.recipe-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    border-radius: 12px;
+    max-width: 800px;
+    max-height: 90vh;
+    width: 90%;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.recipe-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1rem 2rem;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.recipe-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--rich-brown);
+    margin: 0;
+}
+
+.recipe-modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.recipe-modal-close:hover {
+    background: #F5F5F5;
+    color: var(--rich-brown);
+}
+
+.recipe-modal-body {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.recipe-modal-image {
+    width: 100%;
+}
+
+.recipe-modal-image img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.recipe-modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.recipe-modal-time {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--brand-blush);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 8px 16px;
+    background: #F8F8F8;
+    border-radius: 20px;
+    display: inline-block;
+    width: fit-content;
+}
+
+.recipe-modal-ingredients h3,
+.recipe-modal-directions h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--rich-brown);
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.recipe-modal-ingredients ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recipe-modal-ingredients li {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-primary);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #F0F0F0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.recipe-modal-ingredients li:before {
+    content: '\2022';
+    color: var(--brand-blush);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.recipe-modal-directions ol {
+    counter-reset: step-counter;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recipe-modal-directions li {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--text-primary);
+    padding: 1rem 0;
+    border-bottom: 1px solid #F0F0F0;
+    position: relative;
+    padding-left: 3rem;
+    line-height: 1.6;
+    counter-increment: step-counter;
+}
+
+.recipe-modal-directions li:before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    background: var(--brand-blush);
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Responsive Recipe Modal */
+@media (max-width: 768px) {
+    .recipe-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    
+    .recipe-modal-body {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .recipe-modal-header {
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+    }
+    
+    .recipe-modal-title {
+        font-size: 2rem;
+    }
+}
+
+/* ===================================
+   COMPREHENSIVE UI FIXES - AGGRESSIVE CSS OVERRIDES
+   =================================== */
+
+/* 1. STOREFRONT QUOTES - SINGLE LINE FIX */
+.storefront-description {
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin-bottom: 0.25rem !important;
+}
+
+/* 2. JUST INGREDIENTS PILL STATS - SINGLE ROW FIX */
+.perk-highlights {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    justify-content: space-between !important;
+}
+
+.highlight-item {
+    flex: 1 !important;
+    min-width: 120px !important;
+    font-size: 0.75rem !important;
+    padding: 0.3rem 0.6rem !important;
+}
+
+/* 3. SHOP JUST INGREDIENTS BUTTON - ROUNDED CORNERS */
+.featured-shop-btn {
+    border-radius: 25px !important;
+}
+
+/* 4. PROFESSIONAL ICON REPLACEMENTS */
+.copy-icon {
+    font-family: inherit !important;
+}
+
+/* 5. BRAND LOGO SIZE FIXES - BALANCED SIZE FOR CARD LAYOUT */
+.code-card .brand-icon,
+.discount-codes-compact .brand-icon {
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    min-height: 80px !important;
+    flex-shrink: 0 !important;
+}
+
+.code-card .brand-logo-img,
+.discount-codes-compact .brand-logo-img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 80px !important;
+    max-height: 80px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+}
+
+/* 6. CLEARLY FILTERED LOGO - WHITE BACKGROUND WITH MULTIPLY BLEND */
+img[alt*="Clearly Filtered"] {
+    background: white !important;
+    mix-blend-mode: multiply !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 10px !important;
+    box-shadow: none !important;
+}
+
+/* 7. DISCOUNT CARD LAYOUT FIXES - PROPER CONTAINMENT WITH BALANCE */
+.code-card {
+    box-sizing: border-box !important;
+    min-height: 140px !important;
+    height: auto !important;
+    padding: 1rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 1rem !important;
+    overflow: hidden !important;
+    background: white !important;
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 8px !important;
     position: relative !important;
-    top: -1rem !important;
-    transform: translateY(-1rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Ensure card header takes available space */
+.code-card-header {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Brand icon container - optimal size for logos */
+.brand-icon {
+    flex-shrink: 0 !important;
+    width: 90px !important; /* Slightly smaller but adequate */
+    height: 70px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: visible !important; /* Let logos show fully */
+}
+
+/* Brand logo image - ensure it fits well */
+.brand-logo-img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+}
+
+/* Brand details container */
+.brand-details {
+    flex: 1 !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    padding-right: 0.5rem !important; /* Space from button */
+}
+
+.brand-desc {
+    font-size: 0.75rem !important;
+    line-height: 1.3 !important;
+    color: #666 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+}
+
+/* Code actions - properly contained but not overly restrictive */
+.code-actions {
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 0.5rem !important;
+    position: relative !important;
+    max-width: 25% !important;
+    min-width: 80px !important; /* Ensure minimum button width */
+}
+
+.code-btn {
+    font-size: 0.7rem !important;
+    padding: 0.5rem 0.7rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.25rem !important;
+    white-space: nowrap !important;
+    border-radius: 0 !important; /* Square buttons */
+    width: 100% !important; /* Use available button space */
+    max-width: 100px !important;
+    background: var(--brand-blush) !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    position: relative !important;
+}
+
+.code-text {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* Keep copy icon visible */
+.copy-icon {
+    flex-shrink: 0 !important;
+    margin-left: 0.25rem !important;
+}
+
+/* Hide category tags that might interfere */
+.category-tag {
+    display: none !important;
+}
+
+/* 8. STOREFRONT QUOTE SPACING */
+.storefront-description {
+    margin: 0.5rem 0 !important;
+    padding: 0.25rem 0 !important;
+}
+
+/* 9. STOREFRONT BUTTONS - ROUNDED */
+.storefront-btn {
+    border-radius: 25px !important;
+}
+
+/* 10. HIGHLIGHT ITEMS - CENTERED TEXT */
+.highlight-item {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 11. FORCE MOST PINK BUTTONS TO BE SQUARE (EXCEPT STOREFRONT) */
+.section-button,
+.shop-now-btn,
+.featured-code-btn,
+.show-more-btn,
+.cta-link {
+    border-radius: 0 !important;
+}
+
+/* 12. ENSURE FEATURED CODES GRID IS VISIBLE - OPTIMIZED LAYOUT */
+.featured-codes-grid,
+.additional-codes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 1.5rem !important;
+    margin-bottom: 3rem !important;
+    width: 100% !important;
+    justify-content: center !important;
+}
+
+.featured-codes-grid .code-card,
+.additional-codes-grid .code-card {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100% !important;
+}
+
+/* ===================================
+   DISCOUNT CARD CONTENT FIXES
+   =================================== */
+
+/* Brand description styling for better fit */
+.code-card .brand-desc {
+    font-size: 0.8rem !important;
+    line-height: 1.3 !important;
+    color: #666 !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 160px !important;
+}
+
+/* Hide category tags for cleaner card appearance */
+.code-card .category-tag {
+    display: none !important;
+}
+
+/* Code actions positioning */
+.code-actions {
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Code button styling */
+.code-btn {
+    font-size: 0.75rem !important;
+    padding: 0.6rem 0.8rem !important;
+    white-space: nowrap !important;
+    border-radius: 0 !important;
+    background: var(--brand-blush) !important;
+    color: white !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.25rem !important;
+    min-width: 80px !important;
+    max-width: 120px !important;
+}
+
+.code-btn:hover {
+    background: #c9a6a6 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Code text styling */
+.code-text {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* Copy icon styling */
+.copy-icon {
+    flex-shrink: 0 !important;
+    font-size: 0.8rem !important;
+}
+
+/* ===================================
+   ABSOLUTE OVERRIDE FOR DISCOUNT CARDS
+   FINAL SOLUTION - NO MORE ISSUES!
+   =================================== */
+
+/* NUCLEAR OPTION: Complete override with VERTICAL LAYOUT - BIGGER LOGOS */
+.featured-codes-grid .code-card,
+.additional-codes-grid .code-card,
+.code-card.featured-card,
+.code-card {
+    /* FORCE CONTAINER DIMENSIONS - TALLER FOR BIG LOGOS */
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 340px !important;
+    min-height: 340px !important;
+    max-height: 340px !important;
+    
+    /* FORCE VERTICAL LAYOUT */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: center !important;
+    
+    /* FORCE SPACING */
+    padding: 1.5rem 1rem !important;
+    gap: 0.8rem !important;
+    margin: 0 !important;
+    
+    /* FORCE CONTAINMENT */
+    overflow: hidden !important;
+    
+    /* FORCE STYLING */
+    background: white !important;
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* FORCE CARD HEADER LAYOUT - VERTICAL STACK */
+.featured-codes-grid .code-card .code-card-header,
+.additional-codes-grid .code-card .code-card-header,
+.code-card-header {
+    /* FORCE FLEX CONTAINER */
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    text-align: center !important;
+    
+    /* FORCE CONTAINMENT */
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* FORCE BRAND ICON DIMENSIONS - EXTRA LARGE SIZE */
+.featured-codes-grid .code-card .brand-icon,
+.additional-codes-grid .code-card .brand-icon,
+.code-card .brand-icon,
+.brand-icon {
+    /* FORCE EXTRA LARGE DIMENSIONS - BIG LOGOS AS REQUESTED */
+    width: 180px !important;
+    height: 180px !important;
+    min-width: 180px !important;
+    min-height: 180px !important;
+    max-width: 180px !important;
+    max-height: 180px !important;
+    
+    /* FORCE POSITIONING */
+    flex-shrink: 0 !important;
+    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    
+    /* FORCE STYLING */
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+/* FORCE BRAND LOGO IMAGE DIMENSIONS - EXTRA LARGE SIZE */
+.featured-codes-grid .code-card .brand-logo-img,
+.additional-codes-grid .code-card .brand-logo-img,
+.code-card .brand-logo-img,
+.brand-logo-img {
+    /* FORCE EXTRA LARGE IMAGE DIMENSIONS */
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 180px !important;
+    max-height: 180px !important;
+    min-width: 100px !important;
+    min-height: 100px !important;
+    
+    /* FORCE IMAGE FITTING */
+    object-fit: contain !important;
+    object-position: center !important;
+}
+
+/* FORCE BRAND DETAILS LAYOUT - MINIMAL SPACE */
+.featured-codes-grid .code-card .brand-details,
+.additional-codes-grid .code-card .brand-details,
+.code-card .brand-details,
+.brand-details {
+    /* FORCE FLEX CONTAINER - MINIMAL HEIGHT */
+    flex-shrink: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    
+    /* FORCE CONTAINMENT - MINIMAL SPACE */
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-height: 40px !important;
+}
+
+/* FORCE BRAND DESCRIPTION STYLING - COMPACT */
+.featured-codes-grid .code-card .brand-desc,
+.additional-codes-grid .code-card .brand-desc,
+.code-card .brand-desc,
+.brand-desc {
+    /* FORCE TEXT STYLING - SMALLER TO EMPHASIZE LOGO */
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
+    color: #666 !important;
+    font-weight: 400 !important;
+    
+    /* FORCE CONTAINMENT AND CENTERING - MINIMAL SPACE */
+    margin: 0 !important;
+    padding: 0.25rem 0 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    max-height: 30px !important;
+}
+
+/* HIDE ALL CATEGORY TAGS */
+.featured-codes-grid .code-card .category-tag,
+.additional-codes-grid .code-card .category-tag,
+.code-card .category-tag,
+.category-tag {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* FORCE CODE ACTIONS LAYOUT - BOTTOM OF CARD */
+.featured-codes-grid .code-card .code-actions,
+.additional-codes-grid .code-card .code-actions,
+.code-card .code-actions,
+.code-actions {
+    /* FORCE POSITIONING */
+    flex-shrink: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    
+    /* FORCE LAYOUT */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* FORCE CODE BUTTON STYLING - COMPACT AT BOTTOM */
+.featured-codes-grid .code-card .code-btn,
+.additional-codes-grid .code-card .code-btn,
+.code-card .code-btn,
+.code-btn {
+    /* FORCE DIMENSIONS - SMALLER TO GIVE LOGO MORE SPACE */
+    width: 100% !important;
+    max-width: 160px !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    
+    /* FORCE LAYOUT */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.4rem !important;
+    
+    /* FORCE STYLING */
+    background: var(--brand-blush) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    
+    /* FORCE TEXT */
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    
+    /* FORCE SPACING */
+    padding: 0.6rem 0.8rem !important;
+    margin: 0 auto !important;
+    
+    /* FORCE CONTAINMENT */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.code-btn:hover {
+    background: #c9a6a6 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* FORCE CODE TEXT STYLING - LARGER FOR BOTTOM BUTTON */
+.featured-codes-grid .code-card .code-text,
+.additional-codes-grid .code-card .code-text,
+.code-card .code-text,
+.code-text {
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 120px !important;
+}
+
+/* FORCE COPY ICON STYLING - LARGER FOR BOTTOM BUTTON */
+.featured-codes-grid .code-card .copy-icon,
+.additional-codes-grid .code-card .copy-icon,
+.code-card .copy-icon {
+    flex-shrink: 0 !important;
+    font-size: 0.8rem !important;
+    margin-left: 0.5rem !important;
+}
+
+/* FORCE GRID LAYOUTS */
+.featured-codes-grid,
+.additional-codes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* FORCE FEATURED STAR POSITIONING */
+.featured-star {
+    position: absolute !important;
+    top: 8px !important;
+    right: 8px !important;
+    font-size: 1rem !important;
+    z-index: 10 !important;
+}
+
+/* Mobile responsive fixes for vertical discount cards - BIG LOGOS MAINTAINED */
+@media (max-width: 768px) {
+    .featured-codes-grid,
+    .additional-codes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+        gap: 1rem !important;
+    }
+    
+    .code-card {
+        height: 320px !important;
+        min-height: 320px !important;
+        max-height: 320px !important;
+        padding: 1rem !important;
+    }
+    
+    .code-card .brand-icon {
+        width: 150px !important;
+        height: 150px !important;
+        min-width: 150px !important;
+        min-height: 150px !important;
+        max-width: 150px !important;
+        max-height: 150px !important;
+    }
+    
+    .code-card .brand-logo-img {
+        max-width: 150px !important;
+        max-height: 150px !important;
+        min-width: 80px !important;
+        min-height: 80px !important;
+    }
+    
+    .code-card .brand-desc {
+        font-size: 0.7rem !important;
+    }
+    
+    .code-btn {
+        width: 100% !important;
+        max-width: 140px !important;
+        height: 34px !important;
+        min-height: 34px !important;
+        max-height: 34px !important;
+        font-size: 0.65rem !important;
+        padding: 0.5rem 0.8rem !important;
+    }
+    
+    .code-text {
+        font-size: 0.6rem !important;
+        max-width: 90px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-codes-grid,
+    .additional-codes-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .code-card {
+        height: 280px !important;
+        min-height: 280px !important;
+        max-height: 280px !important;
+        padding: 0.8rem !important;
+        gap: 0.6rem !important;
+    }
+    
+    .code-card .brand-icon {
+        width: 120px !important;
+        height: 120px !important;
+        min-width: 120px !important;
+        min-height: 120px !important;
+        max-width: 120px !important;
+        max-height: 120px !important;
+    }
+    
+    .code-card .brand-logo-img {
+        max-width: 120px !important;
+        max-height: 120px !important;
+        min-width: 60px !important;
+        min-height: 60px !important;
+    }
+    
+    .code-card .brand-desc {
+        font-size: 0.7rem !important;
+    }
+    
+    .code-btn {
+        width: 100% !important;
+        max-width: 120px !important;
+        height: 32px !important;
+        min-height: 32px !important;
+        max-height: 32px !important;
+        font-size: 0.6rem !important;
+        padding: 0.4rem 0.6rem !important;
+    }
+    
+    .code-text {
+        font-size: 0.55rem !important;
+        max-width: 80px !important;
+    }
 }

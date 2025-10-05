@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nest Celebrations - Empty Nest Mom Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --font-family-serif: 'Playfair Display', serif;
+            --text-primary: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        /* NAVIGATION - MATCHING HOME PAGE */
+        .navigation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            color: #666;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: #D4A4A4;
+        }
+
+        /* MAIN CONTENT */
+        .main-content {
+            margin-top: 100px;
+            padding: 2rem 0;
+        }
+
+        /* EVENTS SECTION STYLING - EXACT COPY FROM HOMEPAGE */
+        .events-section {
+            padding: 4rem 2rem;
+            background: #fff;
+        }
+
+        .events-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .events-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .events-eyebrow {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.7rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.2em !important;
+            text-transform: uppercase !important;
+            color: #666 !important;
+            margin-bottom: 0.25rem !important;
+        }
+
+        .events-title {
+            font-family: var(--font-family-serif);
+            font-size: clamp(4rem, 6vw, 6rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+
+        .events-tagline {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 400 !important;
+            color: #666 !important;
+            letter-spacing: 0.01em !important;
+            line-height: 1.4 !important;
+            margin-top: 0.5rem !important;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .event-item {
+            position: relative;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .event-item:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Event Background Images */
+        .christmas-parties { background-image: url('assets/images/events/Christmas Parties.png'); }
+        .wedding-events { background-image: url('assets/images/events/Wedding Events.png'); }
+        .family-gatherings { background-image: url('assets/images/events/Family Gatherings.png'); }
+        .favorite-things { background-image: url('assets/images/events/Favorite Things.png'); }
+        .mimis-birthday { background-image: url('assets/images/events/Mimi\'s 80th Birthday.png'); }
+        .tailgates { background-image: url('assets/images/events/Tailgates.png'); }
+
+        .event-item {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .event-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.5rem;
+        }
+
+        .event-category-tag {
+            align-self: flex-start;
+            background: transparent !important;
+            color: transparent !important;
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0 !important;
+        }
+
+        .event-content {
+            color: white;
+        }
+
+        .event-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-description {
+            font-size: 0.8rem;
+            font-weight: 300;
+            opacity: 0.9;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .event-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.7rem;
+        }
+
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .event-meta-item svg {
+            opacity: 0.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .events-title {
+                font-size: 3rem;
+            }
+            
+            .events-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .nav-wrapper {
+                padding: 0 1rem;
+            }
+
+            .events-section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navigation">
+        <div class="nav-wrapper">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="https://page.gensparksite.com/v1/base64_upload/9b798de6f8dafc5ff670b99a1905db5e" alt="Empty Nest">
+                </a>
+            </div>
+            
+            <!-- Social Icons -->
+            <div class="nav-right">
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon" aria-label="Amazon"><i class="fab fa-amazon"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Nest Celebrations Section - EXACT COPY FROM HOMEPAGE -->
+        <section class="events-section">
+            <div class="events-wrapper">
+                <!-- Header Typography -->
+                <div class="events-header">
+                    <div class="events-eyebrow">EVENTS</div>
+                    <h2 class="events-title">NEST CELEBRATIONS</h2>
+                    <div class="events-tagline">Creating memorable experiences & celebrations</div>
+                </div>
+                
+                <!-- Event Cards Grid -->
+                <div class="events-grid">
+                    <!-- Christmas Parties -->
+                    <a href="christmas-parties.html" class="event-item christmas-parties">
+                        <div class="event-overlay">
+                            <div class="event-category-tag">CORPORATE</div>
+                            <div class="event-content">
+                                <h3 class="event-title">Christmas Parties</h3>
+                                <p class="event-description">Corporate holiday celebrations for Randle Communications</p>
+                                <div class="event-meta">
+                                    <div class="event-meta-item">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span>2022-2024</span>
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        <span>Sacramento</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Wedding Events -->
+                    <div class="event-item wedding-events">
+                        <div class="event-overlay">
+                            <div class="event-category-tag">WEDDINGS</div>
+                            <div class="event-content">
+                                <h3 class="event-title">Wedding Events</h3>
+                                <p class="event-description">Intimate beachside engagement celebration</p>
+                                <div class="event-meta">
+                                    <div class="event-meta-item">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span>2024</span>
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        <span>Various</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Family Gatherings -->
+                    <div class="event-item family-gatherings">
+                        <div class="event-overlay">
+                            <div class="event-category-tag">LIFESTYLE</div>
+                            <div class="event-content">
+                                <h3 class="event-title">Family Gatherings</h3>
+                                <p class="event-description">Memorable family celebrations and intimate get-togethers</p>
+                                <div class="event-meta">
+                                    <div class="event-meta-item">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span>2022-2025</span>
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        <span>Various</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Favorite Things -->
+                    <div class="event-item favorite-things">
+                        <div class="event-overlay">
+                            <div class="event-category-tag">LIFESTYLE</div>
+                            <div class="event-content">
+                                <h3 class="event-title">Favorite Things</h3>
+                                <p class="event-description">An intimate girls' night filled with themed cocktails, sweet treats, and lots of love</p>
+                                <div class="event-meta">
+                                    <div class="event-meta-item">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span>2022-2024</span>
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        <span>Various</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mimi's 80th Birthday -->
+                    <div class="event-item mimis-birthday">
+                        <div class="event-overlay">
+                            <div class="event-category-tag">LIFESTYLE</div>
+                            <div class="event-content">
+                                <h3 class="event-title">Mimi's 80th Birthday</h3>
+                                <p class="event-description">A disco-inspired themed birthday channeling Greek Isles glam</p>
+                                <div class="event-meta">
+                                    <div class="event-meta-item">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 0 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span>2024</span>
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        <span>Nashville</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tailgates -->
+                    <div class="event-item tailgates">
+                        <div class="event-overlay">
+                            <div class="event-category-tag">TRAVEL</div>
+                            <div class="event-content">
+                                <h3 class="event-title">Tailgates</h3>
+                                <p class="event-description">Game day celebrations and sports-themed gatherings</p>
+                                <div class="event-meta">
+                                    <div class="event-meta-item">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        <span>2020-2024</span>
+                                    </div>
+                                    <div class="event-meta-item">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                            <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                        <span>South Bend</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,53 +1,178 @@
 <!DOCTYPE html>
+<!-- FORCE REFRESH: 2025-09-30 9:07PM - INLINE CSS OVERRIDES FOR UI FIXES: spacing, buttons, logos, signature -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="Mon, 30 Sep 2024 20:53:00 GMT">
+    <meta name="cache-bust" content="genspark-20241001-1120pm-local-only-clean">
+    <meta name="timestamp" content="1727842800">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
     <title>Empty Nest Mom Life - Kellie Randle</title>
     
-    <!-- Brand Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@200;300;400;500;600&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes:wght@400&display=swap" rel="stylesheet">
-    
-    <!-- Social Media Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- LOCAL FONTS ONLY - No external dependencies -->
+    <style>
+        /* Fallback fonts to prevent loading errors */
+        .serif-font { font-family: Georgia, Times, serif; }
+        .sans-font { font-family: Arial, Helvetica, sans-serif; }
+        .script-font { font-family: cursive; }
+        
+        /* Simple icon replacements */
+        .fab { font-size: 1.2rem; }
+        .fa-instagram:before { content: "📷"; }
+        .fa-facebook:before { content: "📘"; }
+        .fa-tiktok:before { content: "🎵"; }
+        .fa-amazon:before { content: "📦"; }
+    </style>
     
     <!-- Professional CSS -->
-    <link rel="stylesheet" href="assets/css/style.css?v=20240928-lineheight-final-fix">
+<link rel="stylesheet" href="assets/css/style.css?v=20241001-1120pm-local-clean&nocache=1727842800&force=true">
     
-    <!-- EMERGENCY HEADER FIX - Direct Inline Styles -->
+    <!-- PERFECT DISCOUNT CODE STYLES FROM ISOLATED VERSION -->
     <style>
-        /* ABSOLUTE OVERRIDE - Force proper header display */
-        .nest-approved-title,
-        .partnerships-title,
-        .refined-title,
-        .picks-title,
-        .events-title,
-        .recipes-title,
-        .about-title,
-        .media-title,
-        .contact-title,
-        .book-club-title,
-        h1, h2, h3 {
-            line-height: 1.3 !important;
-            letter-spacing: 0.05em !important;
-            word-spacing: normal !important;
-            font-display: swap !important;
-            overflow: visible !important;
-            text-rendering: optimizeLegibility !important;
-            -webkit-font-smoothing: antialiased !important;
+        /* PERFECT FILTER BUTTONS */
+        .filter-buttons { 
+            margin: 20px 0; 
+            text-align: center; 
         }
         
-        /* Specific fix for NEST APPROVED */
-        .nest-approved-section .nest-approved-title {
-            line-height: 1.3 !important;
-            font-size: clamp(4rem, 6vw, 6rem) !important;
-            display: block !important;
-            white-space: normal !important;
+        .filter-btn {
+            background: #D9B6B6;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .filter-btn.active { 
+            background: #C8A5A5; 
+        }
+        
+        /* PERFECT GRID CONTAINER */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 300px);
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        /* PERFECT CODE CARDS */
+        .code-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 280px;
+            position: relative;
+        }
+        
+        .code-card.filter-hide { 
+            display: none; 
+        }
+        
+        .code-card.filter-show { 
+            display: flex; 
+        }
+        
+        /* PERFECT BRAND LOGOS */
+        .brand-logo {
+            width: 220px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0 15px 0;
+            background: transparent;
+        }
+        
+        .brand-logo img {
+            max-width: 210px;
+            max-height: 110px;
+            object-fit: contain;
+            filter: brightness(1) contrast(1.2) saturate(1.1);
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        
+        .brand-logo img:hover {
+            opacity: 0.8;
+        }
+        
+        .brand-logo-text {
+            font-family: Georgia, serif;
+            font-weight: 600;
+            color: #3A3A3A;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .brand-name { display: none; /* Hidden since we're using logos */ }
+        .brand-desc { font-size: 0.9rem; color: #666; margin: 5px 0; }
+        .discount-code { 
+            background: #D9B6B6; 
+            color: white; 
+            padding: 8px 15px; 
+            border-radius: 20px; 
+            font-weight: bold; 
+            font-size: 0.9rem;
+            margin: 8px 0;
+            cursor: pointer;
+        }
+        .discount-code:hover { background: #C8A5A5; }
+        
+        .discount-code.access-link {
+            background: #B5A0A0;
+        }
+        .discount-code.access-link:hover {
+            background: #A69090;
+        }
+        .category-tag { 
+            background: #D9B6B6; 
+            color: white; 
+            padding: 3px 8px; 
+            border-radius: 12px; 
+            font-size: 0.8rem; 
+        }
+        
+        /* PERFECT FEATURED HEARTS */
+        .featured-star { 
+            font-size: 1.3rem; 
+            color: #666666;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 6px 8px;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            font-weight: 900;
+            font-family: "Times New Roman", serif;
+            text-shadow: 0 0 1px #666666;
+            transform: scaleX(1.2) scaleY(1.1);
+        }
+        
+        /* RESPONSIVE GRID */
+        @media (max-width: 1000px) {
+            .grid-container { grid-template-columns: repeat(2, 300px); }
+        }
+        
+        @media (max-width: 650px) {
+            .grid-container { grid-template-columns: 300px; }
         }
     </style>
 </head>
@@ -57,7 +182,7 @@
         <div class="nav-wrapper">
             <!-- Logo - MUST remain visible -->
             <div class="nav-logo">
-                <img src="https://page.gensparksite.com/v1/base64_upload/9b798de6f8dafc5ff670b99a1905db5e" alt="Empty Nest" class="logo-image">
+                <div style="width: 120px; height: 40px; background: #D9B6B6; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 4px;">Empty Nest</div>
             </div>
             
             <!-- Social Icons & Menu -->
@@ -80,7 +205,7 @@
         <div class="menu-dropdown" id="menuDropdown">
             <div class="dropdown-content">
                 <a href="#home" class="dropdown-link">Home</a>
-                <a href="#meet-kellie" class="dropdown-link">Meet Kellie</a>
+                <a href="#meet-kellie" class="dropdown-link">My Story</a>
                 <a href="#inside-the-nest" class="dropdown-link">Inside the Nest</a>
                 <a href="#empty-nest-eats" class="dropdown-link">Empty Nest Eats</a>
                 <a href="#nest-celebrations" class="dropdown-link">Nest Celebrations</a>
@@ -88,7 +213,7 @@
                 <a href="#nest-approved" class="dropdown-link">Nest Approved</a>
                 <a href="#nest-book-nook" class="dropdown-link">The Nest Book Nook</a>
                 <a href="#nest-in-the-news" class="dropdown-link">Nest in the News</a>
-                <a href="#lets-connect" class="dropdown-link">Let's Connect</a>
+                <a href="#lets-connect" class="dropdown-link">Contact</a>
             </div>
         </div>
     </nav>
@@ -147,11 +272,10 @@
                     <!-- Video Clip -->
                     <div class="about-images">
                         <div class="about-video-container">
-                            <video autoplay loop muted playsinline class="about-video">
+                            <!-- Restored MP4 video loop as requested -->
+                            <video autoplay muted loop playsinline class="about-video lifestyle-video">
                                 <source src="assets/images/about-kellie-video.mp4" type="video/mp4">
-                                <source src="assets/images/about-kellie-video.mov" type="video/quicktime">
-                                <!-- Fallback image if video doesn't load -->
-                                <img src="https://page.gensparksite.com/v1/base64_upload/caf9ffb184542bc8fc1046d97c55859e" alt="Kellie and husband dressed elegantly in the city" class="lifestyle-img">
+                                <img src="https://page.gensparksite.com/v1/base64_upload/caf9ffb184542bc8fc1046d97c55859e" alt="Kellie and husband dressed elegantly in the city" class="about-image lifestyle-img">
                             </video>
                         </div>
                     </div>
@@ -182,7 +306,7 @@
                             
                             <!-- Signature as regular image below paragraph -->
                             <div class="signature-image">
-                                <img src="assets/images/kellie-signature.png" alt="Kellie Randle Signature" class="signature-img">
+                                <img src="assets/images/kellie-signature-new.png?v=20250930-floating-signature" alt="Kellie Randle Signature" class="signature-img" style="max-width: 250px !important; opacity: 1 !important; background: transparent !important; mix-blend-mode: normal !important; filter: none !important; display: block !important; visibility: visible !important;">
                             </div>
                         </div>
                     </div>
@@ -212,15 +336,15 @@
                         <div class="card-badge">Storefront</div>
                         <div class="storefront-content">
                             <div class="storefront-logo">
-                                <img src="https://page.gensparksite.com/v1/base64_upload/b7bba47e2acf94df2efb5738909abc7e" alt="Amazon" class="logo-image">
+                                <div style="width: 80px; height: 30px; background: #FF9900; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 4px;">Amazon</div>
                             </div>
                             <div class="storefront-text">
                                 <h4 class="storefront-name">Amazon Storefront</h4>
-                                <p class="storefront-description">"My tried-and-true favorites for every room and occasion"</p>
+                                <p class="storefront-description" style="font-size: 0.7rem !important; line-height: 1.2 !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; margin: 0.5rem 0 !important; padding: 0.25rem 0 !important;">"My tried-and-true favorites for every room and occasion"</p>
                                 <p class="storefront-note">From kitchen essentials to travel must-haves, I've curated collections of products that have truly elevated my daily life.</p>
                             </div>
                         </div>
-                        <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" rel="noopener" class="storefront-btn">Shop Collection</a>
+                        <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" rel="noopener" class="storefront-btn" style="border-radius: 25px !important;">Shop Collection</a>
                     </div>
 
                     <!-- ShopMy Storefront -->
@@ -228,944 +352,226 @@
                         <div class="card-badge">Storefront</div>
                         <div class="storefront-content">
                             <div class="storefront-logo">
-                                <img src="https://page.gensparksite.com/v1/base64_upload/01cb95f12d1a3aba6065f8f5124ed549" alt="Shop My" class="logo-image">
+                                <div style="width: 80px; height: 30px; background: #6C63FF; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 4px;">ShopMy</div>
                             </div>
                             <div class="storefront-text">
                                 <h4 class="storefront-name">ShopMy</h4>
-                                <p class="storefront-description">"Weekly finds and current obsessions, updated regularly"</p>
+                                <p class="storefront-description" style="font-size: 0.7rem !important; line-height: 1.2 !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; margin: 0.5rem 0 !important; padding: 0.25rem 0 !important;">"Weekly finds and current obsessions, updated regularly"</p>
                                 <p class="storefront-note">Discover my latest discoveries and seasonal favorites. I update these collections weekly with fresh finds and current trends.</p>
                             </div>
                         </div>
-                        <a href="https://shopmy.us/shop/krandle" target="_blank" rel="noopener" class="storefront-btn">Shop Collection</a>
+                        <a href="https://shopmy.us/shop/krandle" target="_blank" rel="noopener" class="storefront-btn" style="border-radius: 25px !important;">Shop Collection</a>
                     </div>
                 </div>
             </div>
 
-            <!-- SECTION 2: Community Perks & Exclusive Codes -->
+            <!-- SECTION 2: Community Perks & Exclusive Codes - PERFECT ISOLATED GRID -->
             <div class="community-perks">
                 <div class="community-perks-header">
                     <h3 class="subsection-title">COMMUNITY PERKS & EXCLUSIVE CODES</h3>
                     <p class="helper-text">New codes added regularly—check back for fresh savings!</p>
                 </div>
+
+                <!-- PERFECT FILTER BUTTONS FROM ISOLATED VERSION -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterCards('featured', event)">Featured</button>
+                    <button class="filter-btn" onclick="filterCards('wellness', event)">Wellness</button>
+                    <button class="filter-btn" onclick="filterCards('beauty', event)">Beauty</button>
+                    <button class="filter-btn" onclick="filterCards('home', event)">Home</button>
+                    <button class="filter-btn" onclick="filterCards('food', event)">Food</button>
+                    <button class="filter-btn" onclick="filterCards('lifestyle', event)">Lifestyle</button>
+                    <button class="filter-btn" onclick="filterCards('all', event)">All Codes</button>
+                </div>
                 
-                <!-- Filter and Sort Controls -->
-                <div class="perks-controls">
-                    <div class="filter-pills">
-                        <button class="filter-pill active" data-filter="featured">Featured</button>
-                        <button class="filter-pill" data-filter="all">All</button>
-                        <button class="filter-pill" data-filter="wellness">Wellness & Health</button>
-                        <button class="filter-pill" data-filter="home">Home & Kitchen</button>
-                        <button class="filter-pill" data-filter="beauty">Beauty & Style</button>
-                        <button class="filter-pill" data-filter="lifestyle">Lifestyle</button>
+                <!-- PERFECT DISCOUNT CODE GRID FROM ISOLATED VERSION -->
+                <div class="grid-container">
+                    <!-- WELLNESS CARDS -->
+                    <div class="code-card" data-category="wellness">
+                        <div class="brand-logo">
+                            <img src="https://restoredwellnessclinic.com/wp-content/uploads/2024/11/Omnilux-Logo-removebg-preview-e1732101679166.png" alt="Omnilux LED" loading="lazy" style="max-width: 170px; max-height: 90px; object-fit: contain;" onclick="window.open('https://omniluxled.com', '_blank')" onerror="this.src='https://ui-avatars.com/api/?name=OMNILUX&size=170&background=00d4aa&color=000000&font-size=0.4'">
+                        </div>
+                        <div class="brand-desc">Professional red light therapy</div>
+                        <div class="discount-code access-link" onclick="window.open('https://omniluxled.com/KELLIERANDLE', '_blank')">ACCESS LINK</div>
+                        <div class="category-tag">WELLNESS</div>
                     </div>
                     
-                    <div class="sort-dropdown-wrapper">
-                        <label for="sortSelect" class="sort-label">Sort by:</label>
-                        <select id="sortSelect" class="sort-dropdown">
-                            <option value="featured">Featured</option>
-                            <option value="newest">Newest</option>
-                            <option value="alphabetical">A-Z</option>
-                        </select>
+                    <div class="code-card" data-category="wellness">
+                        <div class="brand-logo">
+                            <img src="https://static.truemed.com/mlp/armra/logo/8641ef0e-938b-4c4e-9a92-5d23cf073ac1.png" alt="ARMRA Colostrum" loading="lazy" style="max-width: 280px; max-height: 150px; object-fit: contain;" onclick="window.open('https://tryarmra.com', '_blank')" onerror="this.src='https://ui-avatars.com/api/?name=ARMRA&size=170&background=2c5aa0&color=ffffff&font-size=0.4'">
+                        </div>
+                        <div class="brand-desc">Daily immune support</div>
+                        <div class="discount-code" onclick="copyCode('EMPTYNESTMOMLIFE')">EMPTYNESTMOMLIFE</div>
+                        <div class="category-tag">WELLNESS</div>
                     </div>
-                </div>
-                
-                <!-- TIER 1: Partnership Hero (Always Visible) -->
-                <div class="partnership-hero-tier">
-                    <div class="partnership-hero-card">
-                        <div class="partnership-badge-hero">Partnership</div>
-                        
-                        <!-- Logo Area (30%) -->
-                        <div class="partnership-hero-logo-area">
-                            <div class="partnership-hero-logo">
-                                <img src="https://page.gensparksite.com/v1/base64_upload/c1a18cf147a836de7902d6f5daf814fa" alt="Just Ingredients" class="hero-logo-image">
-                            </div>
+                    
+                    <div class="code-card" data-category="wellness">
+                        <div class="brand-logo">
+                            <img src="https://cdn.cookielaw.org/logos/911fed17-661b-438d-8bed-dc4934735728/64388078-29d2-44ed-910b-db61d5bed368/437cd68d-eda1-44b1-894d-4e2f8580a891/Seed_Logo.jpg" alt="SEED Probiotics" loading="lazy" style="max-width: 170px; max-height: 90px; object-fit: contain;" onclick="window.open('https://seed.com', '_blank')" onerror="this.src='https://ui-avatars.com/api/?name=SEED&size=170&background=1a1a1a&color=ffffff&font-size=0.4'">
                         </div>
-                        
-                        <!-- Content Area (70%) -->
-                        <div class="partnership-hero-content">
-                            <div class="partnership-hero-text">
-                                <h4 class="partnership-hero-name">Just Ingredients</h4>
-                                <div class="partnership-hero-testimonial">
-                                    <p>"Clean wellness staples I use daily—from protein to shampoo"</p>
-                                    <p class="testimonial-signature">— Kellie</p>
-                                </div>
-                            </div>
-                            <div class="partnership-hero-action">
-                                <a href="https://justingredients.com" target="_blank" rel="noopener" class="hero-shop-now-btn">Shop Now</a>
-                            </div>
-                        </div>
+                        <div class="brand-desc">Science-backed daily probiotic</div>
+                        <div class="discount-code" onclick="copyCode('SEED15')">SEED15</div>
+                        <div class="category-tag">WELLNESS</div>
                     </div>
-                </div>
-
-                <!-- TIER 2: Featured Perks Grid (Default View) -->
-                <div class="featured-perks-section">
-                    <div class="discount-codes-grid featured-tier" id="discountCodesGrid">
-                        <!-- Featured Perk 1: Omnilux LED -->
-                        <div class="discount-card featured-card" data-category="wellness" data-name="Omnilux LED" data-date="2024-09-20" data-featured="true" data-tier="featured">
-                            <div class="card-badge featured-badge">Featured</div>
-                            <div class="card-header">
-                                <div class="brand-logo-small featured-logo">
-                                    <span class="brand-initial">O</span>
-                                </div>
-                                <div class="brand-info">
-                                    <h5 class="brand-name">Omnilux LED</h5>
-                                    <div class="category-tag wellness">Wellness & Health</div>
-                                </div>
-                            </div>
-                            <div class="offer-description">"Professional red light therapy that actually works"</div>
-                            <div class="code-section">
-                                <div class="code-display">
-                                    <input type="text" value="OMNILUX15" readonly class="code-field">
-                                    <button onclick="copyCodeToClipboard('OMNILUX15', this)" class="copy-btn" aria-label="Copy discount code">
-                                        <span class="copy-text">Copy Code</span>
-                                        <span class="copied-text">Copied!</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <a href="https://omniluxled.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
+                    
+                    <!-- BEAUTY CARDS -->
+                    <div class="code-card" data-category="wellness">
+                        <div class="brand-logo">
+                            <img src="https://page.gensparksite.com/v1/base64_upload/6cfaa25eadb3c5696874e6d5820beae1" alt="SleepWithMe Beauty" loading="lazy" style="max-width: 170px; max-height: 90px; object-fit: contain;" onclick="window.open('https://sleepwithme.com', '_blank')" onerror="this.src='https://ui-avatars.com/api/?name=Sleep+With+Me&size=170&background=8e44ad&color=ffffff&font-size=0.3'">
                         </div>
-
-                        <!-- Featured Perk 2: Branch Basics -->
-                        <div class="discount-card featured-card" data-category="home" data-name="Branch Basics" data-date="2024-09-15" data-featured="true" data-tier="featured">
-                            <div class="card-badge featured-badge">Featured</div>
-                            <div class="card-header">
-                                <div class="brand-logo-small featured-logo">
-                                    <span class="brand-initial">B</span>
-                                </div>
-                                <div class="brand-info">
-                                    <h5 class="brand-name">Branch Basics</h5>
-                                    <div class="category-tag home">Home & Kitchen</div>
-                                </div>
-                            </div>
-                            <div class="offer-description">"Non-toxic cleaning that truly performs"</div>
-                            <div class="code-section">
-                                <div class="code-display">
-                                    <input type="text" value="EMPTYNEST10" readonly class="code-field">
-                                    <button onclick="copyCodeToClipboard('EMPTYNEST10', this)" class="copy-btn" aria-label="Copy discount code">
-                                        <span class="copy-text">Copy Code</span>
-                                        <span class="copied-text">Copied!</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <a href="https://branchbasics.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
+                        <div class="brand-desc">Silk pillowcases for hair & skin</div>
+                        <div class="discount-code" onclick="copyCode('KELLIE15')">KELLIE15</div>
+                        <div class="category-tag">WELLNESS</div>
+                    </div>
+                    
+                    <div class="code-card" data-category="beauty">
+                        <div class="brand-logo">
+                            <img src="https://logo.clearbit.com/primallypure.com" alt="Primally Pure" loading="lazy" style="max-width: 280px; max-height: 150px; object-fit: contain;" onclick="window.open('https://primallypure.com', '_blank')" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Primally+Pure&size=170&background=27ae60&color=ffffff&font-size=0.3'">
                         </div>
-
-                        <!-- Featured Perk 3: Sleep with Me Beauty -->
-                        <div class="discount-card featured-card" data-category="beauty" data-name="Sleep with Me Beauty" data-date="2024-09-12" data-featured="true" data-tier="featured">
-                            <div class="card-badge featured-badge">Featured</div>
-                            <div class="card-header">
-                                <div class="brand-logo-small featured-logo">
-                                    <span class="brand-initial">S</span>
-                                </div>
-                                <div class="brand-info">
-                                    <h5 class="brand-name">Sleep with Me Beauty</h5>
-                                    <div class="category-tag beauty">Beauty & Style</div>
-                                </div>
-                            </div>
-                            <div class="offer-description">"Silk pillowcases for healthier hair and skin"</div>
-                            <div class="code-section">
-                                <div class="code-display">
-                                    <input type="text" value="NESTLIFE15" readonly class="code-field">
-                                    <button onclick="copyCodeToClipboard('NESTLIFE15', this)" class="copy-btn" aria-label="Copy discount code">
-                                        <span class="copy-text">Copy Code</span>
-                                        <span class="copied-text">Copied!</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <a href="https://sleepwithmebeauty.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
+                        <div class="brand-desc">Non-toxic natural beauty</div>
+                        <div class="discount-code" onclick="copyCode('NATURALNEST15')">NATURALNEST15</div>
+                        <div class="category-tag">BEAUTY</div>
+                    </div>
+                    
+                    <!-- HOME CARDS -->
+                    <div class="code-card" data-category="home">
+                        <div class="brand-logo">
+                            <img src="https://logo.clearbit.com/branchbasics.com" alt="Branch Basics" loading="lazy" style="max-width: 280px; max-height: 150px; object-fit: contain;" onclick="window.open('https://branchbasics.com', '_blank')" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Branch+Basics&size=170&background=34495e&color=ffffff&font-size=0.3'">
                         </div>
-
-                        <!-- Featured Perk 4: ARMRA Colostrum -->
-                        <div class="discount-card featured-card" data-category="wellness" data-name="ARMRA Colostrum" data-date="2024-09-10" data-featured="true" data-tier="featured">
-                            <div class="card-badge featured-badge">Featured</div>
-                            <div class="card-header">
-                                <div class="brand-logo-small featured-logo">
-                                    <span class="brand-initial">A</span>
-                                </div>
-                                <div class="brand-info">
-                                    <h5 class="brand-name">ARMRA Colostrum</h5>
-                                    <div class="category-tag wellness">Wellness & Health</div>
-                                </div>
-                            </div>
-                            <div class="offer-description">"Daily immune support I swear by"</div>
-                            <div class="code-section">
-                                <div class="code-display">
-                                    <input type="text" value="ARMRA10" readonly class="code-field">
-                                    <button onclick="copyCodeToClipboard('ARMRA10', this)" class="copy-btn" aria-label="Copy discount code">
-                                        <span class="copy-text">Copy Code</span>
-                                        <span class="copied-text">Copied!</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <a href="https://tryarmra.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
+                        <div class="brand-desc">Non-toxic cleaning products</div>
+                        <div class="discount-code access-link" onclick="window.open('https://branchbasics.com/?sv1=affiliate&sv_campaign_id=136348&sscid=90429_1759419624_b1d9651a9465a65b864461b41193ec3a&awc=90429_1759419624_b1d9651a9465a65b864461b41193ec3a&view=sl-146CBE03', '_blank')">ACCESS LINK</div>
+                        <div class="category-tag">HOME</div>
+                    </div>
+                    
+                    <div class="code-card featured-card" data-category="home">
+                        <div class="featured-star">♥</div>
+                        <div class="brand-logo">
+                            <img src="https://images.squarespace-cdn.com/content/v1/6234fdc4835d9b51a9919a12/9f6c5a03-8efb-49fa-9e66-47a5c0fe20cf/clearly+filtered+logo.png" alt="Clearly Filtered" loading="lazy" onclick="window.open('https://clearlyfiltered.com', '_blank')" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Clearly+Filtered&size=170&background=2980b9&color=ffffff&font-size=0.3'">
                         </div>
-
-                        <!-- Featured Perk 5: Beautycounter -->
-                        <div class="discount-card featured-card" data-category="beauty" data-name="Beautycounter" data-date="2024-09-08" data-featured="true" data-tier="featured">
-                            <div class="card-badge featured-badge">Featured</div>
-                            <div class="card-header">
-                                <div class="brand-logo-small featured-logo">
-                                    <span class="brand-initial">B</span>
-                                </div>
-                                <div class="brand-info">
-                                    <h5 class="brand-name">Beautycounter</h5>
-                                    <div class="category-tag beauty">Beauty & Style</div>
-                                </div>
-                            </div>
-                            <div class="offer-description">"Clean makeup I trust completely"</div>
-                            <div class="code-section">
-                                <div class="code-display">
-                                    <input type="text" value="CLEANBEAUTY15" readonly class="code-field">
-                                    <button onclick="copyCodeToClipboard('CLEANBEAUTY15', this)" class="copy-btn" aria-label="Copy discount code">
-                                        <span class="copy-text">Copy Code</span>
-                                        <span class="copied-text">Copied!</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <a href="https://beautycounter.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
+                        <div class="brand-desc">Water that tastes amazing</div>
+                        <div class="discount-code access-link" onclick="window.open('https://clearlyfiltered.com/?transaction_id=102cc2616f55ae2b4b01dd7b2470d8&utm_source=Aspire&utm_medium=socialambassador&utm_campaign=Kellie%20Randle', '_blank')">ACCESS LINK</div>
+                        <div class="category-tag">HOME</div>
+                    </div>
+                    
+                    <div class="code-card" data-category="home">
+                        <div class="brand-logo">
+                            <img src="https://logo.clearbit.com/fromourplace.com" alt="Our Place" loading="lazy" onclick="window.open('https://fromourplace.com', '_blank')" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Our+Place&size=170&background=d35400&color=ffffff&font-size=0.4'">
                         </div>
-
-                        <!-- Featured Perk 6: Purity Coffee -->
-                        <div class="discount-card featured-card" data-category="lifestyle" data-name="Purity Coffee" data-date="2024-09-05" data-featured="true" data-tier="featured">
-                            <div class="card-badge featured-badge">Featured</div>
-                            <div class="card-header">
-                                <div class="brand-logo-small featured-logo">
-                                    <span class="brand-initial">P</span>
-                                </div>
-                                <div class="brand-info">
-                                    <h5 class="brand-name">Purity Coffee</h5>
-                                    <div class="category-tag lifestyle">Lifestyle</div>
-                                </div>
-                            </div>
-                            <div class="offer-description">"The cleanest, best-tasting coffee"</div>
-                            <div class="code-section">
-                                <div class="code-display">
-                                    <input type="text" value="PURITY10" readonly class="code-field">
-                                    <button onclick="copyCodeToClipboard('PURITY10', this)" class="copy-btn" aria-label="Copy discount code">
-                                        <span class="copy-text">Copy Code</span>
-                                        <span class="copied-text">Copied!</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <a href="https://puritycoffee.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
+                        <div class="brand-desc">Beautiful, non-toxic cookware</div>
+                        <div class="discount-code" onclick="copyCode('OURPLACE10')">OURPLACE10</div>
+                        <div class="category-tag">HOME</div>
+                    </div>
+                    
+                    <div class="code-card" data-category="home">
+                        <div class="brand-logo">
+                            <img src="https://logo.clearbit.com/forceofnature.com" alt="Force of Nature" loading="lazy" onclick="window.open('https://forceofnature.com', '_blank')" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Force+of+Nature&size=170&background=16a085&color=ffffff&font-size=0.3'">
                         </div>
-
-                        <!-- TIER 3: Additional Codes (Hidden Initially) -->
-                        <div class="additional-codes-section" style="display: none;">
-                            
-                            <!-- Additional Code 1: Clean Monday Meals -->
-                            <div class="discount-card additional-card" data-category="lifestyle" data-name="Clean Monday Meals" data-date="2024-08-28" data-featured="false" data-tier="additional">
-                                <div class="card-badge perk-badge">Perk</div>
-                                <div class="card-header">
-                                    <div class="brand-logo-small">
-                                        <span class="brand-initial">C</span>
-                                    </div>
-                                    <div class="brand-info">
-                                        <h5 class="brand-name">Clean Monday Meals</h5>
-                                        <div class="category-tag lifestyle">Lifestyle</div>
-                                    </div>
-                                </div>
-                                <div class="offer-description">"Healthy meal delivery made simple"</div>
-                                <div class="code-section">
-                                    <div class="code-display">
-                                        <input type="text" value="NESTMEALS15" readonly class="code-field">
-                                        <button onclick="copyCodeToClipboard('NESTMEALS15', this)" class="copy-btn" aria-label="Copy discount code">
-                                            <span class="copy-text">Copy Code</span>
-                                            <span class="copied-text">Copied!</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <a href="https://cleanmondaymeals.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
-                            </div>
-
-                            <!-- Additional Code 2: Ryze Superfoods -->
-                            <div class="discount-card additional-card" data-category="wellness" data-name="Ryze Superfoods" data-date="2024-08-25" data-featured="false" data-tier="additional">
-                                <div class="card-badge perk-badge">Perk</div>
-                                <div class="card-header">
-                                    <div class="brand-logo-small">
-                                        <span class="brand-initial">R</span>
-                                    </div>
-                                    <div class="brand-info">
-                                        <h5 class="brand-name">Ryze Superfoods</h5>
-                                        <div class="category-tag wellness">Wellness & Health</div>
-                                    </div>
-                                </div>
-                                <div class="offer-description">"Mushroom coffee without the jitters"</div>
-                                <div class="code-section">
-                                    <div class="code-display">
-                                        <input type="text" value="RYZE15" readonly class="code-field">
-                                        <button onclick="copyCodeToClipboard('RYZE15', this)" class="copy-btn" aria-label="Copy discount code">
-                                            <span class="copy-text">Copy Code</span>
-                                            <span class="copied-text">Copied!</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <a href="https://ryzeup.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
-                            </div>
-
-                            <!-- Additional Code 3: Queen of Thrones -->
-                            <div class="discount-card additional-card" data-category="beauty" data-name="Queen of Thrones" data-date="2024-08-20" data-featured="false" data-tier="additional">
-                                <div class="card-badge perk-badge">Perk</div>
-                                <div class="card-header">
-                                    <div class="brand-logo-small">
-                                        <span class="brand-initial">Q</span>
-                                    </div>
-                                    <div class="brand-info">
-                                        <h5 class="brand-name">Queen of Thrones</h5>
-                                        <div class="category-tag beauty">Beauty & Style</div>
-                                    </div>
-                                </div>
-                                <div class="offer-description">"Wellness tools for better sleep"</div>
-                                <div class="code-section">
-                                    <div class="code-display">
-                                        <input type="text" value="QUEENOFT10" readonly class="code-field">
-                                        <button onclick="copyCodeToClipboard('QUEENOFT10', this)" class="copy-btn" aria-label="Copy discount code">
-                                            <span class="copy-text">Copy Code</span>
-                                            <span class="copied-text">Copied!</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <a href="https://queenofthrones.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
-                            </div>
-
-                            <!-- Additional Code 4: Clearly Filtered -->
-                            <div class="discount-card additional-card" data-category="home" data-name="Clearly Filtered" data-date="2024-08-15" data-featured="false" data-tier="additional">
-                                <div class="card-badge perk-badge">Perk</div>
-                                <div class="card-header">
-                                    <div class="brand-logo-small">
-                                        <span class="brand-initial">C</span>
-                                    </div>
-                                    <div class="brand-info">
-                                        <h5 class="brand-name">Clearly Filtered</h5>
-                                        <div class="category-tag home">Home & Kitchen</div>
-                                    </div>
-                                </div>
-                                <div class="offer-description">"Water that tastes amazing"</div>
-                                <div class="code-section">
-                                    <div class="code-display">
-                                        <input type="text" value="CLEARLY10" readonly class="code-field">
-                                        <button onclick="copyCodeToClipboard('CLEARLY10', this)" class="copy-btn" aria-label="Copy discount code">
-                                            <span class="copy-text">Copy Code</span>
-                                            <span class="copied-text">Copied!</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <a href="https://clearlyfiltered.com/" target="_blank" rel="noopener" class="shop-now-small">Shop Now</a>
-                            </div>
+                        <div class="brand-desc">Safe cleaning that really works</div>
+                        <div class="discount-code" onclick="copyCode('FORCE10')">FORCE10</div>
+                        <div class="category-tag">HOME</div>
+                    </div>
+                    
+                    <!-- FOOD CARDS -->
+                    <div class="code-card featured-card" data-category="food">
+                        <div class="featured-star">♥</div>
+                        <div class="brand-logo">
+                            <img src="https://logo.clearbit.com/puritycoffee.com" alt="Purity Coffee" loading="lazy" style="max-width: 280px; max-height: 150px; object-fit: contain;" onclick="window.open('https://puritycoffee.com', '_blank')" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Purity+Coffee&size=170&background=8b4513&color=ffffff&font-size=0.3'">
                         </div>
+                        <div class="brand-desc">Cleanest organic coffee</div>
+                        <div class="discount-code" onclick="copyCode('EMPTYNESTMOMLIFE')">EMPTYNESTMOMLIFE</div>
+                        <div class="category-tag">FOOD</div>
+                    </div>
+                    
+                    <div class="code-card" data-category="food">
+                        <div class="brand-logo">
+                            <img src="https://logo.clearbit.com/cleanmondaymeals.com" alt="Clean Monday Meals" loading="lazy" style="max-width: 280px; max-height: 150px; object-fit: contain;" onclick="window.open('https://cleanmondaymeals.com', '_blank')" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Clean+Monday+Meals&size=170&background=27ae60&color=ffffff&font-size=0.25'">
+                        </div>
+                        <div class="brand-desc">Healthy meal delivery made simple</div>
+                        <div class="discount-code" onclick="copyCode('EMPTYNESTMOMLIFE')">EMPTYNESTMOMLIFE</div>
+                        <div class="category-tag">FOOD</div>
+                    </div>
+                    
+                    <div class="code-card" data-category="food">
+                        <div class="brand-logo">
+                            <img src="https://ucarecdn.com/135a0744-8008-4cf1-ba3a-e02ecc196d2d/-/format/auto/-/preview/170x90/-/quality/lightest/Ryze%20Icons-02.png" alt="RYZE Superfoods" loading="lazy" onclick="window.open('https://ryzesuperfoods.com', '_blank')" onerror="this.src='https://ui-avatars.com/api/?name=RYZE&size=170&background=d35400&color=ffffff&font-size=0.4'">
+                        </div>
+                        <div class="brand-desc">Mushroom coffee without the jitters</div>
+                        <div class="discount-code access-link" onclick="window.open('https://www.ryzesuperfoods.com/discount/EMPTYNESTMOMLIFE', '_blank')">ACCESS LINK</div>
+                        <div class="category-tag">FOOD</div>
+                    </div>
+                    
+                    <div class="code-card" data-category="food">
+                        <div class="brand-logo">
+                            <img src="https://logo.clearbit.com/thrivemarket.com" alt="Thrive Market" loading="lazy" onclick="window.open('https://thrivemarket.com', '_blank')" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Thrive+Market&size=170&background=27ae60&color=ffffff&font-size=0.3'">
+                        </div>
+                        <div class="brand-desc">Organic groceries delivered to your door</div>
+                        <div class="discount-code" onclick="copyCode('THRIVE25')">THRIVE25</div>
+                        <div class="category-tag">FOOD</div>
+                    </div>
+                    
+                    <!-- WELLNESS ADDITIONAL -->
+                    <div class="code-card" data-category="wellness">
+                        <div class="brand-logo">
+                            <img src="https://logo.clearbit.com/queenofthethrones.com" alt="Queen of Thrones" loading="lazy" style="max-width: 280px; max-height: 150px; object-fit: contain;" onclick="window.open('https://queenofthethrones.com', '_blank')" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Queen+of+Thrones&size=170&background=8e44ad&color=ffffff&font-size=0.25'">
+                        </div>
+                        <div class="brand-desc">Premium, organic castor oil products</div>
+                        <div class="discount-code" onclick="copyCode('EMPTYNESTMOMLIFE')">EMPTYNESTMOMLIFE</div>
+                        <div class="category-tag">WELLNESS</div>
+                    </div>
+                    
+                    <div class="code-card featured-card" data-category="wellness">
+                        <div class="featured-star">♥</div>
+                        <div class="brand-logo">
+                            <img src="https://static.truemed.com/mlp/lumebox/logo/294025ef-152a-4a5c-a786-5435a3dd74a4.png" alt="LUMEBOX" loading="lazy" style="max-width: 480px; max-height: 260px; object-fit: cover; object-position: center; clip-path: inset(15% 10% 15% 10%);" onclick="window.open('https://thelumebox.com', '_blank')" onerror="this.src='https://ui-avatars.com/api/?name=LUMEBOX&size=170&background=f39c12&color=ffffff&font-size=0.4'">
+                        </div>
+                        <div class="brand-desc">Professional red light therapy</div>
+                        <div class="discount-code access-link" onclick="window.open('https://thelumebox.com/pages/lb68/?discount=emptynestmomlife', '_blank')">ACCESS LINK</div>
+                        <div class="category-tag">WELLNESS</div>
+                    </div>
+                    
+                    <!-- LIFESTYLE -->
+                    <div class="code-card" data-category="lifestyle">
+                        <div class="brand-logo">
+                            <img src="https://boutique.articleconsignment.com/wp-content/uploads/2022/12/Article_Logo_FinalPNG.png" alt="Article Consignment" loading="lazy" style="max-width: 170px; max-height: 90px; object-fit: contain;" onclick="window.open('https://articleconsignment.com', '_blank')" onerror="this.src='https://ui-avatars.com/api/?name=Article&size=170&background=2c3e50&color=ffffff&font-size=0.4'">
+                        </div>
+                        <div class="brand-desc">Pre-owned luxury goods</div>
+                        <div class="discount-code" onclick="copyCode('EMPTYNESTMOMLIFE')">EMPTYNESTMOMLIFE</div>
+                        <div class="category-tag">LIFESTYLE</div>
+                    </div>
+                    
+                    <div class="code-card" data-category="lifestyle">
+                        <div class="brand-logo">
+                            <img src="https://logo.clearbit.com/toocooltshirtquilts.com" alt="Too Cool T-Shirt Quilts" loading="lazy" onclick="window.open('https://toocooltshirtquilts.com', '_blank')" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Too+Cool+T-Shirt+Quilts&size=170&background=e67e22&color=ffffff&font-size=0.2'">
+                        </div>
+                        <div class="brand-desc">Custom memory quilts</div>
+                        <div class="discount-code" onclick="copyCode('KELLIE RANDLE')">KELLIE RANDLE</div>
+                        <div class="category-tag">LIFESTYLE</div>
+                    </div>
+                    
+                    <div class="code-card" data-category="lifestyle">
+                        <div class="brand-logo">
+                            <img src="https://images.squarespace-cdn.com/content/v1/587e4cb4e3df282ee197d0f8/1528471617782-3FKCZ0P58IQGL5S8A2FV/logo-color.png" alt="Faster Way to Fat Loss" loading="lazy" style="max-width: 170px; max-height: 90px; object-fit: contain;" onclick="window.open('https://fasterwaytofatloss.com', '_blank')" onerror="this.src='https://ui-avatars.com/api/?name=Faster+Way+to+Fat+Loss&size=170&background=c0392b&color=ffffff&font-size=0.2'">
+                        </div>
+                        <div class="brand-desc">Health and fitness program</div>
+                        <div class="discount-code" onclick="copyCode('KELLIERANDLE')">KELLIERANDLE</div>
+                        <div class="category-tag">LIFESTYLE</div>
                     </div>
                 </div>
             </div>
-
-            <!-- Affiliate Disclosure -->
-            <div class="affiliate-disclosure">
-                <p>As an Amazon Associate and affiliate partner, I earn from qualifying purchases. I only share what I genuinely use and love.</p>
-            </div>
+            
             </div>
         </div>
     </section>
 
-    <!-- Nest Chronicles Section -->
-    <section id="inside-the-nest" class="refined-section">
-        <div class="refined-wrapper">
-            <div class="refined-layout">
-                <!-- Left: Large Typography -->
-                <div class="refined-typography">
-                    <div class="refined-eyebrow">EXPLORE</div>
-                    <h2 class="refined-title">INSIDE THE NEST</h2>
-                    <div class="refined-tagline">social moments: from trips to tips and everything in between</div>
-                </div>
-                
-                <!-- Right: Category Grid -->
-                <div class="refined-content">
-                    <div class="category-grid">
-                        <!-- Family -->
-                        <div class="category-tile" data-category="family" onclick="openHighlightsModal('family')" style="background-image: url('assets/images/category-covers/Family.png')">
-                            <div class="category-overlay"></div>
-                            <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                                        <circle cx="9" cy="7" r="4"/>
-                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                    </svg>
-                                </div>
-                                <h3 class="category-label">FAMILY</h3>
-                                <div class="category-click-hint">
-                                    <span>View Highlights</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Home -->
-                        <div class="category-tile" data-category="home" onclick="openHighlightsModal('home')" style="background-image: url('assets/images/category-covers/Home.png')">
-                            <div class="category-overlay"></div>
-                            <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                                        <polyline points="9,22 9,12 15,12 15,22"/>
-                                    </svg>
-                                </div>
-                                <h3 class="category-label">HOME</h3>
-                                <div class="category-click-hint">
-                                    <span>View Highlights</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Wellness -->
-                        <div class="category-tile" data-category="wellness" onclick="openHighlightsModal('wellness')" style="background-image: url('assets/images/category-covers/Wellness.png')">
-                            <div class="category-overlay"></div>
-                            <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                                    </svg>
-                                </div>
-                                <h3 class="category-label">WELLNESS</h3>
-                                <div class="category-click-hint">
-                                    <span>View Highlights</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Travel -->
-                        <div class="category-tile" data-category="travel" onclick="openHighlightsModal('travel')" style="background-image: url('assets/images/category-covers/Travel.png')">
-                            <div class="category-overlay"></div>
-                            <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                                        <polyline points="7.5,4.21 12,6.81 16.5,4.21"/>
-                                        <polyline points="7.5,19.79 7.5,14.6 3,12"/>
-                                        <polyline points="21,12 16.5,14.6 16.5,19.79"/>
-                                        <polyline points="12,22.81 12,17"/>
-                                    </svg>
-                                </div>
-                                <h3 class="category-label">TRAVEL</h3>
-                                <div class="category-click-hint">
-                                    <span>View Highlights</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Events -->
-                        <div class="category-tile" data-category="events" onclick="openHighlightsModal('events')" style="background-image: url('assets/images/category-covers/Events.png')">
-                            <div class="category-overlay"></div>
-                            <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                                        <line x1="16" y1="2" x2="16" y2="6"/>
-                                        <line x1="8" y1="2" x2="8" y2="6"/>
-                                        <line x1="3" y1="10" x2="21" y2="10"/>
-                                    </svg>
-                                </div>
-                                <h3 class="category-label">EVENTS</h3>
-                                <div class="category-click-hint">
-                                    <span>View Highlights</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Food -->
-                        <div class="category-tile" data-category="food" onclick="openHighlightsModal('food')" style="background-image: url('assets/images/category-covers/Food.png')">
-                            <div class="category-overlay"></div>
-                            <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
-                                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-                                        <line x1="6" y1="1" x2="6" y2="4"/>
-                                        <line x1="10" y1="1" x2="10" y2="4"/>
-                                        <line x1="14" y1="1" x2="14" y2="4"/>
-                                    </svg>
-                                </div>
-                                <h3 class="category-label">FOOD</h3>
-                                <div class="category-click-hint">
-                                    <span>View Highlights</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Holidays -->
-                        <div class="category-tile" data-category="holidays" onclick="openHighlightsModal('holidays')" style="background-image: url('assets/images/category-covers/Holidays.png')">
-                            <div class="category-overlay"></div>
-                            <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
-                                    </svg>
-                                </div>
-                                <h3 class="category-label">HOLIDAYS</h3>
-                                <div class="category-click-hint">
-                                    <span>View Highlights</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Politics -->
-                        <div class="category-tile" data-category="politics" onclick="openHighlightsModal('politics')" style="background-image: url('assets/images/category-covers/Politics.png')">
-                            <div class="category-overlay"></div>
-                            <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <polygon points="12,2 15.09,8.26 22,9 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9 8.91,8.26 12,2"/>
-                                    </svg>
-                                </div>
-                                <h3 class="category-label">POLITICS</h3>
-                                <div class="category-click-hint">
-                                    <span>View Highlights</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Tips & Tricks -->
-                        <div class="category-tile" data-category="tips" onclick="openHighlightsModal('tips')" style="background-image: url('assets/images/category-covers/Tips & Tricks.png')">
-                            <div class="category-overlay"></div>
-                            <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <circle cx="12" cy="12" r="3"/>
-                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                                    </svg>
-                                </div>
-                                <h3 class="category-label">TIPS & TRICKS</h3>
-                                <div class="category-click-hint">
-                                    <span>View Highlights</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Fashion -->
-                        <div class="category-tile" data-category="fashion" onclick="openHighlightsModal('fashion')" style="background-image: url('assets/images/category-covers/Fashion.png'); background-position: center 30%;">
-                            <div class="category-overlay"></div>
-                            <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M6 2l3 6v14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8z"/>
-                                        <path d="M18 2l-3 6v14a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V8z"/>
-                                    </svg>
-                                </div>
-                                <h3 class="category-label">STYLE</h3>
-                                <div class="category-click-hint">
-                                    <span>View Highlights</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Beauty -->
-                        <div class="category-tile" data-category="beauty" onclick="openHighlightsModal('beauty')" style="background-image: url('assets/images/category-covers/Beauty.png')">
-                            <div class="category-overlay"></div>
-                            <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                                    </svg>
-                                </div>
-                                <h3 class="category-label">BEAUTY</h3>
-                                <div class="category-click-hint">
-                                    <span>View Highlights</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Business -->
-                        <div class="category-tile" data-category="business" onclick="openHighlightsModal('business')" style="background-image: url('assets/images/category-covers/Business.png')">
-                            <div class="category-overlay"></div>
-                            <div class="category-content">
-                                <div class="category-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                                        <line x1="8" y1="21" x2="16" y2="21"/>
-                                        <line x1="12" y1="17" x2="12" y2="21"/>
-                                    </svg>
-                                </div>
-                                <h3 class="category-label">BUSINESS</h3>
-                                <div class="category-click-hint">
-                                    <span>View Highlights</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-            
-            <!-- New Content Button - Matching Reach Out Style -->
-            <div class="content-button-wrapper">
-                <a href="#" class="content-view-button">
-                    <span>See All Content</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Instagram Highlights Modal -->
-    <div id="highlightsModal" class="highlights-modal">
-        <div class="highlights-modal-overlay" onclick="closeHighlightsModal()"></div>
-        <div class="highlights-modal-content">
-            <div class="highlights-modal-header">
-                <h2 id="modalCategoryTitle" class="highlights-modal-title"></h2>
-                <button class="highlights-modal-close" onclick="closeHighlightsModal()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
-            <div class="highlights-modal-subtitle">
-                <span>Click any highlight to view on Instagram</span>
-            </div>
-            <div id="highlightsGrid" class="highlights-grid">
-                <!-- Highlights will be populated by JavaScript -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Empty Nest Picks Section -->
-    <section id="empty-nest-picks" class="picks-section">
-        <div class="picks-wrapper">
-            <!-- Header Typography -->
-            <div class="picks-header">
-                <div class="picks-eyebrow">SHOP</div>
-                <h2 class="picks-title">EMPTY NEST PICKS</h2>
-                <div class="picks-tagline">Some of my all-time favorite products I absolutely can't live without</div>
-            </div>
-            
-            <!-- Product Carousel -->
-            <div class="carousel-wrapper">
-                <button class="carousel-btn carousel-btn-left" onclick="scrollCarousel('left')" aria-label="Previous products">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-                
-                <div class="carousel-container">
-                    <div class="carousel-track" id="carouselTrack">
-                        <!-- Product 1 -->
-                        <div class="product-item">
-                            <div class="product-image-wrapper">
-                                <img src="assets/images/products/French-Vanilla-Protein-Powder.jpeg" alt="French Vanilla Protein Powder" class="product-image">
-                            </div>
-                            <h3 class="product-title">French Vanilla Protein Powder</h3>
-                            <p class="product-price">$44.99</p>
-                            <a href="https://justingredients.com/products/french-vanilla-protein-powder" target="_blank" class="product-cta">Shop</a>
-                        </div>
-                        
-                        <!-- Product 2 -->
-                        <div class="product-item">
-                            <div class="product-image-wrapper">
-                                <img src="assets/images/products/Magnesium-Supplement.jpeg" alt="Magnesium Supplement" class="product-image">
-                            </div>
-                            <h3 class="product-title">Magnesium Supplement</h3>
-                            <p class="product-price">$32.99</p>
-                            <a href="https://justingredients.com/products/magnesium-supplement" target="_blank" class="product-cta">Shop</a>
-                        </div>
-                        
-                        <!-- Product 3 -->
-                        <div class="product-item">
-                            <div class="product-image-wrapper">
-                                <img src="assets/images/products/Our-Place-Everything-Pan.png" alt="Our Place Everything Pan" class="product-image">
-                            </div>
-                            <h3 class="product-title">Our Place Everything Pan</h3>
-                            <p class="product-price">$150.00</p>
-                            <a href="https://fromourplace.com/products/always-essential-cooking-pan" target="_blank" class="product-cta">Shop</a>
-                        </div>
-                        
-                        <!-- Product 4 -->
-                        <div class="product-item">
-                            <div class="product-image-wrapper">
-                                <img src="assets/images/products/Tula-Under-Eye-Brightener.png" alt="Tula Under Eye Brightener" class="product-image">
-                            </div>
-                            <h3 class="product-title">Tula Under Eye Brightener</h3>
-                            <p class="product-price">$38.00</p>
-                            <a href="https://tulaskincare.com/products/brighten-up-eye-cream" target="_blank" class="product-cta">Shop</a>
-                        </div>
-                        
-                        <!-- Product 5 -->
-                        <div class="product-item">
-                            <div class="product-image-wrapper">
-                                <img src="assets/images/products/Electric-Wine-Opener.png" alt="Electric Wine Opener" class="product-image">
-                            </div>
-                            <h3 class="product-title">Electric Wine Opener</h3>
-                            <p class="product-price">$29.99</p>
-                            <a href="https://amazon.com/dp/B08XQJK8YX" target="_blank" class="product-cta">Shop</a>
-                        </div>
-                        
-                        <!-- Product 6 -->
-                        <div class="product-item">
-                            <div class="product-image-wrapper">
-                                <img src="assets/images/products/Teeth-Whitening-Powder.jpg" alt="Teeth Whitening Powder" class="product-image">
-                            </div>
-                            <h3 class="product-title">Teeth Whitening Powder</h3>
-                            <p class="product-price">$24.99</p>
-                            <a href="https://amazon.com/dp/B07XQZK3LM" target="_blank" class="product-cta">Shop</a>
-                        </div>
-                        
-                        <!-- Product 7 -->
-                        <div class="product-item">
-                            <div class="product-image-wrapper">
-                                <img src="assets/images/products/Tineco-iFloor-5-Breeze-Vacuum.jpeg" alt="Tineco iFloor 5 Breeze Vacuum" class="product-image">
-                            </div>
-                            <h3 class="product-title">Tineco iFloor 5 Breeze</h3>
-                            <p class="product-price">$199.99</p>
-                            <a href="https://tineco.com/products/tineco-ifloor-5-breeze-complete" target="_blank" class="product-cta">Shop</a>
-                        </div>
-                        
-
-                    </div>
-                </div>
-                
-                <button class="carousel-btn carousel-btn-right" onclick="scrollCarousel('right')" aria-label="Next products">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </div>
-            
-            <!-- Shop All Button -->
-            <div class="picks-shop-all-wrapper">
-                <a href="collection.html" class="picks-shop-all-button">
-                    <span>SHOP ALL</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Nest Celebrations Section -->
-    <section id="nest-celebrations" class="events-section">
-        <div class="events-wrapper">
-            <!-- Header Typography -->
-            <div class="events-header">
-                <div class="events-eyebrow">EVENTS</div>
-                <h2 class="events-title">NEST CELEBRATIONS</h2>
-                <div class="events-tagline">Creating memorable experiences & celebrations</div>
-            </div>
-            
-            <!-- Event Cards Grid -->
-            <div class="events-grid">
-                <!-- Christmas Parties -->
-                <a href="christmas-parties.html" class="event-item christmas-parties">
-                    <div class="event-overlay">
-                        <div class="event-category-tag">CORPORATE</div>
-                        <div class="event-content">
-                            <h3 class="event-title">Christmas Parties</h3>
-                            <p class="event-description">Corporate holiday celebrations for Randle Communications</p>
-                            <div class="event-meta">
-                                <div class="event-meta-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <span>2022-2024</span>
-                                </div>
-                                <div class="event-meta-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
-                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                    <span>Sacramento</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Wedding Events -->
-                <div class="event-item wedding-events">
-                    <div class="event-overlay">
-                        <div class="event-category-tag">WEDDINGS</div>
-                        <div class="event-content">
-                            <h3 class="event-title">Wedding Events</h3>
-                            <p class="event-description">Intimate beachside engagement celebration</p>
-                            <div class="event-meta">
-                                <div class="event-meta-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <span>2024</span>
-                                </div>
-                                <div class="event-meta-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
-                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                    <span>Various</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Family Gatherings -->
-                <div class="event-item family-gatherings">
-                    <div class="event-overlay">
-                        <div class="event-category-tag">LIFESTYLE</div>
-                        <div class="event-content">
-                            <h3 class="event-title">Family Gatherings</h3>
-                            <p class="event-description">Memorable family celebrations and intimate get-togethers</p>
-                            <div class="event-meta">
-                                <div class="event-meta-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <span>2022-2025</span>
-                                </div>
-                                <div class="event-meta-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
-                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                    <span>Various</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Favorite Things -->
-                <div class="event-item favorite-things">
-                    <div class="event-overlay">
-                        <div class="event-category-tag">LIFESTYLE</div>
-                        <div class="event-content">
-                            <h3 class="event-title">Favorite Things</h3>
-                            <p class="event-description">An intimate girls' night filled with themed cocktails, sweet treats, and lots of love</p>
-                            <div class="event-meta">
-                                <div class="event-meta-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <span>2022-2024</span>
-                                </div>
-                                <div class="event-meta-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
-                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                    <span>Various</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mimi's 80th Birthday -->
-                <div class="event-item mimis-birthday">
-                    <div class="event-overlay">
-                        <div class="event-category-tag">LIFESTYLE</div>
-                        <div class="event-content">
-                            <h3 class="event-title">Mimi's 80th Birthday</h3>
-                            <p class="event-description">A disco-inspired themed birthday channeling Greek Isles glam</p>
-                            <div class="event-meta">
-                                <div class="event-meta-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <span>2024</span>
-                                </div>
-                                <div class="event-meta-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
-                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                    <span>Nashville</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tailgates -->
-                <div class="event-item tailgates">
-                    <div class="event-overlay">
-                        <div class="event-category-tag">TRAVEL</div>
-                        <div class="event-content">
-                            <h3 class="event-title">Tailgates</h3>
-                            <p class="event-description">Game day celebrations and sports-themed gatherings</p>
-                            <div class="event-meta">
-                                <div class="event-meta-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <span>2020-2024</span>
-                                </div>
-                                <div class="event-meta-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
-                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                    <span>South Bend</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- See All Nest Celebrations Button -->
-            <div class="section-button-wrapper">
-                <a href="events.html" class="section-button">
-                    <span>See All Nest Celebrations</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Past Collaborators Section -->
+    <!-- Brand Collaborators Section -->
     <section class="collaborators-section">
         <div class="collaborators-wrapper">
-            <div class="collaborators-eyebrow">Past Collaborators</div>
-        </div>
-        <div class="collaborators-logos">
-            <!-- First set of logos -->
+            <div class="collaborators-header">
+                <div class="collaborators-eyebrow">PARTNERSHIPS</div>
+                <h2 class="collaborators-title">Brand Collaborations</h2>
+                <div class="collaborators-tagline">Proud to have partnered with these amazing brands</div>
+            </div>
+            <div class="collaborators-scroll">
+            <!-- Duplicate set for seamless loop -->
             <div class="logo-item">
                 <img src="assets/images/collaborators/Just_Ingredients_Logo_Update_website_540x_copy-removebg-preview.png" alt="Just Ingredients" class="collaborator-logo">
             </div>
@@ -1196,6 +602,7 @@
             <div class="logo-item">
                 <img src="assets/images/collaborators/PRTY-dc8f4442-removebg-preview.png" alt="PRTY" class="collaborator-logo">
             </div>
+            
             <!-- Duplicate set for seamless loop -->
             <div class="logo-item">
                 <img src="assets/images/collaborators/Just_Ingredients_Logo_Update_website_540x_copy-removebg-preview.png" alt="Just Ingredients" class="collaborator-logo">
@@ -1242,7 +649,17 @@
             
             <!-- Recipe Cards Grid -->
             <div class="recipes-grid">
-                <!-- Recipe 1 -->
+                <!-- Recipe 1 - Fry Sauce (moved to first position) -->
+                <div class="recipe-item fry-sauce" onclick="openRecipeModal('fry-sauce')">
+                    <div class="recipe-overlay">
+                        <div class="recipe-content">
+                            <h3 class="recipe-title">Fry Sauce</h3>
+                            <p class="recipe-description">5 mins</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recipe 2 -->
                 <div class="recipe-item mediterranean-bowl">
                     <div class="recipe-overlay">
                         <div class="recipe-content">
@@ -1252,7 +669,7 @@
                     </div>
                 </div>
 
-                <!-- Recipe 2 -->
+                <!-- Recipe 3 -->
                 <div class="recipe-item sheet-pan-salmon">
                     <div class="recipe-overlay">
                         <div class="recipe-category-tag">
@@ -1264,16 +681,6 @@
                         <div class="recipe-content">
                             <h3 class="recipe-title">Sheet Pan Lemon Salmon</h3>
                             <p class="recipe-description">20 mins</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recipe 3 -->
-                <div class="recipe-item quinoa-stuffed-peppers">
-                    <div class="recipe-overlay">
-                        <div class="recipe-content">
-                            <h3 class="recipe-title">Quinoa Stuffed Peppers</h3>
-                            <p class="recipe-description">35 mins</p>
                         </div>
                     </div>
                 </div>
@@ -1335,7 +742,14 @@
                 
                 <div class="book-carousel-container">
                     <div class="book-carousel-track" id="bookCarouselTrack">
-                        <!-- Book 1 -->
+                        <!-- Book 1 - NEW -->
+                        <div class="book-item">
+                            <div class="book-cover-wrapper">
+                                <img src="assets/images/book-covers/first-lie-wins.jpg" alt="First Lie Wins by Ashley Elston" class="book-cover">
+                            </div>
+                        </div>
+                        
+                        <!-- Book 2 -->
                         <div class="book-item">
                             <div class="book-cover-wrapper">
                                 <img src="assets/images/book-covers/A Court of Thorns and Roses.png" alt="A Court of Thorns and Roses" class="book-cover">
@@ -1406,40 +820,42 @@
     <!-- Nest in the News Section - Visual Forward Design -->
     <section id="nest-in-the-news" class="media-section">
         <div class="media-wrapper">
-            <!-- Section Header -->
-            <div class="media-header">
-                <div class="media-eyebrow">MEDIA</div>
-                <h2 class="media-title">NEST IN THE NEWS</h2>
-                <div class="media-tagline">Press Coverage & Media Appearances</div>
-            </div>
-            
-            <!-- Visual Grid Layout -->
-            <div class="media-grid">
+            <div class="media-layout">
+                <!-- Left: Large Typography -->
+                <div class="media-typography">
+                    <div class="media-eyebrow">MEDIA</div>
+                    <h2 class="media-title">NEST IN THE NEWS</h2>
+                    <div class="media-tagline">Press Coverage & Media Appearances</div>
+                </div>
+                
+                <!-- Right: Media Content -->
+                <div class="media-content">
+                    <div class="media-grid">
                 <!-- Live TV Appearances -->
                 <div class="media-category">
                     <h3 class="media-category-title">LIVE TV APPEARANCES</h3>
                     <div class="media-logo-grid">
                         <a href="https://fox40.com/morning/lifestyle/family-focus-valentines-day-activities-for-families/" target="_blank" class="media-logo-item">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/fox40-clean.png" alt="Fox40 Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/fox40-new-hq.png" alt="Fox40 Logo" class="media-logo-img">
                             </div>
                         </a>
                         
                         <div class="media-logo-item media-logo-inactive">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/good-day-sacramento-new.png" alt="Good Day Sacramento Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/good-day-sacramento-new-hq.png" alt="Good Day Sacramento Logo" class="media-logo-img">
                             </div>
                         </div>
                         
                         <div class="media-logo-item media-logo-inactive">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/kcra3.png" alt="KCRA3 Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/kcra3-new-hq.png" alt="KCRA3 Logo" class="media-logo-img">
                             </div>
                         </div>
                         
                         <div class="media-logo-item media-logo-inactive">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/abc10.png" alt="ABC10 Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/abc10-new-hq.png" alt="ABC10 Logo" class="media-logo-img">
                             </div>
                         </div>
                     </div>
@@ -1451,25 +867,20 @@
                     <div class="media-logo-grid">
                         <a href="https://insidesacramento.com/third-times-a-charm/" target="_blank" class="media-logo-item">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/inside-sacramento.png" alt="Inside Sacramento Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/inside-sacramento-new-hq.png" alt="Inside Sacramento Logo" class="media-logo-img">
                             </div>
                         </a>
                         
+                        
                         <div class="media-logo-item media-logo-inactive">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/sierra-oaks-living-new.png" alt="Sierra Oaks Living Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/real-simple-new-hq.png" alt="Real Simple Magazine Logo" class="media-logo-img">
                             </div>
                         </div>
                         
                         <div class="media-logo-item media-logo-inactive">
                             <div class="media-logo-container">
-                                <img src="assets/images/media-logos/real-simple.png" alt="Real Simple Magazine Logo" class="media-logo-img">
-                            </div>
-                        </div>
-                        
-                        <div class="media-logo-item media-logo-inactive">
-                            <div class="media-logo-container">
-                                <img src="assets/images/media-logos/chicken-soup-for-the-soul.png" alt="Chicken Soup for the Soul Logo" class="media-logo-img">
+                                <img src="assets/images/media-logos/chicken-soup-new-hq.png" alt="Chicken Soup for the Soul Logo" class="media-logo-img">
                             </div>
                         </div>
                     </div>
@@ -1478,57 +889,45 @@
                 <!-- Podcast Appearances -->
                 <div class="media-category">
                     <h3 class="media-category-title">PODCASTS</h3>
-                    <div class="media-visual-grid">
-                        <a href="https://youremptynestcoach.com/category/podcast-with-guest/kellie-randle/" target="_blank" class="media-visual-item">
-                            <div class="media-visual-image">
-                                <img src="assets/images/media/Your Empty Nest Coach.png" alt="Your Empty Nest Coach Podcast" class="media-img">
-                            </div>
-                            <div class="media-visual-overlay">
-                                <div class="media-overlay-content">
-                                    <h4 class="media-overlay-title">Your Empty Nest Coach</h4>
-                                    <span class="media-overlay-action">Listen Now →</span>
-                                </div>
+                    <div class="media-logo-grid">
+                        <a href="https://youremptynestcoach.com/category/podcast-with-guest/kellie-randle/" target="_blank" class="media-logo-item">
+                            <div class="media-logo-container">
+                                <img src="assets/images/media/Your Empty Nest Coach.png" alt="Your Empty Nest Coach Podcast" class="media-logo-img">
                             </div>
                         </a>
                         
-                        <a href="https://music.amazon.com/podcasts/53c827c9-126f-4570-bd12-c789616b15f0/episodes/291df300-15b0-4a28-a5b4-f0e1698b6ee1/experience-the-buzz-no-15----kellie-randle-emptynestmomlife?referrer=https%3A%2F%2Fwww.bing.com%2F" target="_blank" class="media-visual-item">
-                            <div class="media-visual-image">
-                                <img src="assets/images/media/Experience the Buzz.png" alt="Experience the Buzz Podcast" class="media-img">
-                            </div>
-                            <div class="media-visual-overlay">
-                                <div class="media-overlay-content">
-                                    <h4 class="media-overlay-title">Experience the Buzz</h4>
-                                    <span class="media-overlay-action">Listen Now →</span>
-                                </div>
+                        <a href="https://music.amazon.com/podcasts/53c827c9-126f-4570-bd12-c789616b15f0/episodes/291df300-15b0-4a28-a5b4-f0e1698b6ee1/experience-the-buzz-no-15----kellie-randle-emptynestmomlife?referrer=https%3A%2F%2Fwww.bing.com%2F" target="_blank" class="media-logo-item">
+                            <div class="media-logo-container">
+                                <img src="assets/images/media/Experience the Buzz.png" alt="Experience the Buzz Podcast" class="media-logo-img">
                             </div>
                         </a>
                         
-                        <a href="https://www.kcra.com/article/podcast-college-students-returning-home-coronavirus-outbreak/31876122" target="_blank" class="media-visual-item">
-                            <div class="media-visual-image">
-                                <img src="assets/images/media/Dying to Ask.png" alt="Dying to Ask Podcast" class="media-img">
-                            </div>
-                            <div class="media-visual-overlay">
-                                <div class="media-overlay-content">
-                                    <h4 class="media-overlay-title">Dying to Ask</h4>
-                                    <span class="media-overlay-action">Listen Now →</span>
-                                </div>
+                        <a href="https://www.kcra.com/article/podcast-college-students-returning-home-coronavirus-outbreak/31876122" target="_blank" class="media-logo-item">
+                            <div class="media-logo-container">
+                                <img src="assets/images/media/Dying to Ask.png" alt="Dying to Ask Podcast" class="media-logo-img">
                             </div>
                         </a>
+
                     </div>
                 </div>
             </div>
             
-            <!-- See More Nest in the News Button -->
-            <div class="section-button-wrapper">
-                <a href="media.html" class="section-button">
-                    <span>See More Nest in the News</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
+                    </div>
+                    
+                    <!-- See More Nest in the News Button -->
+                    <div class="section-button-wrapper">
+                        <a href="media.html" class="section-button" style="border-radius: 0 !important;">
+                            <span>See More Nest in the News</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
 
     <!-- Let's Connect Section -->
     <section id="lets-connect" class="contact-section">
@@ -1544,7 +943,7 @@
                 <!-- Right Column: Contact Form -->
                 <div class="contact-content">
                     <header class="contact-header">
-                        <div class="contact-eyebrow">CONTACT KELLIE RANDLE</div>
+                        <div class="contact-eyebrow">CONTACT</div>
                         <h2 class="contact-title">LET'S CONNECT</h2>
                         <p class="contact-subtitle">Please fill out the form below and I will be in touch.</p>
                     </header>
@@ -1592,6 +991,71 @@
     </footer>
 
     <!-- Professional Scripts -->
-    <script src="assets/js/script.js?v=20240918a"></script>
+    <script src="assets/js/script.js?v=20240928-discount-filtering"></script>
+    
+    <!-- PERFECT DISCOUNT CODE FILTERING JAVASCRIPT FROM ISOLATED VERSION -->
+    <script>
+        // EXACT SAME LOGIC AS THE WORKING TEST
+        function filterCards(category, event) {
+            console.log('🔍 Filtering for category:', category);
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            
+            // Get all cards
+            const allCards = document.querySelectorAll('.code-card');
+            let visibleCount = 0;
+            
+            allCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const isFeatured = card.classList.contains('featured-card');
+                
+                let shouldShow = false;
+                
+                if (category === 'featured') {
+                    shouldShow = isFeatured;
+                } else if (category === 'all') {
+                    shouldShow = true;
+                } else {
+                    shouldShow = cardCategory === category;
+                }
+                
+                if (shouldShow) {
+                    card.classList.remove('filter-hide');
+                    card.classList.add('filter-show');
+                    visibleCount++;
+                } else {
+                    card.classList.remove('filter-show');
+                    card.classList.add('filter-hide');
+                }
+            });
+            
+            console.log(`✅ Filter complete - ${visibleCount}/${allCards.length} cards visible`);
+        }
+        
+        // Copy code function
+        window.copyCode = function(code) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(code).then(() => {
+                    alert(`✅ Copied: ${code}`);
+                }).catch(() => {
+                    prompt('Copy this code:', code);
+                });
+            } else {
+                prompt('Copy this code:', code);
+            }
+        };
+        
+        // Initialize - show featured cards by default
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 PERFECT DISCOUNT CODES loaded');
+            filterCards('featured');
+        });
+    </script>
 </body>
 </html>
