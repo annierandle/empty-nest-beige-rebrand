@@ -193,9 +193,23 @@
            GLOBAL TYPOGRAPHY TOKENS & RESET
            ======================================== */
         
-        /* Display Serif Font Token */
+        /* Global Header System Variables */
         :root {
-            --DISPLAY_SERIF: "Canela", "Noe Display Bold", "Playfair Display Black", serif;
+            /* Primary Global Tokens */
+            --display-font: "Canela Display", "Canela Deck", "Playfair Display", "Cormorant Garamond", serif;
+            --body-font: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --display-color: #2F3135;
+            --muted: #8A8E93;
+            --rule: rgba(47,49,53,0.12);
+            --section-gap-top: clamp(56px, 8vw, 120px);
+            --section-gap-bottom: clamp(56px, 8vw, 112px);
+            --header-content-gap: clamp(24px, 4.8vw, 56px);
+            --hero-column-gap: clamp(24px, 5vw, 48px);
+            --card-radius: 12px;
+            --pill-radius: 9999px;
+            
+            /* Legacy Compatibility */
+            --DISPLAY_SERIF: var(--display-font);
             --neutral-70: #4A4A4A;
             --neutral-60: #8B7355;
             --neutral-50: #666666;
@@ -204,133 +218,95 @@
         }
         
         /* ========================================
-           GLOBAL HEADER SYSTEM - UNIFIED TYPOGRAPHY
+           GLOBAL HEADER SYSTEM - COMPLETE STANDARDIZATION
            ======================================== */
-           
-        /* Section Headlines (H1 / Main Titles) */
-        .section-header h1,
-        .section-header h2,
-        .section-title,
-        .hero-headline,
-        .about-title,
-        .nest-approved-title,
-        .picks-title,
-        .recipes-title,
-        .celebrations-title,
-        .events-title,
-        .book-club-title,
-        .media-title,
-        .contact-title,
-        .partnerships-title,
-        .refined-title {
-            font-family: "Canela Display", "Canela Deck", "Playfair Display", "Cormorant Garamond", serif !important;
+        
+        /* Force Reset All Section Headings */
+        h1.section-title, .section-title,
+        .hero-headline, .about-title, .nest-approved-title, .picks-title,
+        .recipes-title, .celebrations-title, .events-title, .book-club-title,
+        .media-title, .contact-title, .partnerships-title, .refined-title {
+            all: unset !important;
+            display: block !important;
+            font-family: var(--display-font) !important;
             font-weight: 700 !important;
             text-transform: uppercase !important;
             letter-spacing: 0.02em !important;
             line-height: 1.04 !important;
-            color: #2F3135 !important;
-            text-align: left !important;
-            margin: 0 0 12px 0 !important;
-            /* Desktop sizing */
-            font-size: clamp(44px, 6vw, 84px) !important;
-        }
-        
-        /* Mobile headline sizing override */
-        @media (max-width: 768px) {
-            .section-header h1,
-            .section-header h2,
-            .section-title,
-            .hero-headline,
-            .about-title,
-            .nest-approved-title,
-            .picks-title,
-            .recipes-title,
-            .celebrations-title,
-            .events-title,
-            .book-club-title,
-            .media-title,
-            .contact-title,
-            .partnerships-title,
-            .refined-title {
-                font-size: clamp(32px, 8vw, 44px) !important;
-            }
-        }
-        
-        /* Eyebrow Labels (Small line above title) */
-        .section-header .eyebrow,
-        .section-eyebrow,
-        .about-eyebrow,
-        .nest-approved-eyebrow,
-        .picks-eyebrow,
-        .recipes-eyebrow,
-        .celebrations-eyebrow,
-        .events-eyebrow,
-        .book-club-eyebrow,
-        .media-eyebrow,
-        .contact-eyebrow,
-        .partnerships-eyebrow,
-        .refined-eyebrow {
-            font-family: Inter, system-ui, sans-serif !important;
-            font-size: 12px !important;
-            font-weight: 400 !important;
-            letter-spacing: 0.18em !important;
-            text-transform: uppercase !important;
-            color: #9FA4A8 !important;
-            text-align: left !important;
+            color: var(--display-color) !important;
+            font-size: clamp(42px, 7vw, 84px) !important;
             margin: 0 0 8px 0 !important;
         }
         
-        /* Taglines (Small line under title) */
-        .section-header .tagline,
-        .section-tagline,
-        .about-tagline,
-        .nest-approved-tagline,
-        .picks-tagline,
-        .recipes-tagline,
-        .celebrations-tagline,
-        .events-tagline,
-        .book-club-tagline,
-        .media-tagline,
-        .contact-tagline,
-        .partnerships-tagline,
-        .refined-tagline {
-            font-family: Inter, system-ui, sans-serif !important;
-            font-size: 12px !important;
-            font-weight: 400 !important;
-            letter-spacing: 0.10em !important;
-            text-transform: uppercase !important;
-            color: #8C8F93 !important;
-            text-align: left !important;
-            margin: 0 0 12px 0 !important;
+        /* Standard Section Header Structure */
+        .section-header {
+            margin-top: var(--section-gap-top) !important;
+            margin-bottom: 0 !important;
         }
         
-        /* Section Rules (Dividers under tagline) */
-        .section-header .divider,
-        .section-rule,
-        .tagline-divider {
-            width: 64px !important;
+        /* Eyebrow Styling */
+        .eyebrow, .section-eyebrow {
+            font: 600 12px/1 var(--body-font) !important;
+            letter-spacing: 0.14em !important;
+            text-transform: uppercase !important;
+            color: var(--muted) !important;
+            margin: 0 0 10px 0 !important;
+        }
+        
+        /* Tagline Styling */
+        .section-tagline, .tagline {
+            font: 500 12.5px/1.4 var(--body-font) !important;
+            letter-spacing: 0.22em !important;
+            color: var(--muted) !important;
+            margin: 0 !important;
+        }
+        
+        /* Section Rule/Accent */
+        .section-accent, .section-rule {
+            width: 56px !important;
             height: 2px !important;
-            background: #E9DDD5 !important;
-            border-radius: 2px !important;
-            margin: 0 0 48px 0 !important;
+            background: var(--rule) !important;
+            border-radius: 1px !important;
+            margin: 12px 0 0 0 !important;
             border: none !important;
         }
         
-        /* Responsive rule bottom margins */
-        @media (max-width: 1024px) {
-            .section-header .divider,
-            .section-rule,
-            .tagline-divider {
-                margin-bottom: 40px !important;
-            }
+        /* Content Gap After Rule */
+        .section-content, .section-grid, .content-grid {
+            margin-top: var(--header-content-gap) !important;
         }
         
-        @media (max-width: 768px) {
-            .section-header .divider,
-            .section-rule,
-            .tagline-divider {
-                margin-bottom: 28px !important;
-            }
+        /* Unified Eyebrow Styling */
+        .eyebrow, .section-eyebrow, .about-eyebrow, .nest-approved-eyebrow,
+        .picks-eyebrow, .recipes-eyebrow, .celebrations-eyebrow, .events-eyebrow,
+        .book-club-eyebrow, .media-eyebrow, .contact-eyebrow, .partnerships-eyebrow,
+        .refined-eyebrow {
+            font: 600 12px/1 var(--body-font) !important;
+            letter-spacing: 0.14em !important;
+            text-transform: uppercase !important;
+            color: var(--muted) !important;
+            margin: 0 0 10px 0 !important;
+        }
+        
+        /* Unified Tagline Styling */
+        .tagline, .section-tagline, .about-tagline, .nest-approved-tagline,
+        .picks-tagline, .recipes-tagline, .celebrations-tagline, .events-tagline,
+        .book-club-tagline, .media-tagline, .contact-tagline, .partnerships-tagline,
+        .refined-tagline {
+            font: 500 12.5px/1.4 var(--body-font) !important;
+            letter-spacing: 0.22em !important;
+            color: var(--muted) !important;
+            margin: 0 !important;
+        }
+        
+        /* Unified Rule/Divider Styling */
+        .section-rule, .section-accent, .section-divider, .tagline-divider {
+            width: 56px !important;
+            height: 2px !important;
+            background: var(--rule) !important;
+            border-radius: 1px !important;
+            margin: 12px 0 0 0 !important;
+            border: none !important;
         }
         
         /* Section Header Container Spacing */
@@ -1941,15 +1917,15 @@
     <!-- Nest Approved Section -->
     <section id="nest-approved" class="nest-approved-section">
         <div class="nest-approved-wrapper">
-            <!-- Global Header System Implementation -->
-            <div class="global-section-header">
+            <!-- Global Header System Applied -->
+            <div class="section-header">
                 <div class="eyebrow">CURATED FOR YOU</div>
-                <h2 class="title">NEST APPROVED</h2>
-                <div class="tagline">TRUSTED BRANDS I GENUINELY LOVE AND EXCLUSIVE OFFERS FOR MY COMMUNITY</div>
-                <div class="rule"></div>
+                <h1 class="section-title">NEST APPROVED</h1>
+                <div class="section-tagline">TRUSTED BRANDS I GENUINELY LOVE AND EXCLUSIVE OFFERS FOR MY COMMUNITY</div>
+                <div class="section-accent"></div>
             </div>
             
-            <div class="nest-approved-content">
+            <div class="section-content nest-approved-content">
 
             <!-- SECTION 1: My Curated Collections - Final Polish -->
             <div class="curated-collections">
@@ -2720,16 +2696,16 @@
     <section id="inside-the-nest" class="refined-section" style="background: linear-gradient(135deg, #FDFCFB 0%, #F9F6F4 50%, #F7F2ED 100%); padding: 4rem 2rem;">
         <div class="refined-wrapper" style="max-width: 1200px; margin: 0 auto;">
             <div class="refined-layout">
-                <!-- Header Typography with Divider - LEFT ALIGNED -->
-                <div class="refined-typography" style="text-align: left; margin-bottom: 4rem;">
-                    <div class="refined-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #8B7355; margin-bottom: 8px;">EXPLORE</div>
-                    <h2 class="refined-title" style="font-family: 'Playfair Display', serif; font-size: clamp(48px, 6.2vw, 96px); font-weight: 700; letter-spacing: -0.2px; text-transform: uppercase; color: #2D3748; line-height: 1.05; margin: 0 0 12px 0;">INSIDE THE NEST</h2>
-                    <div class="refined-tagline" style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 400; color: #666666; line-height: 1.4; margin-bottom: 12px; letter-spacing: 0.05em; text-transform: uppercase;">SOCIAL MOMENTS: FROM TRIPS TO TIPS AND EVERYTHING IN BETWEEN</div>
-                    <div class="tagline-divider" style="width: 60px; height: 1px; background: #8B7355; margin: 0; margin-bottom: 48px;"></div>
+                <!-- Global Header System Applied -->
+                <div class="section-header">
+                    <div class="eyebrow">EXPLORE</div>
+                    <h1 class="section-title">INSIDE THE NEST</h1>
+                    <div class="section-tagline">SOCIAL MOMENTS: FROM TRIPS TO TIPS AND EVERYTHING IN BETWEEN</div>
+                    <div class="section-accent"></div>
                 </div>
                 
                 <!-- Enhanced Category Grid -->
-                <div class="refined-content">
+                <div class="section-content">
                     <div class="category-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 2.5vw, 28px); margin-bottom: 48px;">
                         
                         <style>
@@ -3106,16 +3082,16 @@
     <!-- Empty Nest Picks Section - Enhanced Design -->
     <section id="empty-nest-picks" class="picks-section" style="padding: 4rem 2rem;">
         <div class="picks-wrapper" style="max-width: 1200px; margin: 0 auto;">
-            <!-- Header Typography with Divider - LEFT ALIGNED -->
-            <div class="picks-header" style="text-align: left; margin-bottom: 4rem;">
-                <div class="picks-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #8B7355; margin-bottom: 8px;">SHOP</div>
-                <h2 class="picks-title" style="font-family: 'Playfair Display', serif; font-size: clamp(48px, 6.2vw, 96px); font-weight: 700; letter-spacing: -0.2px; text-transform: uppercase; color: #2D3748; line-height: 1.05; margin: 0 0 12px 0;">EMPTY NEST PICKS</h2>
-                <div class="picks-tagline" style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 400; color: #666666; line-height: 1.4; margin-bottom: 12px; letter-spacing: 0.05em; text-transform: uppercase;">CURATED FINDS I ACTUALLY USE AT HOME, ON THE GO, AND IN BETWEEN.</div>
-                <div class="tagline-divider" style="width: 60px; height: 1px; background: #8B7355; margin: 0; margin-bottom: 48px;"></div>
+            <!-- Global Header System Applied -->
+            <div class="section-header">
+                <div class="eyebrow">SHOP</div>
+                <h1 class="section-title">EMPTY NEST PICKS</h1>
+                <div class="section-tagline">CURATED FINDS I ACTUALLY USE AT HOME, ON THE GO, AND IN BETWEEN</div>
+                <div class="section-accent"></div>
             </div>
             
             <!-- Product Carousel Container -->
-            <div class="picks-carousel-container" style="position: relative; margin-bottom: 48px;">
+            <div class="section-content picks-carousel-container" style="position: relative; margin-bottom: 48px;">
                 <!-- Carousel Navigation -->
                 <button class="carousel-nav prev-btn" 
                         style="position: absolute; 
@@ -3654,16 +3630,16 @@
         <!-- Soft celebration pattern overlay -->
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 20% 30%, rgba(212, 164, 164, 0.03) 1px, transparent 1px), radial-gradient(circle at 80% 70%, rgba(212, 164, 164, 0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0;"></div>
         <div class="events-wrapper" style="position: relative; z-index: 1;">
-            <!-- Header Typography with Divider (LEFT-ALIGNED) -->
-            <div class="celebrations-header" style="text-align: left; margin-bottom: 48px;">
-                <div class="celebrations-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #8B7355; margin-bottom: 8px;">EVENTS</div>
-                <h2 class="celebrations-title" style="font-family: 'Playfair Display', serif; font-size: clamp(48px, 6.2vw, 96px); font-weight: 700; letter-spacing: -0.2px; text-transform: uppercase; color: #2D3748; line-height: 1.05; margin: 0 0 12px 0;">NEST CELEBRATIONS</h2>
-                <div class="celebrations-tagline" style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 400; color: #666666; line-height: 1.4; margin-bottom: 12px; letter-spacing: 0.05em; text-transform: uppercase;">CREATING MEMORABLE EXPERIENCES & CELEBRATIONS</div>
-                <div class="tagline-divider" style="width: 60px; height: 1px; background: #8B7355; margin: 0; margin-bottom: 48px;"></div>
+            <!-- Global Header System Applied -->
+            <div class="section-header">
+                <div class="eyebrow">EVENTS</div>
+                <h1 class="section-title">NEST CELEBRATIONS</h1>
+                <div class="section-tagline">CREATING MEMORABLE EXPERIENCES & CELEBRATIONS</div>
+                <div class="section-accent"></div>
             </div>
             
             <!-- Event Cards Grid - 3×2 Layout -->
-            <div class="celebrations-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: clamp(20px, 2.5vw, 28px); margin-bottom: 48px;">
+            <div class="section-content celebrations-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: clamp(20px, 2.5vw, 28px); margin-bottom: 48px;">
                 <!-- Card 1: Christmas Parties -->
                 <a href="christmas-parties.html" class="celebration-card" 
                    style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
@@ -4058,16 +4034,16 @@
     <!-- Empty Nest Eats Section - Final Polish -->
     <section id="empty-nest-eats" class="recipes-section" style="background: linear-gradient(135deg, #FDFCFB 0%, #F9F6F4 50%, #F7F2ED 100%); padding: 4rem 2rem;">
         <div class="recipes-wrapper" style="max-width: 1200px; margin: 0 auto;">
-            <!-- Header Typography with Divider (LEFT-ALIGNED) -->
-            <div class="recipes-header" style="text-align: left; margin-bottom: 48px;">
-                <div class="recipes-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #8B7355; margin-bottom: 8px;">RECIPES</div>
-                <h2 class="recipes-title" style="font-family: 'Playfair Display', serif; font-size: clamp(48px, 6.2vw, 96px); font-weight: 700; letter-spacing: -0.2px; text-transform: uppercase; color: #2D3748; line-height: 1.05; margin: 0 0 12px 0;">EMPTY NEST EATS</h2>
-                <div class="recipes-tagline" style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 400; color: #666666; line-height: 1.4; margin-bottom: 12px; letter-spacing: 0.25em; text-transform: uppercase;">HEALTHY & QUICK EMPTY NEST RECIPES</div>
-                <div class="tagline-divider" style="width: 60px; height: 1px; background: #8B7355; margin: 0; margin-bottom: 48px;"></div>
+            <!-- Global Header System Applied -->
+            <div class="section-header">
+                <div class="eyebrow">RECIPES</div>
+                <h1 class="section-title">EMPTY NEST EATS</h1>
+                <div class="section-tagline">HEALTHY & QUICK EMPTY NEST RECIPES</div>
+                <div class="section-accent"></div>
             </div>
             
             <!-- Recipe Cards Grid - 3×2 Layout with Final Polish -->
-            <div class="recipes-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 20px; margin-bottom: 48px;">
+            <div class="section-content recipes-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 20px; margin-bottom: 48px;">
                 
                 <!-- Recipe 1 - Fry Sauce -->
                 <a href="fry-sauce-recipe.html" class="recipe-card" 
@@ -4328,17 +4304,16 @@
     <!-- The Nest Book Nook Section -->
     <section id="nest-book-nook" class="book-club-section" style="background: linear-gradient(135deg, #FAF7F4 0%, #F7F2ED 100%); padding: 4rem 2rem;">
         <div class="book-club-wrapper" style="max-width: 1200px; margin: 0 auto;">
-            <div class="book-club-layout">
-                <!-- Left: Large Typography -->
-                <div class="book-club-typography">
-                    <div class="book-club-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #8B7355; margin-bottom: 8px;">BOOKS</div>
-                    <h2 class="book-club-title" style="font-family: 'Playfair Display', serif; font-size: clamp(48px, 6.2vw, 96px); font-weight: 700; letter-spacing: -0.2px; text-transform: uppercase; color: #2D3748; line-height: 1.05; margin: 0 0 12px 0;">THE NEST BOOK NOOK</h2>
-                    <div class="book-club-tagline" style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 400; color: #666666; line-height: 1.4; margin-bottom: 12px; letter-spacing: 0.05em; text-transform: uppercase;">Current favorites and must-read recommendations</div>
-                    <div class="tagline-divider" style="width: 60px; height: 1px; background: #8B7355; margin-bottom: 48px;"></div>
-                </div>
-                
-                <!-- Right: Content -->
-                <div class="book-club-content">
+            <!-- Global Header System Applied -->
+            <div class="section-header">
+                <div class="eyebrow">BOOKS</div>
+                <h1 class="section-title">THE NEST BOOK NOOK</h1>
+                <div class="section-tagline">CURRENT FAVORITES AND MUST-READ RECOMMENDATIONS</div>
+                <div class="section-accent"></div>
+            </div>
+            
+            <!-- Content -->
+            <div class="section-content book-club-content">
             
             <!-- Enhanced Book Carousel with Background -->
             <div class="book-carousel-wrapper" style="background: rgba(255, 255, 255, 0.7); border-radius: 12px; padding: 2rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); margin-bottom: 2rem; position: relative;">
@@ -4497,20 +4472,22 @@
         </div>
     </section>
 
+    <!-- Section Divider -->
+    <div class="section-divider" style="width: 100%; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0 20%, #E2E8F0 80%, transparent); margin: 4rem 0;"></div>
+    
     <!-- Nest in the News Section - Enhanced Card Design -->
     <section id="nest-in-the-news" class="media-section" style="background: #FFFFFF; padding: 4rem 2rem;">
         <div class="media-wrapper" style="max-width: 1200px; margin: 0 auto;">
-            <div class="media-layout">
-                <!-- Left: Large Typography -->
-                <div class="media-typography">
-                    <div class="media-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #8B7355; margin-bottom: 8px;">MEDIA</div>
-                    <h2 class="media-title" style="font-family: 'Playfair Display', serif; font-size: clamp(48px, 6.2vw, 96px); font-weight: 700; letter-spacing: -0.2px; text-transform: uppercase; color: #2D3748; line-height: 1.05; margin: 0 0 12px 0;">NEST IN THE NEWS</h2>
-                    <div class="media-tagline" style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 400; color: #666666; line-height: 1.4; margin-bottom: 12px; letter-spacing: 0.05em; text-transform: uppercase;">Press Coverage & Media Appearances</div>
-                    <div class="tagline-divider" style="width: 60px; height: 1px; background: #8B7355; margin-bottom: 48px;"></div>
-                </div>
-                
-                <!-- Right: Media Content -->
-                <div class="media-content">
+            <!-- Global Header System Applied -->
+            <div class="section-header">
+                <div class="eyebrow">MEDIA</div>
+                <h1 class="section-title">NEST IN THE NEWS</h1>
+                <div class="section-tagline">PRESS COVERAGE & MEDIA APPEARANCES</div>
+                <div class="section-accent"></div>
+            </div>
+            
+            <!-- Media Content -->
+            <div class="section-content media-content">
                     <div class="media-grid">
                 <!-- Live TV Appearances Row -->
                 <div class="media-category" style="background: rgba(250, 247, 244, 0.6); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
@@ -4693,11 +4670,21 @@
         </div>
     </section>
 
-
+    <!-- Section Divider -->
+    <div class="section-divider" style="width: 100%; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0 20%, #E2E8F0 80%, transparent); margin: 4rem 0;"></div>
+    
     <!-- Let's Connect Section -->
     <section id="lets-connect" class="contact-section">
-        <div class="contact-wrapper">
-            <div class="contact-layout">
+        <div class="contact-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;">
+            <!-- Global Header System Applied -->
+            <div class="section-header">
+                <div class="eyebrow">CONTACT</div>
+                <h1 class="section-title">LET'S CONNECT</h1>
+                <div class="section-tagline">PLEASE FILL OUT THE FORM BELOW AND I WILL BE IN TOUCH</div>
+                <div class="section-accent"></div>
+            </div>
+            
+            <div class="section-content contact-layout">
                 <!-- Left Column: Image -->
                 <div class="contact-visual">
                     <div class="contact-image">
@@ -4707,11 +4694,6 @@
                 
                 <!-- Right Column: Contact Form -->
                 <div class="contact-content">
-                    <header class="contact-header">
-                        <div class="contact-eyebrow">CONTACT</div>
-                        <h2 class="contact-title">LET'S CONNECT</h2>
-                        <p class="contact-subtitle">Please fill out the form below and I will be in touch.</p>
-                    </header>
                     
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
