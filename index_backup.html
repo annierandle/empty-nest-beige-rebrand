@@ -174,108 +174,6 @@
         }
     </style>
     
-    <!-- GLOBAL TYPOGRAPHY RESET -->
-    <style>
-        /* ========================================
-           GLOBAL TYPOGRAPHY TOKENS & RESET
-           ======================================== */
-        
-        /* Display Serif Font Token */
-        :root {
-            --DISPLAY_SERIF: "Canela", "Noe Display Bold", "Playfair Display Black", serif;
-            --neutral-70: #4A4A4A;
-            --neutral-60: #8B7355;
-            --neutral-50: #666666;
-            --neutral-20: #E2E8F0;
-            --neutral-15: #F1F5F9;
-        }
-        
-        /* Global Section Headers Reset */
-        .section-header h1,
-        .section-header h2,
-        .hero-headline,
-        .about-title,
-        .nest-approved-title,
-        .picks-title,
-        .recipes-title,
-        .celebrations-title,
-        .events-title,
-        .book-club-title,
-        .media-title,
-        .contact-title,
-        .partnerships-title,
-        .refined-title {
-            font-family: var(--DISPLAY_SERIF) !important;
-            font-weight: bold !important;
-            font-size: clamp(48px, 6.2vw, 96px) !important;
-            line-height: 1.05 !important;
-            letter-spacing: -0.2px !important;
-            text-align: left !important;
-            margin: 0 0 12px 0 !important;
-        }
-        
-        /* Global Kickers (Small Caps Labels) */
-        .section-header .eyebrow,
-        .about-eyebrow,
-        .nest-approved-eyebrow,
-        .picks-eyebrow,
-        .recipes-eyebrow,
-        .celebrations-eyebrow,
-        .events-eyebrow,
-        .book-club-eyebrow,
-        .media-eyebrow,
-        .contact-eyebrow,
-        .partnerships-eyebrow,
-        .refined-eyebrow {
-            font-family: 'Inter', sans-serif !important;
-            font-size: 0.75rem !important;
-            font-weight: 500 !important;
-            letter-spacing: 0.375em !important;
-            text-transform: uppercase !important;
-            color: var(--neutral-60) !important;
-            text-align: left !important;
-            margin: 0 0 8px 0 !important;
-        }
-        
-        /* Global Taglines */
-        .section-header .tagline,
-        .about-tagline,
-        .nest-approved-tagline,
-        .picks-tagline,
-        .recipes-tagline,
-        .celebrations-tagline,
-        .events-tagline,
-        .book-club-tagline,
-        .media-tagline,
-        .contact-tagline,
-        .partnerships-tagline,
-        .refined-tagline {
-            font-family: 'Inter', sans-serif !important;
-            font-size: 15px !important;
-            font-weight: 400 !important;
-            letter-spacing: 0.25em !important;
-            color: var(--neutral-50) !important;
-            text-align: left !important;
-            margin: 0 0 12px 0 !important;
-            text-transform: uppercase !important;
-        }
-        
-        /* Global Thin Dividers */
-        .section-header .divider,
-        .tagline-divider {
-            width: 64px !important;
-            height: 1px !important;
-            background: var(--neutral-20) !important;
-            margin: 0 0 48px 0 !important;
-        }
-        
-        /* Section Header Container Spacing */
-        .section-header {
-            text-align: left !important;
-            margin-bottom: 48px !important;
-        }
-    </style>
-    
     <!-- Professional CSS -->
 <link rel="stylesheet" href="assets/css/style.css?v=20251004-comprehensive-update&nocache=20251004203210&force=true&bust=nest-celebrations-signature">
     
@@ -1204,7 +1102,7 @@
             flex: 0 0 280px;
             scroll-snap-align: start;
             background: white;
-            border-radius: 14px;
+            border-radius: 16px;
             overflow: hidden;
             position: relative;
             cursor: pointer;
@@ -1420,237 +1318,45 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navigation" style="position: sticky; top: 0; z-index: 1000; background: #FAF5F1; border-bottom: 1px solid #F1F5F9; transition: box-shadow 0.3s ease;">
-        <div class="nav-wrapper" style="max-width: clamp(1200px, 88vw, 1360px); margin: 0 auto; padding: 0 clamp(12px, 4vw, 24px); height: clamp(56px, 8vw, 64px); display: flex; align-items: center; justify-content: space-between;">
+    <nav class="navigation">
+        <div class="nav-wrapper">
+            <!-- Logo - MUST remain visible -->
+            <div class="nav-logo">
+                <div style="width: 120px; height: 40px; background: #D9B6B6; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 4px;">Empty Nest</div>
+            </div>
             
-            <!-- Logo -->
-            <a href="#home" class="nav-logo" style="display: flex; align-items: center; text-decoration: none;" aria-label="Empty Nest - Home">
-                <div style="height: clamp(28px, 4vw, 32px); background: #D9B6B6; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; border-radius: 4px; padding: 0 16px; font-size: clamp(0.8rem, 2vw, 1rem);">Empty Nest</div>
-            </a>
-            
-            <!-- Right Section: Social Icons + Hamburger -->
-            <div class="nav-right" style="display: flex; align-items: center; gap: 16px;">
-                
-                <!-- Social Icons (Desktop Only) -->
-                <div class="social-icons" style="display: flex; align-items: center; gap: 16px;">
-                    <a href="#" class="social-icon" aria-label="Instagram" 
-                       style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: var(--neutral-70); text-decoration: none; transition: color 0.2s ease;"
-                       onmouseover="this.style.color='#1A1A1A'" onmouseout="this.style.color='var(--neutral-70)'">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="Facebook" 
-                       style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: var(--neutral-70); text-decoration: none; transition: color 0.2s ease;"
-                       onmouseover="this.style.color='#1A1A1A'" onmouseout="this.style.color='var(--neutral-70)'">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="TikTok" 
-                       style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: var(--neutral-70); text-decoration: none; transition: color 0.2s ease;"
-                       onmouseover="this.style.color='#1A1A1A'" onmouseout="this.style.color='var(--neutral-70)'">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19.321 5.562a5.122 5.122 0 01-.443-.258 6.228 6.228 0 01-1.137-.966c-.849-.966-1.248-2.085-1.248-3.193V.5H13.54v14.97c0 1.337-.849 2.572-2.182 2.572-1.248 0-2.267-1.004-2.267-2.233 0-1.229 1.019-2.233 2.267-2.233.258 0 .497.043.718.128V10.64c-.221-.043-.46-.064-.718-.064C8.474 10.576 6 13.06 6 16.189s2.474 5.613 5.358 5.613c2.949 0 5.358-2.485 5.358-5.613V8.757c1.163.803 2.574 1.272 4.122 1.272v-3.055c-.627 0-1.213-.171-1.717-.472-.849-.515-1.503-1.272-1.8-2.14z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-icon" aria-label="Amazon" 
-                       style="width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; color: var(--neutral-70); text-decoration: none; transition: color 0.2s ease;"
-                       onmouseover="this.style.color='#1A1A1A'" onmouseout="this.style.color='var(--neutral-70)'">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.093.52-.368.368-.726.653-1.076.855-1.875.91-3.846 1.365-5.916 1.365-2.947 0-5.713-.624-8.295-1.87l-.482-.233c-.266-.13-.532-.317-.798-.56-.062-.06-.098-.115-.108-.168-.01-.052 0-.098.03-.137.03-.04.068-.063.116-.07zm23.696.752c-.124-.013-.23.05-.318.19-.087.14-.13.29-.13.448 0 .202.043.375.13.52.087.144.194.216.318.216.176 0 .314-.096.414-.288.1-.192.15-.384.15-.576 0-.244-.05-.44-.15-.588-.1-.148-.238-.222-.414-.222zm.259 2.274c-2.368-.717-4.668-1.075-6.9-1.075-3.33 0-6.336.717-9.018 2.15-.402.215-.603.215-.603 0 0-.144.134-.287.402-.43C10.25 20.615 13.256 19.9 16.652 19.9c2.233 0 4.533.358 6.9 1.075.335.143.502.286.502.43 0 .215-.201.215-.603 0z"/>
-                        </svg>
-                    </a>
+            <!-- Social Icons & Menu -->
+            <div class="nav-right">
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="social-icon" aria-label="Amazon"><i class="fab fa-amazon"></i></a>
                 </div>
-                
-                <!-- Hamburger Menu -->
-                <button class="menu-button" id="menuButton" aria-label="Menu" 
-                        style="width: 24px; height: 24px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; background: none; border: none; cursor: pointer; padding: 0; margin-left: 8px;"
-                        onfocus="this.style.outline='2px solid #D4A4A4'; this.style.outlineOffset='2px'"
-                        onblur="this.style.outline='none'">
-                    <span class="hamburger-line" style="width: 18px; height: 2px; background: var(--neutral-70); transition: all 0.3s ease; display: block;"></span>
-                    <span class="hamburger-line" style="width: 18px; height: 2px; background: var(--neutral-70); transition: all 0.3s ease; display: block;"></span>
-                    <span class="hamburger-line" style="width: 18px; height: 2px; background: var(--neutral-70); transition: all 0.3s ease; display: block;"></span>
+                <button class="menu-button" id="menuButton" aria-label="Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
                 </button>
             </div>
         </div>
         
-        <!-- Full-Screen Overlay Menu -->
-        <div class="menu-overlay" id="menuOverlay" 
-             style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(250, 245, 241, 0.96); backdrop-filter: blur(8px); z-index: 1001; opacity: 0; visibility: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            
-            <!-- Close Button -->
-            <button class="overlay-close" id="overlayClose" aria-label="Close Menu"
-                    style="position: absolute; top: 24px; right: 24px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; color: var(--neutral-70);">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-            
-            <!-- Navigation Links -->
-            <nav class="overlay-nav" style="text-align: center; margin-bottom: 48px;">
-                <a href="#home" class="overlay-link" style="display: block; font-family: var(--DISPLAY_SERIF); font-size: clamp(24px, 4vw, 36px); font-weight: bold; color: #2D3748; text-decoration: none; margin: 0 0 24px 0; transition: color 0.2s ease;" onmouseover="this.style.color='#8B7355'" onmouseout="this.style.color='#2D3748'">Home</a>
-                <a href="#meet-kellie" class="overlay-link" style="display: block; font-family: var(--DISPLAY_SERIF); font-size: clamp(24px, 4vw, 36px); font-weight: bold; color: #2D3748; text-decoration: none; margin: 0 0 24px 0; transition: color 0.2s ease;" onmouseover="this.style.color='#8B7355'" onmouseout="this.style.color='#2D3748'">My Story</a>
-                <a href="#inside-the-nest" class="overlay-link" style="display: block; font-family: var(--DISPLAY_SERIF); font-size: clamp(24px, 4vw, 36px); font-weight: bold; color: #2D3748; text-decoration: none; margin: 0 0 24px 0; transition: color 0.2s ease;" onmouseover="this.style.color='#8B7355'" onmouseout="this.style.color='#2D3748'">Inside the Nest</a>
-                <a href="#empty-nest-eats" class="overlay-link" style="display: block; font-family: var(--DISPLAY_SERIF); font-size: clamp(24px, 4vw, 36px); font-weight: bold; color: #2D3748; text-decoration: none; margin: 0 0 24px 0; transition: color 0.2s ease;" onmouseover="this.style.color='#8B7355'" onmouseout="this.style.color='#2D3748'">Empty Nest Eats</a>
-                <a href="#nest-celebrations" class="overlay-link" style="display: block; font-family: var(--DISPLAY_SERIF); font-size: clamp(24px, 4vw, 36px); font-weight: bold; color: #2D3748; text-decoration: none; margin: 0 0 24px 0; transition: color 0.2s ease;" onmouseover="this.style.color='#8B7355'" onmouseout="this.style.color='#2D3748'">Nest Celebrations</a>
-                <a href="#empty-nest-picks" class="overlay-link" style="display: block; font-family: var(--DISPLAY_SERIF); font-size: clamp(24px, 4vw, 36px); font-weight: bold; color: #2D3748; text-decoration: none; margin: 0 0 24px 0; transition: color 0.2s ease;" onmouseover="this.style.color='#8B7355'" onmouseout="this.style.color='#2D3748'">Empty Nest Picks</a>
-                <a href="#nest-approved" class="overlay-link" style="display: block; font-family: var(--DISPLAY_SERIF); font-size: clamp(24px, 4vw, 36px); font-weight: bold; color: #2D3748; text-decoration: none; margin: 0 0 24px 0; transition: color 0.2s ease;" onmouseover="this.style.color='#8B7355'" onmouseout="this.style.color='#2D3748'">Nest Approved</a>
-                <a href="#nest-book-nook" class="overlay-link" style="display: block; font-family: var(--DISPLAY_SERIF); font-size: clamp(24px, 4vw, 36px); font-weight: bold; color: #2D3748; text-decoration: none; margin: 0 0 24px 0; transition: color 0.2s ease;" onmouseover="this.style.color='#8B7355'" onmouseout="this.style.color='#2D3748'">The Nest Book Nook</a>
-                <a href="#nest-in-the-news" class="overlay-link" style="display: block; font-family: var(--DISPLAY_SERIF); font-size: clamp(24px, 4vw, 36px); font-weight: bold; color: #2D3748; text-decoration: none; margin: 0 0 24px 0; transition: color 0.2s ease;" onmouseover="this.style.color='#8B7355'" onmouseout="this.style.color='#2D3748'">Nest in the News</a>
-                <a href="#lets-connect" class="overlay-link" style="display: block; font-family: var(--DISPLAY_SERIF); font-size: clamp(24px, 4vw, 36px); font-weight: bold; color: #2D3748; text-decoration: none; margin: 0 0 24px 0; transition: color 0.2s ease;" onmouseover="this.style.color='#8B7355'" onmouseout="this.style.color='#2D3748'">Contact</a>
-            </nav>
-            
-            <!-- Social Icons in Overlay (Mobile) -->
-            <div class="overlay-social" style="display: flex; gap: 24px; justify-content: center;">
-                <a href="#" class="overlay-social-icon" aria-label="Instagram" 
-                   style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: var(--neutral-70); text-decoration: none;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-                <a href="#" class="overlay-social-icon" aria-label="Facebook" 
-                   style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: var(--neutral-70); text-decoration: none;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                    </svg>
-                </a>
-                <a href="#" class="overlay-social-icon" aria-label="TikTok" 
-                   style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: var(--neutral-70); text-decoration: none;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19.321 5.562a5.122 5.122 0 01-.443-.258 6.228 6.228 0 01-1.137-.966c-.849-.966-1.248-2.085-1.248-3.193V.5H13.54v14.97c0 1.337-.849 2.572-2.182 2.572-1.248 0-2.267-1.004-2.267-2.233 0-1.229 1.019-2.233 2.267-2.233.258 0 .497.043.718.128V10.64c-.221-.043-.46-.064-.718-.064C8.474 10.576 6 13.06 6 16.189s2.474 5.613 5.358 5.613c2.949 0 5.358-2.485 5.358-5.613V8.757c1.163.803 2.574 1.272 4.122 1.272v-3.055c-.627 0-1.213-.171-1.717-.472-.849-.515-1.503-1.272-1.8-2.14z"/>
-                    </svg>
-                </a>
-                <a href="#" class="overlay-social-icon" aria-label="Amazon" 
-                   style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: var(--neutral-70); text-decoration: none;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.093.52-.368.368-.726.653-1.076.855-1.875.91-3.846 1.365-5.916 1.365-2.947 0-5.713-.624-8.295-1.87l-.482-.233c-.266-.13-.532-.317-.798-.56-.062-.06-.098-.115-.108-.168-.01-.052 0-.098.03-.137.03-.04.068-.063.116-.07zm23.696.752c-.124-.013-.23.05-.318.19-.087.14-.13.29-.13.448 0 .202.043.375.13.52.087.144.194.216.318.216.176 0 .314-.096.414-.288.1-.192.15-.384.15-.576 0-.244-.05-.44-.15-.588-.1-.148-.238-.222-.414-.222zm.259 2.274c-2.368-.717-4.668-1.075-6.9-1.075-3.33 0-6.336.717-9.018 2.15-.402.215-.603.215-.603 0 0-.144.134-.287.402-.43C10.25 20.615 13.256 19.9 16.652 19.9c2.233 0 4.533.358 6.9 1.075.335.143.502.286.502.43 0 .215-.201.215-.603 0z"/>
-                    </svg>
-                </a>
+        <!-- Dropdown Menu -->
+        <div class="menu-dropdown" id="menuDropdown">
+            <div class="dropdown-content">
+                <a href="#home" class="dropdown-link">Home</a>
+                <a href="#meet-kellie" class="dropdown-link">My Story</a>
+                <a href="#inside-the-nest" class="dropdown-link">Inside the Nest</a>
+                <a href="#empty-nest-eats" class="dropdown-link">Empty Nest Eats</a>
+                <a href="#nest-celebrations" class="dropdown-link">Nest Celebrations</a>
+                <a href="#empty-nest-picks" class="dropdown-link">Empty Nest Picks</a>
+                <a href="#nest-approved" class="dropdown-link">Nest Approved</a>
+                <a href="#nest-book-nook" class="dropdown-link">The Nest Book Nook</a>
+                <a href="#nest-in-the-news" class="dropdown-link">Nest in the News</a>
+                <a href="#lets-connect" class="dropdown-link">Contact</a>
             </div>
         </div>
     </nav>
-    
-    <!-- Navigation CSS & JavaScript -->
-    <style>
-        /* Mobile Responsive Behavior */
-        @media (max-width: 768px) {
-            .social-icons {
-                display: none !important;
-            }
-        }
-        
-        /* Sticky Navigation Shadow on Scroll */
-        .navigation.scrolled {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
-        }
-        
-        /* Menu Overlay Active State */
-        .menu-overlay.active {
-            opacity: 1 !important;
-            visibility: visible !important;
-        }
-        
-        /* Prevent Body Scroll When Menu Open */
-        body.menu-open {
-            overflow: hidden;
-        }
-        
-        /* Hamburger Animation */
-        .menu-button.active .hamburger-line:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .menu-button.active .hamburger-line:nth-child(2) {
-            opacity: 0;
-        }
-        .menu-button.active .hamburger-line:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-    </style>
-    
-    <script>
-        // Navigation Functionality
-        (function() {
-            const menuButton = document.getElementById('menuButton');
-            const menuOverlay = document.getElementById('menuOverlay');
-            const overlayClose = document.getElementById('overlayClose');
-            const navigation = document.querySelector('.navigation');
-            const body = document.body;
-            
-            // Toggle Menu
-            function toggleMenu() {
-                const isOpen = menuOverlay.classList.contains('active');
-                
-                if (isOpen) {
-                    closeMenu();
-                } else {
-                    openMenu();
-                }
-            }
-            
-            function openMenu() {
-                menuOverlay.classList.add('active');
-                menuButton.classList.add('active');
-                body.classList.add('menu-open');
-                
-                // Focus trap
-                const firstFocusable = menuOverlay.querySelector('.overlay-link');
-                if (firstFocusable) firstFocusable.focus();
-            }
-            
-            function closeMenu() {
-                menuOverlay.classList.remove('active');
-                menuButton.classList.remove('active');
-                body.classList.remove('menu-open');
-                menuButton.focus();
-            }
-            
-            // Event Listeners
-            menuButton.addEventListener('click', toggleMenu);
-            overlayClose.addEventListener('click', closeMenu);
-            
-            // Close on overlay click
-            menuOverlay.addEventListener('click', function(e) {
-                if (e.target === menuOverlay) {
-                    closeMenu();
-                }
-            });
-            
-            // Close on ESC key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && menuOverlay.classList.contains('active')) {
-                    closeMenu();
-                }
-            });
-            
-            // Close menu when clicking nav links
-            document.querySelectorAll('.overlay-link').forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-            
-            // Sticky Navigation Shadow on Scroll
-            let ticking = false;
-            function updateNavigation() {
-                const scrollY = window.scrollY;
-                
-                if (scrollY > 8) {
-                    navigation.classList.add('scrolled');
-                } else {
-                    navigation.classList.remove('scrolled');
-                }
-                
-                ticking = false;
-            }
-            
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    requestAnimationFrame(updateNavigation);
-                    ticking = true;
-                }
-            });
-        })();
-    </script>
 
     <!-- Hero Section - Kinetic Type Concept -->
     <section id="home" class="hero kinetic-hero" style="background: linear-gradient(135deg, #FAF8F6 0%, #F7F3EE 100%); min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden;">
@@ -2619,7 +2325,7 @@
                 
                 <!-- Enhanced Category Grid -->
                 <div class="refined-content">
-                    <div class="category-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 2.5vw, 28px); margin-bottom: 48px;">
+                    <div class="category-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 48px;">
                         
                         <style>
                         @media (max-width: 1024px) {
@@ -2637,7 +2343,7 @@
                             width: 100%;
                             height: 210px;
                             position: relative;
-                            border-radius: 14px;
+                            border-radius: 12px;
                             overflow: hidden;
                             cursor: pointer;
                             transition: all 0.3s ease;
@@ -2647,7 +2353,7 @@
                         .category-tile:hover {
                             transform: scale(1.02);
                             filter: brightness(1.08);
-                            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+                            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
                         }
                         
                         @media (prefers-reduced-motion: reduce) {
@@ -3079,7 +2785,7 @@
                         min-width: 280px;
                         flex-shrink: 0;
                         background: white;
-                        border-radius: 14px;
+                        border-radius: 12px;
                         overflow: hidden;
                         cursor: pointer;
                         transition: all 0.3s ease;
@@ -3090,7 +2796,7 @@
                     
                     .picks-product-card:hover {
                         transform: translateY(-2px);
-                        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+                        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
                     }
                     
                     .picks-product-card .product-image-wrapper img:hover {
@@ -3441,7 +3147,7 @@
                     </div>
                 
                     <!-- Product 6: Teeth Whitening Powder (Kellie's Favorite) -->
-                    <div class="picks-product-card" style="min-width: 280px; flex: 0 0 280px; scroll-snap-align: start; background: white; border-radius: 14px; overflow: hidden; position: relative; cursor: pointer; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+                    <div class="picks-product-card" style="min-width: 280px; flex: 0 0 280px; scroll-snap-align: start; background: white; border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
                         <!-- Kellie's Favorite Tag -->
                         <div class="favorite-tag" style="position: absolute; top: 16px; right: 16px; background: #D4A4A4; color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.65rem; font-weight: 600; display: flex; align-items: center; gap: 4px; z-index: 3; font-family: 'Inter', sans-serif; letter-spacing: 0.05em;">
                             <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
@@ -3494,7 +3200,7 @@
                     </div>
                 
                     <!-- Product 8: Stanley Adventure Quencher -->
-                    <div class="picks-product-card" style="min-width: 280px; flex: 0 0 280px; scroll-snap-align: start; background: white; border-radius: 14px; overflow: hidden; position: relative; cursor: pointer; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+                    <div class="picks-product-card" style="min-width: 280px; flex: 0 0 280px; scroll-snap-align: start; background: white; border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
                         <div class="card-image-wrapper" style="height: 240px; overflow: hidden; position: relative; background: #f8f8f8; display: flex; align-items: center; justify-content: center;">
                             <!-- Placeholder for Stanley Tumbler -->
                             <div style="width: 150px; height: 200px; background: linear-gradient(135deg, #2E8B57 0%, #228B22 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; text-align: center; padding: 1rem; font-family: 'Inter', sans-serif;">
@@ -3522,13 +3228,11 @@
             <!-- Shop All Picks Button - Black Pill Style -->
             <div class="picks-shop-all-wrapper" style="text-align: center; margin-top: 3rem;">
                 <a href="collection.html" class="picks-main-cta" 
-                   style="background: #2D3748; color: white; padding: 14px 32px; border-radius: 25px; text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: background-color 0.3s ease;" 
-                   onmouseover="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'" 
-                   onmouseout="this.style.background='#2D3748'; this.style.transform='translateY(0)'" 
-                   onfocus="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'" 
-                   onblur="this.style.background='#2D3748'; this.style.transform='translateY(0)'">
-                    <span class="btn-text">SHOP ALL PICKS</span>
-                    <span class="btn-arrow">→</span>
+                   style="background: #2D3748; color: white; padding: 14px 28px; border-radius: 50px; text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); letter-spacing: 0.05em;" 
+                   onmouseover="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(45, 55, 72, 0.3)'" 
+                   onmouseout="this.style.background='#2D3748'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                    <span>SHOP ALL PICKS</span>
+                    <span style="font-size: 1.1em;">→</span>
                 </a>
             </div>
         </div>
@@ -3543,47 +3247,37 @@
         <!-- Soft celebration pattern overlay -->
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 20% 30%, rgba(212, 164, 164, 0.03) 1px, transparent 1px), radial-gradient(circle at 80% 70%, rgba(212, 164, 164, 0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0;"></div>
         <div class="events-wrapper" style="position: relative; z-index: 1;">
-            <!-- Header Typography with Divider (LEFT-ALIGNED) -->
-            <div class="celebrations-header" style="text-align: left; margin-bottom: 48px;">
-                <div class="celebrations-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #8B7355; margin-bottom: 8px;">EVENTS</div>
-                <h2 class="celebrations-title" style="font-family: 'Playfair Display', serif; font-size: clamp(48px, 6.2vw, 96px); font-weight: 700; letter-spacing: -0.2px; text-transform: uppercase; color: #2D3748; line-height: 1.05; margin: 0 0 12px 0;">NEST CELEBRATIONS</h2>
-                <div class="celebrations-tagline" style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 400; color: #666666; line-height: 1.4; margin-bottom: 12px; letter-spacing: 0.05em; text-transform: uppercase;">CREATING MEMORABLE EXPERIENCES & CELEBRATIONS</div>
-                <div class="tagline-divider" style="width: 60px; height: 1px; background: #8B7355; margin: 0; margin-bottom: 48px;"></div>
+            <!-- Header Typography with Divider -->
+            <div class="events-header" style="text-align: center; margin-bottom: 5rem;">
+                <div class="events-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #8B7355; margin-bottom: 0.75rem;">EVENTS</div>
+                <h2 class="events-title" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; letter-spacing: 0.02em; text-transform: uppercase; color: #2D3748; line-height: 0.9; margin: 0 0 1rem 0;">NEST CELEBRATIONS</h2>
+                <div class="events-tagline" style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 300; color: #666666; line-height: 1.4; margin-bottom: 1.5rem;">Creating memorable experiences & celebrations</div>
+                <div class="tagline-divider" style="width: 60px; height: 2px; background: linear-gradient(90deg, transparent, #D4A4A4, transparent); margin: 0 auto;"></div>
             </div>
             
-            <!-- Event Cards Grid - 3×2 Layout -->
-            <div class="celebrations-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: clamp(20px, 2.5vw, 28px); margin-bottom: 48px;">
-                <!-- Card 1: Christmas Parties -->
-                <a href="christmas-parties.html" class="celebration-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
-                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.card-image').style.transform='scale(1.02)';"
-                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.card-image').style.transform='scale(1)';"
-                   onfocus="this.style.outline='3px solid #D4A4A4'; this.style.outlineOffset='2px'"
-                   onblur="this.style.outline='none'"
-                   aria-label="View Christmas Parties event - Corporate celebrations from 2022-2024 in Sacramento">
-                    <div class="card-image-container" style="position: relative; height: 100%; overflow: hidden;">
-                        <img src="assets/images/events/Christmas Parties.png" alt="Christmas Parties" class="card-image"
-                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                        <!-- Bottom gradient overlay -->
-                        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 45%; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.4), transparent);"></div>
-                        
-                        <!-- Category chip (top-left) -->
-                        <div class="card-category-chip" 
-                             style="position: absolute; top: 16px; left: 16px; background: #8B7355; color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">CORPORATE</div>
-                        <!-- Content overlay (bottom-left) -->
-                        <div class="card-content" style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
-                            <h3 class="card-title" style="font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: white; margin: 0 0 8px 0; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.5px;">CHRISTMAS PARTIES</h3>
-                            <!-- Meta row -->
-                            <div class="card-meta-row" style="display: flex; gap: 16px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.9); align-items: center;">
-                                <div class="card-meta-item" style="display: flex; align-items: center; gap: 4px;">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
+            <!-- Event Cards Grid -->
+            <div class="events-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <!-- Christmas Parties -->
+                <a href="christmas-parties.html" class="event-item christmas-parties" 
+                   style="position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); transition: all 0.3s ease; cursor: pointer; background: url('assets/images/events/Christmas Parties.png') center/cover no-repeat, linear-gradient(135deg, #D4A4A4, #8B7355); text-decoration: none; color: inherit;"
+                   onmouseover="enhanceEventCard(this)" onmouseout="resetEventCard(this)"
+                   aria-label="View Christmas Parties event details - Corporate holiday celebrations for Randle Communications from 2022-2024 in Sacramento"
+                   tabindex="0" role="link"
+                   onfocus="this.onmouseover()" onblur="this.onmouseout()"
+                    <div class="event-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4), rgba(0,0,0,0.1)); display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem;">
+                        <div class="event-category-tag" style="background: #8B7355; color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; align-self: flex-start; font-family: 'Inter', sans-serif;">CORPORATE</div>
+                        <div class="event-content">
+                            <h3 class="event-title" style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: white; margin-bottom: 0.5rem; transition: all 0.3s ease;">Christmas Parties</h3>
+                            <p class="event-description" style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.9); margin-bottom: 1rem; line-height: 1.4;">Corporate holiday celebrations for Randle Communications</p>
+                            <div class="event-meta" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <div class="event-meta-item" style="display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                    <span>2022–2024</span>
+                                    <span>2022-2024</span>
                                 </div>
-                                <div class="card-meta-separator" style="width: 4px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 50%;"></div>
-                                <div class="card-meta-item" style="display: flex; align-items: center; gap: 4px;">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
+                                <div class="event-meta-item" style="display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
                                         <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
                                     </svg>
@@ -3594,36 +3288,26 @@
                     </div>
                 </a>
 
-                <!-- Card 2: Wedding Events -->
-                <a href="wedding-events.html" class="celebration-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
-                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.card-image').style.transform='scale(1.02)';"
-                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.card-image').style.transform='scale(1)';"
-                   onfocus="this.style.outline='3px solid #D4A4A4'; this.style.outlineOffset='2px'"
-                   onblur="this.style.outline='none'"
-                   aria-label="View Wedding Events - Intimate beachside engagement celebration from 2024 in Various locations">
-                    <div class="card-image-container" style="position: relative; height: 100%; overflow: hidden;">
-                        <img src="assets/images/events/Wedding Events.png" alt="Wedding Events" class="card-image"
-                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                        <!-- Bottom gradient overlay -->
-                        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 45%; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.4), transparent);"></div>
-                        <!-- Category chip (top-left) -->
-                        <div class="card-category-chip" 
-                             style="position: absolute; top: 16px; left: 16px; background: #D4A4A4; color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">WEDDINGS</div>
-                        <!-- Content overlay (bottom-left) -->
-                        <div class="card-content" style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
-                            <h3 class="card-title" style="font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: white; margin: 0 0 8px 0; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.5px;">WEDDING EVENTS</h3>
-                            <!-- Meta row -->
-                            <div class="card-meta-row" style="display: flex; gap: 16px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.9); align-items: center;">
-                                <div class="card-meta-item" style="display: flex; align-items: center; gap: 4px;">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
+                <!-- Wedding Events -->
+                <div class="event-item wedding-events" 
+                     style="position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); transition: all 0.3s ease; cursor: pointer; background: url('assets/images/events/Wedding Events.png') center/cover no-repeat, linear-gradient(135deg, #D4A4A4, #F7F3EE);"
+                     onmouseover="enhanceEventCard(this)" onmouseout="resetEventCard(this)"
+                     tabindex="0" role="button" aria-label="View Wedding Events details - Intimate beachside engagement celebration from 2024 in Various locations"
+                     onfocus="this.onmouseover()" onblur="this.onmouseout()">
+                    <div class="event-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4), rgba(0,0,0,0.1)); display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem;">
+                        <div class="event-category-tag" style="background: #D4A4A4; color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; align-self: flex-start; font-family: 'Inter', sans-serif;">WEDDINGS</div>
+                        <div class="event-content">
+                            <h3 class="event-title" style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: white; margin-bottom: 0.5rem; transition: all 0.3s ease;">Wedding Events</h3>
+                            <p class="event-description" style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.9); margin-bottom: 1rem; line-height: 1.4;">Intimate beachside engagement celebration</p>
+                            <div class="event-meta" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <div class="event-meta-item" style="display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                     <span>2024</span>
                                 </div>
-                                <div class="card-meta-separator" style="width: 4px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 50%;"></div>
-                                <div class="card-meta-item" style="display: flex; align-items: center; gap: 4px;">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
+                                <div class="event-meta-item" style="display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
                                         <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
                                     </svg>
@@ -3632,118 +3316,88 @@
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
 
-                <!-- Card 3: Family Gatherings -->
-                <a href="family-gatherings.html" class="celebration-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
-                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.card-image').style.transform='scale(1.02)';"
-                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.card-image').style.transform='scale(1)';"
-                   onfocus="this.style.outline='3px solid #2D3748'; this.style.outlineOffset='2px'"
-                   onblur="this.style.outline='none'"
-                   aria-label="View Family Gatherings - Memorable family celebrations and intimate get-togethers from 2022-2025 in Various locations">
-                    <div class="card-image-container" style="position: relative; height: 100%; overflow: hidden;">
-                        <img src="assets/images/events/Family Gatherings.png" alt="Family Gatherings" class="card-image"
-                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                        <!-- Bottom gradient overlay -->
-                        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 45%; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.4), transparent);"></div>
-                        <!-- Category chip (top-left) -->
-                        <div class="card-category-chip" 
-                             style="position: absolute; top: 16px; left: 16px; background: #2D3748; color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">LIFESTYLE</div>
-                        <!-- Content overlay (bottom-left) -->
-                        <div class="card-content" style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
-                            <h3 class="card-title" style="font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: white; margin: 0 0 8px 0; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.5px;">FAMILY GATHERINGS</h3>
-                            <!-- Meta row -->
-                            <div class="card-meta-row" style="display: flex; gap: 16px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.9); align-items: center;">
-                                <div class="card-meta-item" style="display: flex; align-items: center; gap: 4px;">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
-                                        <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <span>2022–2025</span>
-                                </div>
-                                <div class="card-meta-separator" style="width: 4px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 50%;"></div>
-                                <div class="card-meta-item" style="display: flex; align-items: center; gap: 4px;">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
-                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                    <span>Various</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Card 4: Favorite Things -->
-                <a href="favorite-things.html" class="celebration-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
-                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.card-image').style.transform='scale(1.02)';"
-                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.card-image').style.transform='scale(1)';"
-                   onfocus="this.style.outline='3px solid #2D3748'; this.style.outlineOffset='2px'"
-                   onblur="this.style.outline='none'"
-                   aria-label="View Favorite Things - An intimate girls' night filled with themed cocktails, sweet treats, and lots of love from 2022-2024 in Various locations">
-                    <div class="card-image-container" style="position: relative; height: 100%; overflow: hidden;">
-                        <img src="assets/images/events/Favorite Things.png" alt="Favorite Things" class="card-image"
-                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                        <!-- Bottom gradient overlay -->
-                        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 45%; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.4), transparent);"></div>
-                        <!-- Category chip (top-left) -->
-                        <div class="card-category-chip" 
-                             style="position: absolute; top: 16px; left: 16px; background: #2D3748; color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">LIFESTYLE</div>
-                        <!-- Content overlay (bottom-left) -->
-                        <div class="card-content" style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
-                            <h3 class="card-title" style="font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: white; margin: 0 0 8px 0; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.5px;">FAVORITE THINGS</h3>
-                            <!-- Meta row -->
-                            <div class="card-meta-row" style="display: flex; gap: 16px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.9); align-items: center;">
-                                <div class="card-meta-item" style="display: flex; align-items: center; gap: 4px;">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
-                                        <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <span>2022–2024</span>
-                                </div>
-                                <div class="card-meta-separator" style="width: 4px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 50%;"></div>
-                                <div class="card-meta-item" style="display: flex; align-items: center; gap: 4px;">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
-                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
-                                    </svg>
-                                    <span>Various</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Card 5: Mimi's 80th Birthday -->
-                <a href="mimis-80th-birthday.html" class="celebration-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
-                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.card-image').style.transform='scale(1.02)';"
-                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.card-image').style.transform='scale(1)';"
-                   onfocus="this.style.outline='3px solid #2D3748'; this.style.outlineOffset='2px'"
-                   onblur="this.style.outline='none'"
-                   aria-label="View Mimi's 80th Birthday - A disco-inspired themed birthday channeling Greek Isles glam from 2024 in Nashville">
-                    <div class="card-image-container" style="position: relative; height: 100%; overflow: hidden;">
-                        <img src="assets/images/events/Mimi's 80th Birthday.png" alt="Mimi's 80th Birthday" class="card-image"
-                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                        <!-- Bottom gradient overlay -->
-                        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 45%; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.4), transparent);"></div>
-                        <!-- Category chip (top-left) -->
-                        <div class="card-category-chip" 
-                             style="position: absolute; top: 16px; left: 16px; background: #2D3748; color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">LIFESTYLE</div>
-                        <!-- Content overlay (bottom-left) -->
-                        <div class="card-content" style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
-                            <h3 class="card-title" style="font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: white; margin: 0 0 8px 0; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.5px;">MIMI'S 80TH BIRTHDAY</h3>
-                            <!-- Meta row -->
-                            <div class="card-meta-row" style="display: flex; gap: 16px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.9); align-items: center;">
-                                <div class="card-meta-item" style="display: flex; align-items: center; gap: 4px;">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
+                <!-- Family Gatherings -->
+                <div class="event-item family-gatherings" 
+                     style="position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); transition: all 0.3s ease; cursor: pointer; background: url('assets/images/events/Family Gatherings.png') center/cover no-repeat, linear-gradient(135deg, #2D3748, #8B7355);"
+                     onmouseover="enhanceEventCard(this)" onmouseout="resetEventCard(this)"
+                     tabindex="0" role="button" aria-label="View Family Gatherings details - Memorable family celebrations and intimate get-togethers from 2022-2025 in Various locations"
+                     onfocus="this.onmouseover()" onblur="this.onmouseout()">
+                    <div class="event-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4), rgba(0,0,0,0.1)); display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem;">
+                        <div class="event-category-tag" style="background: #2D3748; color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; align-self: flex-start; font-family: 'Inter', sans-serif;">LIFESTYLE</div>
+                        <div class="event-content">
+                            <h3 class="event-title" style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: white; margin-bottom: 0.5rem; transition: all 0.3s ease;">Family Gatherings</h3>
+                            <p class="event-description" style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.9); margin-bottom: 1rem; line-height: 1.4;">Memorable family celebrations and intimate get-togethers</p>
+                            <div class="event-meta" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <div class="event-meta-item" style="display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
+                                    <span>2022-2025</span>
+                                </div>
+                                <div class="event-meta-item" style="display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Various</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Favorite Things -->
+                <div class="event-item favorite-things" 
+                     style="position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); transition: all 0.3s ease; cursor: pointer; background: url('assets/images/events/Favorite Things.png') center/cover no-repeat, linear-gradient(135deg, #2D3748, #D4A4A4);"
+                     onmouseover="enhanceEventCard(this)" onmouseout="resetEventCard(this)"
+                     tabindex="0" role="button" aria-label="View Favorite Things event details - An intimate girls' night filled with themed cocktails, sweet treats, and lots of love from 2022-2024 in Various locations"
+                     onfocus="this.onmouseover()" onblur="this.onmouseout()">
+                    <div class="event-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4), rgba(0,0,0,0.1)); display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem;">
+                        <div class="event-category-tag" style="background: #2D3748; color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; align-self: flex-start; font-family: 'Inter', sans-serif;">LIFESTYLE</div>
+                        <div class="event-content">
+                            <h3 class="event-title" style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: white; margin-bottom: 0.5rem; transition: all 0.3s ease;">Favorite Things</h3>
+                            <p class="event-description" style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.9); margin-bottom: 1rem; line-height: 1.4;">An intimate girls' night filled with themed cocktails, sweet treats, and lots of love</p>
+                            <div class="event-meta" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <div class="event-meta-item" style="display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>2022-2024</span>
+                                </div>
+                                <div class="event-meta-item" style="display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Various</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mimi's 80th Birthday -->
+                <div class="event-item mimis-birthday" 
+                     style="position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); transition: all 0.3s ease; cursor: pointer; background: url('assets/images/events/Mimi\'s 80th Birthday.png') center/cover no-repeat, linear-gradient(135deg, #2D3748, #8B7355);"
+                     onmouseover="enhanceEventCard(this)" onmouseout="resetEventCard(this)"
+                     tabindex="0" role="button" aria-label="View Mimi's 80th Birthday event details - A disco-inspired themed birthday channeling Greek Isles glam from 2024 in Nashville"
+                     onfocus="this.onmouseover()" onblur="this.onmouseout()">
+                    <div class="event-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4), rgba(0,0,0,0.1)); display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem;">
+                        <div class="event-category-tag" style="background: #2D3748; color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; align-self: flex-start; font-family: 'Inter', sans-serif;">LIFESTYLE</div>
+                        <div class="event-content">
+                            <h3 class="event-title" style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: white; margin-bottom: 0.5rem; transition: all 0.3s ease;">Mimi's 80th Birthday</h3>
+                            <p class="event-description" style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.9); margin-bottom: 1rem; line-height: 1.4;">A disco-inspired themed birthday channeling Greek Isles glam</p>
+                            <div class="event-meta" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <div class="event-meta-item" style="display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
                                     <span>2024</span>
                                 </div>
-                                <div class="card-meta-separator" style="width: 4px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 50%;"></div>
-                                <div class="card-meta-item" style="display: flex; align-items: center; gap: 4px;">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
+                                <div class="event-meta-item" style="display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
                                         <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
                                     </svg>
@@ -3752,38 +3406,28 @@
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
 
-                <!-- Card 6: Tailgates -->
-                <a href="tailgates.html" class="celebration-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
-                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.card-image').style.transform='scale(1.02)';"
-                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.card-image').style.transform='scale(1)';"
-                   onfocus="this.style.outline='3px solid #666666'; this.style.outlineOffset='2px'"
-                   onblur="this.style.outline='none'"
-                   aria-label="View Tailgates - Game day celebrations and sports-themed gatherings from 2020-2024 in South Bend">
-                    <div class="card-image-container" style="position: relative; height: 100%; overflow: hidden;">
-                        <img src="assets/images/events/Tailgates.png" alt="Tailgates" class="card-image"
-                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                        <!-- Bottom gradient overlay -->
-                        <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 45%; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.4), transparent);"></div>
-                        <!-- Category chip (top-left) -->
-                        <div class="card-category-chip" 
-                             style="position: absolute; top: 16px; left: 16px; background: #666666; color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">TRAVEL</div>
-                        <!-- Content overlay (bottom-left) -->
-                        <div class="card-content" style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
-                            <h3 class="card-title" style="font-family: 'Playfair Display', serif; font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: white; margin: 0 0 8px 0; line-height: 1.2; text-transform: uppercase; letter-spacing: 0.5px;">TAILGATES</h3>
-                            <!-- Meta row -->
-                            <div class="card-meta-row" style="display: flex; gap: 16px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.9); align-items: center;">
-                                <div class="card-meta-item" style="display: flex; align-items: center; gap: 4px;">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
+                <!-- Tailgates -->
+                <div class="event-item tailgates" 
+                     style="position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); transition: all 0.3s ease; cursor: pointer; background: url('assets/images/events/Tailgates.png') center/cover no-repeat, linear-gradient(135deg, #666666, #8B7355);"
+                     onmouseover="enhanceEventCard(this)" onmouseout="resetEventCard(this)"
+                     tabindex="0" role="button" aria-label="View Tailgates event details - Game day celebrations and sports-themed gatherings from 2020-2024 in South Bend"
+                     onfocus="this.onmouseover()" onblur="this.onmouseout()">
+                    <div class="event-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4), rgba(0,0,0,0.1)); display: flex; flex-direction: column; justify-content: space-between; padding: 1.5rem;">
+                        <div class="event-category-tag" style="background: #666666; color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; align-self: flex-start; font-family: 'Inter', sans-serif;">TRAVEL</div>
+                        <div class="event-content">
+                            <h3 class="event-title" style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: white; margin-bottom: 0.5rem; transition: all 0.3s ease;">Tailgates</h3>
+                            <p class="event-description" style="font-family: 'Inter', sans-serif; font-size: 0.9rem; color: rgba(255,255,255,0.9); margin-bottom: 1rem; line-height: 1.4;">Game day celebrations and sports-themed gatherings</p>
+                            <div class="event-meta" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                                <div class="event-meta-item" style="display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8 2v3m8-3v3m-9 8h10l-2-7H9l-1 7zM5 12h14M7 12v7a2 2 0 002 2h6a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                    <span>2020–2024</span>
+                                    <span>2020-2024</span>
                                 </div>
-                                <div class="card-meta-separator" style="width: 4px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 50%;"></div>
-                                <div class="card-meta-item" style="display: flex; align-items: center; gap: 4px;">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.8;">
+                                <div class="event-meta-item" style="display: flex; align-items: center; gap: 6px; font-family: 'Inter', sans-serif; font-size: 0.8rem; color: rgba(255,255,255,0.8);">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
                                         <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
                                     </svg>
@@ -3792,83 +3436,23 @@
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
             
             <!-- See All Events Button - Unified Black Pill Style -->
             <div class="section-button-wrapper" style="text-align: center; margin-top: 3rem;">
                 <a href="events.html" class="celebrations-cta-btn" 
-                   style="background: #2D3748; color: white; padding: 14px 32px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: background-color 0.3s ease; font-family: 'Inter', sans-serif;"
-                   onmouseover="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'"
-                   onmouseout="this.style.background='#2D3748'; this.style.transform='translateY(0)'"
+                   style="background: #2D3748; color: white; padding: 14px 32px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; font-family: 'Inter', sans-serif; box-shadow: 0 4px 12px rgba(45, 55, 72, 0.15);"
+                   onmouseover="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(45, 55, 72, 0.25)'"
+                   onmouseout="this.style.background='#2D3748'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(45, 55, 72, 0.15)'"
                    onfocus="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'"
                    onblur="this.style.background='#2D3748'; this.style.transform='translateY(0)'">
-                    <span class="btn-text">SEE ALL CELEBRATIONS</span>
+                    <span class="btn-text">SEE ALL EVENTS</span>
                     <span class="btn-arrow">→</span>
                 </a>
             </div>
         </div>
     </section>
-    
-    <!-- Responsive CSS for Celebrations Grid -->
-    <style>
-        /* ========================================
-           NEST CELEBRATIONS GRID RESPONSIVE
-           ======================================== */
-        
-        /* Default Desktop: 3 columns × 2 rows */
-        .celebrations-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 32px;
-            margin-bottom: 48px;
-        }
-        
-        /* Tablet: 2 columns (cards stack to 3 rows) */
-        @media (max-width: 1024px) {
-            .celebrations-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(3, 1fr);
-                gap: 24px;
-            }
-        }
-        
-        /* Mobile: 1 column (cards stack to 6 rows) */
-        @media (max-width: 768px) {
-            .celebrations-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(6, 1fr);
-                gap: 20px;
-            }
-        }
-        
-        /* Fixed 16:10 aspect ratio cards */
-        .celebration-card {
-            aspect-ratio: 16/10;
-        }
-        
-        /* Reduced motion support */
-        @media (prefers-reduced-motion: reduce) {
-            .celebration-card {
-                transition: box-shadow 0.3s ease;
-            }
-            
-            .celebration-card:hover .card-image {
-                transform: none !important;
-            }
-            
-            .celebration-card:hover {
-                transform: none !important;
-            }
-        }
-        
-        /* Focus accessibility */
-        .celebration-card:focus {
-            outline: 3px solid #D4A4A4;
-            outline-offset: 2px;
-        }
-    </style>
 
     <!-- Past Collaborators Section -->
     <section class="collaborators-section">
@@ -3947,268 +3531,132 @@
     <!-- Empty Nest Eats Section -->
     <section id="empty-nest-eats" class="recipes-section" style="background: linear-gradient(135deg, #FDFCFB 0%, #F9F6F4 50%, #F7F2ED 100%); padding: 4rem 2rem;">
         <div class="recipes-wrapper" style="max-width: 1200px; margin: 0 auto;">
-            <!-- Header Typography with Divider (LEFT-ALIGNED) -->
-            <div class="recipes-header" style="text-align: left; margin-bottom: 48px;">
-                <div class="recipes-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #8B7355; margin-bottom: 8px;">RECIPES</div>
-                <h2 class="recipes-title" style="font-family: 'Playfair Display', serif; font-size: clamp(48px, 6.2vw, 96px); font-weight: 700; letter-spacing: -0.2px; text-transform: uppercase; color: #2D3748; line-height: 1.05; margin: 0 0 12px 0;">EMPTY NEST EATS</h2>
-                <div class="recipes-tagline" style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 400; color: #666666; line-height: 1.4; margin-bottom: 12px; letter-spacing: 0.25em; text-transform: uppercase;">HEALTHY & QUICK EMPTY NEST RECIPES</div>
-                <div class="tagline-divider" style="width: 60px; height: 1px; background: #8B7355; margin: 0; margin-bottom: 48px;"></div>
+            <!-- Header Typography with Divider -->
+            <div class="recipes-header" style="text-align: center; margin-bottom: 4rem;">
+                <div class="recipes-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: #8B7355; margin-bottom: 0.75rem;">RECIPES</div>
+                <h2 class="recipes-title" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; letter-spacing: 0.02em; text-transform: uppercase; color: #2D3748; line-height: 0.9; margin: 0 0 1rem 0;">EMPTY NEST EATS</h2>
+                <div class="recipes-tagline" style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 300; color: #666666; line-height: 1.4; margin-bottom: 1rem;">Healthy & quick empty nest recipes</div>
+                <div class="tagline-divider" style="width: 60px; height: 1px; background: #D4A4A4; margin: 0 auto;"></div>
             </div>
             
-            <!-- Recipe Cards Grid - 3×2 Layout -->
-            <div class="recipes-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: clamp(20px, 2.5vw, 28px); margin-bottom: 48px;">
+            <!-- Enhanced Recipe Cards Grid -->
+            <div class="recipes-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
                 
                 <!-- Recipe 1 - Fry Sauce -->
-                <a href="fry-sauce-recipe.html" class="recipe-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
-                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.recipe-image').style.transform='scale(1.02)';"
-                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.recipe-image').style.transform='scale(1)';"
-                   onfocus="this.style.outline='3px solid #8B7355'; this.style.outlineOffset='2px'"
-                   onblur="this.style.outline='none'"
-                   aria-label="View Fry Sauce recipe - 5 minutes">
-                    <div class="recipe-image-container" style="position: relative; height: 100%; overflow: hidden;">
-                        <img src="assets/images/fry-sauce-recipe.jpg" alt="Fry Sauce" class="recipe-image"
-                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                        <!-- Subtle top overlay band -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0) 55%);"></div>
-                        <!-- Optional divider line -->
-                        <div style="position: absolute; top: 8px; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.18);"></div>
-                        <!-- Title in top band -->
-                        <h3 class="recipe-title" style="position: absolute; top: 20px; left: 16px; right: 16px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: white; margin: 0; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">FRY SAUCE</h3>
-                        <!-- Time badge (bottom-left) -->
-                        <div class="recipe-time-badge" 
-                             style="position: absolute; bottom: 16px; left: 16px; background: rgba(0, 0, 0, 0.7); color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 4px;">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23L13 12.75V7z"/>
-                            </svg>
-                            <span>5 mins</span>
+                <div class="recipe-item fry-sauce" onclick="openRecipeModal('fry-sauce')" style="position: relative; background-image: url('assets/images/fry-sauce-recipe.jpg'); background-size: cover; background-position: center; height: 300px; border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease;"
+                     onmouseover="enhanceRecipeCard(this)" onmouseout="resetRecipeCard(this)">
+                    <!-- Time Badge -->
+                    <div class="recipe-time-badge" style="position: absolute; bottom: 1rem; left: 1rem; background: rgba(0, 0, 0, 0.7); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 4px; z-index: 3;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23L13 12.75V7z"/>
+                        </svg>
+                        5 mins
+                    </div>
+                    <!-- Enhanced Overlay -->
+                    <div class="recipe-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; z-index: 2;">
+                        <div class="recipe-content" style="text-align: center; color: white;">
+                            <h3 class="recipe-title" style="font-size: 1.5rem; font-weight: 600; margin: 0; transition: all 0.3s ease;">Fry Sauce</h3>
                         </div>
                     </div>
-                </a>
+                </div>
 
                 <!-- Recipe 2 - Mediterranean Power Bowl -->
-                <a href="mediterranean-bowl-recipe.html" class="recipe-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
-                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.recipe-image').style.transform='scale(1.02)';"
-                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.recipe-image').style.transform='scale(1)';"
-                   onfocus="this.style.outline='3px solid #8B7355'; this.style.outlineOffset='2px'"
-                   onblur="this.style.outline='none'"
-                   aria-label="View Mediterranean Power Bowl recipe - 25 minutes">
-                    <div class="recipe-image-container" style="position: relative; height: 100%; overflow: hidden;">
-                        <img src="assets/images/mediterranean-bowl-recipe.jpg" alt="Mediterranean Power Bowl" class="recipe-image"
-                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                        <!-- Subtle top overlay band -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0) 55%);"></div>
-                        <!-- Optional divider line -->
-                        <div style="position: absolute; top: 8px; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.18);"></div>
-                        <!-- Title in top band -->
-                        <h3 class="recipe-title" style="position: absolute; top: 20px; left: 16px; right: 16px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: white; margin: 0; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">MEDITERRANEAN POWER BOWL</h3>
-                        <!-- Time badge (bottom-left) -->
-                        <div class="recipe-time-badge" 
-                             style="position: absolute; bottom: 16px; left: 16px; background: rgba(0, 0, 0, 0.7); color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 4px;">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23L13 12.75V7z"/>
-                            </svg>
-                            <span>25 mins</span>
+                <div class="recipe-item mediterranean-bowl" style="position: relative; background-image: url('assets/images/mediterranean-bowl-recipe.jpg'); background-size: cover; background-position: center; height: 300px; border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease;"
+                     onmouseover="enhanceRecipeCard(this)" onmouseout="resetRecipeCard(this)">
+                    <div class="recipe-time-badge" style="position: absolute; bottom: 1rem; left: 1rem; background: rgba(0, 0, 0, 0.7); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 4px; z-index: 3;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23L13 12.75V7z"/>
+                        </svg>
+                        25 mins
+                    </div>
+                    <div class="recipe-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; z-index: 2;">
+                        <div class="recipe-content" style="text-align: center; color: white;">
+                            <h3 class="recipe-title" style="font-size: 1.5rem; font-weight: 600; margin: 0; transition: all 0.3s ease;">Mediterranean Power Bowl</h3>
                         </div>
                     </div>
-                </a>
+                </div>
 
                 <!-- Recipe 3 - Sheet Pan Salmon (with Fam Favorite) -->
-                <a href="sheet-pan-salmon-recipe.html" class="recipe-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
-                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.recipe-image').style.transform='scale(1.02)';"
-                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.recipe-image').style.transform='scale(1)';"
-                   onfocus="this.style.outline='3px solid #8B7355'; this.style.outlineOffset='2px'"
-                   onblur="this.style.outline='none'"
-                   aria-label="View Sheet Pan Lemon Salmon recipe - Family favorite, 20 minutes">
-                    <div class="recipe-image-container" style="position: relative; height: 100%; overflow: hidden;">
-                        <img src="assets/images/salmon-recipe.jpg" alt="Sheet Pan Lemon Salmon" class="recipe-image"
-                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                        <!-- Subtle top overlay band -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0) 55%);"></div>
-                        <!-- Optional divider line -->
-                        <div style="position: absolute; top: 8px; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.18);"></div>
-                        <!-- Title in top band -->
-                        <h3 class="recipe-title" style="position: absolute; top: 20px; left: 16px; right: 16px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: white; margin: 0; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">SHEET PAN LEMON SALMON</h3>
-                        <!-- Time badge (bottom-left) -->
-                        <div class="recipe-time-badge" 
-                             style="position: absolute; bottom: 16px; left: 16px; background: rgba(0, 0, 0, 0.7); color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 4px;">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23L13 12.75V7z"/>
-                            </svg>
-                            <span>20 mins</span>
-                        </div>
-                        <!-- Fam Favorite badge (bottom-right) -->
-                        <div class="fam-favorite-badge" 
-                             style="position: absolute; bottom: 16px; right: 16px; background: #D4A4A4; color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; display: flex; align-items: center; gap: 4px;">
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z"/>
-                            </svg>
-                            <span>FAM FAVORITE</span>
+                <div class="recipe-item sheet-pan-salmon" style="position: relative; background-image: url('assets/images/salmon-recipe.jpg'); background-size: cover; background-position: center; height: 300px; border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease;"
+                     onmouseover="enhanceRecipeCard(this)" onmouseout="resetRecipeCard(this)">
+                    <!-- Fam Favorite Tag -->
+                    <div class="recipe-category-tag" style="position: absolute; top: 1rem; right: 1rem; background: #D4A4A4; color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; display: flex; align-items: center; gap: 4px; z-index: 3;">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" class="fam-favorite-icon">
+                            <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z"/>
+                        </svg>
+                        FAM FAVORITE
+                    </div>
+                    <div class="recipe-time-badge" style="position: absolute; bottom: 1rem; left: 1rem; background: rgba(0, 0, 0, 0.7); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 4px; z-index: 3;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23L13 12.75V7z"/>
+                        </svg>
+                        20 mins
+                    </div>
+                    <div class="recipe-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; z-index: 2;">
+                        <div class="recipe-content" style="text-align: center; color: white;">
+                            <h3 class="recipe-title" style="font-size: 1.5rem; font-weight: 600; margin: 0; transition: all 0.3s ease;">Sheet Pan Lemon Salmon</h3>
                         </div>
                     </div>
-                </a>
+                </div>
 
                 <!-- Recipe 4 - Asian Lettuce Wraps -->
-                <a href="asian-lettuce-wraps-recipe.html" class="recipe-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
-                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.recipe-image').style.transform='scale(1.02)';"
-                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.recipe-image').style.transform='scale(1)';"
-                   onfocus="this.style.outline='3px solid #8B7355'; this.style.outlineOffset='2px'"
-                   onblur="this.style.outline='none'"
-                   aria-label="View Asian Lettuce Wraps recipe - 15 minutes">
-                    <div class="recipe-image-container" style="position: relative; height: 100%; overflow: hidden;">
-                        <img src="assets/images/lettuce-wraps-recipe.jpg" alt="Asian Lettuce Wraps" class="recipe-image"
-                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                        <!-- Subtle top overlay band -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0) 55%);"></div>
-                        <!-- Optional divider line -->
-                        <div style="position: absolute; top: 8px; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.18);"></div>
-                        <!-- Title in top band -->
-                        <h3 class="recipe-title" style="position: absolute; top: 20px; left: 16px; right: 16px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: white; margin: 0; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">ASIAN LETTUCE WRAPS</h3>
-                        <!-- Time badge (bottom-left) -->
-                        <div class="recipe-time-badge" 
-                             style="position: absolute; bottom: 16px; left: 16px; background: rgba(0, 0, 0, 0.7); color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 4px;">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23L13 12.75V7z"/>
-                            </svg>
-                            <span>15 mins</span>
+                <div class="recipe-item asian-lettuce-wraps" style="position: relative; background-image: url('assets/images/lettuce-wraps-recipe.jpg'); background-size: cover; background-position: center; height: 300px; border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease;"
+                     onmouseover="enhanceRecipeCard(this)" onmouseout="resetRecipeCard(this)">
+                    <div class="recipe-time-badge" style="position: absolute; bottom: 1rem; left: 1rem; background: rgba(0, 0, 0, 0.7); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 4px; z-index: 3;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23L13 12.75V7z"/>
+                        </svg>
+                        15 mins
+                    </div>
+                    <div class="recipe-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; z-index: 2;">
+                        <div class="recipe-content" style="text-align: center; color: white;">
+                            <h3 class="recipe-title" style="font-size: 1.5rem; font-weight: 600; margin: 0; transition: all 0.3s ease;">Asian Lettuce Wraps</h3>
                         </div>
                     </div>
-                </a>
+                </div>
 
                 <!-- Recipe 5 - Coconut Cauliflower Curry -->
-                <a href="coconut-cauliflower-curry-recipe.html" class="recipe-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
-                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.recipe-image').style.transform='scale(1.02)';"
-                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.recipe-image').style.transform='scale(1)';"
-                   onfocus="this.style.outline='3px solid #8B7355'; this.style.outlineOffset='2px'"
-                   onblur="this.style.outline='none'"
-                   aria-label="View Coconut Cauliflower Curry recipe - 30 minutes">
-                    <div class="recipe-image-container" style="position: relative; height: 100%; overflow: hidden;">
-                        <img src="assets/images/curry-recipe.jpg" alt="Coconut Cauliflower Curry" class="recipe-image"
-                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                        <!-- Subtle top overlay band -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0) 55%);"></div>
-                        <!-- Optional divider line -->
-                        <div style="position: absolute; top: 8px; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.18);"></div>
-                        <!-- Title in top band -->
-                        <h3 class="recipe-title" style="position: absolute; top: 20px; left: 16px; right: 16px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: white; margin: 0; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">COCONUT CAULIFLOWER CURRY</h3>
-                        <!-- Time badge (bottom-left) -->
-                        <div class="recipe-time-badge" 
-                             style="position: absolute; bottom: 16px; left: 16px; background: rgba(0, 0, 0, 0.7); color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 4px;">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23L13 12.75V7z"/>
-                            </svg>
-                            <span>30 mins</span>
+                <div class="recipe-item cauliflower-curry" style="position: relative; background-image: url('assets/images/curry-recipe.jpg'); background-size: cover; background-position: center; height: 300px; border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease;"
+                     onmouseover="enhanceRecipeCard(this)" onmouseout="resetRecipeCard(this)">
+                    <div class="recipe-time-badge" style="position: absolute; bottom: 1rem; left: 1rem; background: rgba(0, 0, 0, 0.7); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 4px; z-index: 3;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23L13 12.75V7z"/>
+                        </svg>
+                        30 mins
+                    </div>
+                    <div class="recipe-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; z-index: 2;">
+                        <div class="recipe-content" style="text-align: center; color: white;">
+                            <h3 class="recipe-title" style="font-size: 1.5rem; font-weight: 600; margin: 0; transition: all 0.3s ease;">Coconut Cauliflower Curry</h3>
                         </div>
                     </div>
-                </a>
+                </div>
 
                 <!-- Recipe 6 - Protein-Packed Avocado Toast -->
-                <a href="protein-avocado-toast-recipe.html" class="recipe-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
-                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.recipe-image').style.transform='scale(1.02)';"
-                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.recipe-image').style.transform='scale(1)';"
-                   onfocus="this.style.outline='3px solid #8B7355'; this.style.outlineOffset='2px'"
-                   onblur="this.style.outline='none'"
-                   aria-label="View Protein-Packed Avocado Toast recipe - 10 minutes">
-                    <div class="recipe-image-container" style="position: relative; height: 100%; overflow: hidden;">
-                        <img src="assets/images/avocado-toast-recipe.jpg" alt="Protein-Packed Avocado Toast" class="recipe-image"
-                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-                        <!-- Subtle top overlay band -->
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 35%; background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.04) 30%, rgba(0,0,0,0) 55%);"></div>
-                        <!-- Optional divider line -->
-                        <div style="position: absolute; top: 8px; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.18);"></div>
-                        <!-- Title in top band -->
-                        <h3 class="recipe-title" style="position: absolute; top: 20px; left: 16px; right: 16px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: white; margin: 0; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">PROTEIN-PACKED AVOCADO TOAST</h3>
-                        <!-- Time badge (bottom-left) -->
-                        <div class="recipe-time-badge" 
-                             style="position: absolute; bottom: 16px; left: 16px; background: rgba(0, 0, 0, 0.7); color: white; padding: 6px 12px; border-radius: 20px; font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 4px;">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23L13 12.75V7z"/>
-                            </svg>
-                            <span>10 mins</span>
+                <div class="recipe-item avocado-toast-bowl" style="position: relative; background-image: url('assets/images/avocado-toast-recipe.jpg'); background-size: cover; background-position: center; height: 300px; border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease;"
+                     onmouseover="enhanceRecipeCard(this)" onmouseout="resetRecipeCard(this)">
+                    <div class="recipe-time-badge" style="position: absolute; bottom: 1rem; left: 1rem; background: rgba(0, 0, 0, 0.7); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; display: flex; align-items: center; gap: 4px; z-index: 3;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6l5.25 3.15.75-1.23L13 12.75V7z"/>
+                        </svg>
+                        10 mins
+                    </div>
+                    <div class="recipe-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1)); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; z-index: 2;">
+                        <div class="recipe-content" style="text-align: center; color: white;">
+                            <h3 class="recipe-title" style="font-size: 1.5rem; font-weight: 600; margin: 0; transition: all 0.3s ease;">Protein-Packed Avocado Toast</h3>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
             
             <!-- See All Recipes Button -->
-            <div class="recipes-cta-section" style="text-align: center; margin-top: 48px;">
-                <a href="recipes.html" class="recipes-cta-btn" 
-                   style="background: #2D3748; color: white; padding: 14px 32px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: background-color 0.3s ease; font-family: 'Inter', sans-serif;"
-                   onmouseover="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'"
-                   onmouseout="this.style.background='#2D3748'; this.style.transform='translateY(0)'"
-                   onfocus="this.style.background='#1A202C'; this.style.transform='translateY(-2px)'"
-                   onblur="this.style.background='#2D3748'; this.style.transform='translateY(0)'">
+            <div class="recipes-cta-section" style="text-align: center;">
+                <a href="recipes.html" class="recipes-cta-btn" style="background: #2D3748; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: background-color 0.3s ease; font-family: 'Inter', sans-serif;">
                     <span class="btn-text">SEE ALL RECIPES</span>
                     <span class="btn-arrow">→</span>
                 </a>
             </div>
         </div>
     </section>
-    
-    <!-- Responsive CSS for Recipe Grid -->
-    <style>
-        /* ========================================
-           EMPTY NEST EATS GRID RESPONSIVE
-           ======================================== */
-        
-        /* Default Desktop: 3 columns × 2 rows */
-        .recipes-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 26px;
-            margin-bottom: 48px;
-        }
-        
-        /* Fixed aspect ratio cards */
-        .recipe-card {
-            aspect-ratio: 4/3;
-        }
-        
-        /* Tablet: 2 columns (cards stack to 3 rows) */
-        @media (max-width: 1024px) {
-            .recipes-grid {
-                grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(3, 1fr);
-                gap: 24px;
-            }
-        }
-        
-        /* Mobile: 1 column (cards stack to 6 rows) */
-        @media (max-width: 768px) {
-            .recipes-grid {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(6, 1fr);
-                gap: 20px;
-            }
-        }
-        
-        /* Reduced motion support */
-        @media (prefers-reduced-motion: reduce) {
-            .recipe-card {
-                transition: box-shadow 0.3s ease;
-            }
-            
-            .recipe-card:hover .recipe-image {
-                transform: none !important;
-            }
-            
-            .recipe-card:hover {
-                transform: none !important;
-            }
-        }
-        
-        /* Focus accessibility */
-        .recipe-card:focus {
-            outline: 3px solid #8B7355;
-            outline-offset: 2px;
-        }
-    </style>
 
     <!-- Section Divider -->
     <div class="section-divider" style="width: 100%; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0 20%, #E2E8F0 80%, transparent); margin: 4rem 0;"></div>
@@ -4219,10 +3667,10 @@
             <div class="book-club-layout">
                 <!-- Left: Large Typography -->
                 <div class="book-club-typography">
-                    <div class="book-club-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #8B7355; margin-bottom: 8px;">BOOKS</div>
-                    <h2 class="book-club-title" style="font-family: 'Playfair Display', serif; font-size: clamp(48px, 6.2vw, 96px); font-weight: 700; letter-spacing: -0.2px; text-transform: uppercase; color: #2D3748; line-height: 1.05; margin: 0 0 12px 0;">THE NEST BOOK NOOK</h2>
-                    <div class="book-club-tagline" style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 400; color: #666666; line-height: 1.4; margin-bottom: 12px; letter-spacing: 0.05em; text-transform: uppercase;">Current favorites and must-read recommendations</div>
-                    <div class="tagline-divider" style="width: 60px; height: 1px; background: #8B7355; margin-bottom: 48px;"></div>
+                    <div class="book-club-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: #8B7355; margin-bottom: 0.75rem;">BOOKS</div>
+                    <h2 class="book-club-title" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; letter-spacing: 0.02em; text-transform: uppercase; color: #2D3748; line-height: 0.9; margin: 0 0 1rem 0;">THE NEST BOOK NOOK</h2>
+                    <div class="book-club-tagline" style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 300; color: #666666; line-height: 1.4; margin-bottom: 1rem;">Current favorites and must-read recommendations</div>
+                    <div class="tagline-divider" style="width: 60px; height: 1px; background: #D4A4A4; margin-bottom: 3rem;"></div>
                 </div>
                 
                 <!-- Right: Content -->
@@ -4391,10 +3839,10 @@
             <div class="media-layout">
                 <!-- Left: Large Typography -->
                 <div class="media-typography">
-                    <div class="media-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; color: #8B7355; margin-bottom: 8px;">MEDIA</div>
-                    <h2 class="media-title" style="font-family: 'Playfair Display', serif; font-size: clamp(48px, 6.2vw, 96px); font-weight: 700; letter-spacing: -0.2px; text-transform: uppercase; color: #2D3748; line-height: 1.05; margin: 0 0 12px 0;">NEST IN THE NEWS</h2>
-                    <div class="media-tagline" style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 400; color: #666666; line-height: 1.4; margin-bottom: 12px; letter-spacing: 0.05em; text-transform: uppercase;">Press Coverage & Media Appearances</div>
-                    <div class="tagline-divider" style="width: 60px; height: 1px; background: #8B7355; margin-bottom: 48px;"></div>
+                    <div class="media-eyebrow" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: #8B7355; margin-bottom: 0.75rem;">MEDIA</div>
+                    <h2 class="media-title" style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; letter-spacing: 0.02em; text-transform: uppercase; color: #2D3748; line-height: 0.9; margin: 0 0 1rem 0;">NEST IN THE NEWS</h2>
+                    <div class="media-tagline" style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 300; color: #666666; line-height: 1.4; margin-bottom: 1rem;">Press Coverage & Media Appearances</div>
+                    <div class="tagline-divider" style="width: 60px; height: 1px; background: #D4A4A4; margin-bottom: 3rem;"></div>
                 </div>
                 
                 <!-- Right: Media Content -->
@@ -4403,7 +3851,7 @@
                 <!-- Live TV Appearances Row -->
                 <div class="media-category" style="background: rgba(250, 247, 244, 0.6); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
                     <h3 class="media-category-title" style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #2D3748; margin-bottom: 1.5rem; text-align: center;">LIVE TV APPEARANCES</h3>
-                    <div class="media-logo-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: clamp(20px, 2.5vw, 28px); justify-items: center;">
+                    <div class="media-logo-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; justify-items: center;">
                         
                         <!-- FOX40 Card -->
                         <a href="https://fox40.com/morning/lifestyle/family-focus-valentines-day-activities-for-families/" target="_blank" 
@@ -4467,7 +3915,7 @@
                 <!-- Published Articles Row -->
                 <div class="media-category" style="background: rgba(247, 242, 237, 0.8); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
                     <h3 class="media-category-title" style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #2D3748; margin-bottom: 1.5rem; text-align: center;">PUBLISHED FEATURES</h3>
-                    <div class="media-logo-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: clamp(20px, 2.5vw, 28px); justify-items: center;">
+                    <div class="media-logo-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; justify-items: center;">
                         
                         <!-- Inside Sacramento Card -->
                         <a href="https://insidesacramento.com/third-times-a-charm/" target="_blank" 
@@ -4517,7 +3965,7 @@
                 <!-- Podcast Appearances Row -->
                 <div class="media-category" style="background: rgba(250, 247, 244, 0.6); padding: 2rem; border-radius: 12px; margin-bottom: 3rem;">
                     <h3 class="media-category-title" style="font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #2D3748; margin-bottom: 1.5rem; text-align: center;">PODCAST APPEARANCES</h3>
-                    <div class="media-logo-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: clamp(20px, 2.5vw, 28px); justify-items: center;">
+                    <div class="media-logo-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; justify-items: center;">
                         
                         <!-- Your Empty Nest Coach Card -->
                         <a href="https://youremptynestcoach.com/category/podcast-with-guest/kellie-randle/" target="_blank" 

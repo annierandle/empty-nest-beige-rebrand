@@ -3179,14 +3179,13 @@ img[alt*="SleepWithMe"] {
         text-align: center;
     }
     
-    /* Mobile signature image styling */
-    .signature-image {
-        text-align: center;
-        margin: 1.5rem auto 0 auto;
+    /* Old mobile signature rules disabled */
+    .signature-image:not(.kellie-signature-container) {
+        display: none !important;
     }
     
-    .signature-img {
-        max-width: 250px; /* Proportional to desktop size on mobile */
+    .signature-img:not(.kellie-signature) {
+        display: none !important;
     }
     
     /* Mobile category grid */
@@ -3312,17 +3311,13 @@ img[alt*="SleepWithMe"] {
         font-size: 0.6rem;
     }
     
-    /* Signature remains elegant on smallest screens */
-    .signature-image {
-        text-align: center;
-        margin: 1.5rem auto 0 auto;
+    /* Old signature rules disabled for new implementation */
+    .signature-image:not(.kellie-signature-container) {
+        display: none !important;
     }
     
-    .signature-img {
-        max-width: 250px !important; /* FIXED from problematic 700px to reasonable size */
-        opacity: 1 !important; /* Ensure visibility */
-        mix-blend-mode: normal !important; /* Normal blending */
-        filter: none !important; /* Remove problematic filters */
+    .signature-img:not(.kellie-signature) {
+        display: none !important;
     }
     
     /* Small mobile category grid */
@@ -3548,27 +3543,48 @@ img[alt*="SleepWithMe"] {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%);
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4), rgba(0,0,0,0.1));
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 1.5rem;
     color: white;
+    transition: background 0.3s ease;
 }
 
 .event-category-tag {
-    font-family: 'Inter', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
+    background: #2D3748;
     color: white;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Inter', sans-serif;
     align-self: flex-start;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    border: none;
+    backdrop-filter: none;
+}
+
+/* Consistent category colors */
+.christmas-parties .event-category-tag {
+    background: #8B7355;
+}
+
+.wedding-events .event-category-tag {
+    background: #D4A4A4;
+}
+
+.family-gatherings .event-category-tag,
+.favorite-things .event-category-tag,
+.mimis-birthday .event-category-tag {
+    background: #2D3748;
+}
+
+.tailgates .event-category-tag {
+    background: #666666;
 }
 
 .event-content {
@@ -3579,29 +3595,32 @@ img[alt*="SleepWithMe"] {
 }
 
 .event-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: white;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     line-height: 1.2;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    transition: all 0.3s ease;
+    transform-origin: left center;
 }
 
 .event-description {
     font-family: 'Inter', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    text-shadow: none;
 }
 
 .event-meta {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
     font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.8);
@@ -3610,7 +3629,11 @@ img[alt*="SleepWithMe"] {
 .event-meta-item {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    flex-shrink: 0;
 }
 
 .event-meta-item svg {
@@ -5790,16 +5813,75 @@ img[alt*="SleepWithMe"] {
     }
 }
 
-/* FORCE SIGNATURE IMAGE TO BE VISIBLE AND PROPERLY SIZED */
-.signature-img {
-    max-width: 300px !important; /* Reasonable size instead of 3200px */
-    width: auto !important;
+/* FORCE OLD SIGNATURE IMAGE TO BE HIDDEN - REPLACED WITH NEW ONE */
+.signature-img:not(.kellie-signature) {
+    display: none !important;
+}
+
+/* NEW KELLIE SIGNATURE STYLING */
+.kellie-signature {
+    display: block !important;
+    background: transparent !important;
+    object-fit: contain !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    /* Color filter to achieve #2F2F2F color */
+    filter: brightness(0) saturate(100%) invert(18%) sepia(6%) saturate(888%) hue-rotate(202deg) brightness(91%) contrast(91%) !important;
+    mix-blend-mode: multiply !important;
+    opacity: 0.95 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Responsive sizing for signature */
+.kellie-signature {
+    width: clamp(260px, 80vw, 320px) !important;
     height: auto !important;
-    display: block !important; /* Force display */
-    opacity: 1 !important; /* Ensure visibility */
-    background: transparent !important; /* Transparent background */
-    mix-blend-mode: normal !important; /* Normal blending */
-    filter: none !important; /* Remove any problematic filters */
+}
+
+@media (min-width: 768px) {
+    .kellie-signature {
+        width: clamp(380px, 55vw, 460px) !important;
+        loading: eager !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .kellie-signature {
+        width: clamp(520px, 48vw, 640px) !important;
+    }
+}
+
+/* Signature container positioning */
+.kellie-signature-container {
+    background: transparent !important;
+    margin-top: 24px !important;
+    margin-bottom: clamp(-8px, 2vw, 0px) !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Remove any placeholder or skeleton elements */
+.kellie-signature-container::before,
+.kellie-signature-container::after,
+.kellie-signature-container .skeleton,
+.kellie-signature-container .blur-placeholder,
+.kellie-signature-container .image-skeleton {
+    display: none !important;
+}
+
+/* Masked signature fallback */
+.kellie-signature-masked {
+    -webkit-mask-image: url('/assets/images/kellie-signature.png');
+    mask-image: url('/assets/images/kellie-signature.png');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    background-color: #2F2F2F !important;
+    pointer-events: none !important;
 }
 
 /* Shop Now button for Just Ingredients */
