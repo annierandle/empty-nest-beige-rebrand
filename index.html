@@ -440,14 +440,18 @@
           margin-left: 0 !important;
         }
 
-        /* Consistent max-width and centering for sections */
+        /* CONSISTENT SECTION ALIGNMENT - HEADERS AND CONTENT MUST ALIGN */
         .section-wrapper,
         .refined-wrapper,
         .content-wrapper,
-        .container {
+        .container,
+        .recipes-wrapper,
+        .book-nook-wrapper,
+        .media-wrapper,
+        .contact-wrapper {
           max-width: 1200px !important;
           margin: 0 auto !important;
-          padding: 0 clamp(1rem, 4vw, 2rem) !important;
+          padding: 0 24px !important; /* CONSISTENT 24PX PADDING */
         }
 
         /* Subheader standardization */
@@ -515,10 +519,13 @@
         .section-content,
         .about-content,
         .curated-collections,
-        .community-perks {
+        .community-perks,
+        .recipes-grid,
+        .press-grid,
+        .podcast-grid {
           width: 100% !important;
-          max-width: 1200px !important;
-          margin: 0 auto !important;
+          max-width: none !important; /* REMOVE MAX WIDTH TO ALIGN WITH PARENT */
+          margin: 0 !important; /* REMOVE AUTO MARGIN */
           padding: 0 !important;
         }
 
@@ -3882,7 +3889,7 @@
                     background: white;
                     border-radius: 18px; /* ROUNDED TILES TO MATCH OTHER SECTIONS */
                     overflow: hidden;
-                    box-shadow: 0 8px 20px rgba(27, 30, 35, 0.10); /* CONSISTENT WITH OTHER SECTIONS */
+                    box-shadow: none !important; /* REMOVE TOP SHADOWS AS REQUESTED */
                     transition: all 0.3s ease; /* CONSISTENT TIMING */
                     position: relative;
                     cursor: pointer;
@@ -4017,16 +4024,26 @@
                     position: absolute;
                     bottom: 12px;
                     right: 12px;
-                    background: #EEC3C3;
-                    color: #2C3440;
-                    padding: 4px 8px;
-                    border-radius: 9999px;
-                    font-family: var(--ff-sans);
-                    font-size: 10px;
+                    background: #D4A4A4 !important; /* CONSISTENT PINK COLOR */
+                    color: white !important; /* WHITE TEXT FOR BETTER CONTRAST */
+                    padding: 6px 12px; /* CONSISTENT PADDING */
+                    border-radius: 20px; /* CONSISTENT SHAPE */
+                    font-family: 'Inter', sans-serif !important; /* CONSISTENT FONT */
+                    font-size: 10px; /* CONSISTENT SIZE */
                     font-weight: 600;
                     text-transform: uppercase;
-                    letter-spacing: 0.04em;
+                    letter-spacing: 0.02em; /* CONSISTENT SPACING */
+                    display: flex;
+                    align-items: center;
+                    gap: 4px; /* SPACE FOR STAR */
                     z-index: 3;
+                    box-shadow: 0 2px 8px rgba(212, 164, 164, 0.3); /* SUBTLE SHADOW */
+                }
+                
+                /* ADD STAR ICON TO FAM FAVORITE */
+                .recipe-fav::before {
+                    content: \"⭐\";
+                    font-size: 8px;
                 }
                 
                 /* Responsive breakpoints */
@@ -4270,8 +4287,8 @@
                 /* IMPROVED BOOK CAROUSEL SYSTEM - PERFECTLY CENTERED */
                 .book-carousel-container {
                     position: relative;
-                    max-width: 1200px; /* INCREASED FOR BETTER CENTERING */
-                    margin: 0 auto;
+                    width: 100%; /* FULL WIDTH TO ALIGN WITH SECTION */
+                    margin: 0;
                     padding: 0 60px; /* Space for arrow buttons */
                     display: flex;
                     justify-content: center; /* CENTER THE CAROUSEL */
@@ -4708,6 +4725,8 @@
                     grid-template-columns: repeat(4, minmax(200px, 1fr)); /* INCREASED MIN WIDTH */
                     gap: 24px;
                     align-items: start; /* CONSISTENT ALIGNMENT */
+                    width: 100% !important;
+                    margin: 0 !important; /* ALIGN WITH SECTION HEADER */
                 }
                 #nest-in-the-news .press-card{
                     display: grid; 
