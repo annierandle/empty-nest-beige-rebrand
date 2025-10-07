@@ -319,13 +319,33 @@
           padding-left: 0 !important;
         }
 
-        /* Consistent header spacing from container edges */
+        /* Consistent header spacing from container edges - FORCE 24PX PADDING FOR ALL SECTIONS */
         .section-header,
         .refined-wrapper,
         .about-wrapper,
-        .content-wrapper {
-          padding-left: clamp(1rem, 4vw, 2rem) !important;
-          padding-right: clamp(1rem, 4vw, 2rem) !important;
+        .content-wrapper,
+        .events-wrapper,
+        .recipes-wrapper,
+        .nest-approved-wrapper,
+        .picks-wrapper,
+        .book-nook-wrapper,
+        .media-wrapper,
+        .contact-wrapper {
+          padding-left: 24px !important;
+          padding-right: 24px !important;
+        }
+        
+        /* ENSURE GRIDS ALIGN WITH SECTION HEADERS - NO EXTENDING PAST EDGES */
+        .recipes-grid,
+        .celebrations-grid,
+        .featured-codes-grid,
+        .additional-codes-grid,
+        .book-carousel-track,
+        .picks-carousel {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
         }
 
         /* Ensure all button SVG arrows are white */
@@ -448,10 +468,30 @@
         .recipes-wrapper,
         .book-nook-wrapper,
         .media-wrapper,
-        .contact-wrapper {
+        .contact-wrapper,
+        .events-wrapper,
+        .nest-approved-wrapper,
+        .picks-wrapper {
           max-width: 1200px !important;
           margin: 0 auto !important;
           padding: 0 24px !important; /* CONSISTENT 24PX PADDING */
+        }
+        
+        /* REMOVE CONFLICTING MAX-WIDTH SETTINGS */
+        .section-content,
+        .refined-content,
+        .about-content,
+        .curated-collections,
+        .community-perks,
+        .recipes-grid,
+        .press-grid,
+        .podcast-grid,
+        .celebrations-grid,
+        .picks-carousel,
+        .book-carousel-track {
+          max-width: none !important; /* REMOVE MAX WIDTH TO ALIGN WITH PARENT */
+          margin-left: 0 !important; /* REMOVE AUTO MARGIN */
+          margin-right: 0 !important; /* REMOVE AUTO MARGIN */
         }
 
         /* Subheader standardization */
@@ -3887,9 +3927,9 @@
                     color: inherit;
                     aspect-ratio: 16/10; /* CONSISTENT IMAGE RATIO */
                     background: white;
-                    border-radius: 18px; /* ROUNDED TILES TO MATCH OTHER SECTIONS */
+                    border-radius: 18px !important; /* ROUNDED TILES TO MATCH NEST CELEBRATIONS SECTION */
                     overflow: hidden;
-                    box-shadow: none !important; /* REMOVE TOP SHADOWS AS REQUESTED */
+                    box-shadow: none !important; /* REMOVE ALL SHADOWS INCLUDING TOP SHADOWS */
                     transition: all 0.3s ease; /* CONSISTENT TIMING */
                     position: relative;
                     cursor: pointer;
@@ -3897,7 +3937,7 @@
                 
                 .recipe-card:hover {
                     transform: translateY(-4px); /* CONSISTENT HOVER LIFT */
-                    box-shadow: 0 12px 32px rgba(27,30,35,0.16); /* ENHANCED SHADOW */
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important; /* CLEAN SHADOW ONLY ON HOVER */
                 }
                 
                 .recipe-card:focus {
@@ -4019,31 +4059,34 @@
                     transform: translateX(2px);
                 }
                 
-                /* "Fam Favorite" chip - bottom-right */
+                /* "Fam Favorite" chip - MATCH EXACT STYLE OF KELLIE'S FAVORITE IN BOOK NOOK SECTION */
                 .recipe-fav {
                     position: absolute;
                     bottom: 12px;
                     right: 12px;
-                    background: #D4A4A4 !important; /* CONSISTENT PINK COLOR */
+                    background: #D4A4A4 !important; /* EXACT SAME PINK COLOR AS KELLIE'S FAVORITE */
                     color: white !important; /* WHITE TEXT FOR BETTER CONTRAST */
-                    padding: 6px 12px; /* CONSISTENT PADDING */
-                    border-radius: 20px; /* CONSISTENT SHAPE */
-                    font-family: 'Inter', sans-serif !important; /* CONSISTENT FONT */
-                    font-size: 10px; /* CONSISTENT SIZE */
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    letter-spacing: 0.02em; /* CONSISTENT SPACING */
-                    display: flex;
-                    align-items: center;
-                    gap: 4px; /* SPACE FOR STAR */
+                    padding: 6px 12px !important; /* EXACT SAME PADDING AS KELLIE'S FAVORITE */
+                    border-radius: 20px !important; /* EXACT SAME SHAPE AS KELLIE'S FAVORITE */
+                    font-family: 'Inter', sans-serif !important; /* EXACT SAME FONT AS KELLIE'S FAVORITE */
+                    font-size: 10px !important; /* EXACT SAME SIZE AS KELLIE'S FAVORITE */
+                    font-weight: 600 !important;
+                    text-transform: uppercase !important;
+                    letter-spacing: 0.02em !important; /* EXACT SAME SPACING AS KELLIE'S FAVORITE */
+                    display: flex !important;
+                    align-items: center !important;
+                    gap: 4px !important; /* SPACE FOR STAR ICON */
                     z-index: 3;
-                    box-shadow: 0 2px 8px rgba(212, 164, 164, 0.3); /* SUBTLE SHADOW */
+                    box-shadow: 0 2px 8px rgba(212, 164, 164, 0.3) !important; /* EXACT SAME SHADOW AS KELLIE'S FAVORITE */
                 }
                 
-                /* ADD STAR ICON TO FAM FAVORITE */
+                /* ADD STAR ICON BEFORE FAM FAVORITE TEXT - EXACT MATCH TO KELLIE'S FAVORITE */
                 .recipe-fav::before {
-                    content: \"⭐\";
-                    font-size: 8px;
+                    content: "";
+                    width: 8px;
+                    height: 8px;
+                    display: inline-block;
+                    background: url('data:image/svg+xml,<svg width="8" height="8" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z"/></svg>') center/contain no-repeat;
                 }
                 
                 /* Responsive breakpoints */
