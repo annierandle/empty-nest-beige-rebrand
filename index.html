@@ -319,7 +319,22 @@
           padding-left: 0 !important;
         }
 
-        /* Consistent header spacing from container edges - FORCE 24PX PADDING FOR ALL SECTIONS */
+        /* FORCE GLOBAL SECTION ALIGNMENT - NUCLEAR APPROACH */
+        #home,
+        #meet-kellie, 
+        #nest-approved,
+        #inside-the-nest,
+        #empty-nest-picks,
+        #nest-celebrations,
+        #empty-nest-eats,
+        #nest-book-nook,
+        #nest-in-the-news,
+        #lets-connect {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+        
+        /* NUCLEAR SECTION WRAPPER ALIGNMENT */
         .section-header,
         .refined-wrapper,
         .about-wrapper,
@@ -331,8 +346,11 @@
         .book-nook-wrapper,
         .media-wrapper,
         .contact-wrapper {
+          max-width: 1200px !important;
+          margin: 0 auto !important;
           padding-left: 24px !important;
           padding-right: 24px !important;
+          box-sizing: border-box !important;
         }
         
         /* ENSURE GRIDS ALIGN WITH SECTION HEADERS - NO EXTENDING PAST EDGES */
@@ -341,11 +359,13 @@
         .featured-codes-grid,
         .additional-codes-grid,
         .book-carousel-track,
-        .picks-carousel {
+        .picks-carousel,
+        .category-grid {
           margin-left: 0 !important;
           margin-right: 0 !important;
           padding-left: 0 !important;
           padding-right: 0 !important;
+          max-width: none !important;
         }
 
         /* Ensure all button SVG arrows are white */
@@ -471,7 +491,8 @@
         .contact-wrapper,
         .events-wrapper,
         .nest-approved-wrapper,
-        .picks-wrapper {
+        .picks-wrapper,
+        .about-wrapper {
           max-width: 1200px !important;
           margin: 0 auto !important;
           padding: 0 24px !important; /* CONSISTENT 24PX PADDING */
@@ -492,6 +513,19 @@
           max-width: none !important; /* REMOVE MAX WIDTH TO ALIGN WITH PARENT */
           margin-left: 0 !important; /* REMOVE AUTO MARGIN */
           margin-right: 0 !important; /* REMOVE AUTO MARGIN */
+        }
+        
+        /* FORCE ALL SECTIONS TO HAVE PROPER PADDING */
+        section {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+        
+        /* ENSURE SECTION HEADERS ALIGN WITH CONTENT */
+        .section-header {
+          margin-left: 0 !important;
+          padding-left: 0 !important;
+          text-align: left !important;
         }
 
         /* Subheader standardization */
@@ -1869,9 +1903,7 @@
         
         /* FIX NEST APPROVED HEADER POSITIONING - ALIGN LEFT LIKE OTHER SECTIONS */
         .nest-approved-section {
-            max-width: 1200px !important;
-            margin: 0 auto !important;
-            padding: 4rem 2rem !important;
+            padding: 4rem 0 !important;
         }
         
         .nest-approved-wrapper,
@@ -2340,7 +2372,7 @@
 
     <!-- Meet Kellie Section - Redesigned 2-Column Layout -->
     <section id="meet-kellie" class="about-section">
-        <div class="about-wrapper">
+        <div class="about-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 0 24px !important;">
             <div class="about-layout">
                 <!-- Left Column: Images -->
                 <div class="about-visual">
@@ -2358,10 +2390,10 @@
                 
                 <!-- Right Column: Content -->
                 <div class="about-content" style="border-left: 1px solid rgba(235, 213, 207, 0.6); padding-left: 2rem !important; margin-left: 1rem !important;">
-                    <!-- Global Section Header System -->
-                    <div class="section-header has-divider">
-                        <div class="section-kicker">MY STORY</div>
-                        <h2 class="section-title">Meet Kellie</h2>
+                    <!-- Global Section Header System - ALIGNED LEFT WITH PARAGRAPH TEXT -->
+                    <div class="section-header has-divider" style="margin-left: 0 !important; padding-left: 0 !important; text-align: left !important;">
+                        <div class="section-kicker" style="margin-left: 0 !important; padding-left: 0 !important;">MY STORY</div>
+                        <h2 class="section-title" style="margin-left: 0 !important; padding-left: 0 !important; text-align: left !important;">Meet Kellie</h2>
                     </div>
                     
                     <!-- Story Section 1 - IMPROVED SPACING AND READABILITY -->
@@ -2557,7 +2589,7 @@
     
     <!-- Inside the Nest Section -->
     <section id="inside-the-nest" class="refined-section" style="--card-radius: 16px; background: linear-gradient(135deg, #FDFCFB 0%, #F9F6F4 50%, #F7F2ED 100%); padding: 4rem 2rem;">
-        <div class="refined-wrapper" style="max-width: 1200px; margin: 0 auto;">
+        <div class="refined-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 0 24px !important;">
             <div class="refined-layout">
                 <!-- Global Section Header System -->
                 <div class="section-header has-divider">
@@ -2569,7 +2601,7 @@
                 <!-- Enhanced Category Grid -->
                 <div class="section-content">
 
-                    <div class="category-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 0; margin-top: 0 !important; padding: 0; max-width: 1200px; margin-left: auto; margin-right: auto;">
+                    <div class="category-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 0; margin-top: 0 !important; padding: 0; margin-left: 0 !important; margin-right: 0 !important;">
                         
                         <style>
                         /* OVERRIDE GLOBAL SHARP EDGES RULE FOR INSIDE THE NEST SECTION ONLY */
@@ -3147,12 +3179,13 @@
         <style>
         /* Clean Empty Nest Picks Styles */
         #empty-nest-picks {
-            padding: 4rem 2rem;
+            padding: 4rem 0 !important;
         }
         
         .picks-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding: 0 24px !important;
         }
         
         .section-header {
@@ -3899,8 +3932,8 @@
     <div class="section-divider" style="width: 100%; height: 1px; background: linear-gradient(to right, transparent, #E2E8F0 20%, #E2E8F0 80%, transparent); margin: 4rem 0;"></div>
     
     <!-- Empty Nest Eats Section - Global Section System -->
-    <section id="empty-nest-eats" class="recipes-section" style="background: #FFFFFF; padding: 4rem 2rem;">
-        <div class="recipes-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <section id="empty-nest-eats" class="recipes-section" style="background: #FFFFFF; padding: 4rem 0;">
+        <div class="recipes-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 0 24px !important;">
             <!-- Global Section Header System -->
             <div class="section-header has-divider">
                 <div class="section-kicker">RECIPES</div>
@@ -3930,14 +3963,16 @@
                     border-radius: 18px !important; /* ROUNDED TILES TO MATCH NEST CELEBRATIONS SECTION */
                     overflow: hidden;
                     box-shadow: none !important; /* REMOVE ALL SHADOWS INCLUDING TOP SHADOWS */
-                    transition: all 0.3s ease; /* CONSISTENT TIMING */
+                    transition: transform 0.3s ease !important; /* ONLY TRANSFORM TRANSITION, NO SHADOW */
                     position: relative;
                     cursor: pointer;
+                    border: 1px solid rgba(0, 0, 0, 0.05) !important; /* SUBTLE BORDER INSTEAD OF SHADOW */
                 }
                 
                 .recipe-card:hover {
-                    transform: translateY(-4px); /* CONSISTENT HOVER LIFT */
-                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important; /* CLEAN SHADOW ONLY ON HOVER */
+                    transform: translateY(-4px) !important; /* CONSISTENT HOVER LIFT */
+                    box-shadow: none !important; /* NO SHADOW EVEN ON HOVER */
+                    border-color: rgba(0, 0, 0, 0.1) !important; /* SLIGHTLY STRONGER BORDER ON HOVER */
                 }
                 
                 .recipe-card:focus {
@@ -4113,7 +4148,7 @@
                 }
                 </style>
                 
-                <div class="recipes-grid">
+                <div class="recipes-grid" style="margin: 0 !important; padding: 0 !important;">
                     
                     <!-- Recipe 1 - Fry Sauce -->
                     <div class="recipe-card" data-recipe="fry-sauce" onclick="openRecipeModal('fry-sauce')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('fry-sauce')" aria-label="View Fry Sauce recipe">
