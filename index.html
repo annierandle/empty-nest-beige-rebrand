@@ -2611,7 +2611,7 @@
                 <!-- Enhanced Category Grid -->
                 <div class="section-content">
 
-                    <div class="category-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 0; margin-top: 0 !important; padding: 0; margin-left: 0 !important; margin-right: 0 !important;">
+                    <div class="category-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 0; margin-top: 48px !important; padding: 0; margin-left: 0 !important; margin-right: 0 !important;">
                         
                         <style>
                         /* OVERRIDE GLOBAL SHARP EDGES RULE FOR INSIDE THE NEST SECTION ONLY */
@@ -2710,7 +2710,7 @@
                         
                         .category-label {
                             font-family: "Cormorant Garamond", "Cormorant", Georgia, serif !important;
-                            font-size: 1.3rem;
+                            font-size: 1.1rem;
                             font-weight: 700;
                             color: white;
                             margin: 0 0 4px 0;
@@ -2980,8 +2980,10 @@
                onmouseout="this.style.background='#1B1E23'"
                onfocus="this.style.outline='none'; this.style.boxShadow='0 0 0 3px rgba(27,30,35,.24)'"
                onblur="this.style.boxShadow='none'">
-                <span class="btn-text">SEE ALL CONTENT</span>
-                <span class="btn-arrow" style="transition: transform 0.3s ease;">→</span>
+                <span class="btn-text" style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;">SHOP ALL PICKS</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.3s ease;">
+                    <polyline points="9,18 15,12 9,6"></polyline>
+                </svg>
             </a>
         </div>
     </div>
@@ -3200,7 +3202,7 @@
         
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4.5rem;
         }
         
         .eyebrow {
@@ -3289,7 +3291,7 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            height: 460px; /* CONSISTENT HEIGHT */
+            height: 480px; /* INCREASED HEIGHT TO FIX CUT-OFF */
             width: 100%;
         }
         
@@ -3337,7 +3339,7 @@
         }
         
         .product-content {
-            height: 40%;
+            flex: 1;
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
@@ -3349,15 +3351,15 @@
         }
         
         .product-info h3 {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 500;
             color: #1B1E23;
             margin: 0 0 0.5rem 0;
             line-height: 1.3;
         }
         
         .product-info p {
-            font-size: 14px;
+            font-size: 12px;
             color: #666A72;
             margin: 0;
             line-height: 1.4;
