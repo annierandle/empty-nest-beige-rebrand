@@ -2981,7 +2981,7 @@
                onmouseout="this.style.background='#1B1E23'"
                onfocus="this.style.outline='none'; this.style.boxShadow='0 0 0 3px rgba(27,30,35,.24)'"
                onblur="this.style.boxShadow='none'">
-                <span class="btn-text" style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;">SHOP ALL PICKS</span>
+                <span class="btn-text" style="font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;">EXPLORE ALL CONTENT</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="transition: transform 0.3s ease;">
                     <polyline points="9,18 15,12 9,6"></polyline>
                 </svg>
@@ -3203,7 +3203,7 @@
         
         .section-header {
             text-align: center;
-            margin-bottom: 4.5rem;
+            margin-bottom: 6rem;
         }
         
         .eyebrow {
@@ -3322,18 +3322,18 @@
         }
         
         .product-image {
-            height: 260px; /* CONSISTENT IMAGE HEIGHT */
+            height: 320px; /* LARGER IMAGE HEIGHT */
             background: #f8f9fa;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1rem;
             aspect-ratio: 1 / 1; /* CONSISTENT SQUARE RATIO */
         }
         
         .product-image img {
-            max-width: 85%;
-            max-height: 85%;
+            max-width: 95%;
+            max-height: 95%;
             object-fit: contain;
             width: auto;
             height: auto;
@@ -3352,31 +3352,33 @@
         }
         
         .product-info h3 {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 500;
             color: #1B1E23;
-            margin: 0 0 0.5rem 0;
-            line-height: 1.3;
+            margin: 0 0 0.25rem 0;
+            line-height: 1.2;
         }
         
         .product-info p {
-            font-size: 12px;
+            font-size: 10px;
             color: #666A72;
             margin: 0;
-            line-height: 1.4;
+            line-height: 1.3;
         }
         
         .product-action {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
         }
         
         .price {
-            font-size: 15px;
+            font-size: 12px;
             font-weight: 600;
             color: #1B1E23;
+            text-align: center;
+            margin-bottom: 0.5rem;
         }
         
         .shop-btn {
@@ -3550,10 +3552,10 @@
             </div>
             
             <!-- Event Cards Grid - 3×2 Layout -->
-            <div class="section-content celebrations-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: clamp(20px, 2.5vw, 28px); margin-bottom: 48px;">
+            <div class="section-content celebrations-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: clamp(20px, 2.5vw, 28px); margin-bottom: 48px; margin-top: 48px;">
                 <!-- Card 1: Christmas Parties -->
                 <a href="christmas-parties.html" class="celebration-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
+                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative; min-height: 320px;"
                    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.card-image').style.transform='scale(1.02)';"
                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.card-image').style.transform='scale(1)';"
                    onfocus="this.style.outline='3px solid #D4A4A4'; this.style.outlineOffset='2px'"
@@ -3594,7 +3596,7 @@
 
                 <!-- Card 2: Wedding Events -->
                 <a href="wedding-events.html" class="celebration-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
+                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative; min-height: 320px;"
                    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.card-image').style.transform='scale(1.02)';"
                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.card-image').style.transform='scale(1)';"
                    onfocus="this.style.outline='3px solid #D4A4A4'; this.style.outlineOffset='2px'"
@@ -3634,7 +3636,7 @@
 
                 <!-- Card 3: Family Gatherings -->
                 <a href="family-gatherings.html" class="celebration-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
+                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative; min-height: 320px;"
                    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.card-image').style.transform='scale(1.02)';"
                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.card-image').style.transform='scale(1)';"
                    onfocus="this.style.outline='3px solid #2D3748'; this.style.outlineOffset='2px'"
@@ -3674,7 +3676,7 @@
 
                 <!-- Card 4: Favorite Things -->
                 <a href="favorite-things.html" class="celebration-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
+                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative; min-height: 320px;"
                    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.card-image').style.transform='scale(1.02)';"
                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.card-image').style.transform='scale(1)';"
                    onfocus="this.style.outline='3px solid #2D3748'; this.style.outlineOffset='2px'"
@@ -3714,7 +3716,7 @@
 
                 <!-- Card 5: Mimi's 80th Birthday -->
                 <a href="mimis-80th-birthday.html" class="celebration-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
+                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative; min-height: 320px;"
                    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.card-image').style.transform='scale(1.02)';"
                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.card-image').style.transform='scale(1)';"
                    onfocus="this.style.outline='3px solid #2D3748'; this.style.outlineOffset='2px'"
@@ -3754,7 +3756,7 @@
 
                 <!-- Card 6: Tailgates -->
                 <a href="tailgates.html" class="celebration-card" 
-                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 16/10; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative;"
+                   style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative; min-height: 320px;"
                    onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.12)'; this.querySelector('.card-image').style.transform='scale(1.02)';"
                    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.08)'; this.querySelector('.card-image').style.transform='scale(1)';"
                    onfocus="this.style.outline='3px solid #666666'; this.style.outlineOffset='2px'"
@@ -3843,9 +3845,10 @@
             }
         }
         
-        /* Fixed 16:10 aspect ratio cards */
+        /* Fixed 4:3 aspect ratio cards for larger display */
         .celebration-card {
-            aspect-ratio: 16/10;
+            aspect-ratio: 4/3;
+            min-height: 320px;
         }
         
         /* Reduced motion support */
@@ -3948,7 +3951,7 @@
     <section id="empty-nest-eats" class="recipes-section" style="background: #FFFFFF; padding: 4rem 0;">
         <div class="recipes-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 0 24px !important;">
             <!-- Global Section Header System -->
-            <div class="section-header has-divider">
+            <div class="section-header has-divider" style="margin-bottom: 6rem;">
                 <div class="section-kicker">RECIPES</div>
                 <h2 class="section-title">Empty Nest Eats</h2>
                 <p class="section-sub">Healthy & quick empty nest recipes</p>
@@ -4366,7 +4369,7 @@
     <section id="nest-book-nook" class="book-nook-section" style="background: #F7F1EC; padding: 4rem 2rem;">
         <div class="book-nook-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
             <!-- Global Section Header System -->
-            <div class="section-header has-divider">
+            <div class="section-header has-divider" style="margin-bottom: 6rem;">
                 <div class="section-kicker">BOOKS</div>
                 <h2 class="section-title">The Nest Book Nook</h2>
                 <p class="section-sub">Current favorites and must-read recommendations</p>
@@ -4658,7 +4661,7 @@
                                             <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
                                                 <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z"/>
                                             </svg>
-                                            FAVORITE
+                                            KELLIE'S FAVORITE
                                         </div>
                                     </div>
                                 </div>
@@ -4682,7 +4685,7 @@
                                             <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
                                                 <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z"/>
                                             </svg>
-                                            FAVORITE
+                                            KELLIE'S FAVORITE
                                         </div>
                                     </div>
                                 </div>
@@ -4724,7 +4727,7 @@
                                             <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor">
                                                 <path d="M12 2L15.09 8.26L22 9L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9L8.91 8.26L12 2Z"/>
                                             </svg>
-                                            FAVORITE
+                                            KELLIE'S FAVORITE
                                         </div>
                                     </div>
                                 </div>
@@ -4776,7 +4779,7 @@
     <section id="nest-in-the-news" class="media-section section--press" style="background: #FFFFFF; padding: 4rem 2rem;">
         <div class="media-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
             <!-- Global Section Header System -->
-            <div class="section-header has-divider">
+            <div class="section-header has-divider" style="margin-bottom: 6rem;">
                 <div class="section-kicker">MEDIA</div>
                 <h2 class="section-title">Nest in the News</h2>
                 <p class="section-sub">Press coverage & media appearances</p>
@@ -4788,6 +4791,11 @@
                 /* Section Modifier for Press Section - Add more air under header */
                 .section--press .section-content { 
                     margin-top: 42px; 
+                }
+                
+                /* News section subtitle should match main header font */
+                #nest-in-the-news .section-sub {
+                    font-family: var(--header-title-font) !important;
                 }
                 
                 /* More air under header as specified */
@@ -5077,7 +5085,7 @@
     <section id="lets-connect" class="contact-section" style="background: #F7F8FA; padding: 4rem 2rem;">
         <div class="contact-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
             <!-- Global Section Header System -->
-            <div class="section-header has-divider">
+            <div class="section-header has-divider" style="margin-bottom: 6rem;">
                 <div class="section-kicker">CONTACT</div>
                 <h2 class="section-title">Let's Connect</h2>
                 <p class="section-sub">Please fill out the form below and I will be in touch</p>
