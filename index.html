@@ -117,8 +117,17 @@
         /* Space from the whole header block to the content that follows */
         .section-header + *,
         .section__header + *,
-        .header-block + * {
-          margin-top: 22px !important;       /* reduce large gaps under headers */
+        .header-block + *,
+        .section-content {
+          margin-top: 32px !important;       /* consistent spacing after headers */
+        }
+        
+        /* Ensure spacing after subtitle/description */
+        .section-subtitle + *,
+        .section__subtitle + *,
+        .section-sub + *,
+        .header-description + * {
+          margin-top: 24px !important;
         }
 
         /* Mobile refinements - SINGLE LINE */
@@ -141,6 +150,18 @@
           }
         }
 
+        /* UNIVERSAL FIXES FOR ALL SECTIONS */
+        
+        /* Ensure ALL sections have consistent spacing */
+        section {
+          margin-bottom: 0 !important;
+        }
+        
+        /* Force consistent section spacing throughout site */
+        .section-divider {
+          margin: 4rem 0 !important;
+        }
+        
         /* Apply to all existing sections */
         #home .section-header,
         #meet-kellie .section-header,
@@ -2012,7 +2033,7 @@
             
             <!-- Logo -->
             <a href="#home" class="nav-logo" style="display: flex; align-items: center; text-decoration: none;" aria-label="Empty Nest - Home">
-                <img src="assets/images/short-new-logo.jpeg" alt="Empty Nest" style="height: 32px; width: auto; display: block; background: transparent; border-radius: 4px;" />
+                <img src="assets/images/short-new-logo.jpeg" alt="Empty Nest" style="height: 40px; width: auto; display: block; background: transparent; border-radius: 6px; filter: none; object-fit: contain;" />
             </a>
             
             <!-- Right Section: Social Icons + Hamburger -->
@@ -2048,10 +2069,10 @@
                        style="width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; opacity: 0.8; text-decoration: none; transition: opacity 0.2s ease; outline: none;"
                        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'"
                        onfocus="this.style.outline='2px solid #D4A4A4'; this.style.outlineOffset='2px'" onblur="this.style.outline='none'">
-                        <svg width="20" height="16" viewBox="0 0 100 30" fill="none">
-                            <text x="30" y="18" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#232F3E">amazon</text>
-                            <path d="M15 22 Q40 25 70 22" stroke="#FF9900" stroke-width="1.5" fill="none"/>
-                            <polygon points="68,20 70,22 68,24" fill="#FF9900"/>
+                        <svg width="24" height="18" viewBox="0 0 100 30" fill="none">
+                            <text x="15" y="18" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="#232F3E">amazon</text>
+                            <path d="M10 22 Q50 25 85 22" stroke="#FF9900" stroke-width="2" fill="none"/>
+                            <polygon points="83,20 85,22 83,24" fill="#FF9900"/>
                         </svg>
                     </a>
                 </div>
