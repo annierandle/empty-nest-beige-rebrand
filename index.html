@@ -891,7 +891,143 @@
     </style>
     
     <!-- Professional CSS -->
-<link rel="stylesheet" href="assets/css/style.css?v=20251004-comprehensive-update&nocache=20251004203210&force=true&bust=nest-celebrations-signature">
+<!-- EXTERNAL CSS DISABLED TO PREVENT SHADOW OVERRIDES -->\n<!-- <link rel="stylesheet" href="assets/css/style.css?v=20251004-comprehensive-update&nocache=20251004203210&force=true&bust=nest-celebrations-signature"> -->
+    
+    <!-- NUCLEAR OVERRIDE STYLES - REPLACES EXTERNAL CSS -->
+    <style>
+        /* GLOBAL SHADOW ELIMINATION - HIGHEST PRIORITY */
+        * {
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            filter: none !important;
+        }
+        
+        /* CELEBRATIONS GRID SPACING FIX */
+        .celebrations-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            gap: 3rem !important;
+            row-gap: 3rem !important;
+            column-gap: 3rem !important;
+            padding: 2rem 0 !important;
+        }
+        
+        /* EMPTY NEST EATS RECIPE TILES - NO SHADOWS */
+        .recipe-card,
+        .recipe-tile,
+        .nest-eats-card,
+        [class*="recipe"],
+        [class*="card"] {
+            box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            filter: none !important;
+            border: 1px solid rgba(0,0,0,0.08) !important;
+        }
+        
+        /* Basic styling to replace disabled external CSS */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Navigation styling */
+        .navbar {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Button styling */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #007bff;
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+    </style>
+    
+    <!-- NUCLEAR JAVASCRIPT ENFORCEMENT -->
+    <script>
+        // Immediate enforcement when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // GLOBAL SHADOW REMOVAL
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(el => {
+                el.style.setProperty('box-shadow', 'none', 'important');
+                el.style.setProperty('-webkit-box-shadow', 'none', 'important');
+                el.style.setProperty('-moz-box-shadow', 'none', 'important');
+                el.style.setProperty('filter', 'none', 'important');
+            });
+            
+            // CELEBRATIONS GRID FIX
+            const celebrationsGrid = document.querySelector('.celebrations-grid');
+            if (celebrationsGrid) {
+                celebrationsGrid.style.setProperty('display', 'grid', 'important');
+                celebrationsGrid.style.setProperty('grid-template-columns', 'repeat(auto-fit, minmax(300px, 1fr))', 'important');
+                celebrationsGrid.style.setProperty('gap', '3rem', 'important');
+                celebrationsGrid.style.setProperty('row-gap', '3rem', 'important');
+                celebrationsGrid.style.setProperty('column-gap', '3rem', 'important');
+                celebrationsGrid.style.setProperty('padding', '2rem 0', 'important');
+            }
+            
+            // EMPTY NEST EATS CARDS - SPECIFIC TARGETING
+            const recipeSelectors = [
+                '.recipe-card',
+                '.recipe-tile', 
+                '.nest-eats-card',
+                '[class*="recipe"]',
+                '[class*="card"]',
+                '.empty-nest-eats .recipe-item',
+                '.empty-nest-eats img',
+                '.empty-nest-eats .card'
+            ];
+            
+            recipeSelectors.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(el => {
+                    el.style.setProperty('box-shadow', 'none', 'important');
+                    el.style.setProperty('-webkit-box-shadow', 'none', 'important');
+                    el.style.setProperty('-moz-box-shadow', 'none', 'important');
+                    el.style.setProperty('filter', 'none', 'important');
+                    el.style.setProperty('border', '1px solid rgba(0,0,0,0.08)', 'important');
+                });
+            });
+            
+            console.log('Nuclear styling overrides applied - shadows eliminated, grid spacing fixed');
+        });
+        
+        // Continuous enforcement for dynamic content
+        setInterval(function() {
+            // Re-apply nuclear overrides every 2 seconds for any dynamically loaded content
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(el => {
+                if (el.style.boxShadow && el.style.boxShadow !== 'none') {
+                    el.style.setProperty('box-shadow', 'none', 'important');
+                }
+            });
+        }, 2000);
+    </script>
     
     <!-- Preload signature for desktop performance -->
     <link rel="preload" href="assets/images/kellie-signature.png?v=20251004203210" as="image" media="(min-width: 768px)">
