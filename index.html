@@ -3580,7 +3580,7 @@
             </div>
             
             <!-- Event Cards Grid - 3×2 Layout -->
-            <div class="section-content celebrations-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: clamp(36px, 4vw, 48px); margin-bottom: 48px; margin-top: 48px;"> <!-- INCREASED GAP FOR PROPER GRID SPACING -->
+            <div class="section-content celebrations-grid" style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; grid-template-rows: repeat(2, 1fr) !important; gap: 2rem !important; row-gap: 2rem !important; column-gap: 2rem !important; margin-bottom: 48px !important; margin-top: 48px !important; grid-gap: 2rem !important;"> <!-- FORCED 32PX GAPS MATCHING OTHER SECTIONS -->
                 <!-- Card 1: Christmas Parties -->
                 <a href="christmas-parties.html" class="celebration-card" 
                    style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative; min-height: 320px;"
@@ -3822,6 +3822,21 @@
                     </div>
                 </a>
             </div>
+            
+            <style>
+            /* NUCLEAR CELEBRATIONS GRID SPACING OVERRIDE */
+            #nest-celebrations .celebrations-grid {
+                gap: 2rem !important;
+                row-gap: 2rem !important;
+                column-gap: 2rem !important;
+                grid-gap: 2rem !important;
+            }
+            
+            #nest-celebrations .celebration-card {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            </style>
             
             <!-- See All Events Button - CONSISTENT BLACK STYLE -->
             <div class="section-button-wrapper" style="text-align: center; margin-top: 3rem;">
@@ -4242,7 +4257,7 @@
                 <div class="recipes-grid" style="margin: 0 !important; padding: 0 !important;">
                     
                     <!-- Recipe 1 - Fry Sauce -->
-                    <div class="recipe-card" data-recipe="fry-sauce" onclick="openRecipeModal('fry-sauce')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('fry-sauce')" aria-label="View Fry Sauce recipe">
+                    <div class="recipe-card" data-recipe="fry-sauce" onclick="openRecipeModal('fry-sauce')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('fry-sauce')" aria-label="View Fry Sauce recipe" style="box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; filter: none !important; border: 1px solid rgba(0,0,0,0.08) !important;">
                         <div class="card-image-container">
                             <img src="assets/images/fry-sauce-recipe.jpg" alt="Fry Sauce recipe" class="card-image">
                             
@@ -4271,7 +4286,7 @@
                     </div>
 
                     <!-- Recipe 2 - Shrimp Orzo -->
-                    <div class="recipe-card" data-recipe="shrimp-orzo" onclick="openRecipeModal('shrimp-orzo')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('shrimp-orzo')" aria-label="View Shrimp Orzo with Feta recipe">
+                    <div class="recipe-card" data-recipe="shrimp-orzo" onclick="openRecipeModal('shrimp-orzo')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('shrimp-orzo')" aria-label="View Shrimp Orzo with Feta recipe" style="box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; filter: none !important; border: 1px solid rgba(0,0,0,0.08) !important;">
                         <div class="card-image-container">
                             <img src="assets/images/shrimp-orzo-recipe.jpg" alt="Shrimp Orzo with Feta recipe" class="card-image">
                             
@@ -4297,7 +4312,7 @@
                     </div>
 
                     <!-- Recipe 3 - Lemon-Garlic Salmon -->
-                    <div class="recipe-card" data-recipe="lemon-salmon" onclick="openRecipeModal('lemon-salmon')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('lemon-salmon')" aria-label="View Lemon-Garlic Salmon recipe">
+                    <div class="recipe-card" data-recipe="lemon-salmon" onclick="openRecipeModal('lemon-salmon')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('lemon-salmon')" aria-label="View Lemon-Garlic Salmon recipe" style="box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; filter: none !important; border: 1px solid rgba(0,0,0,0.08) !important;">
                         <div class="card-image-container">
                             <img src="assets/images/lemon-salmon-recipe.jpg" alt="Lemon-Garlic Salmon recipe" class="card-image">
                             
@@ -4323,7 +4338,7 @@
                     </div>
 
                     <!-- Recipe 4 - Chicken Piccata -->
-                    <div class="recipe-card" data-recipe="chicken-piccata" onclick="openRecipeModal('chicken-piccata')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('chicken-piccata')" aria-label="View Chicken Piccata recipe">
+                    <div class="recipe-card" data-recipe="chicken-piccata" onclick="openRecipeModal('chicken-piccata')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('chicken-piccata')" aria-label="View Chicken Piccata recipe" style="box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; filter: none !important; border: 1px solid rgba(0,0,0,0.08) !important;">
                         <div class="card-image-container">
                             <img src="assets/images/chicken-piccata-recipe.jpg" alt="Chicken Piccata recipe" class="card-image">
                             
@@ -4352,7 +4367,7 @@
                     </div>
 
                     <!-- Recipe 5 - Avocado Crab Boats -->
-                    <div class="recipe-card" data-recipe="avocado-crab" onclick="openRecipeModal('avocado-crab')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('avocado-crab')" aria-label="View Avocado Crab Boats recipe">
+                    <div class="recipe-card" data-recipe="avocado-crab" onclick="openRecipeModal('avocado-crab')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('avocado-crab')" aria-label="View Avocado Crab Boats recipe" style="box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; filter: none !important; border: 1px solid rgba(0,0,0,0.08) !important;">
                         <div class="card-image-container">
                             <img src="assets/images/avocado-crab-recipe.jpg" alt="Avocado Crab Boats recipe" class="card-image">
                             
@@ -4378,7 +4393,7 @@
                     </div>
 
                     <!-- Recipe 6 - Black Bean Quinoa Bowl -->
-                    <div class="recipe-card" data-recipe="quinoa-bowl" onclick="openRecipeModal('quinoa-bowl')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('quinoa-bowl')" aria-label="View Black Bean Quinoa Bowl recipe">
+                    <div class="recipe-card" data-recipe="quinoa-bowl" onclick="openRecipeModal('quinoa-bowl')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('quinoa-bowl')" aria-label="View Black Bean Quinoa Bowl recipe" style="box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; filter: none !important; border: 1px solid rgba(0,0,0,0.08) !important;">
                         <div class="card-image-container">
                             <img src="assets/images/quinoa-bowl-recipe.jpg" alt="Black Bean Quinoa Bowl recipe" class="card-image">
                             
