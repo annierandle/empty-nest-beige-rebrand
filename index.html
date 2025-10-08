@@ -18,7 +18,7 @@
     <!-- GLOBAL SECTION HEADER SYSTEM - Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     
     <!-- GLOBAL SECTION HEADER SYSTEM - STANDARDIZED -->
     <style>
@@ -101,17 +101,21 @@
           display: block;
         }
 
-        /* Subtitle / descriptor (one-line grey sentence) */
+        /* Subtitle / descriptor - CHIC MODERN FONT */
         .section-subtitle,
         .section__subtitle,
         .header-subtitle,
-        .header-description {
-          font-family: var(--header-eyebrow-font);
-          font-size: clamp(13px, 1.2vw, 14px);
-          line-height: 1.5;
-          color: var(--subtitle-color);
-          margin: 0 0 22px 0 !important;     /* tighter into the content */
+        .header-description,
+        .section-sub {
+          font-family: 'Playfair Display', Georgia, serif !important; /* ELEGANT SERIF FONT */
+          font-size: clamp(14px, 1.4vw, 16px) !important; /* SLIGHTLY LARGER */
+          font-style: italic !important; /* ELEGANT ITALIC */
+          line-height: 1.6 !important;
+          color: var(--subtitle-color) !important;
+          margin: 0 0 24px 0 !important; /* INCREASED SPACING */
           max-width: 800px;
+          font-weight: 400 !important;
+          letter-spacing: 0.01em !important; /* SUBTLE LETTER SPACING */
         }
 
         /* Space from the whole header block to the content that follows */
@@ -3576,7 +3580,7 @@
             </div>
             
             <!-- Event Cards Grid - 3×2 Layout -->
-            <div class="section-content celebrations-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: clamp(20px, 2.5vw, 28px); margin-bottom: 48px; margin-top: 48px;">
+            <div class="section-content celebrations-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: clamp(36px, 4vw, 48px); margin-bottom: 48px; margin-top: 48px;"> <!-- INCREASED GAP FOR PROPER GRID SPACING -->
                 <!-- Card 1: Christmas Parties -->
                 <a href="christmas-parties.html" class="celebration-card" 
                    style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative; min-height: 320px;"
@@ -4057,8 +4061,8 @@
                     bottom: 0;
                     left: 0;
                     right: 0;
-                    height: 50%; /* INCREASED HEIGHT FOR BETTER COVERAGE */
-                    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.75) 100%); /* DARKER GRADIENT FOR BETTER TEXT READABILITY */
+                    height: 60%; /* EVEN MORE HEIGHT FOR BETTER COVERAGE */
+                    background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.85) 100%); /* EVEN DARKER GRADIENT */
                     z-index: 1;
                 }
                 
@@ -4099,6 +4103,10 @@
                 .recipe-title {
                     font-family: 'Cormorant Garamond', serif; /* CONSISTENT FONT */
                     font-weight: 700;
+                    background: rgba(0, 0, 0, 0.6) !important; /* TRANSPARENT BACKGROUND FOR TEXT READABILITY */
+                    padding: 8px 12px !important;
+                    border-radius: 8px !important;
+                    backdrop-filter: blur(8px) !important;
                     letter-spacing: 0.02em;
                     color: #FFFFFF;
                     margin: 0;
@@ -4199,25 +4207,35 @@
                     }
                 }
                 
-                /* NUCLEAR SHADOW REMOVAL - OVERRIDE EVERYTHING IN EMPTY NEST EATS */
-                #empty-nest-eats * {
-                    box-shadow: none !important;
-                    -webkit-box-shadow: none !important;
-                    -moz-box-shadow: none !important;
-                    filter: drop-shadow(0 0 0 transparent) !important;
+                /* ULTIMATE NUCLEAR SHADOW REMOVAL - EVERY POSSIBLE APPROACH */
+                #empty-nest-eats *,
+                #empty-nest-eats *::before,
+                #empty-nest-eats *::after {
+                    box-shadow: 0 0 0 0 transparent !important;
+                    -webkit-box-shadow: 0 0 0 0 transparent !important;
+                    -moz-box-shadow: 0 0 0 0 transparent !important;
+                    filter: none !important;
+                    -webkit-filter: none !important;
+                    -moz-filter: none !important;
                 }
                 
-                /* TRIPLE ENSURE RECIPE CARDS HAVE NO SHADOWS */
+                /* ABSOLUTE OVERRIDE FOR RECIPE CARDS */
+                div[class*="recipe-card"],
+                .recipe-card,
                 #empty-nest-eats .recipe-card,
                 #empty-nest-eats .recipe-card:hover,
                 #empty-nest-eats .recipe-card:focus,
                 #empty-nest-eats .recipe-card:active,
                 .recipes-section .recipe-card,
-                .recipes-section .recipe-card:hover {
-                    box-shadow: none !important;
-                    -webkit-box-shadow: none !important;
-                    -moz-box-shadow: none !important;
+                .recipes-section .recipe-card:hover,
+                .recipes-section .recipe-card:focus {
+                    box-shadow: 0 0 0 0 transparent !important;
+                    -webkit-box-shadow: 0 0 0 0 transparent !important;
+                    -moz-box-shadow: 0 0 0 0 transparent !important;
                     filter: none !important;
+                    -webkit-filter: none !important;
+                    -moz-filter: none !important;
+                    border: 1px solid rgba(0,0,0,0.08) !important;
                 }
                 </style>
                 
@@ -7682,6 +7700,27 @@
             document.body.style.overflow = '';
         }
     });
+    
+    // NUCLEAR SHADOW REMOVAL - JavaScript Override
+    function removeShadowsAggressively() {
+        const recipeCards = document.querySelectorAll('#empty-nest-eats .recipe-card, .recipe-card, div[class*="recipe-card"]');
+        recipeCards.forEach(card => {
+            card.style.setProperty('box-shadow', 'none', 'important');
+            card.style.setProperty('-webkit-box-shadow', 'none', 'important');
+            card.style.setProperty('-moz-box-shadow', 'none', 'important');
+            card.style.setProperty('filter', 'none', 'important');
+            card.style.setProperty('border', '1px solid rgba(0,0,0,0.08)', 'important');
+        });
+    }
+    
+    // Run immediately and on load
+    removeShadowsAggressively();
+    window.addEventListener('load', removeShadowsAggressively);
+    document.addEventListener('DOMContentLoaded', removeShadowsAggressively);
+    
+    // Run periodically to catch any dynamic changes
+    setInterval(removeShadowsAggressively, 1000);
+    
     </script>
 </body>
 </html>
