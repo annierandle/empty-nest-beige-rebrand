@@ -3993,25 +3993,37 @@
                     margin-bottom: 48px;
                 }
                 
-                /* Recipe Cards - CONSISTENT ROUNDED TILES */
-                .recipe-card {
-                    display: block;
-                    text-decoration: none;
-                    color: inherit;
-                    aspect-ratio: 16/10; /* CONSISTENT IMAGE RATIO */
-                    background: white;
+                /* Recipe Cards - NO SHADOWS AGGRESSIVE OVERRIDE */
+                .recipe-card,
+                #empty-nest-eats .recipe-card,
+                .recipes-section .recipe-card {
+                    display: block !important;
+                    text-decoration: none !important;
+                    color: inherit !important;
+                    aspect-ratio: 16/10 !important; /* CONSISTENT IMAGE RATIO */
+                    background: white !important;
                     border-radius: 18px !important; /* ROUNDED TILES TO MATCH NEST CELEBRATIONS SECTION */
-                    overflow: hidden;
-                    box-shadow: none !important; /* REMOVE ALL SHADOWS INCLUDING TOP SHADOWS */
+                    overflow: hidden !important;
+                    /* AGGRESSIVE SHADOW REMOVAL */
+                    box-shadow: none !important;
+                    -webkit-box-shadow: none !important;
+                    -moz-box-shadow: none !important;
+                    filter: none !important;
                     transition: transform 0.3s ease !important; /* ONLY TRANSFORM TRANSITION, NO SHADOW */
-                    position: relative;
-                    cursor: pointer;
+                    position: relative !important;
+                    cursor: pointer !important;
                     border: 1px solid rgba(0, 0, 0, 0.05) !important; /* SUBTLE BORDER INSTEAD OF SHADOW */
                 }
                 
-                .recipe-card:hover {
+                .recipe-card:hover,
+                #empty-nest-eats .recipe-card:hover,
+                .recipes-section .recipe-card:hover {
                     transform: translateY(-4px) !important; /* CONSISTENT HOVER LIFT */
-                    box-shadow: none !important; /* NO SHADOW EVEN ON HOVER */
+                    /* AGGRESSIVE NO SHADOW ON HOVER */
+                    box-shadow: none !important;
+                    -webkit-box-shadow: none !important;
+                    -moz-box-shadow: none !important;
+                    filter: none !important;
                     border-color: rgba(0, 0, 0, 0.1) !important; /* SLIGHTLY STRONGER BORDER ON HOVER */
                 }
                 
@@ -4039,14 +4051,14 @@
                     transform: scale(1.03);
                 }
                 
-                /* Overlay gradient for legibility */
+                /* Enhanced overlay for better text readability */
                 .recipe-overlay {
                     position: absolute;
                     bottom: 0;
                     left: 0;
                     right: 0;
-                    height: 40%;
-                    background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.55) 100%);
+                    height: 50%; /* INCREASED HEIGHT FOR BETTER COVERAGE */
+                    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.75) 100%); /* DARKER GRADIENT FOR BETTER TEXT READABILITY */
                     z-index: 1;
                 }
                 
@@ -4065,7 +4077,7 @@
                     text-transform: uppercase;
                     letter-spacing: 0.02em; /* CONSISTENT SPACING */
                     z-index: 2;
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* SUBTLE SHADOW */
+                    /* NO SHADOW ON TIME BADGE */
                 }
                 
                 /* IMPROVED CONTENT AREA WITH BUTTON */
@@ -4134,11 +4146,11 @@
                     transform: translateX(2px);
                 }
                 
-                /* "Fam Favorite" chip - MATCH EXACT STYLE OF KELLIE'S FAVORITE IN BOOK NOOK SECTION */
+                /* "Fam Favorite" chip - MOVED TO TOP RIGHT CORNER */
                 .recipe-fav {
                     position: absolute;
-                    bottom: 12px;
-                    right: 12px;
+                    top: 12px !important; /* MOVED TO TOP */
+                    right: 12px !important; /* KEPT ON RIGHT SIDE */
                     background: #D4A4A4 !important; /* EXACT SAME PINK COLOR AS KELLIE'S FAVORITE */
                     color: white !important; /* WHITE TEXT FOR BETTER CONTRAST */
                     padding: 6px 12px !important; /* EXACT SAME PADDING AS KELLIE'S FAVORITE */
@@ -4152,7 +4164,7 @@
                     align-items: center !important;
                     gap: 4px !important; /* SPACE FOR STAR ICON */
                     z-index: 3;
-                    box-shadow: 0 2px 8px rgba(212, 164, 164, 0.3) !important; /* EXACT SAME SHADOW AS KELLIE'S FAVORITE */
+                    /* REMOVED SHADOW TO MATCH OTHER CHANGES */
                 }
                 
                 /* ADD STAR ICON BEFORE FAM FAVORITE TEXT - EXACT MATCH TO KELLIE'S FAVORITE */
@@ -4185,6 +4197,27 @@
                     .recipe-card:hover .card-image {
                         transform: none;
                     }
+                }
+                
+                /* NUCLEAR SHADOW REMOVAL - OVERRIDE EVERYTHING IN EMPTY NEST EATS */
+                #empty-nest-eats * {
+                    box-shadow: none !important;
+                    -webkit-box-shadow: none !important;
+                    -moz-box-shadow: none !important;
+                    filter: drop-shadow(0 0 0 transparent) !important;
+                }
+                
+                /* TRIPLE ENSURE RECIPE CARDS HAVE NO SHADOWS */
+                #empty-nest-eats .recipe-card,
+                #empty-nest-eats .recipe-card:hover,
+                #empty-nest-eats .recipe-card:focus,
+                #empty-nest-eats .recipe-card:active,
+                .recipes-section .recipe-card,
+                .recipes-section .recipe-card:hover {
+                    box-shadow: none !important;
+                    -webkit-box-shadow: none !important;
+                    -moz-box-shadow: none !important;
+                    filter: none !important;
                 }
                 </style>
                 
@@ -4355,7 +4388,7 @@
                 </div>
                 
                 <!-- CTA Button - CONSISTENT BLACK STYLE -->
-                <div style="text-align: center; margin-top: 24px;">
+                <div style="text-align: center; margin-top: 48px;"> <!-- INCREASED MARGIN TO MATCH OTHER SECTIONS -->
                     <a href="recipes.html" 
                        class="recipes-cta-btn" 
                        style="background: #222222 !important; 
