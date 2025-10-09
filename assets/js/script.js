@@ -765,7 +765,7 @@ const instagramHighlights = {
         title: 'FAMILY',
         highlights: [
             {
-                title: 'FamilyMem',
+                title: 'Family Mem',
                 description: 'Precious family memories and moments',
                 url: 'https://www.instagram.com/stories/highlights/17934115638206846/',
                 coverImage: 'https://page.gensparksite.com/v1/base64_upload/0dc3511dcad303ff46deab2898db7e64'
@@ -777,25 +777,25 @@ const instagramHighlights = {
                 coverImage: 'https://page.gensparksite.com/v1/base64_upload/238ba7f9093ead3e58f6bc22f3d4dc41'
             },
             {
-                title: 'Graduations',
+                title: 'Graduation',
                 description: 'Celebrating academic milestones',
                 url: 'https://www.instagram.com/stories/highlights/17937133928178979/',
                 coverImage: 'https://page.gensparksite.com/v1/base64_upload/ccdc58697fe9069bc9716ecb56c80e7f'
             },
             {
-                title: 'Will and Gra',
+                title: 'Will & Grace',
                 description: 'Special moments with Will and Grace',
                 url: 'https://www.instagram.com/stories/highlights/17925985422485596/',
                 coverImage: 'https://page.gensparksite.com/v1/base64_upload/6dbf73889f448bd40b20819b1988e479'
             },
             {
-                title: 'College Mov',
+                title: 'College Move',
                 description: 'College move-in adventures',
                 url: 'https://www.instagram.com/stories/highlights/17913823094544176/',
                 coverImage: 'https://page.gensparksite.com/v1/base64_upload/66441f23dc3477bc3085103eb691a8ce'
             },
             {
-                title: 'Funny memes',
+                title: 'Family Memes',
                 description: 'Family humor and funny moments',
                 url: 'https://www.instagram.com/stories/highlights/17948871829073240/',
                 coverImage: 'https://page.gensparksite.com/v1/base64_upload/82460d2ff5b094621efa7d896de56363'
@@ -806,37 +806,37 @@ const instagramHighlights = {
         title: 'HOME',
         highlights: [
             {
-                title: 'new home',
+                title: 'New Home',
                 description: 'New home setup and decorating journey',
                 url: 'https://www.instagram.com/stories/highlights/17895704586813254/',
                 coverImage: 'https://page.gensparksite.com/v1/base64_upload/b3026dbc936cadcd837f4510ee7eba59'
             },
             {
-                title: 'MovingMyP',
+                title: 'Moving Parents',
                 description: 'Moving my parents - downsizing journey',
                 url: 'https://www.instagram.com/stories/highlights/17948602749093582/',
                 coverImage: 'https://page.gensparksite.com/v1/base64_upload/3c354b3fbdf8c3f558891d2564c48b03'
             },
             {
-                title: 'Dorm Rooms',
+                title: 'Dorm Setup',
                 description: 'College dorm room setups and organization',
                 url: 'https://www.instagram.com/stories/highlights/17947938026148395/',
                 coverImage: null
             },
             {
-                title: 'Dorm Room',
+                title: 'Dorm Ideas',
                 description: 'Dorm room decorating tips and ideas',
                 url: 'https://www.instagram.com/stories/highlights/17925985422485597/',
                 coverImage: null
             },
             {
-                title: 'Storage Tips',
+                title: 'Storage',
                 description: 'Home organization and storage solutions',
                 url: 'https://www.instagram.com/stories/highlights/17912823094544177/',
                 coverImage: null
             },
             {
-                title: 'Downsizing',
+                title: 'Downsize',
                 description: 'Downsizing tips and empty nest transitions',
                 url: 'https://www.instagram.com/stories/highlights/17901698794600489/',
                 coverImage: null
@@ -853,7 +853,7 @@ const instagramHighlights = {
                 coverImage: 'https://page.gensparksite.com/v1/base64_upload/23802e58286bafc19a3d7e9badf5b781'
             },
             {
-                title: 'Life Tips #2',
+                title: 'Life Tips',
                 description: 'More practical life advice and wellness',
                 url: 'https://www.instagram.com/stories/highlights/17937133928178980/',
                 coverImage: 'https://page.gensparksite.com/v1/base64_upload/ccdc58697fe9069bc9716ecb56c80e7f'
