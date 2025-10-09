@@ -940,6 +940,36 @@
             border: none !important;
             outline: none !important;
         }
+        
+        /* SURGICAL FIX 4: JUST INGREDIENTS FIXES */
+        .shop-collection-btn {
+            background: #2D3748 !important;
+            color: white !important;
+            padding: 12px 24px !important;
+            border-radius: 25px !important;
+            text-decoration: none !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            font-family: 'Inter', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 0.9rem !important;
+            transition: all 0.3s ease !important;
+            border: 2px solid #2D3748 !important;
+        }
+        
+        .shop-collection-btn:hover {
+            background: #1A202C !important;
+            border-color: #1A202C !important;
+        }
+        
+        /* SURGICAL FIX 5: HIDE ANY STOREFRONT CARD TITLES */
+        .storefront-card h3,
+        .storefront-card h4,
+        .storefront-card .card-title,
+        .storefront-card .storefront-title {
+            display: none !important;
+        }
     </style>
     
     <!-- SURGICAL JAVASCRIPT TARGETING -->
@@ -2008,17 +2038,17 @@
             box-sizing: border-box !important;
         }
         
-        /* FIX NEST APPROVED HEADER POSITIONING - ALIGN LEFT LIKE OTHER SECTIONS */
+        /* FIX NEST APPROVED HEADER POSITIONING - ALIGN RIGHT */
         .nest-approved-section {
             padding: 4rem 0 !important;
         }
         
         .nest-approved-wrapper,
         .nest-approved-typography {
-            text-align: left !important;
+            text-align: right !important;
             margin: 0 !important;
-            padding: 0 !important;
-            margin-left: 0 !important;
+            padding: 0 2rem !important;
+            margin-right: 0 !important;
             transform: none !important;
             width: 100% !important;
         }
@@ -2029,7 +2059,7 @@
             font-weight: 400 !important;
             letter-spacing: 0.02em !important;
             text-transform: uppercase !important;
-            text-align: left !important;
+            text-align: right !important;
             margin: 0 !important;
             padding: 0 !important;
             transform: none !important;
@@ -2118,7 +2148,7 @@
             
             <!-- Logo -->
             <a href="#home" class="nav-logo" style="display: flex; align-items: center; text-decoration: none;" aria-label="Empty Nest - Home">
-                <img src="assets/images/short-new-logo.jpeg" alt="Empty Nest" style="height: 40px; width: auto; display: block; background: transparent; border-radius: 6px; filter: none; object-fit: contain;" />
+                <img src="assets/images/short-new-logo.jpeg" alt="Empty Nest" style="height: 40px; width: auto; display: block; background: transparent; border-radius: 6px; filter: none; object-fit: contain; mix-blend-mode: multiply;" />
             </a>
             
             <!-- Right Section: Social Icons + Hamburger -->
@@ -2154,10 +2184,8 @@
                        style="width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; opacity: 0.8; text-decoration: none; transition: opacity 0.2s ease; outline: none;"
                        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'"
                        onfocus="this.style.outline='2px solid #D4A4A4'; this.style.outlineOffset='2px'" onblur="this.style.outline='none'">
-                        <svg width="24" height="18" viewBox="0 0 100 30" fill="none">
-                            <text x="15" y="18" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="#232F3E">amazon</text>
-                            <path d="M10 22 Q50 25 85 22" stroke="#FF9900" stroke-width="2" fill="none"/>
-                            <polygon points="83,20 85,22 83,24" fill="#FF9900"/>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF9900">
+                            <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.093.52-.368.368-.726.653-1.076.855-1.875.91-3.846 1.365-5.916 1.365-2.947 0-5.713-.624-8.295-1.87l-.482-.233c-.266-.13-.532-.317-.798-.56-.062-.06-.098-.115-.108-.168-.01-.052 0-.098.03-.137.03-.04.068-.063.116-.07zm23.696.752c-.124-.013-.23.05-.318.19-.087.14-.13.29-.13.448 0 .202.043.375.13.52.087.144.194.216.318.216.176 0 .314-.096.414-.288.1-.192.15-.384.15-.576 0-.244-.05-.44-.15-.588-.1-.148-.238-.222-.414-.222z"/>
                         </svg>
                     </a>
                 </div>
@@ -2543,7 +2571,7 @@
             <!-- SECTION 1: My Curated Collections - Final Polish -->
             <div class="curated-collections">
                 <h3 class="subsection-title">MY CURATED COLLECTIONS</h3>
-                <div class="storefront-cards" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+                <div class="storefront-cards" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: 2rem; justify-content: end;">
                     <!-- Amazon Storefront - STANDARDIZED -->
                     <div class="storefront-card" style="background: white; border-radius: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); padding: 1.75rem; text-align: center; position: relative; transition: all 0.3s ease; height: 320px; display: flex; flex-direction: column; justify-content: space-between;" 
                          onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(0,0,0,0.12)'"
@@ -2558,6 +2586,7 @@
                         </div>
                         
                         <div class="storefront-content" style="flex: 1; padding: 0 0.5rem;">
+                            <h4 class="storefront-title" style="display: none;">Amazon Storefront</h4>
                             <p class="storefront-description" style="font-size: 14px; color: rgba(0,0,0,0.65); line-height: 1.4; margin-bottom: 1.5rem; font-family: 'Inter', sans-serif; font-weight: 400;">From kitchen essentials to travel must-haves, I've curated collections of products that have truly elevated my daily life.</p>
                         </div>
                         
@@ -2584,6 +2613,7 @@
                         </div>
                         
                         <div class="storefront-content" style="flex: 1; padding: 0 0.5rem;">
+                            <h4 class="storefront-title" style="display: none;">ShopMy</h4>
                             <p class="storefront-description" style="font-size: 14px; color: rgba(0,0,0,0.65); line-height: 1.4; margin-bottom: 1.5rem; font-family: 'Inter', sans-serif; font-weight: 400;">Discover my latest discoveries and seasonal favorites. I update these collections weekly with fresh finds and current trends.</p>
                         </div>
                         
@@ -2596,29 +2626,7 @@
                         </a>
                     </div>
 
-                    <!-- Third Storefront Card - NEW STANDARDIZED -->
-                    <div class="storefront-card" style="background: white; border-radius: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); padding: 1.75rem; text-align: center; position: relative; transition: all 0.3s ease; height: 320px; display: flex; flex-direction: column; justify-content: space-between;"
-                         onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(0,0,0,0.12)'"
-                         onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'">
-                        <div class="card-badge" style="position: absolute; top: 1rem; left: 1rem; background: rgba(45, 55, 72, 0.1); color: #2D3748; padding: 4px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Inter', sans-serif;">STOREFRONT</div>
-                        
-                        <!-- Standardized 100x100px Logo Container -->
-                        <div class="storefront-logo" style="margin: 1rem auto 1rem auto; width: 120px; height: 120px; background: #E53E3E; display: flex; align-items: center; justify-content: center; border-radius: 16px; box-shadow: 0 4px 12px rgba(229, 62, 62, 0.2);">
-                            <div style="color: white; font-weight: bold; font-size: 1rem; font-family: 'Inter', sans-serif;">ltk</div>
-                        </div>
-                        
-                        <div class="storefront-content" style="flex: 1; padding: 0 0.5rem;">
-                            <p class="storefront-description" style="font-size: 14px; color: rgba(0,0,0,0.65); line-height: 1.4; margin-bottom: 1.5rem; font-family: 'Inter', sans-serif; font-weight: 400;">Shop my go-to brands and seasonal must-haves. From fashion finds to home essentials, everything I'm loving right now.</p>
-                        </div>
-                        
-                        <!-- Global Black Pill Button with White Arrow -->
-                        <a href="https://www.shopltk.com/explore/emptynestmomlife" target="_blank" rel="noopener" class="storefront-btn" style="margin-top: auto;">
-                            <span class="btn-text">SHOP COLLECTION</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" style="transition: transform 0.3s ease;">
-                                <polyline points="9,18 15,12 9,6" fill="white"></polyline>
-                            </svg>
-                        </a>
-                    </div>
+
                 </div>
             </div>
 
@@ -2643,7 +2651,7 @@
                         
                         <!-- Kellie Approved Badge (Centered Top) -->
                         <div class="badge-section" style="position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 4;">
-                            <span class="kellie-approved-badge" style="background: #D4A4A4; color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(212, 164, 164, 0.3); font-family: 'Inter', sans-serif;">KELLIE APPROVED</span>
+                            <span class="kellie-approved-badge" style="background: #D4A4A4; color: white; padding: 6px 12px; border-radius: 15px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(212, 164, 164, 0.3); font-family: 'Inter', sans-serif;">KELLIE APPROVED</span>
                         </div>
                         
                         <!-- Content Overlay -->
@@ -2651,7 +2659,7 @@
                             
                             <!-- Center Logo -->
                             <div class="logo-section" style="width: 220px; height: 90px; display: flex; align-items: center; justify-content: center; background: transparent; border-radius: 12px; padding: 20px; margin-bottom: 1.5rem;">
-                                <img src="assets/images/just-ingredients-logo.png" alt="Just Ingredients" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: brightness(0) invert(1);">
+                                <img src="assets/images/just-ingredients-logo.png" alt="Just Ingredients" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: brightness(0) invert(1);" onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=&quot;color: white; font-size: 1.5rem; font-weight: 600; font-family: Inter, sans-serif;&quot;>Just Ingredients</div>'">
                             </div>
                             
                             <!-- Center: Text Content -->
