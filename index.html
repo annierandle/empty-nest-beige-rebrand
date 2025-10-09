@@ -8,7 +8,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Last-Modified" content="Sun, 06 Oct 2025 01:00:00 GMT">
-    <meta name="cache-buster" content="20251009-231630-shadow-removal-aggressive">
+    <meta name="cache-buster" content="20251009-231730-celebrations-grid-fixed">
     <meta name="cache-bust" content="amazon-icon-celebrations-picks-fixes-20251009">
     <meta name="timestamp" content="20251006223100">
     <meta http-equiv="ETag" content="carousel-layout-fix-v3-ultra-aggressive">
@@ -3754,8 +3754,9 @@
                 <p class="section-sub">Creating memorable experiences & celebrations</p>
             </div>
             
-            <!-- Event Cards Grid - 3×2 Layout -->
-            <div class="section-content celebrations-grid"> <!-- MATCH INSIDE THE NEST GRID WITH WHITE BORDERS -->
+            <!-- Event Cards Grid - Match Inside The Nest Structure -->
+            <div class="section-content">
+                <div class="celebrations-grid"> <!-- MATCH INSIDE THE NEST GRID STRUCTURE -->
                 <!-- Card 1: Christmas Parties -->
                 <a href="christmas-parties.html" class="celebration-card" 
                    style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative; min-height: 320px;"
@@ -4036,6 +4037,9 @@
             }
             </style>
             
+                </div> <!-- End celebrations-grid -->
+            </div> <!-- End section-content -->
+            
             <!-- See All Events Button - CONSISTENT BLACK STYLE -->
             <div class="section-button-wrapper" style="text-align: center; margin-top: 3rem;">
                 <a href="events.html" class="celebrations-cta-btn" 
@@ -4066,6 +4070,14 @@
             gap: 24px !important;
             margin: 48px 0 !important;
             padding: 0 !important;
+            background: transparent !important; /* Remove any white background */
+        }
+        
+        /* Ensure section-content in celebrations has no background */
+        #nest-celebrations .section-content {
+            background: transparent !important;
+            padding: 0 !important;
+            margin: 0 !important;
         }
         
         /* Responsive breakpoints to match inside the nest exactly */
