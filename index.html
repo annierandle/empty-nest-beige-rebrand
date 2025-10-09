@@ -117,6 +117,14 @@
           font-weight: 400 !important;
           letter-spacing: 0.01em !important; /* SUBTLE LETTER SPACING */
         }
+        
+        /* Nest Book Nook specific subtitle to match header font */
+        #nest-book-nook .section-sub {
+          font-family: var(--header-title-font) !important; /* MATCH HEADER FONT */
+          font-style: normal !important; /* REMOVE ITALIC */
+          font-weight: 400 !important; /* NORMAL WEIGHT */
+          letter-spacing: 0.015em !important; /* MATCH HEADER LETTER SPACING */
+        }
 
         /* Space from the whole header block to the content that follows */
         .section-header + *,
@@ -1639,11 +1647,11 @@
             border-radius: 0 !important;
         }
         
-        /* 7. SUBTLE PRODUCT TITLES IN CAROUSEL */
+        /* 7. SUBTLE PRODUCT TITLES IN CAROUSEL - MUCH SMALLER */
         .product-title,
         .product-item h3,
         .picks-section .product-title {
-            font-size: 0.8rem !important;
+            font-size: 0.4rem !important; /* DECREASED FROM 0.8rem */
             font-weight: 400 !important;
             opacity: 0.75 !important;
             margin: 0.5rem 0 0.25rem 0 !important;
@@ -1869,32 +1877,32 @@
             margin-bottom: 48px;
         }
         
-        /* Navigation Arrows */
+        /* Navigation Arrows - Updated to match Book Nook style */
         .carousel-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(45, 55, 72, 0.9);
+            background: #222222 !important;
             color: white;
             border: none;
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             cursor: pointer;
-            z-index: 2;
+            z-index: 10;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            font-size: 16px;
+            font-weight: normal;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
         }
         
         .carousel-nav:hover {
-            background: rgba(26, 32, 44, 1);
+            background: #111111 !important;
             transform: translateY(-50%) scale(1.05);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
         }
         
         .carousel-nav.prev-btn {
@@ -2053,6 +2061,18 @@
             width: 100% !important;
         }
         
+        /* Move nest approved content to the right for proper alignment */
+        .nest-approved-section .section-header {
+            text-align: right !important;
+            padding-right: 2rem !important;
+        }
+        
+        .nest-approved-section .section-kicker,
+        .nest-approved-section .section-title,
+        .nest-approved-section .section-sub {
+            text-align: right !important;
+        }
+        
         .nest-approved-title {
             font-family: 'Playfair Display', serif !important;
             font-size: 4rem !important;
@@ -2180,12 +2200,15 @@
                             <path d="M19.321 5.562a5.122 5.122 0 01-.443-.258 6.228 6.228 0 01-1.137-.966c-.849-.966-1.248-2.085-1.248-3.193V.5H13.54v14.97c0 1.337-.849 2.572-2.182 2.572-1.248 0-2.267-1.004-2.267-2.233 0-1.229 1.019-2.233 2.267-2.233.258 0 .497.043.718.128V10.64c-.221-.043-.46-.064-.718-.064C8.474 10.576 6 13.06 6 16.189s2.474 5.613 5.358 5.613c2.949 0 5.358-2.485 5.358-5.613V8.757c1.163.803 2.574 1.272 4.122 1.272v-3.055c-.627 0-1.213-.171-1.717-.472-.849-.515-1.503-1.272-1.8-2.14z"/>
                         </svg>
                     </a>
-                    <a href="#" class="social-icon" aria-label="Amazon" 
+                    <a href="https://www.amazon.com/shop/emptynestmomlife" target="_blank" rel="noopener" class="social-icon" aria-label="Amazon Storefront" 
                        style="width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; opacity: 0.8; text-decoration: none; transition: opacity 0.2s ease; outline: none;"
                        onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'"
                        onfocus="this.style.outline='2px solid #D4A4A4'; this.style.outlineOffset='2px'" onblur="this.style.outline='none'">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF9900">
-                            <path d="M.045 18.02c.072-.116.187-.124.348-.022 3.636 2.11 7.594 3.166 11.87 3.166 2.852 0 5.668-.533 8.447-1.595l.315-.14c.138-.06.234-.1.293-.13.226-.088.39-.046.525.13.12.174.09.336-.093.52-.368.368-.726.653-1.076.855-1.875.91-3.846 1.365-5.916 1.365-2.947 0-5.713-.624-8.295-1.87l-.482-.233c-.266-.13-.532-.317-.798-.56-.062-.06-.098-.115-.108-.168-.01-.052 0-.098.03-.137.03-.04.068-.063.116-.07zm23.696.752c-.124-.013-.23.05-.318.19-.087.14-.13.29-.13.448 0 .202.043.375.13.52.087.144.194.216.318.216.176 0 .314-.096.414-.288.1-.192.15-.384.15-.576 0-.244-.05-.44-.15-.588-.1-.148-.238-.222-.414-.222z"/>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#6B7280">
+                            <path d="M13.582 8.182C11.934 8.367 9.78 8.49 8.238 9.166c-1.781.78-3.03 2.32-3.075 4.496.045 1.352.538 2.569 1.804 3.096 1.402.585 3.17.333 4.379-.585.518-.394.79-.973.79-1.585 0-.878-.790-1.463-1.463-1.463-.585 0-1.17.394-1.17.957 0 .394.263.657.526.724-.045.394-.438.68-.79.68-.482 0-.878-.482-.878-1.219 0-1.17 1.17-2.117 2.34-2.117 1.219 0 2.2.878 2.2 2.117 0 1.585-1.17 2.95-2.95 3.565-1.97.68-4.424.263-5.688-1.17-1.219-1.366-1.366-3.426-.394-4.99 1.219-1.97 3.426-2.95 5.598-3.17 1.97-.2 4.028.045 5.732.878.045.022.09.022.135 0 .045-.045.045-.113 0-.158-.68-.724-1.58-1.219-2.568-1.463z"/>
+                            <path d="M15.474 13.373c-.877-.427-1.973-.609-2.957-.427-.518.09-.968.336-1.268.7-.09.113-.113.268-.068.404.045.136.158.245.291.291l.609.204c.136.045.291.022.404-.068.249-.2.563-.336.9-.381.518-.09 1.058.022 1.485.336.427.314.7.768.768 1.268v.113c-.291-.136-.609-.227-.945-.268-.831-.113-1.699-.022-2.485.268-.564.204-1.058.54-1.404 1.013-.336.473-.518 1.036-.518 1.608 0 .745.268 1.463.745 2.045.518.627 1.245 1.036 2.045 1.177.831.136 1.699-.022 2.44-.427.609-.336 1.109-.831 1.404-1.427v.836c0 .136.113.249.249.249h.745c.136 0 .249-.113.249-.249v-3.967c0-.831-.227-1.63-.7-2.295-.518-.7-1.245-1.222-2.068-1.472zm.7 5.466c0 .518-.136 1.013-.382 1.45-.245.436-.586.8-1.013 1.036-.473.268-1.013.382-1.553.336-.473-.045-.9-.268-1.222-.609-.336-.336-.518-.8-.518-1.268 0-.336.113-.654.291-.9.2-.268.473-.482.8-.609.7-.268 1.463-.336 2.2-.2.336.045.654.136.95.268v1.495z"/>
+                            <path d="M20.862 14.54c0-2.117-1.7-3.835-3.835-3.835s-3.835 1.7-3.835 3.835c0 2.117 1.7 3.835 3.835 3.835s3.835-1.7 3.835-3.835zm-6.903 0c0-1.7 1.366-3.066 3.066-3.066s3.066 1.366 3.066 3.066c0 1.7-1.366 3.066-3.066 3.066s-3.066-1.366-3.066-3.066z"/>
+                            <path d="M18.892 20.182c-.13.764-.786 1.315-1.566 1.315-.868 0-1.568-.7-1.568-1.568 0-.434.177-.826.462-1.108l2.672-2.672c.282.285.474.676.474 1.108 0 .434-.177.826-.474 1.108l-.674.674c.087.047.13.13.13.217 0 .13-.13.26-.26.26-.087 0-.17-.043-.217-.13l-.674.674c.043.087.043.174 0 .26-.043.087-.13.13-.217.13-.087 0-.174-.043-.217-.13-.043-.087-.043-.174 0-.26l-.674-.674c-.043.087-.13.13-.217.13-.13 0-.26-.13-.26-.26 0-.087.043-.17.13-.217l.674-.674c-.282-.282-.674-.462-1.108-.462-.868 0-1.568.7-1.568 1.568 0 .78.55 1.436 1.315 1.566.764.13 1.524-.347 1.784-1.088.043-.13.174-.217.304-.174.13.043.217.174.174.304z"/>
                         </svg>
                     </a>
                 </div>
@@ -2570,13 +2593,13 @@
 
             <!-- SECTION 1: My Curated Collections - Final Polish -->
             <div class="curated-collections">
-                <h3 class="subsection-title">MY CURATED COLLECTIONS</h3>
-                <div class="storefront-cards" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: 2rem; justify-content: end;">
+                <h3 class="subsection-title" style="text-align: right; padding-right: 2rem;">MY CURATED COLLECTIONS</h3>
+                <div class="storefront-cards" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: 2rem; justify-content: end; padding-right: 2rem;">
                     <!-- Amazon Storefront - STANDARDIZED -->
                     <div class="storefront-card" style="background: white; border-radius: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); padding: 1.75rem; text-align: center; position: relative; transition: all 0.3s ease; height: 320px; display: flex; flex-direction: column; justify-content: space-between;" 
                          onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(0,0,0,0.12)'"
                          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'">
-                        <div class="card-badge" style="position: absolute; top: 1rem; left: 1rem; background: rgba(45, 55, 72, 0.1); color: #2D3748; padding: 4px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Inter', sans-serif;">STOREFRONT</div>
+
                         
                         <!-- Standardized 100x100px Logo Container -->
                         <div class="storefront-logo" style="margin: 1rem auto 1rem auto; width: 120px; height: 120px; background: #FF9900; display: flex; align-items: center; justify-content: center; border-radius: 16px; box-shadow: 0 4px 12px rgba(255, 153, 0, 0.2);">
@@ -2603,7 +2626,7 @@
                     <div class="storefront-card" style="background: white; border-radius: 18px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); padding: 1.75rem; text-align: center; position: relative; transition: all 0.3s ease; height: 320px; display: flex; flex-direction: column; justify-content: space-between;"
                          onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(0,0,0,0.12)'"
                          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.08)'">
-                        <div class="card-badge" style="position: absolute; top: 1rem; left: 1rem; background: rgba(45, 55, 72, 0.1); color: #2D3748; padding: 4px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Inter', sans-serif;">STOREFRONT</div>
+
                         
                         <!-- Standardized 100x100px Logo Container -->
                         <div class="storefront-logo" style="margin: 1rem auto 1rem auto; width: 120px; height: 120px; background: #6C63FF; display: flex; align-items: center; justify-content: center; border-radius: 16px; box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);">
@@ -2633,7 +2656,7 @@
             <!-- SECTION 2: Community Perks & Exclusive Codes - Full System -->
             <div class="community-perks">
                 <div class="community-perks-header">
-                    <h3 class="subsection-title">COMMUNITY PERKS & EXCLUSIVE CODES</h3>
+                    <h3 class="subsection-title" style="text-align: right; padding-right: 2rem;">COMMUNITY PERKS & EXCLUSIVE CODES</h3>
                 </div>
 
                 <!-- FEATURED COMMUNITY PERK - Just Ingredients Box with Video Background - IMPROVED CENTERING -->
@@ -2649,17 +2672,17 @@
                         <!-- Dark Overlay -->
                         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(45, 55, 72, 0.6); z-index: 2;"></div>
                         
-                        <!-- Kellie Approved Badge (Centered Top) -->
+                        <!-- Kellie Approved Badge (Centered Top) - Fixed Size -->
                         <div class="badge-section" style="position: absolute; top: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 4;">
-                            <span class="kellie-approved-badge" style="background: #D4A4A4; color: white; padding: 6px 12px; border-radius: 15px; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(212, 164, 164, 0.3); font-family: 'Inter', sans-serif;">KELLIE APPROVED</span>
+                            <span class="kellie-approved-badge" style="background: #D4A4A4; color: white; padding: 4px 8px; border-radius: 12px; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.3px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(212, 164, 164, 0.3); font-family: 'Inter', sans-serif; white-space: nowrap;">KELLIE APPROVED</span>
                         </div>
                         
                         <!-- Content Overlay -->
                         <div class="just-ingredients-content" style="position: relative; z-index: 3; padding: 2.5rem; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                             
-                            <!-- Center Logo -->
-                            <div class="logo-section" style="width: 220px; height: 90px; display: flex; align-items: center; justify-content: center; background: transparent; border-radius: 12px; padding: 20px; margin-bottom: 1.5rem;">
-                                <img src="assets/images/just-ingredients-logo.png" alt="Just Ingredients" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: brightness(0) invert(1);" onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=&quot;color: white; font-size: 1.5rem; font-weight: 600; font-family: Inter, sans-serif;&quot;>Just Ingredients</div>'">
+                            <!-- Center Logo - Larger and Better Centered -->
+                            <div class="logo-section" style="width: 300px; height: 120px; display: flex; align-items: center; justify-content: center; background: transparent; border-radius: 12px; padding: 20px; margin: 2rem auto 1.5rem auto;">
+                                <img src="assets/images/just-ingredients-logo.png" alt="Just Ingredients" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: brightness(0) invert(1);" onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=&quot;color: white; font-size: 2rem; font-weight: 600; font-family: Inter, sans-serif; text-align: center;&quot;>Just Ingredients</div>'">
                             </div>
                             
                             <!-- Center: Text Content -->
@@ -2681,15 +2704,15 @@
                                 </div>
                             </div>
                             
-                            <!-- Bottom Center: Global Pill Button (Centered) -->
-                            <div class="bottom-section" style="text-align: center; margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center;">
-                                <a href="https://justingredients.com" target="_blank" rel="noopener" class="shop-collection-btn">
+                            <!-- Bottom Center: Global Pill Buttons (Centered) -->
+                            <div class="bottom-section" style="text-align: center; margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                                <a href="https://justingredients.com" target="_blank" rel="noopener" class="shop-collection-btn" style="background: #2D3748; border: 2px solid #2D3748; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; font-family: 'Inter', sans-serif;">
                                     <span class="btn-text">SHOP</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="transition: transform 0.3s ease;">
                                         <polyline points="9,18 15,12 9,6"></polyline>
                                     </svg>
                                 </a>
-                                <a href="https://justingredients.us/" target="_blank" rel="noopener" class="shop-collection-btn" style="background: #28a745; border-color: #28a745;">
+                                <a href="https://justingredients.us/" target="_blank" rel="noopener" class="shop-collection-btn" style="background: #28a745; border: 2px solid #28a745; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; font-family: 'Inter', sans-serif;">
                                     <span class="btn-text">EXPLORE</span>
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="transition: transform 0.3s ease;">
                                         <polyline points="9,18 15,12 9,6"></polyline>
@@ -3365,22 +3388,23 @@
             transform: translateY(-50%);
             width: 40px;
             height: 40px;
-            background: white;
+            background: #222222 !important;
             border: none;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
             transition: all 0.3s ease;
             z-index: 10;
-            color: #666666;
+            color: white;
         }
         
         .carousel-nav:hover {
-            background: #f8f9fa;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            background: #111111 !important;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.16);
+            transform: translateY(-50%) scale(1.05);
         }
         
         .carousel-nav.prev {
@@ -3438,7 +3462,7 @@
         }
         
         .product-image {
-            height: 360px; /* EVEN LARGER IMAGE HEIGHT */
+            height: 600px; /* MUCH LARGER IMAGE HEIGHT (increased from 360px) */
             background: #f8f9fa;
             display: flex;
             align-items: center;
@@ -3448,8 +3472,8 @@
         }
         
         .product-image img {
-            max-width: 95%;
-            max-height: 95%;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
             width: auto;
             height: auto;
@@ -3468,7 +3492,7 @@
         }
         
         .product-info h3 {
-            font-size: 10px;
+            font-size: 5px; /* MUCH SMALLER TEXT SIZE (decreased from 10px) */
             font-weight: 500;
             color: #1B1E23;
             margin: 0 0 0.25rem 0;
@@ -3669,7 +3693,7 @@
             </div>
             
             <!-- Event Cards Grid - 3×2 Layout -->
-            <div class="section-content celebrations-grid" style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; grid-template-rows: repeat(2, 1fr) !important; gap: 2rem !important; row-gap: 2rem !important; column-gap: 2rem !important; margin-bottom: 48px !important; margin-top: 48px !important; grid-gap: 2rem !important;"> <!-- FORCED 32PX GAPS MATCHING OTHER SECTIONS -->
+            <div class="section-content celebrations-grid" style="display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 24px !important; row-gap: 24px !important; column-gap: 24px !important; margin-bottom: 48px !important; margin-top: 48px !important; padding: 24px !important; background: white; border-radius: 0;"> <!-- MATCH INSIDE THE NEST GRID WITH WHITE BORDERS -->
                 <!-- Card 1: Christmas Parties -->
                 <a href="christmas-parties.html" class="celebration-card" 
                    style="display: block; text-decoration: none; color: inherit; aspect-ratio: 4/3; background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); transition: all 0.3s ease; position: relative; min-height: 320px;"
@@ -3913,17 +3937,40 @@
             </div>
             
             <style>
-            /* NUCLEAR CELEBRATIONS GRID SPACING OVERRIDE */
+            /* CELEBRATIONS GRID SPACING TO MATCH INSIDE THE NEST */
             #nest-celebrations .celebrations-grid {
-                gap: 2rem !important;
-                row-gap: 2rem !important;
-                column-gap: 2rem !important;
-                grid-gap: 2rem !important;
+                gap: 24px !important;
+                row-gap: 24px !important;
+                column-gap: 24px !important;
+                grid-gap: 24px !important;
+                padding: 24px !important;
+                background: white !important;
+                border-radius: 0 !important;
+                grid-template-columns: repeat(4, 1fr) !important;
             }
             
             #nest-celebrations .celebration-card {
                 margin: 0 !important;
                 padding: 0 !important;
+                background: white !important;
+                border: 1px solid rgba(0,0,0,0.06) !important;
+            }
+            
+            /* Responsive grid matching Inside the Nest */
+            @media (max-width: 1279px) and (min-width: 1024px) {
+                #nest-celebrations .celebrations-grid { 
+                    grid-template-columns: repeat(3, 1fr) !important; 
+                }
+            }
+            @media (max-width: 1023px) and (min-width: 768px) {
+                #nest-celebrations .celebrations-grid { 
+                    grid-template-columns: repeat(2, 1fr) !important; 
+                }
+            }
+            @media (max-width: 767px) {
+                #nest-celebrations .celebrations-grid { 
+                    grid-template-columns: 1fr !important; 
+                }
             }
             </style>
             
@@ -4208,16 +4255,19 @@
                     font-family: 'Cormorant Garamond', serif; /* CONSISTENT FONT */
                     font-weight: 700;
                     background: rgba(0, 0, 0, 0.6) !important; /* TRANSPARENT BACKGROUND FOR TEXT READABILITY */
-                    padding: 8px 12px !important;
-                    border-radius: 8px !important;
+                    padding: 6px 10px !important; /* REDUCED PADDING TO FIT TEXT BETTER */
+                    border-radius: 6px !important;
                     backdrop-filter: blur(8px) !important;
-                    letter-spacing: 0.02em;
+                    letter-spacing: 0.01em; /* REDUCED LETTER SPACING */
                     color: #FFFFFF;
                     margin: 0;
-                    line-height: 1.2;
-                    font-size: clamp(16px, 1.8vw, 20px);
+                    line-height: 1.1; /* TIGHTER LINE HEIGHT FOR SINGLE ROW */
+                    font-size: clamp(12px, 1.2vw, 14px); /* SIGNIFICANTLY SMALLER FONT SIZE */
                     text-transform: uppercase; /* CONSISTENT WITH OTHER SECTIONS */
                     text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* BETTER READABILITY */
+                    white-space: nowrap; /* FORCE SINGLE LINE */
+                    overflow: hidden; /* HIDE OVERFLOW */
+                    text-overflow: ellipsis; /* ADD ELLIPSIS IF TEXT TOO LONG */
                 }
                 
                 /* VIEW RECIPE BUTTON */
@@ -4348,7 +4398,7 @@
                     <!-- Recipe 1 - Fry Sauce -->
                     <div class="recipe-card" data-recipe="fry-sauce" onclick="openRecipeModal('fry-sauce')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('fry-sauce')" aria-label="View Fry Sauce recipe" style="box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; filter: none !important; border: 1px solid rgba(0,0,0,0.08) !important;">
                         <div class="card-image-container">
-                            <img src="assets/images/fry-sauce-recipe.jpg" alt="Fry Sauce recipe" class="card-image">
+                            <img src="https://therecipecritic.com/wp-content/uploads/2025/04/fry-sauce--1200x1799.jpg" alt="Famous Fry Sauce recipe" class="card-image">
                             
                             <!-- Cooking time pill -->
                             <div class="recipe-time">5 MINS</div>
@@ -4377,7 +4427,7 @@
                     <!-- Recipe 2 - Shrimp Orzo -->
                     <div class="recipe-card" data-recipe="shrimp-orzo" onclick="openRecipeModal('shrimp-orzo')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('shrimp-orzo')" aria-label="View Shrimp Orzo with Feta recipe" style="box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; filter: none !important; border: 1px solid rgba(0,0,0,0.08) !important;">
                         <div class="card-image-container">
-                            <img src="assets/images/shrimp-orzo-recipe.jpg" alt="Shrimp Orzo with Feta recipe" class="card-image">
+                            <img src="https://www.sipandfeast.com/wp-content/uploads/2024/02/orzo-shrimp-feta-recipe-2.jpg" alt="Shrimp Orzo with Feta recipe" class="card-image">
                             
                             <!-- Cooking time pill -->
                             <div class="recipe-time">25 MINS</div>
@@ -4403,7 +4453,7 @@
                     <!-- Recipe 3 - Lemon-Garlic Salmon -->
                     <div class="recipe-card" data-recipe="lemon-salmon" onclick="openRecipeModal('lemon-salmon')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('lemon-salmon')" aria-label="View Lemon-Garlic Salmon recipe" style="box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; filter: none !important; border: 1px solid rgba(0,0,0,0.08) !important;">
                         <div class="card-image-container">
-                            <img src="assets/images/lemon-salmon-recipe.jpg" alt="Lemon-Garlic Salmon recipe" class="card-image">
+                            <img src="https://www.themediterraneandish.com/wp-content/uploads/2024/09/TMD-Baked-Lemon-Garlic-Salmon-Leads-03-Vertical.jpg" alt="Lemon-Garlic Salmon recipe" class="card-image">
                             
                             <!-- Cooking time pill -->
                             <div class="recipe-time">20 MINS</div>
@@ -4429,7 +4479,7 @@
                     <!-- Recipe 4 - Chicken Piccata -->
                     <div class="recipe-card" data-recipe="chicken-piccata" onclick="openRecipeModal('chicken-piccata')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('chicken-piccata')" aria-label="View Chicken Piccata recipe" style="box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; filter: none !important; border: 1px solid rgba(0,0,0,0.08) !important;">
                         <div class="card-image-container">
-                            <img src="assets/images/chicken-piccata-recipe.jpg" alt="Chicken Piccata recipe" class="card-image">
+                            <img src="https://therealfooddietitians.com/wp-content/uploads/2020/05/Lemon-Chicken-Piccata-5.jpg" alt="Chicken Piccata recipe" class="card-image">
                             
                             <!-- Cooking time pill -->
                             <div class="recipe-time">25 MINS</div>
@@ -4458,7 +4508,7 @@
                     <!-- Recipe 5 - Avocado Crab Boats -->
                     <div class="recipe-card" data-recipe="avocado-crab" onclick="openRecipeModal('avocado-crab')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('avocado-crab')" aria-label="View Avocado Crab Boats recipe" style="box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; filter: none !important; border: 1px solid rgba(0,0,0,0.08) !important;">
                         <div class="card-image-container">
-                            <img src="assets/images/avocado-crab-recipe.jpg" alt="Avocado Crab Boats recipe" class="card-image">
+                            <img src="https://www.tasteofhome.com/wp-content/uploads/2024/10/Avocado-Crab-Boats_EXPS_TOHcom24_139621_MD_P2_10_03_1b.jpg" alt="Avocado Crab Boats recipe" class="card-image">
                             
                             <!-- Cooking time pill -->
                             <div class="recipe-time">15 MINS</div>
@@ -4484,7 +4534,7 @@
                     <!-- Recipe 6 - Black Bean Quinoa Bowl -->
                     <div class="recipe-card" data-recipe="quinoa-bowl" onclick="openRecipeModal('quinoa-bowl')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')openRecipeModal('quinoa-bowl')" aria-label="View Black Bean Quinoa Bowl recipe" style="box-shadow: none !important; -webkit-box-shadow: none !important; -moz-box-shadow: none !important; filter: none !important; border: 1px solid rgba(0,0,0,0.08) !important;">
                         <div class="card-image-container">
-                            <img src="assets/images/quinoa-bowl-recipe.jpg" alt="Black Bean Quinoa Bowl recipe" class="card-image">
+                            <img src="https://www.eatingwell.com/thmb/Y-zikX0-yEtk1EtmLjNx0tC4wcc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ewl-black-bean-quinoa-bowl-beauty-260726-4000x4000-8e1a3ece48d946f6b12eb1663959c42e.jpg" alt="Black Bean Quinoa Bowl recipe" class="card-image">
                             
                             <!-- Cooking time pill -->
                             <div class="recipe-time">30 MINS</div>
@@ -5262,7 +5312,7 @@
     
     <!-- Let's Connect Section -->
     <section id="lets-connect" class="contact-section" style="background: #F7F8FA; padding: 4rem 2rem;">
-        <div class="contact-wrapper" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+        <div class="contact-wrapper" style="max-width: var(--section-max); margin: 0 auto; padding: 0 24px;">
             <!-- Global Section Header System -->
             <div class="section-header has-divider" style="margin-bottom: 4rem;">
                 <div class="section-kicker">CONTACT</div>
@@ -5272,13 +5322,18 @@
             
             <!-- Contact Form Styling -->
             <style>
-                /* CONTACT SECTION LAYOUT */
+                /* CONTACT SECTION LAYOUT - ALIGNED WITH HEADER */
                 .contact-layout {
                     display: grid;
                     grid-template-columns: 1fr 1.2fr; /* IMAGE SMALLER THAN FORM */
                     gap: 3rem;
                     align-items: start;
                     margin-top: 2rem;
+                    max-width: var(--section-max); /* MATCH HEADER MAX WIDTH */
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding-left: 24px;
+                    padding-right: 24px;
                 }
                 
                 /* CONTACT IMAGE STYLING */
