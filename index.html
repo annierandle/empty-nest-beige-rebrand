@@ -904,6 +904,11 @@
     
     <!-- SURGICAL OVERRIDES - TARGETED FIXES ONLY -->
     <style>
+        /* SIMPLE TARGETED FIX: Remove shadows from celebration cards */
+        .celebration-card {
+            box-shadow: none !important;
+            border: 1px solid rgba(0,0,0,0.08) !important;
+        }
         /* SURGICAL FIX 1: EMPTY NEST EATS - REMOVE ALL SHADOWS AND BORDERS */
         .empty-nest-eats img,
         .empty-nest-eats .recipe-item,
@@ -1021,31 +1026,40 @@
                 celebrationsGrid.style.setProperty('padding', '2rem 0', 'important');
             }
             
-            // ULTRA AGGRESSIVE SHADOW REMOVAL WITH JAVASCRIPT
-            function removeShadowsFromEats() {
-                const eatsSection = document.querySelector('#empty-nest-eats') || document.querySelector('.recipes-section');
-                if (eatsSection) {
-                    const allElements = eatsSection.querySelectorAll('*');
-                    allElements.forEach(element => {
-                        element.style.setProperty('box-shadow', 'none', 'important');
-                        element.style.setProperty('-webkit-box-shadow', 'none', 'important');
-                        element.style.setProperty('-moz-box-shadow', 'none', 'important');
-                        element.style.setProperty('filter', 'none', 'important');
-                        element.style.setProperty('text-shadow', 'none', 'important');
-                        
-                        // Force remove any CSS classes that might add shadows
-                        if (element.classList.contains('recipe-card')) {
-                            element.style.border = '1px solid rgba(0,0,0,0.05)';
-                        }
-                    });
-                }
+            // TARGETED SHADOW REMOVAL - SAFE AND PRECISE
+            function removeShadowsSafely() {
+                // Fix celebration cards - remove inline shadows
+                const celebrationCards = document.querySelectorAll('.celebration-card');
+                celebrationCards.forEach(card => {
+                    // Remove shadows and add border
+                    card.style.setProperty('box-shadow', 'none', 'important');
+                    card.style.setProperty('border', '1px solid rgba(0,0,0,0.08)', 'important');
+                    
+                    // Update hover effects to use border instead of shadow
+                    const originalMouseOver = card.getAttribute('onmouseover');
+                    const originalMouseOut = card.getAttribute('onmouseout');
+                    
+                    if (originalMouseOver && originalMouseOver.includes('boxShadow')) {
+                        card.setAttribute('onmouseover', originalMouseOver.replace(/this\.style\.boxShadow='[^']*';/, "this.style.borderColor='rgba(0,0,0,0.15)';"));
+                    }
+                    
+                    if (originalMouseOut && originalMouseOut.includes('boxShadow')) {
+                        card.setAttribute('onmouseout', originalMouseOut.replace(/this\.style\.boxShadow='[^']*';/, "this.style.borderColor='rgba(0,0,0,0.08)';"));
+                    }
+                });
                 
-                // Run again after a delay to catch any lazy-loaded elements
-                setTimeout(removeShadowsFromEats, 1000);
+                // Fix recipe cards in Empty Nest Eats
+                const recipeCards = document.querySelectorAll('#empty-nest-eats .recipe-card, .recipes-section .recipe-card');
+                recipeCards.forEach(card => {
+                    card.style.setProperty('box-shadow', 'none', 'important');
+                    card.style.setProperty('border', '1px solid rgba(0,0,0,0.05)', 'important');
+                });
+                
+                console.log('✅ Targeted shadow removal applied safely');
             }
             
-            // Run immediately and on DOM changes
-            removeShadowsFromEats();
+            // Apply safe shadow removal
+            removeShadowsSafely();
             
             console.log('Surgical fixes applied - Empty Nest Eats shadows/borders removed with JavaScript, Celebrations grid spaced');
         });
